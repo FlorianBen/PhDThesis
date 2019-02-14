@@ -1,0 +1,49 @@
+\documentclass [12pt,a4paper,twoside,openright]{book}
+% Use TikZ
+\usepackage{graphicx}
+\usepackage{tikz}
+
+% Use caption 
+\usepackage{caption}
+
+% Use textpos for placement
+\usepackage[absolute, overlay]{textpos}
+
+% Use hyperlink in document
+\usepackage{hyperref}
+
+% Use lipsum generator
+\usepackage{lipsum}
+
+% Use array support
+\usepackage{array}
+
+% Use multicol package
+\usepackage{multicol}
+
+% Use color helper package
+\usepackage{xcolor}
+
+% Use helvetica support package
+\usepackage{helvet}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\begin{document}
+
+\input{00_Guards/couverture}
+
+\tableofcontents
+\addcontentsline{toc}{chapter}{Table of contents}
+
+\listoffigures
+\listoftables
+\newpage
+%\addcontentsline{toc}{chapter}{List of figures & tables}
+
+\input{01_Introduction/01_file}
+\input{02_BeamDiag/02_file}
+\input{03_Prototype/03_file}
+\input{04_IPHI_Test/04_file}
+\input{00_Guards/dos}
+\end{document}

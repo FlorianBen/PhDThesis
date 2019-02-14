@@ -237,3 +237,7 @@ TSWLatexianTemp*
 
 # standalone packages
 *.sta
+
+# Temp files
+
+~*
