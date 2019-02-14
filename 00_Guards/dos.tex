@@ -1,0 +1,51 @@
+
+%%% a lifehuck to adgust the font size and spacing %%%
+\makeatletter
+\newcommand*\mysize{%
+	\@setfontsize\mysize{9.5}{9.0}%
+}
+\makeatother
+
+\chapter*{}
+\addcontentsline{toc}{chapter}{Abstract}%
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture, overlay]
+	%%% the University+ED logo %%%
+	\node [anchor=north west, shift={(1.2 cm,-0.2cm)}] at (current page.north west) {\includegraphics[width=7.5cm]{00_Guards/Logos/pheniics.png}};
+	\mysize 
+	\node [anchor=north, yshift=-2.1 cm, text width=18cm, inner sep=.3cm] (resume) at (current page.north) {
+		\begin{minipage}{\linewidth}
+			%%% title %%%
+			{\bf Title:} Title\\
+			%%% key words %%%
+			{\bf Key words:} \textit{Key words 1, Key words 2, Key words 3,Key words 4} \\
+			{\bf Abstract:} 
+		\end{minipage}
+	};
+	
+	\node [anchor=north, yshift=-0.3 cm, text width=18cm, inner sep=.3cm] (abstract) at (resume.south) {
+		\begin{minipage}{\linewidth}
+			
+			{\bf Titre:} Title\\
+			%%% key words %%%
+			{\bf Mot clés:} \textit{Key words 1, Key words 2, Key words 3,Key words 4} \\
+			{\bf Résumé:}
+			
+		\end{minipage}
+	};
+	
+	%%% draw a purple frame around each abstract %%%
+	\draw[line width=1 pt, violet!80!red] (resume.south west) -- (resume.north west) -- (resume.north east) -- (resume.south east) -- (resume.south west);
+	\draw[line width=1 pt, violet!80!red] (abstract.south west) -- (abstract.north west) -- (abstract.north east) -- (abstract.south east) -- (abstract.south west);
+	
+	%%% footnote %%%
+	\node [anchor=south west, violet!80!red, shift={(1.2 cm,0.5cm)}, inner sep=0.2pt] at (current page.south west) {
+		\begin{minipage}{12cm}
+			{\bf Universit\'{e} Paris-Saclay\\Espace Technologique / Immeuble Discovery\\Route de l’Orme aux Merisiers RD 128 / 91190 Saint-Aubin, France} \\
+		\end{minipage}
+	};
+	
+	%%% the "e" image at the bottom %%%
+	\node [anchor=south east, violet!80!red!80!black, shift={(-1.5 cm,0.5cm)}, inner sep=0pt] at (current page.south east) {\includegraphics[width=1.6 cm]{00_Guards/Logos/e.png}};
+	
+\end{tikzpicture}
