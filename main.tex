@@ -3,6 +3,11 @@
 \usepackage{graphicx}
 \usepackage{tikz}
 
+% Bibliographie avec biblatex
+\usepackage[style=numeric-comp,sorting=none]{biblatex}
+
+\addbibresource{01_Introduction/bib/01_bib.bib}
+
 % Use caption 
 \usepackage{caption}
 
@@ -27,23 +32,34 @@
 % Use helvetica support package
 \usepackage{helvet}
 
+% Minitoc package
+\usepackage{minitoc}
+
+% Renew command
+\renewcommand{\chaptermark}[1]{%
+  \markboth{%
+    \ifnum\value{chapter}>0
+      \thechapter.\space
+    \fi
+    #1%
+  }{}%
+}
+
 \renewcommand{\familydefault}{\sfdefault}
 
 \begin{document}
+\dominitoc
 
 \input{00_Guards/couverture}
 
 \tableofcontents
-\addcontentsline{toc}{chapter}{Table of contents}
-
-\listoffigures
-\listoftables
-\newpage
-%\addcontentsline{toc}{chapter}{List of figures & tables}
 
 \input{01_Introduction/01_file}
 \input{02_BeamDiag/02_file}
 \input{03_Prototype/03_file}
 \input{04_IPHI_Test/04_file}
-\input{00_Guards/dos}
+
+%\input{05_Conclusion/05_file}
+
+%\input{00_Guards/dos}
 \end{document}
