@@ -239,5 +239,9 @@ TSWLatexianTemp*
 *.sta
 
 # Temp files
-
 ~*
+*temp*
+TEMP/
+
+# Backup file
+*.bak*
