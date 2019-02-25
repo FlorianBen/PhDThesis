@@ -5,11 +5,18 @@
 
 % Bibliographie avec biblatex
 \usepackage[style=numeric-comp,sorting=none]{biblatex}
-
-\addbibresource{01_Introduction/bib/01_bib.bib}
+\addbibresource{bib/neutron.bib}
+\addbibresource{bib/particle_matter.bib}
 
 % Use caption 
 \usepackage{caption}
+
+% Amsmath pour la numérotation des équations
+\usepackage{amsmath}
+\numberwithin{equation}{chapter}
+
+% Booktabs pour les tables
+\usepackage{booktabs}
 
 % Use textpos for placement
 \usepackage[absolute, overlay]{textpos}
@@ -49,8 +56,9 @@
 
 \begin{document}
 \dominitoc
-
+\thispagestyle{empty}
 \input{00_Guards/couverture}
+\pagenumbering{arabic}
 
 \tableofcontents
 
