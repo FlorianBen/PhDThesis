@@ -242,6 +242,10 @@ TSWLatexianTemp*
 ~*
 *temp*
 TEMP/
+*tmp*
 
-# Backup file
+# Backup files
 *.bak*
+
+# Archive files
+*.tar.gz
