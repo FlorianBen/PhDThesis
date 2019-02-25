@@ -1,91 +1,85 @@
 %%% define the colour of the title				%%%
 %%% could be set to match general colour theme 	%%%
 
-\chapter*{}
-\addstarredchapter{Page de garde}
-%\addcontentsline{toc}{chapter}{Page de garde}%
-\thispagestyle{empty}
-\definecolor{SchoolColor}{rgb}{0.145,0.666,1} %%% Cyanish %%
-
-\usetikzlibrary{calc}
-\thispagestyle{empty}
-
-%%% the purple border line %%%
-\begin{tikzpicture}[remember picture, overlay]
-	\draw[line width=1.2 pt, color=blue!20!red!45!black!75!]
-	($(current page.south west)+(1 cm,+1. cm)$) 
-	-- ($(current page.north west)+(1 cm,-1. cm)$) 
-	-- ($(current page.north east)+(-1 cm,-1. cm)$) 
-	-- ($(current page.south east)+(-1 cm,1. cm)$)
-	-- ($(current page.south west)+(1 cm,1. cm)$);
-\end{tikzpicture}
-
-\begin{center}
-	\vspace{-6.5cm}
-	%%% logo %%%
-	\includegraphics[width=14cm]{00_Guards/Logos/Logo_ALL2.png}\\
-	\vspace{1cm}
-\end{center}
-
-\begin{textblock}{14}(1,3.2)
-	\begin{center}
-		\textcolor{blue!20!red!45!black!75!}
-		{\uppercase{\Large Thèse de Doctorat \\ de L'Université Paris-Saclay \\ Preparée au Commissariat à l'Énergie atomique\\ et aux Énergies alternatives}}
-	\end{center}
-\end{textblock}
-
-\begin{textblock}{14}(1,5.2)
-	\begin{center}
-		\large
-		\uppercase{école doctorale}	 n\textsuperscript{o} 576 \\
-		Particules, Hadrons, \'{E}nergie, Noyau, Instrumentation, \\Image, Cosmos et Simulation (PHENIICS)\\
-		Spécialité de doctorat : Intrumentation
-	\end{center}
-\end{textblock}
-
-
-
-\begin{textblock}{14}(1,7.2)
-	\begin{center}	
-		\Large \textsc{\textcolor{SchoolColor}{
-				\textbf{Conception de profileurs non instrusifs \\pour le faisceau de protons d’ESS}}}\par
-		Par\par  \large \textbf{M. Florian Benedetti} \par
-	\end{center}
-\end{textblock}
-
-
-\begin{textblock}{13}(1,8.8)
-	NNT : 
-\end{textblock}
-
-\begin{textblock}{14}(1,9.3)
-	\vspace{1.5cm}
-	\hspace{1cm}\textit{Thèse présentée et soutenue à Saclay, le 1 octobre 2019}
-	\begin{center}
-		\begin{tabular}{llll}
-			M.    & \textsc{Hubert Farnsworth} & Professeur              & (Rapporteur)            \\
-			\null & \null                      & CEA Saclay              &                         \\   
-			
-			M.    & \textsc{Malcolm Reynolds}  & Professeur              & (Rapporteur)            \\
-			\null & \null                      & CEA Saclay              &                         \\ 
-			
-			M.    & \textsc{Derrial Book}      & Professeur              & (Examinateur)           \\
-			\null & \null                      & CEA Saclay              &                         \\ 
-			
-			Mme   & \textsc{Turanga Leela}     & Chargée de Recherche    & (Examinateur)           \\
-			\null & \null                      & CEA Saclay              &                         \\ 
-			
-			Mme   & \textsc{Amy Wong}          & Directrice de recherche & (Directrice de thèse)   \\
-			\null & \null                      & CEA Saclay              &                         \\ 
-			
-			M.    & \textsc{John Zoidberg}     & Chargé de Recherche     & (Co-directeur de thèse) \\
-			\null & \null                      & CEA Saclay              &                         \\ 		
-		\end{tabular}
-	\end{center}
-\end{textblock}
-
-
-
-% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+\begin{titlepage}
+	\thispagestyle{empty}
+	\definecolor{SchoolColor}{rgb}{0.145,0.666,1} %%% Cyanish %%
+	
+	\usetikzlibrary{calc}
+	\thispagestyle{empty}
+	
+	%%% the purple border line %%%
+	\begin{tikzpicture}[remember picture, overlay]
+		\draw[line width=1.2 pt, color=blue!20!red!45!black!75!]
+		($(current page.south west)+(1 cm,+1. cm)$) 
+		-- ($(current page.north west)+(1 cm,-1. cm)$) 
+		-- ($(current page.north east)+(-1 cm,-1. cm)$) 
+		-- ($(current page.south east)+(-1 cm,1. cm)$)
+		-- ($(current page.south west)+(1 cm,1. cm)$);
+	\end{tikzpicture}
+	
+	\begin{figure}
+		\vspace{-2cm}
+		\hspace{0.5cm}
+		%%% logo %%%
+		\includegraphics[width=14cm]{00_Guards/Logos/Logo_ALL3.png}\\
+		\vspace{1cm}
+	\end{figure}
+	
+	\begin{textblock}{14}(1,3.2)
+		\begin{center}
+			\textcolor{blue!20!red!45!black!75!}
+			{\uppercase{\Large Thèse de Doctorat \\ de L'Université Paris-Saclay \\ Preparée au Commissariat à l'Énergie atomique\\ et aux Énergies alternatives}}
+		\end{center}
+	\end{textblock}
+	
+	\begin{textblock}{14}(1,5.2)
+		\begin{center}
+			\normalsize
+			\uppercase{école doctorale}	 n\textsuperscript{o} 576 \\
+			Particules, Hadrons, \'{E}nergie, Noyau, Instrumentation, \\Image, Cosmos et Simulation (PHENIICS)\\
+			Spécialité de doctorat : Intrumentation
+		\end{center}
+	\end{textblock}
+	
+	\begin{textblock}{14}(1,6.7)
+		\begin{center}	
+			\Large \textsc{\textcolor{SchoolColor}{
+					\textbf{Conception de profileurs non instrusifs \\pour le faisceau de protons d’ESS}}}\par
+			\large Par\par  \large \textbf{M. Florian Benedetti} \par
+		\end{center}
+	\end{textblock}
+	
+	\begin{textblock}{13}(1,8.8)
+		NNT : 
+	\end{textblock}
+	
+	\begin{textblock}{14}(1,9.3)
+		\vspace{1.5cm}
+		\hspace{1cm}\textit{Thèse présentée et soutenue à Saclay, le 1 octobre 2019}
+		\vspace{0.5cm}
+		\par
+		\hspace{1cm}Composition du Jury :
+		\begin{center}
+			\begin{tabular}{llll}
+				M.    & \textsc{Hubert Farnsworth} & Professeur              & (Rapporteur)            \\
+				\null & \null                      & CEA Saclay              &                         \\   
+				
+				M.    & \textsc{Malcolm Reynolds}  & Professeur              & (Rapporteur)            \\
+				\null & \null                      & CEA Saclay              &                         \\ 
+				
+				M.    & \textsc{Derrial Book}      & Professeur              & (Examinateur)           \\
+				\null & \null                      & CEA Saclay              &                         \\ 
+				
+				Mme   & \textsc{Turanga Leela}     & Chargée de Recherche    & (Examinateur)           \\
+				\null & \null                      & CEA Saclay              &                         \\ 
+				
+				Mme   & \textsc{Amy Wong}          & Directrice de recherche & (Directrice de thèse)   \\
+				\null & \null                      & CEA Saclay              &                         \\ 
+				
+				M.    & \textsc{John Zoidberg}     & Chargé de Recherche     & (Co-directeur de thèse) \\
+				\null & \null                      & CEA Saclay              &                         \\ 		
+			\end{tabular}
+		\end{center}
+	\end{textblock}
+\end{titlepage}
