@@ -249,3 +249,5 @@ TEMP/
 
 # Archive files
 *.tar.gz
+thesis/
+svg-inkscape/
