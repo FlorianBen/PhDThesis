@@ -2,11 +2,15 @@
 % Use TikZ
 \usepackage{graphicx}
 \usepackage{tikz}
+\usetikzlibrary{external}
+\tikzexternalize
 
 % Bibliographie avec biblatex
-\usepackage[style=numeric-comp,sorting=none]{biblatex}
+\usepackage[backref=true,style=numeric-comp,sorting=none]{biblatex}
 \addbibresource{bib/neutron.bib}
+\addbibresource{bib/software.bib}
 \addbibresource{bib/particle_matter.bib}
+\addbibresource{bib/sensor.bib}
 
 % Use caption 
 \usepackage{caption}
@@ -42,6 +46,12 @@
 % Minitoc package
 \usepackage{minitoc}
 
+%
+\usepackage{layouts}
+
+% Import SVG
+\usepackage{svg}
+
 % Renew command
 \renewcommand{\chaptermark}[1]{%
   \markboth{%
@@ -57,15 +67,15 @@
 \begin{document}
 \dominitoc
 \thispagestyle{empty}
-\input{00_Guards/couverture}
+%\input{00_Guards/couverture}
 \pagenumbering{arabic}
 
 \tableofcontents
 
-\input{01_Introduction/01_file}
-\input{02_BeamDiag/02_file}
+%\input{01_Introduction/01_file}
+%\input{02_BeamDiag/02_file}
 \input{03_Prototype/03_file}
-\input{04_IPHI_Test/04_file}
+%\input{04_IPHI_Test/04_file}
 
 %\input{05_Conclusion/05_file}
 
