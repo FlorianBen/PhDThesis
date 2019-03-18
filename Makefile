@@ -7,7 +7,7 @@ MAIN_TEX = main.tex# Fichier principal.
 MAIN_TEMP = temp.tex# Fichier temporaire.
 OUT_DIR = thesis# Répertoire de construction.
 SIMPLE_DIR = tmp# Répertoire temporaire.
-LUALATEX_FLAGS = --halt-on-error 
+LUALATEX_FLAGS = --halt-on-error --shell-escape
 
 ALL_TEX := $(shell find $(SOURCEDIR) -name '*.tex')
 ALL_IMG := $(shell find $(SOURCEDIR) -name '*.png' -o -name '*.png')
