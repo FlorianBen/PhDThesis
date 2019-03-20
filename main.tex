@@ -1,12 +1,21 @@
 \documentclass [12pt,a4paper,twoside,openright]{book}
-% Use TikZ
+
+% Mon package ou je place les commandes personnalisées
+\usepackage{PHDhelper}
+
+% Shell espace pour l'externalisation avec LuaLaTex
+\usepackage{shellesc}
+
+% Use TikZ graphicx and pgf for plotting
 \usepackage{graphicx}
+\usepackage{pgf,pgfnodes}
+\usepackage{pgfplots}
 \usepackage{tikz}
 \usetikzlibrary{external}
-\tikzexternalize
+\tikzexternalize[prefix=build/]
 
 % Bibliographie avec biblatex
-\usepackage[backref=true,style=numeric-comp,sorting=none]{biblatex}
+\usepackage[bibencoding=utf8,backref=true,style=numeric-comp,sorting=none]{biblatex}
 \addbibresource{bib/neutron.bib}
 \addbibresource{bib/software.bib}
 \addbibresource{bib/particle_matter.bib}
@@ -46,28 +55,19 @@
 % Minitoc package
 \usepackage{minitoc}
 
-%
+% Layout package, informations sur le layout 
 \usepackage{layouts}
 
 % Import SVG
-\usepackage{svg}
+\usepackage[inkscapepath=build]{svg}
 
-% Renew command
-\renewcommand{\chaptermark}[1]{%
-  \markboth{%
-    \ifnum\value{chapter}>0
-      \thechapter.\space
-    \fi
-    #1%
-  }{}%
-}
-
-\renewcommand{\familydefault}{\sfdefault}
+% Subfigure package, pour des images multiples
+\usepackage{subcaption}
 
 \begin{document}
-\dominitoc
+\dominitoc[]
 \thispagestyle{empty}
-%\input{00_Guards/couverture}
+\input{00_Guards/couverture}
 \pagenumbering{arabic}
 
 \tableofcontents
@@ -79,5 +79,5 @@
 
 %\input{05_Conclusion/05_file}
 
-%\input{00_Guards/dos}
+\input{00_Guards/dos}
 \end{document}
