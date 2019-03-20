@@ -1,7 +1,7 @@
 \chapter{Prototype simulations and desing}
 \chaptermark{Prototype simulations and desing}
-\cleardoublepage
-\minitoc
+\cleardoublepage[]
+\minitoc[]
 \section{Introduction}
 \begin{refsection}
 	\label{ch3:Introduction}
@@ -11,6 +11,8 @@
 	\section{Taille de la page}
 	textwidth in cm: \printinunitsof{cm}\prntlen{\textwidth}
 	\section{ESS requirements}
+	\input{03_Prototype/figures/00_fig/figure009_IPM_outline.tex}
+
 	\input{03_Prototype/figures/00_fig/fig007_LWU.tex}
 	\section{Electromagnetic fields simulations}
 
@@ -38,17 +40,16 @@
 
 	\begin{equation}
 		\begin{split}
-			h^{2}f^{\prime\prime}(x,y)&= f(x+h,y) + f(x-h,y) \\
-			&+ f(x,y+h) + f(x,y-h) \\
-			&- 4f(x)+ O(h^{2})
+			h^{2}f^{\prime\prime}(x,y)=&f(x+h,y) + f(x-h,y) \\
+			+ &f(x,y+h) + f(x,y-h) \\
+			- 4&f(x)+ O(h^{2})
 		\end{split}
 	\end{equation}
 
 	%\subsection{Finite Elements Method}
 	\subsection{COMSOL}
 	COMSOL\cite{comsol2018} is a proprietary software.\cite{comsolacdc2018}
-	The user defines a geometry.
-	Then the geometry is discretize
+
 	\input{03_Prototype/figures/00_fig/fig003_COMSOL_LWU.tex}
 
 	\input{03_Prototype/figures/00_fig/fig006_COMSOL_meshing_elements.tex}
@@ -89,8 +90,7 @@
 	The K constant is completely independant to the incident particle or the medium.
 
 	Terms related to the medium, \(Z\) atomic number, \(A\) mass number, \(I\) mean excitation energy and \(\rho \) the medium density.
-	One can see that the ratio \(Z/A\) is around \(0.5\).
-	Usally is
+	One can see that the ratio \(Z/A\) is around \(0.5\) except for an hydrogen medium.
 
 	The terms related to the incident particle with \(\gamma\) \(\beta\) \(z\)
 
@@ -99,6 +99,19 @@
 	The Fig. \ref{chap3:bethe1} shows
 
 	\input{03_Prototype/figures/00_fig/fig001_bethe.tex}
+
+	\subsection{Interraction of light charged particles in matter}
+	%TODO: Finish
+	If the incident particle
+	In case of the incident particle is an electron the
+	So the Bethe Bloch should be corrected for electron.\cite{Rieke1972}
+	\begin{equation}
+		- \bigg \langle \frac{dE}{dx} \bigg \rangle = \frac{1}{2} K \rho \frac{Z}{A} \frac{1}{\beta^{2}} \left[ln \left(\frac{2 m_{e} \beta^{2} \gamma^{2}}{2I^{2}} \right) + (1 - \beta^{2})\right]
+	\end{equation}
+
+	\subsection{Silicon based readout}
+	\input{03_Prototype/figures/00_fig/fig004_ion_si_deposit.tex}
+	\input{03_Prototype/figures/00_fig/fig005_ion_si_range.tex}
 
 	\subsection{Electron ion pairs production}
 	%TODO: Finish
@@ -121,20 +134,11 @@
 		N_{total}= \sum_{n= First}^{Last} N_{compound\ n}= \sum_{n= First}^{Last} w_{n} \frac{\big \langle \frac{dE}{dx}\left(\rho_{n},I_{n},A_{n},Z_{n}\right) \big \rangle}{W_{n}} dx
 	\end{equation}
 	The calculation can be done for each single element or for each molecule in the compound.
-	However the second computation is preferable since the I and W values are in general smaller.
+	However the second computation is preferable since the \(I\) and \(W\) values are in general smaller for mo.
 	\subsection{Calculation}
 	\input{03_Prototype/tables/table001_ess_vacuum_gas}
 	\subsection{Simulations}
 	\subsection{Limits}
-
-	\subsection{Interraction of light charged particles in matter}
-	%TODO: Finish
-	If the incident particle
-	In case of the incident particle is an electron the
-	So the Bethe Bloch should be corrected for electron.\cite{Rieke1972}
-	\begin{equation}
-		- \bigg \langle \frac{dE}{dx} \bigg \rangle = \frac{1}{2} K \rho \frac{Z}{A} \frac{1}{\beta^{2}} \left[ln \left(\frac{2 m_{e} \beta^{2} \gamma^{2}}{2I^{2}} \right) + (1 - \beta^{2})\right]
-	\end{equation}
 	\subsection{Initial momentum}
 	\input{03_Prototype/figures/00_fig/fig002_maxwell_gas_log.tex}
 	\section{Readout simulations}
@@ -144,10 +148,6 @@
 	\subsection{MCP based readout}
 	\subsubsection{Micro Channel Plate}
 	\subsubsection{MCP models}
-	\subsection{Silicon based readout}
-	\input{03_Prototype/figures/00_fig/fig004_ion_si_deposit.tex}
-	\input{03_Prototype/figures/00_fig/fig005_ion_si_range.tex}
-
 	\subsubsection{TimePix3}
 	\subsubsection{Simulations}
 	\subsubsection{Tests at IRMA}
