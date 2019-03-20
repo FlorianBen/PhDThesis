@@ -1,0 +1,3 @@
+[submodule "SciencePlots"]
+	path = SciencePlots
+	url = https://github.com/garrettj403/SciencePlots.git

@@ -11,6 +11,7 @@ La thèse porte sur la conception de profileurs non intrusif pour le faisceau de
 J'utilise pour la rédaction de ma thèse :
 
 - GNU Make : pour automatiser la construction de la thèse si je n'utilise pas TeXStudio/TeXMaker.
+- LuaLaTeX comme processeur LaTeX (pdfLaTeX devrait être aussi compatible)
 - TeXStudio/TeXMaker comme IDE LaTeX.
 - GNU Emacs ou Visual Studio Code comme éditeur de texte.
 - LanguageTool Server, un serveur de correction grammatical/orthographique.
@@ -37,6 +38,7 @@ J'utilise les packages LaTeX suivants:
 - url: pour gerer les liens externes.
 - subcaption: pour les sous figures.
 - minitoc: pour générer des tables des matières à chaque chapitre.
+- shellesc: pour que LuaLaTeX puisse executer des instructions shell
 
 ## Organisation
 
@@ -44,7 +46,8 @@ J'utilise les packages LaTeX suivants:
 
 | Répertoire      | Description                                     |
 |-----------------|-------------------------------------------------|
-| thesis          | Dossier de construction                         |
+| build           | Dossier de construction                         |
+| bib             | Dossier contenant les fichiers BibTex           |
 | XX_TEMPLATE     | Dossier contenant des modèles tex               |
 | 00_Guards       | Contient la page de garde et 4ème de couverture |
 | 01_Introduction | Chapitre d'introduction de la thèse             |
@@ -52,6 +55,7 @@ J'utilise les packages LaTeX suivants:
 | 03_Prototype    | Chapitre sur la simulation des prototypes       |
 | 04_Prototype    | Chapitre sur la conception/tests des prototypes |
 | 05_Conclusion   | Chapitre de conclusion                          |
+| SciencePlots    | Dossier contenant le thème matplotlib           |
 
 ### Dossier chapitre
 
@@ -63,12 +67,46 @@ Chaque chapitre est organisé de la manière suivante:
 
 ## Utilisation
 
-### Via un éditeur LaTeX
+### Via le Makefile (recommandé)
 
-Avec un éditeur de texte comme TexStudio ou TeXMaker il suffit simplement d'ouvrir le fichier main.tex et de lancer la compilation. Attention cependant l'ensemble des fichiers de sortie sont mis dans le répertoire principal. La compilation doit également fonctionner sous ShareLaTeX.
-
-### Via le Makefile
+La construction de la thèse repose sur un Makefile. Pour construire il faut simplement lancer make:
 
 ```sh
 make
 ```
+
+Pour formater l'ensemble des fichier TeX:
+
+```sh
+make format
+```
+
+Pour nettoyer le dossier:
+
+```sh
+make clean
+```
+
+Pour sauvegarder le dossier:
+
+```sh
+make save
+```
+
+### Via un éditeur LaTeX
+
+Avec un éditeur de texte comme TexStudio ou TeXMaker il suffit simplement d'ouvrir le fichier main.tex et de lancer la compilation. Attention cependant l'ensemble des fichiers de sortie sont mis dans le répertoire principal. La compilation doit également fonctionner sous ShareLaTeX.
+
+## Comment ça marche
+
+J'utilise LuaLaTeX pour générer le fichier PDF depuis mon fichier LaTeX principal.
+
+Pour le format des images utilisées dans la thèse :
+
+- PNG : pour les schémas simples et plots
+- JPEG/JPG : pour les photographies ou les dessins complexes
+- SVG : pour les plots de matplotlib ou ROOT
+
+ROOT et matplotlib peuvent exporter les graphiques dans un fichier SVG qui permet la mise à l'echelle sans perte. Pour matplotlib j'utilise un thème pour avoir la même mise en forme tout au long du document. Le package svg de LaTeX va convertir chaque fichier svg en un fichier PDF. Les fichier PDF peuvent être réutilisés.
+
+Pour des raisons de rapidité et de modularité la construction de la thèse est externalisé. C'est à dire que chaque étape crée des fichiers indépendants puis l'ensemble est fusionné dans un fichier principal. C'est très utile car TikZ est très lent. Il faut cependant bien supprimer les images intermédiaires si les originales ont été modifiées. Attention la numérotation des images n'a pas de rapport avec l'ordre d'apparition dans la thèse.
