@@ -10,7 +10,8 @@
 	\usetikzlibrary{calc}
 	\thispagestyle{empty}
 	
-	%%% the purple border line %%%
+  %%% the purple border line %%%
+  \tikzset{external/export next=false}
 	\begin{tikzpicture}[remember picture, overlay]
 		\draw[line width=1.2 pt, color=blue!20!red!45!black!75!]
 		($(current page.south west)+(1 cm,+1. cm)$) 
