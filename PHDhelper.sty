@@ -1,0 +1,24 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{PHDhelper}[2019/03/19 Help command for my PHD]
+ 
+\RequirePackage{graphicx}
+\RequirePackage{pgf}
+\RequirePackage{pgfplots}
+\RequirePackage{pgfnodes}
+\RequirePackage{pgfarrows}
+\RequirePackage{tikz}
+
+% Calcule une gaussienne
+\newcommand\gauss[3]{#3*(1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2)))} 
+
+% Renew command
+\renewcommand{\chaptermark}[1]{%
+  \markboth{%
+    \ifnum\value{chapter}>0
+      \thechapter.\space
+    \fi
+    #1%
+  }{}%
+}
+
+\renewcommand{\familydefault}{\sfdefault}
