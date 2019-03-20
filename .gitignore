@@ -249,5 +249,6 @@ TEMP/
 
 # Archive files
 *.tar.gz
-thesis/
+.vscode/
+build/
 svg-inkscape/
