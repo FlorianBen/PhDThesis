@@ -8,7 +8,7 @@
 
 \chapter*{}
 \addcontentsline{toc}{chapter}{Abstract}%
-\thispagestyle{empty}
+%\thispagestyle{empty}
 \tikzset{external/export next=false}
 \begin{tikzpicture}[remember picture, overlay]
 	%%% the University+ED logo %%%
@@ -25,14 +25,17 @@
 	};
 	
 	\node [anchor=north, yshift=-0.3 cm, text width=18cm, inner sep=.3cm] (abstract) at (resume.south) {
-		\begin{minipage}{\linewidth}
-			
-			{\bf Titre:} Title\\
+		%\begin{minipage}{\linewidth}
+			\textbf{Titre:} Conception de profileurs non intrusifs pour le faisceau de protons de ESS\\
 			%%% key words %%%
-			{\bf Mot clés:} \textit{Accélérateur de proton, Diagnostic faisceau, Instrumentation, Détecteur} \\
-			{\bf Résumé:}
-			
-		\end{minipage}
+			\textbf{Mot clés:} \textit{Accélérateur de proton, Diagnostic faisceau, Instrumentation, Détecteur} \\
+      \textbf{Résumé:} La Source de Spallation Européenne ou ESS sera une infrastructure de recherche Européenne dédiée à la science neutronique appliquée. La source est actuellement en cours de construction à Lund, en Suède et sera la plus brillante des sources pulsées de neutrons au monde. Comme son nom l’indique la production de neutron est assurée par le phénomène de spallation : des protons de hautes énergies vont entrer en collision avec une cible en tungstène. Les neutrons des noyaux composant la cible vont ainsi être éjectés et transportés dans différentes lignes vers des expériences. Pour accélérer les protons un puissant accélérateur linéaire de 2 GeV est en cours de construction. La particularité est sa longue impulsion de 2.86 ms et son intensité maximale de 62.5 mA répétées 14 fois par seconde, soit 5 MW de puissance moyenne et 125 MW pic. L’accélérateur peut se schématiser en deux parties. Une partie chaude comprenant la source, un RFQ et des tubes à dérive se charge de l’accélération jusqu’à 90 MeV. Puis une partie froide utilisant des cavités supraconductrices refroidies à l’hélium liquide est utilisée pour atteindre les plus hautes énergies. Cependant l’utilisation de cette technologie impose des contraintes drastiques sur le vide et la propreté. Une connaissance et une maitrise de l’accélérateur est donc obligatoire pour garantir la sécurité, la mise en service et le bon fonctionnement de l’installation. Des diagnostics seront installés tout le long de l’accélérateur pour assurer ces tâches. L'IRFU est activement impliqué dans le projet ESS principalement au niveau de l’accélérateur et de ses diagnostics.
+      
+      Cette thèse porte sur le développement d’un mesureur non intrusif de profil faisceau pour la partie froide de l’accélérateur d’ESS et traite l’ensemble des problématiques associées. La détection se base sur l’ionisation continue du gaz résiduel par le faisceau de protons. Le profileur consiste en deux plaques parallèles qui vont extraire les électrons ou les ions, suivant la polarité, et les envoyés sur un détecteur segmenté. Le profile est donc reconstruit dans une direction. Pour un profil transverse complet il est nécessaire de placer un second profileur à la suite dans l’autre direction. 
+      Des études sur différents aspects du détecteur ont été effectuées afin de monter sa faisabilité à ESS. En particulier les taux de comptage primaire qui vont déterminer la technologie de détection. Trois technologies ont été sélectionnées. La première technologie est basée sur des bandes conductrices lues par un intégrateur de charge multivoies. La seconde technologie utilise des galette micro-canaux avec écran phosphore lue par une caméra. Enfin la dernière solution utilise un détecteur silicium développé et utilisé par le CERN pour le futur profileur du PS. Le second aspect fondamental à étudier concerne les distorsions du faisceau. Elles peuvent être causées par les non-uniformités du champ électrique, le mouvement initial des particules et le champ électromagnétique induit par le faisceau. Les simulations montrent que le profil peut être correctement reconstruit à condition d’utiliser les ions.
+
+      L’ensemble de ces études ont été présentées lors d’une revue préliminaire de projet qui a marqué le début de la phase de construction des différents prototypes. Une attention particulière a été portée sur le choix des matériaux afin de garantir un vide poussé. De même, le control système a été pensé pour être compatible avec l’environnement ESS. Des tests préliminaires ont écarté la possibilité d’utiliser les détecteurs silicium avec des ions de basses énergies. Enfin des mesures en faisceau ont été réalisés durant deux campagnes de tests à IPHI, un accélérateur de proton linéaire de 3 MeV au CEA Saclay. Les deux types de détecteur ont correctement fonctionné et les résultats ont pu être comparés avec d’autres diagnostics. Les tests ont également permis de vérifier les caractéristiques des profileurs dans des conditions permettant l’extrapolation aux conditions ESS. La technologie éprouvée des MCP reste la plus avantageuse. Les résultats des prototypes ont été présentées lors de la revue critique et à l’heure actuelle les détecteurs finaux sont en cours en production pour une première livraison en début d’année prochaine.      
+		%\end{minipage}
 	};
 	
 	%%% draw a purple frame around each abstract %%%
