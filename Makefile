@@ -20,7 +20,7 @@ all: pdf post_clean
 
 # Supprime les constructions.
 clean: bak_clean post_clean
-	rm -r $(OUT_DIR)
+	@rm -rf $(OUT_DIR)
 
 # Créer un pdf.
 pdf: create_out_dir
@@ -54,8 +54,8 @@ format_temp:
 
 # Supprimer les fichier backup de latexindent.
 bak_clean:
-	@rm $(ALL_BK)
-	@rm indent.log
+	@rm -f $(ALL_BK)
+	@rm -f indent.log
 
 # Save
 save:
