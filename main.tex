@@ -1,10 +1,19 @@
-\documentclass [12pt,a4paper,twoside,openright]{book}
+\documentclass [11pt,a4paper,twoside,openright]{book}
+%\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm,bindingoffset=6mm,showframe]{geometry}
 
 % Mon package ou je place les commandes personnalisées
 \usepackage{PHDhelper}
 
 % Shell espace pour l'externalisation avec LuaLaTex
 \usepackage{shellesc}
+
+\usepackage[english,francais]{babel} 
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+\usepackage{fancyhdr}
+
 
 % Use TikZ graphicx and pgf for plotting
 \usepackage{graphicx}
@@ -13,13 +22,20 @@
 \usepackage{tikz}
 \usetikzlibrary{external}
 \tikzexternalize[prefix=build/]
+\usepackage{circuitikz}
 
 % Bibliographie avec biblatex
-\usepackage[bibencoding=utf8,backref=true,style=numeric-comp,sorting=none]{biblatex}
-\addbibresource{bib/neutron.bib}
-\addbibresource{bib/software.bib}
+\usepackage[backref=true, bibencoding=utf8,style=numeric-comp,sorting=none]{biblatex}
+
+\addbibresource{bib/beam_diag.bib}
+\addbibresource{bib/field.bib}
+\addbibresource{bib/mcp.bib}
 \addbibresource{bib/particle_matter.bib}
+\addbibresource{bib/beam_dynamic.bib}
+\addbibresource{bib/hardware.bib}
+\addbibresource{bib/neutron.bib}
 \addbibresource{bib/sensor.bib}
+\addbibresource{bib/software.bib}
 
 % Use caption 
 \usepackage{caption}
@@ -35,7 +51,7 @@
 \usepackage[absolute, overlay]{textpos}
 
 % Use hyperlink in document
-\usepackage{hyperref}
+\usepackage[hidelinks,hyperindex=true]{hyperref}
 
 % Use lipsum generator
 \usepackage{lipsum}
@@ -49,11 +65,14 @@
 % Use color helper package
 \usepackage{xcolor}
 
-% Use helvetica support package
+% Use helvetica support package if needed
 \usepackage{helvet}
 
 % Minitoc package
 \usepackage{minitoc}
+
+\usepackage[acronym,toc]{glossaries}
+\makeglossaries
 
 % Layout package, informations sur le layout 
 \usepackage{layouts}
@@ -64,20 +83,39 @@
 % Subfigure package, pour des images multiples
 \usepackage{subcaption}
 
+% Pour entouré les images avec du texte
+\usepackage{wrapfig}
+
 \begin{document}
 \dominitoc[]
 \thispagestyle{empty}
 \input{00_Guards/couverture}
 \pagenumbering{arabic}
-
+\frontmatter
+\begin{otherlanguage}{english} 
 \tableofcontents
 
-%\input{01_Introduction/01_file}
-%\input{02_BeamDiag/02_file}
+\input{myacronyms}
+\mainmatter
+\input{01_Introduction/01_file}
+\input{02_BeamDiag/02_file}
 \input{03_Prototype/03_file}
-%\input{04_IPHI_Test/04_file}
+\input{04_IPHI_Test/04_file}
+\input{05_Conclusion/05_file}
 
-%\input{05_Conclusion/05_file}
+\printglossary[type=\acronymtype]
 
+\listoffigures
+\addcontentsline{toc}{chapter}{\listfigurename}
+
+\listoftables
+\addcontentsline{toc}{chapter}{\listtablename}
+
+\appendix
+\backmatter
+
+\thispagestyle{empty}
+\end{otherlanguage}
 \input{00_Guards/dos}
+
 \end{document}
