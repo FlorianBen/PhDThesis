@@ -26,6 +26,7 @@ clean: bak_clean post_clean
 pdf: create_out_dir
 	$(LATEX_PROCESSOR) --output-directory=$(OUT_DIR) \
 	$(LUALATEX_FLAGS) $(MAIN_TEX)
+	makeglossaries -d $(OUT_DIR) $(basename $(MAIN_TEX))
 	biber $(OUT_DIR)/$(basename $(MAIN_TEX))
 	$(LATEX_PROCESSOR) --output-directory=$(OUT_DIR) \
 	$(LUALATEX_FLAGS) $(MAIN_TEX)
@@ -41,6 +42,10 @@ create_out_dir:
 
 # Supprime les fichiers dissident de la construction
 post_clean:
+	@rm -f *.glo
+	@rm -f *.glsdefs
+	@rm -f *.acn
+	@rm -f *.ist
 	@rm -f *.mtc*
 	@rm -f *.maf
 	@rm -f *.run.xml
@@ -54,6 +59,7 @@ format_temp:
 
 # Supprimer les fichier backup de latexindent.
 bak_clean:
+	@rm -f bib/*.sav
 	@rm -f $(ALL_BK)
 	@rm -f indent.log
 
