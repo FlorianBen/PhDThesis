@@ -1,72 +1,58 @@
-\begin{figure}[!h]
+\begin{wrapfigure}{r}{0.5\textwidth}
 	\centering
-	\begin{subfigure}[t]{.45\textwidth}
-		\centering
-		\begin{tikzpicture}%[scale=1.3]
-			% Variables
-			% Ipm
-			\pgfmathsetmacro{\LIPM}{1.8};
-			\pgfmathsetmacro{\HIPM}{1.8};
-			\pgfmathsetmacro{\TIPM}{0.1};
-			% Deg
-			\pgfmathsetmacro{\LDEG}{0.1};
-			\pgfmathsetmacro{\HDEG}{0.3};
-			\pgfmathsetmacro{\NDEG}{6};
-			\pgfmathsetmacro{\SDEG}{1.5};
-			\pgfmathsetmacro{\SPAND}{(2*\SDEG - \HDEG)/\NDEG}
+	\begin{tikzpicture}%[scale=1.3]
+		% Variables
+		% Ipm
+		\pgfmathsetmacro{\LIPM}{1.8};
+		\pgfmathsetmacro{\HIPM}{1.8};
+		\pgfmathsetmacro{\TIPM}{0.1};
+		% Deg
+		\pgfmathsetmacro{\LDEG}{0.1};
+		\pgfmathsetmacro{\HDEG}{0.3};
+		\pgfmathsetmacro{\NDEG}{6};
+		\pgfmathsetmacro{\SDEG}{1.5};
+		\pgfmathsetmacro{\SPAND}{(2*\SDEG - \HDEG)/\NDEG}
 
-			% Beam
-			\draw[fill=blue!30] (0,0) circle (0.4) node[] {Beam};
-			% Cage
-			\draw (0,0) (-\LIPM,\HIPM)rectangle(\LIPM,\HIPM+\TIPM) node[above] {Anode};
-			\draw (0,0) (-\LIPM,-\HIPM)rectangle(\LIPM,-\HIPM-\TIPM) node[below] {Cathode};
-			\draw[fill=red!50] (-\LIPM/2,-\HIPM) rectangle(\LIPM/2,-\HIPM-\TIPM) node[midway,below] {Readout};
-			% Ionized particle
-			\draw[dashed,->] (0.1,0.1)--(0.1,\LIPM);
-			\draw[dashed,->] (0.16,0.1)--(0.16,-\LIPM);
-			\draw (0.1,0.15) node[blue] {$\bullet$};
-			\draw (0.16,0.07) node[red] {$\bullet$};
-			\draw[dashed,->] (-0.1,-0.2)--(-0.1,\LIPM);
-			\draw[dashed,->] (-0.16,-0.2)--(-0.16,-\LIPM);
-			\draw (-0.1,-0.15) node[blue] {$\bullet$};
-			\draw (-0.16,-0.07) node[red] {$\bullet$};
-			%Field
-			\draw[->] (-1.2,1.5)--(-1.2,0.6) node [midway,right]{$\vec{E}$};
-			% Degradors
-			\foreach \x in {0,...,\NDEG}{
-					\draw (0,0) (-\LIPM,\x*\SPAND - \SDEG) rectangle (-\LIPM+\LDEG,\x*\SPAND+\HDEG-\SDEG);
-					\draw (0,0) (\LIPM,\x*\SPAND - \SDEG) rectangle (\LIPM-\LDEG,\x*\SPAND+ \HDEG-\SDEG);}
-			%Profile
-			\begin{axis}[every axis plot post/.append style={
-							mark=none,domain=-3:3,samples=50,smooth},
-					clip=false,
-					axis y line=none,
-					axis x line*=bottom,
-					ymin=0,
-					ymax=1,
-					xtick=\empty,
-					width=4cm,
-					height=3cm,
-					scale only axis,
-					xshift=-2cm,
-					yshift=-3.5cm
-				]
-				\addplot {\gauss{0}{0.3}{0.3}};
-			\end{axis}
-		\end{tikzpicture}
-		\caption[How an IPM works]{How an IPM works. The electrical field can be reverted by inverting the polarity so it's possible to detect ions or electrons. Field correctors or degradors, on left and right, improve the field uniformity.}
-		\label{fig:ipm_how}
-	\end{subfigure}\hfill
+		% Beam
+		\draw[fill=blue!30] (0,0) circle (0.4) node[] {Beam};
+		% Cage
+		\draw (0,0) (-\LIPM,\HIPM)rectangle(\LIPM,\HIPM+\TIPM) node[above] {Anode};
+		\draw (0,0) (-\LIPM,-\HIPM)rectangle(\LIPM,-\HIPM-\TIPM) node[below] {Cathode};
+		\draw[fill=red!50] (-\LIPM/2,-\HIPM) rectangle(\LIPM/2,-\HIPM-\TIPM) node[midway,below] {Readout};
+		% Ionized particle
+		\draw[dashed,->] (0.1,0.1)--(0.1,\LIPM);
+		\draw[dashed,->] (0.16,0.1)--(0.16,-\LIPM);
+		\draw (0.1,0.15) node[blue] {$\bullet$};
+		\draw (0.16,0.07) node[red] {$\bullet$};
+		\draw[dashed,->] (-0.1,-0.2)--(-0.1,\LIPM);
+		\draw[dashed,->] (-0.16,-0.2)--(-0.16,-\LIPM);
+		\draw (-0.1,-0.15) node[blue] {$\bullet$};
+		\draw (-0.16,-0.07) node[red] {$\bullet$};
+		%Field
+		\draw[->] (-1.2,1.5)--(-1.2,0.6) node [midway,right]{$\vec{E}$};
+		% Degradors
+		\foreach \x in {0,...,\NDEG}{
+				\draw (0,0) (-\LIPM,\x*\SPAND - \SDEG) rectangle (-\LIPM+\LDEG,\x*\SPAND+\HDEG-\SDEG);
+				\draw (0,0) (\LIPM,\x*\SPAND - \SDEG) rectangle (\LIPM-\LDEG,\x*\SPAND+ \HDEG-\SDEG);}
+		%Profile
+		\begin{axis}[every axis plot post/.append style={
+						mark=none,domain=-3:3,samples=50,smooth},
+				clip=false,
+				axis y line=none,
+				axis x line*=bottom,
+				ymin=0,
+				ymax=1,
+				xtick=\empty,
+				width=4cm,
+				height=3cm,
+				scale only axis,
+				xshift=-2cm,
+				yshift=-3.5cm
+			]
+			\addplot {\gauss{0}{0.3}{0.3}};
+		\end{axis}
+	\end{tikzpicture}
 	\centering
-	\begin{subfigure}[t]{.45\textwidth}
-		\centering
-		%\includegraphics[width=0.9\linewidth]{01_Prototype/fig/proto.png}
-		\caption[An IPM Prototype]{An IPM Prototype.
-			The readout is visible through the rectangular slit, allowing ionization by-product passing through.
-			Field correctors are also present on left and right plates.
-		}
-		\label{fig:ipm_proto}
-	\end{subfigure}\hfill
-	\caption[A conceptual view of an IPM and its implementation]{A conceptual view of an IPM and its implementation.}
-	\label{fig:ipm}
-\end{figure}
+	\caption[How an IPM works]{How an IPM works. The electrical field can be reverted by inverting the polarity so it's possible to detect ions or electrons. Field correctors or degradors, on left and right, improve the field uniformity.}
+	\label{chap3:ipm_outline}
+\end{wrapfigure}
