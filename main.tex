@@ -7,13 +7,14 @@
 % Shell espace pour l'externalisation avec LuaLaTex
 \usepackage{shellesc}
 
+% Encodage des caractères
 \usepackage[english,francais]{babel} 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
 
+% Custom headers and footers
 \usepackage{fancyhdr}
-
 
 % Use TikZ graphicx and pgf for plotting
 \usepackage{graphicx}
@@ -26,7 +27,6 @@
 
 % Bibliographie avec biblatex
 \usepackage[backref=true, bibencoding=utf8,style=numeric-comp,sorting=none]{biblatex}
-
 \addbibresource{bib/beam_diag.bib}
 \addbibresource{bib/field.bib}
 \addbibresource{bib/mcp.bib}
@@ -71,6 +71,7 @@
 % Minitoc package
 \usepackage{minitoc}
 
+% Support acronym and glossary
 \usepackage[acronym,toc]{glossaries}
 \makeglossaries
 

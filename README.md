@@ -24,6 +24,7 @@ J'utilise les packages LaTeX suivants:
 - BibLaTeX: pour la bibliographie.
 - Biber: pour la génération de la bibliographie.
 - TikZ: pour faire les dessins et autre.
+- circuitikz: module TikZ qui aide à dessiner des circuit
 - graphicx: pour les insertion d'images.
 - asmath: pour la numérotation des équations.
 - booktabs: pour des tableaux plus lisibles.
@@ -39,6 +40,12 @@ J'utilise les packages LaTeX suivants:
 - subcaption: pour les sous figures.
 - minitoc: pour générer des tables des matières à chaque chapitre.
 - shellesc: pour que LuaLaTeX puisse executer des instructions shell
+- fancyhdr: pour personnaliser les en têtes et pieds de page
+- inputenc: encodage des caractères d'entrées
+- fontenc: encodage des caractères de sortie
+- lmodern: police d'écriture LaTeX moderne (police vectorielle)
+- wrapfig: pour mettre faire des images entourées de texte.
+- svg: pour importer des images svg dans le document
 
 ## Organisation
 
