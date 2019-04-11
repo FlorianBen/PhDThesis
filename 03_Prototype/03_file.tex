@@ -23,7 +23,7 @@
 
 	The \acrshort{ipm} will be in between two cryomodules in the cold part of the accelerator. The \acrshort{lwu} vessels itself are not cooled down however the superconducting cavities are closeby. The use of superconducting cavities imposes a moderately high vacuum and a clean environment. A too high pressure or a contamination may damage the cavities. An operating pressure of \(10^{-9}\ mbar\) is foreseen but the vacuum level may be even lower during the operation. The valves will be close by the safety unit if the pressure reach \(10^{-7}\ mbar\). Hence, our \acrshort{ipm} design must be compliant with a high vacuum level and particle free. Fig. \ref{chap3:LWU_Cryo} shows the \acrshort{lwu} vessel in between two cryomodules. On can see the two \acrshort{cf} 200 flanges and the two rectangular \acrshort{cf} flanges for the wire scanner.
 
-	\input{03_Prototype/figures/00_fig/fig016_LWU_Cryo.tex}
+	\input{03_Prototype/figures/fig016_LWU_Cryo.tex}
 
 	\section{IPM simulations overview}
 	As explained in the previous chapter, Ionization Profile Monitor (\acrshort{ipm}) is a type of non-destructive detector that measures the transverse profile of a beam (\acrshort{npm}).
@@ -32,7 +32,7 @@
 	Inside the \acrshort{ipm}, a strong electrical field drives electrons or ions towards a segmented readout plane.
 	The profile is reconstructed in one transverse direction. For a complete profile a pair of \acrshort{ipm} is mandatory.
 
-	\input{03_Prototype/figures/00_fig/fig009_IPM_outline.tex}
+	\input{03_Prototype/figures/fig009_IPM_outline.tex}
 
 	Unfortunately, there is not framework that allows a full simulation of an \acrshort{ipm}. Each simulation step requires unique tools. In fact, most of the work consist of linking each simulation step together. The simulation can be split in three main categories same as the detector behaviour explained just above. In this chapter, we describe in the same order all the simulations and approximations that help us to design our detector.
 
@@ -65,7 +65,7 @@
 
 	Two correction factors are often used to improve the accuracy of the Bethe equation at low and high energies. The density effect \(\frac{\delta(\beta \gamma)}{2}\) corrects the effects at relativistic energies \cite{Sternheimer1984}. The shell correction \(\frac{C}{Z}\) improves the accuracy at low energies \cite{Bichsel2002}.
 
-	\input{03_Prototype/figures/00_fig/fig001_bethe.tex}
+	\input{03_Prototype/figures/fig001_bethe.tex}
 
 	Fig. \ref{chap3:bethe1} shows the mass stopping power of a proton in two different mediums. The blue region represents the energy range of protons in the cryogenic part of \acrshort{ess}, where \acrshort{ipm}s will be located. One can see that the minimum of energy loss is reach at 2 GeV.
 
@@ -107,7 +107,7 @@
 
 	Fig. \ref{chap3:ess_primary_particles} shows the number of electron ion pairs created for each gas species versus the \acrshort{ess} range of energies. The different \acrshort{ipm}s locations is marked by a blue line. One can see that the density has a strong influence on the primary signal. Although the hydrogen is the main species in term of proportion, its contribution to primary signal is close to the one from carbonate species. As explained just before, the W value may overestimate the number of pairs created due to secondary delta rays.
 
-	\input{03_Prototype/figures/00_fig/fig015_ess_primary_particle.tex}
+	\input{03_Prototype/figures/fig015_ess_primary_particle.tex}
 
 	[J'ai essayé de faire les comparaisons avec garfield mais les résultats sont étranges. Francesca a les même soucis. En cours d'investiguation]
 	[MAJ: Le bug a été corriger par l'équipe de Garfield. Ils vont également regarder en détail les processus. Mais je dois refaire les plots. ]
@@ -126,7 +126,15 @@
     \item The geometry of the vacuum chamber has also some influences on the field uniformity. Indeed the vacuum chamber is considered to be at ground. Walls close to the IPMs will change the electric field lines inside the IPMs.
     \item The way to create the field with high voltage power supplies. We will see later that some readouts can only work in certain configurations of high voltages.
   \end{itemize}
-  The non-uniformity of the electric field is very problematic because it prevents the correct measurement of the beam profile. It also determines the maximum size of the detection area which must be in a zone as uniform as possible. To overcome all these effects, several solutions can be considered. 
+  The non-uniformity of the electric field is very problematic because it prevents the correct measurement of the beam profile. It also determines the maximum size of the detection area which must be in a zone as uniform as possible. To overcome all these effects, several solutions can be considered.
+  
+  First, by reducing the distance between the two electrodes for a same electrode size. In this case, the IPMs will tend to a configuration close to the infinite parallel plates assumption. However, the IPMs should not be on the direct path of the beam or its halo to avoid damage. So, the minimum distance between two plates must be at least equal to the diameter of the beam pipe. In same way, the size of both electrodes can be significantly increase. However, this solution is mainly limited due to mechanical considerations. The whole assembly for one IPM must sustain on a CF 200 flange. The second limitation concerns possible HV breakdowns. In very high vacuum a distance of some millimeter is sufficient to isolate several tens of kilovolts. However, the breakdowns are also strongly influenced by the surface states of the electrodes, the composition of the vacuum and the presence of leakage current. Hence, we should keep a standoff distance between the electrode and the vacuum vessel.
+
+  The field uniformity can be improve by the use of field correctors or field degraders. This is done by placing conductors on the side. Each corrector is set at a certain potential in order to constraint the field. This solution is easy to implement, compact, and very versatile because independent of the geometry of the IPM. However, it requires a large number of HT feedthroughs or the use of resistors in vacuum. The longitudinal field can be corrected in the same way with as long as the degraders do not encroach on the beam path as explained in the previous paragraph.
+
+  The geometry of HT electrodes. For example, a curved geometry with reinforcements on the edges it is possible to correct the field transversely and longitudinally. Hence, there is no more need of field correctors. On the other hand, the electrode is generally larger electrode and optimized for a precise configuration.
+
+  Lastly, software corrections may be a solution to correct the non uniformities. However, the non-uniformity of extraction field is not the only phenomenon responsible of the profile distortions as explained just before. It is therefore extremely difficult to implement and requires a perfect map of the extraction field to decouple it from other phenomena. Physical corrections are then much simpler to implement.
 
 	\subsection{Maxwell equations at steady state}
 	\begin{align}
@@ -215,18 +223,18 @@
 
 	[J'ai demandé aux gens de COMSOL ce qui expliquer les différences entre BEM et FEM dans COMSOL]
 
-	\input{03_Prototype/figures/00_fig/fig012_FEMvsBEM.tex}
+	\input{03_Prototype/figures/fig012_FEMvsBEM.tex}
 
 	\subsection{COMSOL}
 	COMSOL is proprietary all-in-one multi-physic simulation software able to solve various problems from structural mechanical analysis to optical raytracing \cite{comsol2018}. We use COMSOL with the AC/DC module to simulate the static electrical field in the \acrshort{ipm} box \cite{comsolacdc2018}. COMSOL allows to quickly define, simulate and post process physical model like its competitors \cite{cststudio2018,ansys2018,couloumb2018}. The typical workflow is divided in three main steps.
 
 	The first step is to implement the detector geometry into COMSOL. The software includes basic \acrshort{cad} features that allows to quickly create two or tridimensional geometries. The users can directly import a mesh from file generated by external \acrshort{cad} tools. However, importing from \acrshort{cad} often increases the model complexity and so the simulation time and it is much faster to directly implement the geometry with COMSOL.  In our case, only the inner shape of the vacuum chamber and the \acrshort{ipm}s must be defined. All other conductive bodies that enclose the vacuum are not relevant for an electrostatic simulation. Therefore, the geometry can be simplified. Fig. \ref{chap3:COMSOL_LWU} shows, on the left, a 3D drawing of the \acrshort{ess} vacuum vessel with the two \acrshort{ipm}s within. And on the right, an example of the simplified geometry implemented in COMSOL.
 
-	\input{03_Prototype/figures/00_fig/fig003_COMSOL_LWU.tex}
+	\input{03_Prototype/figures/fig003_COMSOL_LWU.tex}
 
 	The next step consists on the discretization of the previous geometry in many Lagrange elements in order to form a mesh. Fig. \ref{chap3:COMSOL_meshing_elements} shows main meshing elements available in COMSOL. For an electrostatic tridimensional study, COMSOL uses quadratic tetrahedral elements by default. The meshing algorithm tries to create elements that fit well to geometry. So, if a geometry has small parts then the size of elements will be reduced in these regions. Conversely, mesh cells will become bigger and bigger in coarse regions of the geometry. However, this behavior is not desirable for us. Indeed, in an \acrshort{ipm}, the region of interest has no geometrical variation consequently mesh element are particularly big there. This may lead to inaccurate results. Fortunately, the user can change the characteristics and the nature of the elements in specific region of the defined geometry. We used a tetrahedral mesh apart from the \acrshort{ipm} box where a cubic mesh with high granularity is defined. The meshing step is very memory consuming and a poorly optimized mesh may destroy performance.
 
-	\input{03_Prototype/figures/00_fig/fig006_COMSOL_meshing_elements.tex}
+	\input{03_Prototype/figures/fig006_COMSOL_meshing_elements.tex}
 
 	The last step is to define boundary conditions. COMSOL hides completely the mathematical aspect of the \acrshort{fem} and directly express the boundary conditions in a physical meaning. In AC/DC module is mainly consist of defining fixed potentials or charge densities. A more detailed description of each boundary condition type can be found in the reference manual. COMSOL is able to solve electrostatic problems by means of \acrshort{fem} or \acrshort{bem} since version 5.3a.
 	Once solved, the problem can be processed directly in COMSOL. Data can be also exported to an external file in text format (column separated values or VTU format).
@@ -247,8 +255,6 @@
 
 	First initial position are draw from gaussian distribution for the transversal position and uniform distribution for longitudinal and temporal. The initial momentum is set to zero since we only want the distortion caused by the field at this moment. The equation of motion is integrated with a numerical integrator. The value of field at an arbitrary position is interpolate from field from COMSOL. These steps are repeated until the particle reach the detection plane.
 
-	\input{03_Prototype/figures/00_fig/fig017_interpolation1D.tex}
-
 	[Euler]
 	\begin{align}
 		 & \vec{v}_{i} = \vec{v}_{i-1} + \frac{q}{m}(\vec{E}(\vec{r}_{i-1},t) + \vec{v}_{i-1} \times \vec{B}(\vec{r}_{i-1},t)) \cdot \Delta t \\
@@ -261,11 +267,13 @@
 		 & \vec{r}_{i} = \vec{r}_{i-1} + \vec{v}_{i} \cdot \Delta t
 	\end{align}
 
-	\input{03_Prototype/figures/00_fig/fig014_TrackingTrap.tex}
+	\input{03_Prototype/figures/fig014_TrackingTrap.tex}
 
 	The tracking algorithm has been implemented in an C++ code. All vector operations are performed by the Eigen package and custom code \cite{eigenweb}. Nanoflann library build a kd-tree from field data \cite{blanco2014nanoflann}. It allows to quickly search a set of points inside the whole dataset. The interpolation routine is homemade and relies on previous libraries. The routine implement nearest neighbors and RBF interpolation. The numerical integration of positions and velocities are perform by homemade code and odeint library \cite{Ahnert2011,Mulansky2014}. Particle are tracked in parallel with the Intel TBB library.
 
-	\subsection{IPM geometry and}
+  \subsection{IPM polarity}
+
+
 	\subsection{IPM position and cross interaction}
 	\subsection{Grid}
 	\subsection{Field corrections}
@@ -274,31 +282,34 @@
 		V_{i} = \frac{\sum_{k = 1}^{i} R_{k}}{\sum_{j = 1}^{N} R_{j}}V_{HT}
 	\end{equation}
 
-	\input{03_Prototype/figures/00_fig/fig010_deg_circuit}
+	\input{03_Prototype/figures/fig010_deg_circuit}
 
 	%\input{03_Prototype/tables/table002_resistor_asym}
 	%\input{03_Prototype/tables/table003_resistor_asym_curved}
 	%\input{03_Prototype/tables/table004_resistor_sym}
 
-	\subsection{IPM polarity}
-
 	\section{Initial momentum}
 	\subsection{Thermal distribution}
-	\input{03_Prototype/figures/00_fig/fig013_maxwell_gas.tex}
+	\input{03_Prototype/figures/fig013_maxwell_gas.tex}
 	\subsection{Ionization angular distribution}
 
 	\section{Readout simulations}
 	\subsection{Interaction of particles with low energies}
-	\input{03_Prototype/figures/00_fig/fig011_LowIon.tex}
+	\input{03_Prototype/figures/fig011_LowIon.tex}
 	\subsection{Ramo-Schoktley theorem}
 	\cite[]{Ramo_1939}\cite[]{Shockley_1938}\cite[]{Cavalleri1971}\cite[]{Jen1941}
 	\subsection{Strips based detection}
 	\subsection{Semiconductor based detection}
-	\subsection{MCP based detection}
-
+  \subsection{MCP based detection}
+  
 	\section{Summary}
 	\label{ch3:Summary}
 	[Information: textwidth in cm: \printinunitsof{cm}\prntlen{\textwidth}]
+
+	\input{03_Prototype/figures/fig000_double_vertical}
+	\input{03_Prototype/figures/fig000_double_horizontal}
+	\input{03_Prototype/figures/fig000_triple}
+	\input{03_Prototype/figures/fig000_quad}
 
 	\cleardoublepage
 	\section{Bibliography}
