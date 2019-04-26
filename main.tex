@@ -1,5 +1,6 @@
-\documentclass [11pt,a4paper,twoside,openright]{book}
+\documentclass [12pt,a4paper,twoside,openright]{book}
 %\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm,bindingoffset=6mm,showframe]{geometry}
+\usepackage[paper=a4paper]{geometry}
 
 % Mon package ou je place les commandes personnalisées
 \usepackage{PHDhelper}
@@ -7,18 +8,28 @@
 % Shell espace pour l'externalisation avec LuaLaTex
 \usepackage{shellesc}
 
-% Encodage des caractères
-\usepackage[english,francais]{babel} 
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage{lmodern}
+% Encodage des caractères si pdfLaTex
+\usepackage{ifluatex}
+\ifluatex 
+    \usepackage{fontspec}
+    \setsansfont{CMU Sans Serif}
+    \setmainfont{CMU Serif}
+    \setmonofont{CMU Typewriter Text}
+    \defaultfontfeatures{Ligatures={TeX}}
+\else
+    \usepackage[utf8]{inputenc}
+    \usepackage[T2A,T1]{fontenc}
+\fi
+
+% Support de l'Anglais et du Français
+\usepackage[english,french]{babel} 
 
 % Custom headers and footers
 \usepackage{fancyhdr}
 
 % Use TikZ graphicx and pgf for plotting
 \usepackage{graphicx}
-\usepackage{pgf,pgfnodes}
+\usepackage{pgf}
 \usepackage{pgfplots}
 \usepackage{tikz}
 \usetikzlibrary{external}
@@ -33,6 +44,7 @@
 \addbibresource{bib/particle_matter.bib}
 \addbibresource{bib/beam_dynamic.bib}
 \addbibresource{bib/hardware.bib}
+\addbibresource{bib/misc.bib}
 \addbibresource{bib/neutron.bib}
 \addbibresource{bib/sensor.bib}
 \addbibresource{bib/software.bib}
@@ -91,10 +103,15 @@
 \dominitoc[]
 \thispagestyle{empty}
 \input{00_Guards/couverture}
+\cleardoublepage
 \pagenumbering{arabic}
 \frontmatter
-\begin{otherlanguage}{english} 
+%\input{00_Acknowledgments/00_Acknowledgments}
+
+\begin{otherlanguage}{english}
+\newgeometry{top=1in,bottom=1in,right=1in,left=1.25in} 
 \tableofcontents
+%\addcontentsline{toc}{chapter}{Table of contents}%
 
 \input{myacronyms}
 \mainmatter
@@ -111,12 +128,16 @@
 
 \listoftables
 \addcontentsline{toc}{chapter}{\listtablename}
+\end{otherlanguage}
+
+\begin{otherlanguage}{french}
+  \input{00_French/00_french}
+\end{otherlanguage}
 
 \appendix
+
 \backmatter
 
-\thispagestyle{empty}
-\end{otherlanguage}
+\pagenumbering{gobble}
 \input{00_Guards/dos}
-
 \end{document}
