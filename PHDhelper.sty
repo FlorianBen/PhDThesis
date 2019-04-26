@@ -1,12 +1,16 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{PHDhelper}[2019/03/19 Help command for my PHD]
- 
+
+\RequirePackage{amsmath}
 \RequirePackage{graphicx}
 \RequirePackage{pgf}
 \RequirePackage{pgfplots}
 \RequirePackage{pgfnodes}
 \RequirePackage{pgfarrows}
 \RequirePackage{tikz}
+
+% Operateur math
+\DeclareMathOperator{\e}{e}
 
 % Calcule une gaussienne
 \newcommand\gauss[3]{#3*(1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2)))} 
@@ -22,3 +26,6 @@
 }
 
 \renewcommand{\familydefault}{\sfdefault}
+
+\def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
+   \hbox{}\thispagestyle{empty}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
