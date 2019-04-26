@@ -38,7 +38,7 @@ pdf_temp: create_out_dir
 
 # Créer le répertoire de sortie.
 create_out_dir:
-	if [ ! -d $(OUT_DIR) ]; then mkdir -p $(OUT_DIR)/$(OUT_DIR); fi
+	@if [ ! -d $(OUT_DIR) ]; then mkdir -p $(OUT_DIR)/$(OUT_DIR); fi
 
 # Supprime les fichiers dissident de la construction
 post_clean:
@@ -60,6 +60,7 @@ format_temp:
 # Supprimer les fichier backup de latexindent.
 bak_clean:
 	@rm -f bib/*.sav
+	@rm -f bib/*.bak
 	@rm -f $(ALL_BK)
 	@rm -f indent.log
 
