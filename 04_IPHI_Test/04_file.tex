@@ -6,43 +6,118 @@
 
 \section{Introduction}
 \begin{refsection}
-	\label{ch4:Introduction}
+  \label{ch4:Introduction}
 
-	\section{Preliminary tests of silicon detector}
-	\subsection{IRMA}
-	\subsection{Test setup}
-	\subsection{Results and limitations}
+  \section{Preliminary tests of silicon detector}
+  \subsection{IRMA}
+  \cite{Chaumont1981}
+  \input{04_IPHI_Test/figures/fig000_IRMA}
+  \subsection{Test setup}
+  \cite{advacam2019}
+  \cite{Kraus2011}
 
-	\section{IPM design overview}
-	\subsection{IPM}
-	\subsection{MCP}
-	\subsection{Camera}
-	\subsection{Strips}
-	\subsection{CARAMEL board and FASTER system}
-	\subsection{Control System}
-	\subsection{Test bench}
-	\subsection{Reference measurement}
-	\section{IPHI test campaigns}
-	\subsection{IPHI accelerator}
-	\subsection{Setup}
+  \input{04_IPHI_Test/figures/fig000_IRMA_setup}
+  \subsection{Results and limitations}
 
-	\section{Results}
-	\subsection{Processing camera}
-	\subsection{Processing strip}
-	\subsection{Processing screen}
-	\subsection{Beam current}
-	\subsection{Beam position}
-	\subsection{Beam size and space charge}
-	\subsection{Detection limits}
-	\subsection{Comparison size}
-	\subsection{...}
-	\subsection{Electron measurement}
+  \section{IPM design overview}
+  \subsection{IPM}
+  \subsection{MCP}
+  \subsection{Camera}
+  A vision system is necessary to record light from the phosphorus screen.
+  A camera with a lens should be sufficient in our case.
 
-	\section{Summary}
-	\label{ch4:Summary}
+  % Sensor
+  Sensor is the core component of a camera so it's better to choose the sensor first with respect to the requirements.
+  For our application high resolution is not mandatory, so pixels could be relatively big in order to increase light collection and dynamic range.
+  Sony IMX249 fits well with these prerequisites. It's a consumer CMOS sensor with relatively big pixels and low noise.
+  Its EMVA characteristics are summarized in the Table \ref{tab:IMX249} \cite{emva2010}.
+  \input{04_IPHI_Test/tables/table000_sensor}
 
-	\cleardoublepage
-	\section{Bibliography}
-	\label{ch4:bib}
-	\printbibliography[heading=subbibliography]
+  % Camera
+  AlliedVision, Basler and FLIR propose several cameras based on the IMX249 sensor with different interfaces, features, form factors, prices and availability.
+  We restricted our choice to GigE cameras since they allow long cable length and Power over Ethernet (PoE) which are quite useful features for an accelerator experiment.
+  At the end we choose the FLIR Blackfly-PGE-23S6M-C \cite{blackfly2019}.
+
+  % Lens
+  The last step is the choice of a correct lens for the camera.
+  Unfortunately lens suppliers doesn't provide full characteristics of their lenses, hence only the thin lens approximation has been considered.
+  Distance from back of phosphorus screen to external air-side of viewport is 247mm. Active area radius of our MCPs is around 25mm thus magnification, with respect to a sensor size of 11.34 mm, should be at least 0.2268.
+  Table \ref{tab:lens_magnification} shows magnification for several focal length. A focal length of 50 mm fits very well with our configuration.
+  \input{04_IPHI_Test/tables/table001_lens.tex}
+
+  Lenses with 50mm focal length are rather standard and commercially available at moderate cost. In addition these lenses have a large numerical aperture (or small F-number) so they provide a large photon capture efficiency.
+
+  \subsection{Strips}
+  \subsection{CARAMEL board and FASTER system}
+  \cite{ddc316}\cite{caramel2013}\cite{faster2013}\cite{rhb2012}
+  \subsection{Control System}
+  The whole ESS Control System (CS) will rely on the EPICS (Experimental Physics and Industrial Control System) toolkit. The ESS CS team has specified its own EPICS standards to ensure the sustainability of the control system over the years. We will also test our IPMs in an accelerator that is EPICS compatible. Therefore, EPICS has some importance to our project and we tried to use it as much as possible for our prototypes. In this section we will briefly describe EPICS and how we have integrated our test bench.
+
+  EPICS provides a set of tools and protocols to facilitate the integration of control system \cite{epics2019}. Originally developed for real-time systems, EPICS now supports many platforms. EPICS has become an open source project in 2004, since many laboratories and collaborations have contributed to EPICS.
+  One of most important component of EPICS is the Channel Access (CA). In few words, it is a protocol that defines how the data are exchanged between clients and servers on a network. A server provides Processes Variables (PV) to clients. A PV is a useful data (for instance a current, a voltage or a temperature) associated with metadata (timestamp, units). A client can access and edit a PV value by knowing its name. In practice a server is often an hardware controlled by software, often called software Input / Output Controller (softIOC). A client is for instance an operator interface (OPI) which allows to view and modify the PV from one or more softIOCs.
+
+  The whole system is almost fully compatible with the version 3.16 of EPICS base. The PointGrey GigE cameras are well supported by the AreaDetector module \cite{ad2019}. A custom plugin, developed by ESS, perform an gaussian fit on the profile every image. Raw images are saved into HDF5 files \cite{hdf5}. It allows to pack  various datasets together, for instance the raw IPM images with some beam information.
+  Since all high voltage power supplies have their own SPCI Ethernet interface, thus a simple softIOC with StreamDevice\cite{streamdevice2019} was enough to control and monitor them.
+  Three OPIs have been developed in order to control cameras, power supplies and geobrick. They run under BOY module of the ESS Control System Studio version 4.5. An Archiver Appliance records and saves slow process variables from the power supplies, the vacuum systems and the accelerator \cite{archiver2019}.
+
+  \input{04_IPHI_Test/figures/fig000_EPICS_IPHI}
+
+  \subsection{Test bench}
+  A test bench has been also developed in order to test the prototypes. The bench can be split into two different independent parts.
+
+  The first part (upstream) tries to mimic the ESS LWU chamber on which two IPMs can be inserted. The idea is to be close to the ESS conditions in term of high voltages and electrical fields.
+  The second part (downstream) offers one more IPM slot and two viewports for reference measurements in order to compare with the IPMs.
+
+  Two solutions have been considered for the reference measurements, fluorescence profile monitor (FPM) and scintillating screens.
+
+  The IPMs can be mounted independently in Y or X direction thanks to their design, thus it is even possible to measure the same profile direction with all three IPMs.
+
+  \input{04_IPHI_Test/figures/fig000_Testbench}
+
+
+  \subsection{Reference measurement}
+  \section{IPHI test campaigns}
+  \subsection{IPHI accelerator}
+  IPHI is a high intensity linear proton accelerator located at CEA/Saclay.
+  This project has been started in the late of 90's\cite{Beau2000} but protons were accelerated up to 3 MeV in April 2016\cite{Gobin2016}.
+
+  Proton plasma is created by an electron cyclotron resonance source (ECR), and transported toward a radio frequency quadruple (RFQ) by a low energy beam transport line (LEBT).
+  An iris assures a fine tuning of the current, and two solenoids focus and filter the plasma before the injection in the RFQ.
+  Then, the protons are accelerated up to 3 MeV and bunched with a frequency of 352 MHz by the RFQ.
+  A medium energy beam transport line (MEBT), downstream from the RFQ, contains focusing elements, steerers, dipole magnet and beam diagnostics.
+  The dipole magnet can distribute the protons over two beam lines.
+
+  The main line has a dedicated beam stop of 300 kW, allowing the commissioning of the accelerator at high intensity and duty cycle.
+  The secondary line is more modular but restricted to lower intensity and duty cycle (few hundred Watts).
+  This line is open for external user experiments.
+  We were, with the nBLM team, one of the first experiments on the deviated line\cite{Senee:IPAC2018-TUPAF016}.
+
+  Figure \ref{chap4:IPHI_view} shows schematic view of IPHI accelerator, and Table \ref{chap4:IPHI_carac} sums up difference between IPHI and ESS.
+
+  \input{04_IPHI_Test/figures/fig000_IPHI_view.tex}
+  \input{04_IPHI_Test/tables/table000_IPHI_carac}
+  
+  \subsection{Setup}
+
+  \section{Results}
+  \subsection{Processing camera}
+  \subsection{Processing strip}
+  \cite{Brun1997,Antcheva2009}
+  \subsection{Processing screen}
+  \subsection{Beam current}
+  \subsection{Beam position}
+  \subsection{Beam size and space charge}
+  \subsection{Detection limits}
+  \subsection{Comparison size}
+  \subsection{...}
+  \subsection{Electron measurement}
+
+  \section{Summary}
+  \label{ch4:Summary}
+
+  \cleardoublepage
+  \section{Bibliography}
+  \label{ch4:bib}
+  \printbibliography[heading=subbibliography]
+
 \end{refsection}
