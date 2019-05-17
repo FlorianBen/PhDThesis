@@ -1,6 +1,6 @@
 \begin{wrapfigure}{r}{0.5\textwidth}
 	\centering
-	\begin{tikzpicture}%[scale=1.3]
+	\begin{tikzpicture}
 		% Variables
 		% Ipm
 		\pgfmathsetmacro{\LIPM}{1.8};
@@ -13,9 +13,6 @@
 		\pgfmathsetmacro{\SDEG}{1.5};
 		\pgfmathsetmacro{\SPAND}{(2*\SDEG - \HDEG)/\NDEG}
 
-		\draw[] (\LIPM,0) node[right,align=left] {Field\\correctors\\or\\degraders};
-
-
 		% Beam
 		\draw[fill=blue!30] (0,0) circle (0.4) node[left,xshift = -0.3cm] {Beam};
 		% Cage
@@ -23,27 +20,22 @@
 		\draw (0,0) (-\LIPM,-\HIPM)rectangle(\LIPM,-\HIPM-\TIPM) node[below] {Cathode};
 		\draw[fill=red!50] (-\LIPM/2,-\HIPM) rectangle(\LIPM/2,-\HIPM-\TIPM) node[midway,below] {Readout};
 		% Ionized particle
-		\draw[blue, dashed,->] (0.1,0.8)--(0.1,\LIPM);
+		\draw[blue, dashed,->] (0.1,0.8)to [bend right=15](-0.1,\LIPM);
 		\draw[blue,fill=blue] (0.1,0.8) circle [radius=1mm] node[] {\tiny\color{white}{$-$}};
 
-		\draw[red, dashed,->] (0.16,-1)--(0.16,-\LIPM);
-		\draw[red,fill=red] (0.16,-1) circle [radius=1mm] node[] {\tiny\color{white}{$+$}};
+		\draw[red, dashed,->] (0.36,-1)to [bend left=0](0.56,-\LIPM);
+		\draw[red,fill=red] (0.36,-1) circle [radius=1mm] node[] {\tiny\color{white}{$+$}};
 
-		\draw[blue,dashed,->] (-0.1,0.1)--(-0.1,\LIPM);
+		\draw[blue,dashed,->] (-0.1,0.1)to [bend right=15](-0.8,\LIPM);
 		\draw[blue,fill=blue] (-0.1,0.1) circle [radius=1mm] node[] {\tiny\color{white}{$-$}};
 
-		\draw[red,dashed,->] (-0.1,-0.1)--(-0.1,-\LIPM);
+		\draw[red,dashed,->] (-0.1,-0.1)to [bend right=15](0.2,-\LIPM);
 		\draw[red,fill=red] (-0.1,-0.1) circle [radius=1mm] node[] {\tiny\color{white}{$+$}};
 
 		%Field
-		\draw[->] (-1.2,1.5)--(-1.2,0.6) node [midway,right]{$\vec{E}$};
-		% Degradors
-		\foreach \x in {0,...,\NDEG}{
-				\draw (0,0) (-\LIPM,\x*\SPAND - \SDEG) rectangle (-\LIPM+\LDEG,\x*\SPAND+\HDEG-\SDEG);
-				\draw (0,0) (\LIPM,\x*\SPAND - \SDEG) rectangle (\LIPM-\LDEG,\x*\SPAND+ \HDEG-\SDEG);}
+		\draw[->] (-1.2,1.5)--(-1,0.6) node [midway,right]{$\vec{E}$};
 
-
-		%Profile
+		% Profile
 		\begin{axis}[every axis plot post/.append style={
 						mark=none,domain=-3:3,samples=50,smooth},
 				clip=false,
@@ -58,11 +50,10 @@
 				xshift=-2cm,
 				yshift=-3.5cm
 			]
-			\addplot {\gauss{0}{0.3}{0.3}};
+			\addplot {\gauss{0.75}{0.5}{0.3}};
 		\end{axis}
-
 	\end{tikzpicture}
 	\centering
-	\caption[Description of how an IPM works]{Description of how an IPM works. The electrical field can be reverted by inverting the polarity, so it's possible to detect ions or electrons. Field correctors or degradors, on left and right, improve the field uniformity.}
-	\label{chap3:ipm_outline}
+	\caption[Non-uniformities leading to mirage effects on the profile measurement]{Non-uniformities leading to mirage effects on the profile measurement.}
+	\label{chap3:FieldNonU_outline}
 \end{wrapfigure}
