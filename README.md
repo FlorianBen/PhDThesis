@@ -4,6 +4,8 @@ Ceci est le répertoire LaTeX de ma thèse. Il coentient toutes les ressources n
 
 La thèse porte sur la conception de profileurs non intrusif pour le faisceau de protons de la future source de spallation Européenne (ESS).
 
+![Thèse](PDG.png)
+
 ## Dépendances
 
 ### Software
