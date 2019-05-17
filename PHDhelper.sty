@@ -8,6 +8,9 @@
 \RequirePackage{pgfnodes}
 \RequirePackage{pgfarrows}
 \RequirePackage{tikz}
+\RequirePackage{xparse}
+\RequirePackage{environ}
+\RequirePackage{booktabs}
 
 % Operateur math
 \DeclareMathOperator{\e}{e}
@@ -17,15 +20,85 @@
 
 % Renew command
 \renewcommand{\chaptermark}[1]{%
-  \markboth{%
-    \ifnum\value{chapter}>0
-      \thechapter.\space
-    \fi
-    #1%
-  }{}%
+	\markboth{%
+		\ifnum\value{chapter}>0
+			\thechapter.\space
+		\fi
+		#1%
+	}{}%
 }
 
 \renewcommand{\familydefault}{\sfdefault}
 
 \def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
-   \hbox{}\thispagestyle{empty}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
+	 \hbox{}\thispagestyle{empty}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
+
+
+% Multiline booktabs
+\ExplSyntaxOn
+
+\NewEnviron{splittabular}[1]
+	{
+	\dim_set:Nn \lineskip { 2ex }
+	\phpirate_splittabular:nV { #1 } \BODY
+	\par
+	}
+
+\int_new:N \l__phpirate_rows_int
+\seq_new:N \l__phpirate_body_seq
+\cs_generate_variant:Nn \seq_set_split:Nnn { c }
+
+\cs_new_protected:Nn \phpirate_splittabular:nn
+	{
+	\seq_set_split:Nnn \l__phpirate_body_seq { \\ } { #2 }
+	\int_zero:N \l__phpirate_rows_int
+	\seq_map_inline:Nn \l__phpirate_body_seq
+		{
+		\int_incr:N \l__phpirate_rows_int
+		\seq_clear_new:c { \__phpirate_row:n { \l__phpirate_rows_int } }
+		\seq_set_split:cnn { \__phpirate_row:n { \l__phpirate_rows_int } } { & } { ##1 }
+		% check for \hline
+		\tl_clear_new:c { \__phpirate_hline:n { \l__phpirate_rows_int } }
+		\seq_pop_left:cN { \__phpirate_row:n { \l__phpirate_rows_int } } \l_tmpa_tl
+		\tl_set_eq:NN \l_tmpb_tl \l_tmpa_tl
+		\regex_replace_once:nnN { \c{hline|toprule|midrule|bottomrule} } { } \l_tmpa_tl
+		\seq_put_left:cV { \__phpirate_row:n { \l__phpirate_rows_int } } \l_tmpa_tl
+		\regex_replace_once:nnN { (\c{hline|toprule|midrule|bottomrule}+).* } { \1 } \l_tmpb_tl
+		\tl_set_eq:cN { \__phpirate_hline:n { \l__phpirate_rows_int } } \l_tmpb_tl
+		% end code for \hline
+		}
+	\int_step_inline:nnnn { 1 } { 1 } { \seq_count:c { \__phpirate_row:n { 1 } } }
+		{
+		\__phpirate_column:nn { #1 } { ##1 }
+		}
+	}
+\cs_generate_variant:Nn \phpirate_splittabular:nn { nV }
+
+\cs_new_protected:Nn \__phpirate_column:nn
+	{
+	\seq_clear:N \l__phpirate_column_seq
+	\int_step_inline:nnnn { 1 } { 1 } { \l__phpirate_rows_int }
+		{
+		\seq_put_right:Nx \l__phpirate_column_seq
+			{
+			\exp_not:v { \__phpirate_hline:n { ##1 } }
+			\seq_item:cn { \__phpirate_row:n { ##1 } } { #2 }
+			}
+		}
+	\begin{tabular}[t]{#1}
+	\seq_use:Nn \l__phpirate_column_seq { \\ }
+	\end{tabular}
+	\linebreak[0]
+	}
+
+\cs_new:Nn \__phpirate_row:n
+	{
+	l__phpirate_row_ \int_eval:n { #1 } _seq
+	}
+
+\cs_new:Nn \__phpirate_hline:n
+	{
+	l__phpirate_hline_ \int_eval:n { #1 } _tl
+	}
+
+\ExplSyntaxOff
