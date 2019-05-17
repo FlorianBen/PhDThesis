@@ -7,11 +7,8 @@
 	\definecolor{ESSColor}{rgb}{0.0,0.58,0.792}
 	\definecolor{CEAColor}{rgb}{0.898,0.09765,0.0}
 	
-	\usetikzlibrary{calc}
-	\thispagestyle{empty}
-	
-	%%% the purple border line %%%
-	\tikzset{external/export next=false}
+  %%% the purple border line %%%
+  \tikzset{external/export next=true}
 	\begin{tikzpicture}[remember picture, overlay]
 		\draw[line width=1.2 pt, color=blue!20!red!45!black!75!]
 		($(current page.south west)+(1 cm,+1. cm)$) 
@@ -48,8 +45,8 @@
 	\begin{textblock}{14}(1,6.7)
 		\begin{center}	
 			\Large \textsc{\textcolor{ESSColor}{
-          \textbf{Conception de profileurs non intrusifs \\pour le faisceau de protons de ESS}}}\par ou
-          \Large \textsc{\textcolor{ESSColor}{ \textbf{Design of non-invasive profile monitors for ESS proton beam}}}\par          
+					\textbf{Conception de profileurs non intrusifs \\pour le faisceau de protons de ESS}}}\par ou
+			\Large \textsc{\textcolor{ESSColor}{ \textbf{Design of non-invasive profile monitors for ESS proton beam}}}\par          
 			\large Par\par  \large \textbf{M. Florian Benedetti} \par
 		\end{center}
 	\end{textblock}
@@ -72,11 +69,11 @@
 				Mme.  & \textsc{Gloria Luzon}        & Professeure             & (Rapporteur)           \\
 				\null & \null                        & Universidad de Zaragoza &                        \\ 
 				
-				M.    & \textsc{Peter Fork}          & Docteur                 & (Rapporteur)           \\
+				M.    & \textsc{Peter Fork}          & Chercheur senior        & (Rapporteur)           \\
 				\null & \null                        & GSI Darmstadt           &                        \\ 
 				M.    & \textsc{Julien Pancin}       & Ingénieur-chercheur     & (Examinateur)          \\
-        		\null & \null                        & CEA Ganil              &                        \\
-        		M.    & \textsc{Cyrille Thomas}      & Ingénieur-chercheur     & (Examinateur)          \\
+				\null & \null                        & CEA Ganil               &                        \\
+				M.    & \textsc{Cyrille Thomas}      & Ingénieur-chercheur     & (Examinateur)          \\
 				\null & \null                        & ESS Lund                &                        \\ 				
 				Mme.  & \textsc{Esther Ferrer Ribas} & Ingénieure-chercheuse   & (Directrice de thèse)  \\
 				\null & \null                        & CEA Saclay              &                        \\ 
