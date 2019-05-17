@@ -1,4 +1,6 @@
 \documentclass [12pt,a4paper,twoside,openright]{book}
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{3}
 %\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm,bindingoffset=6mm,showframe]{geometry}
 \usepackage[paper=a4paper]{geometry}
 
@@ -32,6 +34,7 @@
 \usepackage{pgf}
 \usepackage{pgfplots}
 \usepackage{tikz}
+\usetikzlibrary{calc}
 \usetikzlibrary{external}
 \tikzexternalize[prefix=build/]
 \usepackage{circuitikz}
@@ -44,6 +47,7 @@
 \addbibresource{bib/particle_matter.bib}
 \addbibresource{bib/beam_dynamic.bib}
 \addbibresource{bib/hardware.bib}
+\addbibresource{bib/installation.bib}
 \addbibresource{bib/misc.bib}
 \addbibresource{bib/neutron.bib}
 \addbibresource{bib/sensor.bib}
@@ -101,37 +105,37 @@
 
 \begin{document}
 \dominitoc[]
-\thispagestyle{empty}
 \input{00_Guards/couverture}
+\thispagestyle{empty}
 \cleardoublepage
 \pagenumbering{arabic}
 \frontmatter
 %\input{00_Acknowledgments/00_Acknowledgments}
 
 \begin{otherlanguage}{english}
-\newgeometry{top=1in,bottom=1in,right=1in,left=1.25in} 
-\tableofcontents
-%\addcontentsline{toc}{chapter}{Table of contents}%
+	\newgeometry{top=1in,bottom=1in,right=1in,left=1.25in}
+	\tableofcontents
+	%\addcontentsline{toc}{chapter}{Table of contents}%
 
-\input{myacronyms}
-\mainmatter
-\input{01_Introduction/01_file}
-\input{02_BeamDiag/02_file}
-\input{03_Prototype/03_file}
-\input{04_IPHI_Test/04_file}
-\input{05_Conclusion/05_file}
+	\input{myacronyms}
+	\mainmatter
+	\input{01_Introduction/01_file}
+	\input{02_BeamDiag/02_file}
+	\input{03_Prototype/03_file}
+	\input{04_IPHI_Test/04_file}
+	\input{05_Conclusion/05_file}
 
-\printglossary[type=\acronymtype]
+	\printglossary[type=\acronymtype]
 
-\listoffigures
-\addcontentsline{toc}{chapter}{\listfigurename}
+	\listoffigures
+	\addcontentsline{toc}{chapter}{\listfigurename}
 
-\listoftables
-\addcontentsline{toc}{chapter}{\listtablename}
+	\listoftables
+	\addcontentsline{toc}{chapter}{\listtablename}
 \end{otherlanguage}
 
 \begin{otherlanguage}{french}
-  \input{00_French/00_french}
+	\input{00_French/00_french}
 \end{otherlanguage}
 
 \appendix
