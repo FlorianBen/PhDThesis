@@ -7,8 +7,17 @@
 \section{Introduction}
 \begin{refsection}
   \label{ch4:Introduction}
+  The simulations presented in the previous chapter show that the profile measurement with IPM may matches the ESS requirement. However, some critical points, mainly about the choice of the readout, are not fully clarified, so the feasibility must be proven experimentally. From the results of the simulation, we converge to a first prototype design. Designing and testing prototypes is also a great opportunity to validate the simulations and earn feedbacks before the production phase. The following chapter presents the different prototypes that has been developed and tested as well as the results obtained. In fact, the chapter follows closely the real chronology of the cNPM project.
+
+  The feasibility of silicon detection has been checked. A small test bench has been developed and installed in a ion implanter facility. The test has been done with a tailored silicon detector kindly provided by the CERN-BI team. The result and it consequence on the project will be discussed briefly.
+
+  Then, a full test bench has been designed including several IPM and reference measurement. The different levels of integration for each component of the test bench will be described in order to give a global overview.
+  
+  Finally, the test bench has been installed on a 3 MeV accelerator. Two test campaign has been done and the different IPMs have been tested and characterized. The setups and most of the results will be presented in this chapter.
 
   \section{Preliminary tests of silicon detector}
+  The readout using silicon detector seems very promising but detection is not assured for ions at low energies. It requires significant development in terms of electronics: complex PCB design, placement and alignment of the chips, wire bonding, development of a backend electronic. Therefore, we decided to test a proof of concept before directly developing a complete IPM with silicon detector. If the test shows that detection with ions is possible then this solution can be considered at ESS, otherwise it will be discarded.
+
   \subsection{IRMA}
   \cite{Chaumont1981}
   \input{04_IPHI_Test/figures/fig000_IRMA}
@@ -18,10 +27,12 @@
 
   \input{04_IPHI_Test/figures/fig000_IRMA_setup}
   \subsection{Results and limitations}
+  \input{04_IPHI_Test/figures/fig000_IRMA_Si}
 
   \section{IPM design overview}
   \subsection{IPM}
   \subsection{MCP}
+  \input{04_IPHI_Test/tables/table000_MCP_Phosphor.tex}
   \subsection{Camera}
   A vision system is necessary to record light from the phosphorus screen.
   A camera with a lens should be sufficient in our case.
@@ -76,7 +87,13 @@
 
 
   \subsection{Reference measurement}
+
+  \input{04_IPHI_Test/figures/fig000_ecran}
+  \input{04_IPHI_Test/tables/table000_Scintillator}
+
   \section{IPHI test campaigns}
+  \input{04_IPHI_Test/figures/fig000_IPHI_tb}
+
   \subsection{IPHI accelerator}
   IPHI is a high intensity linear proton accelerator located at CEA/Saclay.
   This project has been started in the late of 90's\cite{Beau2000} but protons were accelerated up to 3 MeV in April 2016\cite{Gobin2016}.
@@ -96,7 +113,7 @@
 
   \input{04_IPHI_Test/figures/fig000_IPHI_view.tex}
   \input{04_IPHI_Test/tables/table000_IPHI_carac}
-  
+
   \subsection{Setup}
 
   \section{Results}
