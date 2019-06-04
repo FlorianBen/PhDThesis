@@ -1,21 +1,33 @@
 \begin{figure}[!ht]
   \begin{center}
     \begin{tikzpicture}[scale=1,transform shape,american voltages]
-      %\ctikzset{bipoles/length=1cm}
-      \draw (0,0) node[op amp] (opamp) {} 
-      (opamp.-) to [short, i=$i_s$] ($(opamp.-)-(2,0)$) to [R=$R_s$] ($(opamp.-)-(3,0)$) -| ($(opamp.+)-(3.5,.5)$)
-      %($(opamp.-)-(2,0)$) node[left]{$V_{in}$} to [short, i=$i_s$] (opamp.-)
-      %(0,0) node[op amp]
+      % Sensor + Cable
+      \draw
+      (0,0) to[isource, l_=$s$](0,3)
+      to[short, -, f=$i_s(t)$] (1.5,3)
+      to[C=$C_s$] (1.5,0) -- (0,0);
+      \draw 
+      (1.5,3) -- (3,3) to[R=$R_s$] (3,0) node[ground] {} to[short] (1.5,0);
+      \draw 
+      (3,3) -- (4.2,3) to[L=$L_c$] (5.2,3) to [R=$R_c$] (7.2,3) to [C,l_=$C_c$] (7.2,0) to[short] (3,0);
       
+      % OPA
+      \draw
+      (10,2) node[op amp] (opamp) {}
       (opamp.-) |- ($(opamp.-)+(0.2,1)$) to[R=$R_f$] ($(opamp.-)+(2.2,1)$) -|
       (opamp.out)
       (opamp.-) |- ($(opamp.-)+(0.2,2.5)$) to[C=$C_{f}$] ($(opamp.-)+(2.2,2.5)$) -|
       (opamp.out)
-      to[short,*-] ($(opamp.out)+(.5,0)$) node [right] {$V_{out}$} node [ocirc] {} 
-      (opamp.+) to[short]  ($(opamp.+)-(0,.5)$) node[ground] {};
+      to[short] ($(opamp.out)+(.5,0)$) node [right] {$V_{out}$} node [ocirc] {} (opamp.+) to[short]  ($(opamp.+)-(0,.5)$) node[ground] {} (opamp.-) to[short] ($(opamp.-)-(0,0)$) |- (7.2,3);
+
+      % Rectangle
+      \draw[red, thick] (-0.5, -1) rectangle(3.9,4.)
+      node[above,xshift=-2cm]{Sensor};
+      \draw[blue, thick] (4.1, -1) rectangle(8.,4.)
+      node[above,xshift=-2cm]{Cable};
 
     \end{tikzpicture}
   \end{center}
-  \caption[Typical circuit of a charge amplifier with an operational amplifier]{Typical circuit of a charge amplifier with an operational amplifier.}
+  \caption[Typical circuit of a charge amplifier with an operational amplifier]{Typical circuit of a charge amplifier with an operational amplifier. The $R_{f}$ and $C_{f}$ should chosen according to sensor characteristics. Strips sensors have low resistance but non negligible capacitance. Usually, cables are modelized by succession of LRC cells, for convenience just one cell is drawn here.}
   \label{chap3:AOPcharge}
 \end{figure}
