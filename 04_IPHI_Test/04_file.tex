@@ -6,34 +6,45 @@
 
 \section{Introduction}
 \begin{refsection}
-  \label{ch4:Introduction}
+  \label{ch4:Introduction [C]}
   The simulations presented in the previous chapter show that the profile measurement with IPM may matches the ESS requirement. However, some critical points, mainly about the choice of the readout, are not fully clarified, so the feasibility must be proven experimentally. From the results of the simulation, we converge to a first prototype design. Designing and testing prototypes is also a great opportunity to validate the simulations and earn feedbacks before the production phase. The following chapter presents the different prototypes that has been developed and tested as well as the results obtained. In fact, the chapter follows closely the real chronology of the cNPM project.
 
   The feasibility of silicon detection has been checked. A small test bench has been developed and installed in a ion implanter facility. The test has been done with a tailored silicon detector kindly provided by the CERN-BI team. The result and it consequence on the project will be discussed briefly.
 
   Then, a full test bench has been designed including several IPM and reference measurement. The different levels of integration for each component of the test bench will be described in order to give a global overview.
-  
+
   Finally, the test bench has been installed on a 3 MeV accelerator. Two test campaign has been done and the different IPMs have been tested and characterized. The setups and most of the results will be presented in this chapter.
 
-  \section{Preliminary tests of silicon detector}
-  The readout using silicon detector seems very promising but detection is not assured for ions at low energies. It requires significant development in terms of electronics: complex PCB design, placement and alignment of the chips, wire bonding, development of a backend electronic. Therefore, we decided to test a proof of concept before directly developing a complete IPM with silicon detector. If the test shows that detection with ions is possible then this solution can be considered at ESS, otherwise it will be discarded.
+  \section{Preliminary tests of silicon detector [C]}
+  The readout using silicon detector seems very promising but detection is not assured for ions at low energies. It requires significant development in terms of electronics: complex PCB design, placement and alignment of the chips, wire bonding, development of a backend electronic. Therefore, we decided to test a proof of concept before directly developing a complete IPM with silicon detector. If the test shows that detection with ions is possible then this solution can be considered at ESS, otherwise it will be discarded. Therefore, a low energetic ion source is necessary for testing the silicon method.
 
-  \subsection{IRMA}
-  \cite{Chaumont1981}
+  \subsection{IRMA [C]}
+  An implanter is a small ion accelerator used to implant various elements into a target substrate. The depth of the implementation is proportional to the ion acceleration \footnote{See section \ref{chap3:sec_particle_in_matter} and \ref{chap3:low_energy} in the previous chapter}. This kind of sources is particularly useful for material and irradiation sciences, and it may be the most efficient way to test the silicon detectors for us.
+
+  The IRMA implanter \cite{Chaumont1981} relies on a Bernas-Nier source \cite{Paris1981} for creating a plasma from injected gas. The plasma is then extracted and charge filtered by the means of a magnet. The post acceleration is performed by an electrostatic tube. Finally, a set of steerers allows a fine beam scanning on the target. The IRMA implanter can accelerate a large number of elements between 5 to 190 keV with currents about uA scale. Fig. \ref{chap4:IRMA_facility} presents a schematic representation of IRMA and a picture of the facility.
   \input{04_IPHI_Test/figures/fig000_IRMA}
-  \subsection{Test setup}
+  
+  \subsection{Test setup [En cours de rédaction]}
   \cite{advacam2019}
   \cite{Kraus2011}
 
   \input{04_IPHI_Test/figures/fig000_IRMA_setup}
-  \subsection{Results and limitations}
+  \subsection{Results and limitations [En cours de rédaction]}
+  
   \input{04_IPHI_Test/figures/fig000_IRMA_Si}
 
-  \section{IPM design overview}
-  \subsection{IPM}
-  \subsection{MCP}
-  \input{04_IPHI_Test/tables/table000_MCP_Phosphor.tex}
-  \subsection{Camera}
+  Few days after the test, the integrity of the sensor has been test by illuminating it with an UV-VIS LED (peak emission at 365nm). A zone in the matrix and it is visible in Fig. \ref{}. 
+  This zone is exactly in the same place as the one bombarded by the ions. The sensor has been probably deteriorated by the high current of IRMA. Unfortunately it is not possible to accurately estimate the number of ions that have been sent to the sensor and the nature of the damage is unknown. Note that the gain has increased in the irradiated region.
+
+  We decided to not go further with silicon detectors for all the previous reasons. The cost of development of a silicon solution is not worth considering the possible risks of non detection. We would like to remain that the experiment has been done to quickly check the feasibility and it suffers from several limitations. Firstly the detector was not triggered, during short acquisitions pulse only very few data were taken in coincidence with the beam, therefore long acquisitions have been favored reducing the uncertainty only on the first and last pulse. The second uncertainty comes from the beam scanning. We noticed that, sometimes, the beam could pass through the hole more than once for a same scanning cycle. This means that the number of charge is collected by the TimePix is more than expected for an acquisition.
+
+  We hope that further testing will be done to fully determine the detection limit of this method with ions and investigate more on the ion damaging. Since our tests TimePix 3 has completely replaced its ancestor. This version provides the ability to measure at same time the ToT and ToA, higher timing resolution and efficient data protocol. As well, the reading electronics has been improved allowing advanced triggering option of the chip.
+  
+  \section{IPM design overview[En cours de rédaction]}
+  \subsection{IPM [En cours de rédaction]}
+  \subsection{MCP [En cours de rédaction]}
+  %\input{04_IPHI_Test/tables/table000_MCP_Phosphor.tex}
+  \subsection{Camera [C]}
   A vision system is necessary to record light from the phosphorus screen.
   A camera with a lens should be sufficient in our case.
 
@@ -58,10 +69,10 @@
 
   Lenses with 50mm focal length are rather standard and commercially available at moderate cost. In addition these lenses have a large numerical aperture (or small F-number) so they provide a large photon capture efficiency.
 
-  \subsection{Strips}
-  \subsection{CARAMEL board and FASTER system}
+  \subsection{Strips [En cours de rédaction]}
+  \subsection{CARAMEL board and FASTER system [En cours de rédaction]}
   \cite{ddc316}\cite{caramel2013}\cite{faster2013}\cite{rhb2012}
-  \subsection{Control System}
+  \subsection{Control System [C]}
   The whole ESS Control System (CS) will rely on the EPICS (Experimental Physics and Industrial Control System) toolkit. The ESS CS team has specified its own EPICS standards to ensure the sustainability of the control system over the years. We will also test our IPMs in an accelerator that is EPICS compatible. Therefore, EPICS has some importance to our project and we tried to use it as much as possible for our prototypes. In this section we will briefly describe EPICS and how we have integrated our test bench.
 
   EPICS provides a set of tools and protocols to facilitate the integration of control system \cite{epics2019}. Originally developed for real-time systems, EPICS now supports many platforms. EPICS has become an open source project in 2004, since many laboratories and collaborations have contributed to EPICS.
@@ -73,28 +84,32 @@
 
   \input{04_IPHI_Test/figures/fig000_EPICS_IPHI}
 
-  \subsection{Test bench}
+  \subsection{Test bench [C]}
   A test bench has been also developed in order to test the prototypes. The bench can be split into two different independent parts.
 
-  The first part (upstream) tries to mimic the ESS LWU chamber on which two IPMs can be inserted. The idea is to be close to the ESS conditions in term of high voltages and electrical fields.
-  The second part (downstream) offers one more IPM slot and two viewports for reference measurements in order to compare with the IPMs.
+  The first part (upstream) tries to mimic the ESS LWU chamber on which two IPMs can be inserted. The idea is to be close to the ESS conditions in term of high voltages and electrical fields. The second part (downstream) offers one more IPM slot and two viewports for reference measurements in order to compare with the IPMs. Fig. \ref{chap4:Testbench} presents a technical drawing of the test bench. One can see the resemblance of the upstream part with the LWU vessel previously shown in Fig. \ref{chap3:LWU_Cryo} and \ref{chap3:COMSOL_LWU}.
 
-  Two solutions have been considered for the reference measurements, fluorescence profile monitor (FPM) and scintillating screens.
 
   The IPMs can be mounted independently in Y or X direction thanks to their design, thus it is even possible to measure the same profile direction with all three IPMs.
 
   \input{04_IPHI_Test/figures/fig000_Testbench}
 
 
-  \subsection{Reference measurement}
+  \subsection{Reference measurement [En cours de rédaction]}
+  A reference measurement is alway a good practice when developing a detector. First, it may help to diagnostic possible issues on the prototypes. Then, it allows a complete comparison with the prototypes, and gives more confidence on the measurement. Therefore, two methods have been foreseen and implemented for this purpose.
+
+  The first method uses scintillator screens, and thus is interceptive. The screens are mounted on a racket that can be inserted into the beam using a translator controlled remotely through a GEO BRICK controller. Three scintillator screens have been kindly provided by our colleagues at Saclay. Table \ref{chap4:tab_ecran} sums up the main characteristics of each screen, and Fig \ref{chap4:fig_ecran} shows the three screens on a support.
+
+  The second system foreseen is a Fluorescence Profile Monitor (FPM). This system is developed by colleagues at ESS, indeed it will be the future NPM of the ESS MEBT. The FPM relies on a Image Intensifier (II) and a CMOS camera. An intensify image is a device that amplify visible photons. A photocathode on its input converts a incident photon into electrons. These electrons are then amplified by a single or double stages MCP and converted back into photons using a phosphor screen. Finally, a camera records the amplified image on the back of the phosphor screen. An II may detect a single photon as long as the incident photon is converted by the photocathode. However the information of the wavelength cannot be recover. The FPM is a totally non invasive method.
+
 
   \input{04_IPHI_Test/figures/fig000_ecran}
   \input{04_IPHI_Test/tables/table000_Scintillator}
 
-  \section{IPHI test campaigns}
+  \section{IPHI test campaigns [En cours de rédaction]}
   \input{04_IPHI_Test/figures/fig000_IPHI_tb}
 
-  \subsection{IPHI accelerator}
+  \subsection{IPHI accelerator [C]}
   IPHI is a high intensity linear proton accelerator located at CEA/Saclay.
   This project has been started in the late of 90's\cite{Beau2000} but protons were accelerated up to 3 MeV in April 2016\cite{Gobin2016}.
 
@@ -111,25 +126,70 @@
 
   Figure \ref{chap4:IPHI_view} shows schematic view of IPHI accelerator, and Table \ref{chap4:IPHI_carac} sums up difference between IPHI and ESS.
 
-  \input{04_IPHI_Test/figures/fig000_IPHI_view.tex}
+  \input{04_IPHI_Test/figures/fig000_IPHI_view}
   \input{04_IPHI_Test/tables/table000_IPHI_carac}
 
-  \subsection{Setup}
+  \subsection{Setup [En cours de rédaction]}
 
-  \section{Results}
+  \section{Results [En cours de rédaction]}
   \subsection{Processing camera}
   \subsection{Processing strip}
   \cite{Brun1997,Antcheva2009}
-  \subsection{Processing screen}
+  \subsection{Processing scintillator screen}
+  \subsection{Review on the reference measurement}
+
+
+
   \subsection{Beam current}
   \subsection{Beam position}
   \subsection{Beam size and space charge}
   \subsection{Detection limits}
   \subsection{Comparison size}
-  \subsection{...}
-  \subsection{Electron measurement}
 
-  \section{Summary}
+  \section{COMSOL simulation}
+  Simulations have been performed with COMSOL to cover both cases of asymmetric and symmetric configuration. The simulations expose a good uniformity with a  better result for symmetric configuration. However, it may be difficult to since the beam cannot be moved in a non uniform areas of the detector.
+  
+  A possible workaround consists in intentionally reduce the uniformity of the extraction, and the beam size and position will be more affected by non-uniformities. The optical IPM has been used in asymmetric configuration with a resistor chain designed for symmetric usage. Since resistor chains are different between asymmetric and symmetric configurations the extraction field will be also different. The electric field in this peculiar configuration can be simulated with COMSOL as shown previously.
+
+  The three main effects have been observed from the simulations. Firstly, the beam image is smaller than the real beam size. This focusing effect is constant over the overall plane detection. Secondly, the extraction field tends to pull the beam image in the center of the detector. This effect is linear and null at the IPM center. Thus, the measured displacement is less important on the readout than the reality. Lastly, the beam image intensity is smaller in asymmetric because some particles are lost in the longitudinal direction. However, this effect can not be measured because the gain of MCP is not perfectly know on symmetric configure and cannot be recovered correctly.
+  
+  We measured the beam size and displacement for several steerer values in the symmetric and asymmetric configuration. The 
+  The extractions field were set to same value for both configurations and all other parameters were frozen. If we suppose that the symmetric mode gives the real beam position and size, hence it is possible to quantify the difference between the simulations and experimental values.
+
+  % TODO: Finir
+
+  Note that the steerer was not able to cover the full range in position and we preferred to not use the dipole magnet to continue the scanning since it may affect the beam size.
+  
+  The method is clearly not perfect but it allows to reduce the IPHI uncertainty since it can be done without stopping down the accelerator.
+
+  \subsection{Phosphorus screens}
+  \subsubsection{Gain}
+  % TODO: A améliorer
+  A phosphorus screen converts a charged particle into visible photons.
+  The signal amplitude depends on the energy deposition of the particle in the phosphorus layer. In our case, the phosphorus screen is placed just after the MCP output. So the signal is proportional to the accelerating voltage between the MCP output and the phosphorus screen. Two screens have been tested during the beam tests: the P43 and the P46. Each screen has its intrinsic characteristics like the yield, the emission wavelength and the decay time. Fig. \ref{fig:phos_integral} expose the linear response with the voltage for both the screens. The beam size seems to be not affected by the screen gain, as shown in Fig. \ref{fig:phos_pos}. According to Hamamatsu, the lifetime of a phosphorus screen is negligible with respect to the MCP lifetime.
+
+  \input{04_IPHI_Test/figures/fig000_P_size}
+  \input{04_IPHI_Test/figures/fig000_P_gain}
+
+  \subsubsection{Timing}
+  % TODO: A améliorer
+  The measurement of decay time has been performed by moving the camera trigger at small exposure times. The measurement is a bit more difficult for the fast screen. Indeed, the exposure time is now comparable to the decay time, also the delay and the jitter on the exposure time may afflict the measurement. As expected, the P43 is slow, thus if this screen is used for ESS then the total integration time on camera should be set to $10\,\mathrm{ms}$ and not strictly to $2.86\,\mathrm{ms}$ ms. This is not the case with the P46 screen.
+  \input{04_IPHI_Test/figures/fig000_P_timing}
+
+  \subsection{Extrapolation to ESS condition}
+  Unlike the strips IPM, it is almost impossible to quantify the number of ionization particles without a full calibration of the MCPs. Hence, the extrapolation to ESS conditions is only done from Bethe Bloch formula, with respect to the beam parameters and vacuum conditions measured at IPHI. We supposed that the signal scales linearly with pressure. The beam current and the pulse duration were set to their lowest value possible at IPHI, respectively $0.7\,\mathrm{mA}$ and 50 $50\, \mathrm{\mu s}$. The vacuum level was about $4 \cdot 10^{-8}\,\mathrm{mbar}$ and its composition was mainly water (conservative assumption), see Appendix \ref{app:RGA}. Table \ref{tab:ESS_extrapolation} sums up the factor of each parameter on the extrapolation. At first glance, it seems to be possible to measure single profile at nominal ESS conditions. However, this assumption is strongly dependent to the vacuum conditions. Neither the RGA nor the gauges were calibrated so the uncertainty may be relevant.
+  \input{04_IPHI_Test/tables/table000_extrapolationMCP.tex}
+
+  \subsection{Electron measurement with MCP}
+  Unfortunately, we were not able to measure any profile in electron mode during the first and second campaign.
+  Typical pictures in the electron configuration are shown in Figure \ref{fig:electron}. One can see that the . A higher signal is observed on the sides of the MCPs.
+  The MCPs are in general a little less sensitive to electrons compare to ions at energies between five and ten keV \cite{Wiza1979}.
+  However, during tests the signal on the camera was always far higher for electrons without any modifications of the gain or the beam conditions.
+  Hence, we suppose that the electron background is huge at IPHI.
+  During tests, permanent magnets have been installed close to the aperture and beam dump. No clearly improvements have been observed. We still don't know exactly why there is so many electrons.
+  \input{04_IPHI_Test/figures/fig000_electron}
+
+  \section{Summary [En cours de rédaction]}
   \label{ch4:Summary}
 
   \cleardoublepage
