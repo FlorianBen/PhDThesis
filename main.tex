@@ -63,6 +63,9 @@
 % Booktabs pour les tables
 \usepackage{booktabs}
 
+% tabularx
+\usepackage{tabularx}
+
 % Use textpos for placement
 \usepackage[absolute, overlay]{textpos}
 
@@ -105,7 +108,7 @@
 
 \begin{document}
 \dominitoc[]
-\input{00_Guards/couverture}
+%\input{00_Guards/couverture}
 \thispagestyle{empty}
 \cleardoublepage
 \pagenumbering{arabic}
@@ -119,11 +122,11 @@
 
 	\input{myacronyms}
 	\mainmatter
-	\input{01_Introduction/01_file}
-	\input{02_BeamDiag/02_file}
+	%\input{01_Introduction/01_file}
+	%\input{02_BeamDiag/02_file}
 	\input{03_Prototype/03_file}
-	\input{04_IPHI_Test/04_file}
-	\input{05_Conclusion/05_file}
+	%\input{04_IPHI_Test/04_file}
+	%\input{05_Conclusion/05_file}
 
 	\printglossary[type=\acronymtype]
 
