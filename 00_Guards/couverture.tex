@@ -1,6 +1,7 @@
 %%% define the colour of the title				%%%
 %%% could be set to match general colour theme 	%%%
 
+\tikzset{external/export=false}	
 \begin{titlepage}
 	\thispagestyle{empty}
 	\definecolor{SchoolColor}{rgb}{0.145,0.666,1} %%% Cyanish %%
@@ -8,8 +9,7 @@
 	\definecolor{CEAColor}{rgb}{0.898,0.09765,0.0}
 	
   %%% the purple border line %%%
-  \tikzset{external/export next=true}
-	\begin{tikzpicture}[remember picture, overlay]
+  \begin{tikzpicture}[remember picture, overlay]
 		\draw[line width=1.2 pt, color=blue!20!red!45!black!75!]
 		($(current page.south west)+(1 cm,+1. cm)$) 
 		-- ($(current page.north west)+(1 cm,-1. cm)$) 
