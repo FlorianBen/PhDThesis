@@ -107,6 +107,8 @@
 % Pour entouré les images avec du texte
 \usepackage{wrapfig}
 
+\usepackage{pdfpages}
+
 \begin{document}
 \dominitoc[]
 \input{00_Guards/couverture}
@@ -135,7 +137,7 @@
 	\addcontentsline{toc}{chapter}{\listfigurename}
 
 	\listoftables
-	\addcontentsline{toc}{chapter}{\listtablename}
+  \addcontentsline{toc}{chapter}{\listtablename}
 \end{otherlanguage}
 
 \begin{otherlanguage}{french}
@@ -143,6 +145,7 @@
 \end{otherlanguage}
 
 \appendix
+%\input{00_Appendix/00_file.tex}
 \backmatter
 
 \pagenumbering{gobble}
