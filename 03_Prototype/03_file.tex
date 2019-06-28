@@ -493,25 +493,57 @@
   \input{03_Prototype/figures/fig028_garfieldangle}
 
   A particle tracking can be performed in order to quantify the influence of the initial momentum of electrons. Fig. \ref{chap3:ElectronProfile_a} presents the relative error on the profile caused by the initial energy as a function of the extraction field. Note that it is impossible to fully compensate the error with realistic electric field values (below $6\,\mathrm{kV/cm}$). Usually, when a profiler works in electron mode, a magnetic field parallel to the extraction field is added forcing the electrons to spin around the field direction. In the Fig. \ref{chap3:ElectronProfile_b}, a general example of correction done with a magnetic field is presented. In the range of $10^{-3}$ to $5\cdot10^{-2}\,\mathrm{T}$ the Larmor radius is still to high to constraint electrons drifting along the field lines.
-%and electrons does not have the time to spin several time during their drift. 
-A magnetic field of at least $0.1\,\mathrm{T}$ completely negate the initial momentum of electrons. However the generation of a such magnetic field requires imposing dipole magnets. At ESS this solution is not feasible because the available space on LWU is not sufficient to put two magnets close-by.
+  %and electrons does not have the time to spin several time during their drift. 
+  A magnetic field of at least $0.1\,\mathrm{T}$ completely negate the initial momentum of electrons. However the generation of a such magnetic field requires imposing dipole magnets. At ESS this solution is not feasible because the available space on LWU is not sufficient to put two magnets close-by.
 
   \input{03_Prototype/figures/fig032_ElectronProfile}
 
   We wanted to study the ion behavior, but nfortunately Garfield++ does not give the energy spectrum of the ions.
-%% Thus, we have considered two approaches for determining the ion energy. First, one assumes that the ions have the same energy as electrons and particle tracking gives same as electrons without magnetic field and the profile can not be corrected with realistic magnetic field value.&&
-We have considered the momentum conservation of a pure ionisation process, meaning the molecule dissociation in one electron and an ion. The ion momenta follow then the same electron distribution depicted by Garfield++. Therefore, the speed of a ion is proportional to the speed of electron weighted by their mass ratio. For instance, the speed of a $100\,\mathrm{eV}$ is around $5.9\cdot10^{6}\,\mathrm{m/s}$, while the $H_{2}^{+}$ ion speed is only $1614\,\mathrm{m/s}$. In these conditions, the speed of ions is below the thermal motion and calculations are therefore useless.
+  %% Thus, we have considered two approaches for determining the ion energy. First, one assumes that the ions have the same energy as electrons and particle tracking gives same as electrons without magnetic field and the profile can not be corrected with realistic magnetic field value.&&
+  We have considered the momentum conservation of a pure ionisation process, meaning the molecule dissociation in one electron and an ion. The ion momenta follow then the same electron distribution depicted by Garfield++. Therefore, the speed of a ion is proportional to the speed of electron weighted by their mass ratio. For instance, the speed of a $100\,\mathrm{eV}$ electron is around $5.9\cdot10^{6}\,\mathrm{m/s}$, while the $H_{2}^{+}$ ion speed is only $1614\,\mathrm{m/s}$. In these conditions, the speed of ions is below the thermal motion and calculations are therefore useless.
 
 
   \section{Space charge effect [En cours de rédaction]}
+  The last effect that can greatly affect the measurement of the profile is the Space Charge. The protons of the beam bunchs are in motion, so a strong radial electric field and a circular magnetic field are created around the beam axis. Each ESS bunch is composed of $10^{9}$ protons. The effect of the space charge is not intuitive: electrons are light and may see less bunchs but they are more sensitive to magnetic field. On the other hand, the ions are more massive and less sensitive to the EM fields but will undergo these fields many more times. Therefore, simulations were carried out to quantify this effect.
+
   \subsection{Lorentz transformation of electromagnetic fields [En cours de rédaction]}
+
+  \begin{equation}
+    \beta = \frac{v}{c}
+    ,\
+    \gamma = \frac{1}{\sqrt{1 - \beta^{2}}}
+    %\label{eq5}
+  \end{equation}
+
+  \begin{equation}
+    \boldsymbol{E} =
+    \begin{pmatrix}
+      \gamma \bar{E}_{x} \\
+      \gamma \bar{E}_{y} \\
+      \bar{E}_{z}
+    \end{pmatrix}
+    ,\
+    \boldsymbol{B} =
+    \begin{pmatrix}
+      -\gamma v_{b} \frac{\bar{E}_y}{c^{2}} \\
+      \gamma v_{b} \frac{\bar{E}_x}{c^{2}}  \\
+      0
+    \end{pmatrix}
+    %\label{eq5}
+  \end{equation}
   \subsection{ESS/CEA Space Charge algorithm [En cours de rédaction]}
+  A simulation code has been developed by Cyrille Thomas (ESS) and Francesca Belloni (CEA) in order to quantify the effects of space charge on the profile measurement with respect to the ESS beam conditions \cite{Thomas-2016-1,Belloni2018}. The code is based on the analytical evaluation of the electric field for a Gaussian charge distribution and a full description of this model is available here \cite{Wanzenberg2010}.
   \subsection{Results}
-  % Using the code, it has been shown that space charge effect can be partially compensated by a high extraction field value. It has been seen that profiles from electrons seem to be more affected by space charge effect than from ions. In the Fig. \ref{fig4}, a general example of the ESS beam size measured from profiles obtained with ions and electron is presented, and for various values of the electric field strength. The beam size has been chosen to be 3\% smaller than the nominal value. The values of the field strength used in the simulation are chosen in a range that is technically achievable. Within that range it can be seen that the minimization of the space charge effect is limited. It is also clear that the effect is stronger for electrons than for ions.
-  
-  % In the case of ESS beam, the ions and electrons feel a permanent electric field from the HV cage of the IPM, and an variable field due to the bunched structure of the beam. The duty cycle of the variable beam plays a role in the distortion of the profiles. In the case of electrons, due to their small mass, they will reach the detector within the passage of one bunch. Therefore, they feel the combined forces most of the time along their path. In the case of the ions, it takes the time of many bunches for them to reach the detector. Hence, the forces from the bunch are weighted by the duty cycle of the varying electric field. For the case of ESS, the bunches are 3\,ps, and the period between them is 2.84\,ns. So the integrated force seen by the ions has less strength than in the case with electrons. 
-  
-  % The expected uncertainty for the beam size measurement is 10\%. The presented case shows the impact of the space charge can be strong, but yet the retrieved values are still within the requirements for the measurement uncertainty. Larger beam sizes are associated with weaker space charge effect, hence, the designed instrument is expected to deliver reliable information on the ESS beam profile and size.
+  % Using the code, it has been shown that space charge effect can be partially compensated by a high extraction field value. It has been seen that profiles from electrons seem to be more affected by space charge effect than from ions.
+
+
+  \input{03_Prototype/figures/fig000_double_horizontal}
+
+  In the Fig. \ref{fig4}, a general example of the ESS beam size measured from profiles obtained with ions and electron is presented. The beam size has been chosen to be $3\mathrm{\%}$ smaller than the nominal value. The values of the field strength used in the simulation are chosen in a range that is technically achievable. Within that range it can be seen that the minimization of the space charge effect is limited. It is also clear that the effect is stronger for electrons than for ions.
+
+  The duty cycle of the variable beam plays a role in the distortion of the profiles. In the case of electrons, due to their small mass, they will reach the detector within the passage of one bunch. Therefore, they feel the combined forces most of the time along their path. In the case of the ions, it takes the time of many bunches for them to reach the detector. Hence, the forces from the bunch are weighted by the duty cycle of the varying electric field. For the case of ESS, the bunches are $3\mathrm{ps}$, and the period between them is $2.84\mathrm{ns}$. So the integrated force seen by the ions has less strength than in the case with electrons.
+
+  The expected uncertainty for the beam size measurement is $10\mathrm{\%}$. The presented case shows the impact of the space charge can be strong, but yet the retrieved values are still within the requirements for the measurement uncertainty. Larger beam sizes are associated with weaker space charge effect, hence, the designed instrument is expected to deliver reliable information on the ESS beam profile and size.
 
   \section{Readout systems}
   The information about the ionized particles that reach the readout is well known thanks to all the previous simulations. However, the readout system has not been defined yet. The main requirements on the readout are the following:
@@ -548,7 +580,7 @@ We have considered the momentum conservation of a pure ionisation process, meani
   The reality is much more complex since the electronic elements are not perfect. First, the sensor has a parasitic capacitance and resistance, as well as every components in the analog chain. Nuclear detectors have non negligible impedance that reduce the gain stability of transimpedances.
   For low signal, the feedback resistance must be high enough, but the Johnson’s (or thermal) noise increases linearly with the resistance. At some point, the signal to noise ratio will be too low, so the signal may be not recovered.
 
-  The charge amplifier is more popular for nuclear detector. In this configuration, a capacitor is added in the feedback loop. It compensates the sensor capacitance and allows stable and high gain, but the bandwidth is smaller. A resistor or a switch can be put in parallel to the feedback capacitor allowing the discharge of the capacitor. Note that amplifiers have their own characteristics that will also limit the bandwidth and gain regardless of the amplifier configuration.
+  The charge amplifier is more popular for nuclear detector (Fig. \ref{chap3:AOPcharge}). In this configuration, a capacitor is added in the feedback loop. It compensates the sensor capacitance and allows stable and high gain, but the bandwidth is smaller. A resistor or a switch can be put in parallel to the feedback capacitor allowing the discharge of the capacitor. Note that amplifiers have their own characteristics that will also limit the bandwidth and gain regardless of the amplifier configuration.
 
   \input{03_Prototype/figures/fig029_AOPcharge}
 
@@ -597,11 +629,13 @@ We have considered the momentum conservation of a pure ionisation process, meani
 
   A MicroChannel Plate (MCP) generates electrons from incident particles \cite{Wiza1979}.
   It can be seen as a glass lead plate drilled with micro-metric tilted holes.
-  A specific coating is applied on its input surface to increase secondary emissions. When a particle hits the MCP hole entrance,  secondary electrons are emitted. Due to the difference of potential applied between the MCP faces, secondaries are drawn towards the channel output and strike hole walls again, creating more and more electrons. Then, electrons are collected on a detection plane that can be a single electrode, multiple electrodes or a phosphorus screen depending on the read-out requirements (sensitivity, spatial and time resolution). Fig. \ref{chap3:MCP_outline_1} shows some schematic representations of how an MCP works.
+  A specific coating is applied on its input surface to increase secondary emissions. When a particle hits the MCP hole entrance, secondary electrons are emitted. Due to the difference of potential applied between the MCP faces, secondaries are drawn towards the channel output and strike hole walls again, creating more and more electrons. Then, electrons are collected on a detection plane that can be a single electrode, multiple electrodes or a phosphorus screen depending on the read-out requirements. Fig. \ref{chap3:MCP_outline_1} shows some schematic representations of how an MCP works.
+
+  MCPs have a high efficiency for low energy ions and electrons. MCPs are also sensitive to photons via compton and photoelectric effect interactions (from gamma rays to VUV). The detection of neutron is  also possible by adapting the composition of the coating. MCPs are fully vacuum compatible. MCPs are also extremely fast amplifiers and time resolution is in the order of a few hundred picoseconds for a single stage MCP. The spatial resolutions of a MCP depends on its channel size and spacing. However both resolutions are limited by the readout used. Phosphorus screens provide high spatial resolution but screen are not fast as the MCP. Electrode readout allows to read fast and low signals with an efficient electronic. 
 
   \input{03_Prototype/figures/fig031_MCP_outline.tex}
 
-  Gain or multiplication factor for a single MCP is about $10^{2}$ to $10^{4}$ depending on the $V_{MCP}$ voltage, usually from $600$ to $1000\,\mathrm{V}$. Several MCPs can be stacked to increase the gain to $10^{6}$ or even higher. Typical configurations are single stage, chevron stack (double stages) or Z stack (triple stages).
+  Gain or multiplication factor for a single MCP is about $10^{2}$ to $10^{4}$ depending on the $V_{MCP}$ voltage, usually from $600$ to $1000\,\mathrm{V}$. Several MCPs can be stacked to increase the gain to $10^{6}$ or even higher. Typical configurations are single stage, chevron stack (double stages) or Z stack (triple stages). Analytical expression of the gain is not trivial since its strongly depends on the characteristics of the MCP and its coating. MCP manufacturers often express the gain as an exponential function of the potential applied.
 
   \input{03_Prototype/figures/fig030_MCPoutline.tex}
 
