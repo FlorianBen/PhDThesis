@@ -70,9 +70,6 @@
 % Use textpos for placement
 \usepackage[absolute, overlay]{textpos}
 
-% Use hyperlink in document
-\usepackage[hidelinks,hyperindex=true]{hyperref}
-
 % Use lipsum generator
 \usepackage{lipsum}
 
@@ -102,12 +99,16 @@
 \usepackage[inkscapepath=build]{svg}
 
 % Subfigure package, pour des images multiples
-\usepackage{subcaption}
+\usepackage[list=true,listformat=simple]{subcaption}
 
 % Pour entouré les images avec du texte
 \usepackage{wrapfig}
 
 \usepackage{pdfpages}
+
+% Use hyperlink in document
+\usepackage[hidelinks,hyperindex=true]{hyperref}
+\hypersetup{pdfencoding=auto}
 
 \begin{document}
 \dominitoc[]
@@ -125,11 +126,11 @@
 
 	\input{myacronyms}
 	\mainmatter
-	\input{01_Introduction/01_file}
-	\input{02_BeamDiag/02_file}
+	%\input{01_Introduction/01_file}
+	%\input{02_BeamDiag/02_file}
 	\input{03_Prototype/03_file}
 	\input{04_IPHI_Test/04_file}
-	\input{05_Conclusion/05_file}
+	%\input{05_Conclusion/05_file}
 
 	\printglossary[type=\acronymtype]
 
