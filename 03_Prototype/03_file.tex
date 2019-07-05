@@ -161,6 +161,7 @@
   % The second limitation concerns possible \acrshort{hv} breakdowns. In very high vacuum a distance of some millimeter is sufficient to isolate several tens of kilovolts. However, the breakdowns are also strongly influenced by the surface states of the electrodes, the composition of the vacuum and the presence of leakage current \cite{Latham1995}. Hence, we should keep a standoff distance between the electrode and the vacuum vessel (less than 1kV/cm between the \acrshort{ipm}s and \acrshort{lwu}).
 
   \subsection{Maxwell equations at steady state}
+  \label{chap3:sec:maxwell}
   Electric and magnetic fields are perfectly described by the Maxwell's equations. Since we are in vacuum, the Maxwell's equations can be reduced to:
   \begin{alignat*}{3}
     \overrightarrow{\nabla} \cdot \overrightarrow{E}  & = \frac{\rho}{\epsilon_{0}}\quad                                           &  & \text{(Maxwell-Gauss's Law)}   \\
@@ -498,15 +499,18 @@
 
   \input{03_Prototype/figures/fig032_ElectronProfile}
 
-  We wanted to study the ion behavior, but nfortunately Garfield++ does not give the energy spectrum of the ions.
+  We wanted to study the ion behavior, but unfortunately Garfield++ does not give the energy spectrum of the ions.
   %% Thus, we have considered two approaches for determining the ion energy. First, one assumes that the ions have the same energy as electrons and particle tracking gives same as electrons without magnetic field and the profile can not be corrected with realistic magnetic field value.&&
-  We have considered the momentum conservation of a pure ionisation process, meaning the molecule dissociation in one electron and an ion. The ion momenta follow then the same electron distribution depicted by Garfield++. Therefore, the speed of a ion is proportional to the speed of electron weighted by their mass ratio. For instance, the speed of a $100\,\mathrm{eV}$ electron is around $5.9\cdot10^{6}\,\mathrm{m/s}$, while the $H_{2}^{+}$ ion speed is only $1614\,\mathrm{m/s}$. In these conditions, the speed of ions is below the thermal motion and calculations are therefore useless.
+  We have considered the momentum conservation of a pure ionization process, meaning the molecule dissociation in one electron and an ion. The ion momenta follow then the same electron distribution depicted by Garfield++. Therefore, the speed of a ion is proportional to the speed of electron weighted by their mass ratio. For instance, the speed of a $100\,\mathrm{eV}$ electron is around $5.9\cdot10^{6}\,\mathrm{m/s}$, while the $H_{2}^{+}$ ion speed is only $1614\,\mathrm{m/s}$. In these conditions, the speed of ions is below the thermal motion and calculations are therefore useless.
 
 
   \section{Space charge effect [En cours de rédaction]}
-  The last effect that can greatly affect the measurement of the profile is the Space Charge. The protons of the beam bunchs are in motion, so a strong radial electric field and a circular magnetic field are created around the beam axis. Each \acrshort{ess} bunch is composed of $10^{9}$ protons. The effect of the space charge is not intuitive: electrons are light and may see less bunchs but they are more sensitive to magnetic field. On the other hand, the ions are more massive and less sensitive to the EM fields but will undergo these fields many more times. Therefore, simulations were carried out to quantify this effect.
+  The last effect that can greatly affect the measurement of the profile is the Space Charge. The protons of the beam bunches are in motion, so a strong radial electric field and a circular magnetic field are created around the beam axis. Each \acrshort{ess} bunch is composed of $10^{9}$ protons. The effect of the space charge is not intuitive: electrons are light and may see less bunches but they are more sensitive to magnetic field. On the other hand, the ions are more massive and less sensitive to the EM fields but will undergo these fields many more times. Therefore, simulations were carried out to quantify this effect.
+  
+  The space charge effect is a critical aspect of IPMs in general and several simulations was developed or are under development \cite{Sapinski2016,IPMcolab2019}. Recently, a python framework dedicated to the IPM simulations, including space charge effects, has been released \cite{Vilsmeier2019}. The code is developed at GSI but is open to everyone. However in this thesis, only the in-house code developed by ESS and CEA will be described.
 
   \subsection{Lorentz transformation of electromagnetic fields [En cours de rédaction]}
+  The physic basis behind the space charge remains the Maxwell equations presented in the section \ref{chap3:sec:maxwell}. These were unified before the discovery of restricted relativity by Einstein in 1905 but it appears that they were already compatible with restricted relativity. 
 
   \begin{equation}
     \beta = \frac{v}{c}
@@ -533,17 +537,25 @@
   \end{equation}
   \subsection{ESS/CEA Space Charge algorithm [En cours de rédaction]}
   A simulation code has been developed by Cyrille Thomas (ESS) and Francesca Belloni (CEA) in order to quantify the effects of space charge on the profile measurement with respect to the \acrshort{ess} beam conditions \cite{Thomas-2016-1,Belloni2018}. The code is based on the analytical evaluation of the electric field for a Gaussian charge distribution and a full description of this model is available here \cite{Wanzenberg2010}.
-  \subsection{Results}
-  % Using the code, it has been shown that space charge effect can be partially compensated by a high extraction field value. It has been seen that profiles from electrons seem to be more affected by space charge effect than from ions.
 
+  A simplified workflow :
+  A particle, ion or electron, is draw according to the ESS beam characteristic: gaussianly distributed in 3D. The electric field of the beam is calculated in the moving frame from the equations given in the references, in this frame the beam sigma is spread by a factor. The resulting electromagnetic field in the frame of IPM is calculated using the Lorentz transformations of fields. A Runge Kutta integrator computes the new particle position according to the electromagnetic field of the beam and the extraction field of the IPM. At each integration step the fields of the beam is recalculated taking into account the new position of the bunches and the periodicity of the beam. The particle is tracked until it reaches the readout plane.
+
+  \subsection{Results}
+
+  The effect of space depends on many beam parameters, therefor
+  Many . In the following only . to underline the impact on the profile measurement.
 
   \input{03_Prototype/figures/fig000_double_horizontal}
 
-  In the Fig. \ref{fig4}, a general example of the \acrshort{ess} beam size measured from profiles obtained with ions and electron is presented. The beam size has been chosen to be $3\mathrm{\%}$ smaller than the nominal value. The values of the field strength used in the simulation are chosen in a range that is technically achievable. Within that range it can be seen that the minimization of the space charge effect is limited. It is also clear that the effect is stronger for electrons than for ions.
 
-  The duty cycle of the variable beam plays a role in the distortion of the profiles. In the case of electrons, due to their small mass, they will reach the detector within the passage of one bunch. Therefore, they feel the combined forces most of the time along their path. In the case of the ions, it takes the time of many bunches for them to reach the detector. Hence, the forces from the bunch are weighted by the duty cycle of the varying electric field. For the case of \acrshort{ess}, the bunches are $3\mathrm{ps}$, and the period between them is $2.84\mathrm{ns}$. So the integrated force seen by the ions has less strength than in the case with electrons.
+  \input{03_Prototype/figures/fig000_SC}
 
-  The expected uncertainty for the beam size measurement is $10\mathrm{\%}$. The presented case shows the impact of the space charge can be strong, but yet the retrieved values are still within the requirements for the measurement uncertainty. Larger beam sizes are associated with weaker space charge effect, hence, the designed instrument is expected to deliver reliable information on the \acrshort{ess} beam profile and size.
+  In the Fig. \ref{chap3:fig:space_charge_profile}, a general example of the \acrshort{ess} beam size measured from profiles obtained with ions and electron is presented. The beam size has been chosen to be $3\mathrm{\%}$ smaller than the nominal value. The values of the field strength used in the simulation are chosen in a range that is technically achievable. Within that range it can be seen that the minimization of the space charge effect is limited. It is also clear that the effect is stronger for electrons than for ions.
+
+  The duty cycle of the variable beam plays a role in the distortion of the profiles. In the case of electrons, due to their small mass, they will reach the detector within the passage of one bunch. Therefore, they feel the combined forces most of the time along their path. In the case of the ions, it takes the time of many bunches for them to reach the detector. Hence, the forces from the bunch are weighted by the duty cycle of the varying electric field. For the case of \acrshort{ess}, the bunches are $3\,\mathrm{ps}$, and the period between them is $2.84\,\mathrm{ns}$. So the integrated force seen by the ions has less strength than in the case with electrons.
+
+  The expected uncertainty for the beam size measurement is $10\,\mathrm{\%}$. The presented case shows the impact of the space charge can be strong, but yet the retrieved values are still within the requirements for the measurement uncertainty. Larger beam sizes are associated with weaker space charge effect, hence, the designed instrument is expected to deliver reliable information on the \acrshort{ess} beam profile and size.
 
   \section{Readout systems}
   The information about the ionized particles that reach the readout is well known thanks to all the previous simulations. However, the readout system has not been defined yet. The main requirements on the readout are the following:
