@@ -1,15 +1,17 @@
 \begin{figure}[!ht]
 	\begin{subfigure}[t]{0.5\textwidth}
-		\includegraphics[width=\textwidth]{example-image-a}
-		\caption{Error on the profile measurement, for electrons and $H_{2}^{+}$ ions, due to space charge effects versus the extraction field. The beam is assumed to be a Gaussian with $\sigma_{x}=\sigma_{x}=\sigma_{x}=2\,\mathrm{mm}$}
-		\label{}
+		\includesvg[width=\textwidth]{03_Prototype/figures/fig000_SC_energy}
+		\caption{Error on the profile measurement with $H_{2}^{+}$ ions, due to space charge effects for several beam energy ($E_{beam}=62.5\,\mathrm{mA}$).}
+		\label{chap3:fig:SC_a}
 	\end{subfigure}
 	~
 	\begin{subfigure}[t]{0.5\textwidth}
-		\includesvg[width=\textwidth]{03_Prototype/figures/fig000_SC_ions_electrons}
-		\caption{Error on the profile measurement, for electrons and $H_{2}^{+}$ ions, due to space charge effects versus the extraction field. The beam is assumed to be a Gaussian with $\sigma_{x}=\sigma_{x}=\sigma_{x}=2\,\mathrm{mm}$}
-		\label{}
+		\includesvg[width=\textwidth]{03_Prototype/figures/fig000_SC_current}
+		\caption{Error on the profile measurement with $H_{2}^{+}$ ions, due to space charge effects for several beam current ($E_{beam}=90\,\mathrm{MeV}$).}
+		\label{chap3:fig:SC_b}
 	\end{subfigure}
-	\caption[]{}
-	\label{chap:}
+	\caption[Effect of beam current and energy on the profile measurement]{Effect of beam current and energy on the profile measurement. Beam initial conditions: $\sigma_{x}=\sigma_{y}=1.25\,\mathrm{mm}$, $\sigma_{z} = 2.80\,\mathrm{mm}$. Extraction field comes from a COMSOL simulation, with an expected value around $2\,\mathrm{kV/cm}$.}
+	\label{chap3:fig:SC}
 \end{figure}
+
+%The beam is assumed to be a Gaussian with $\sigma_{x}=\sigma_{x}=\sigma_{x}=2\,\mathrm{mm}$
