@@ -5,9 +5,9 @@
 \section{Introduction}
 \begin{refsection}
   \label{ch3:Introduction}
-  In the previous chapter, different ways to measure a transverse beam profile have been described. At \acrshort{ess}, both invasive and non-invasive profilers will be installed along the accelerator. The beam profile will be also recorded at the target location and upstream of the beam dump \cite{shea2013}. The interceptive measurements are mainly done with wire scanners (\acrshort{ws}). These devices cannot handle the huge beam peak power of \acrshort{ess} at nominal conditions ($125\,\mathrm{MW}$), and will be only used at low beam duty cycle \cite{Cheymol2013}. Therefore, Non invasive Profile Monitors, or \acrshort{npm}, will take over for higher beam power. The acronym \acrshort{npm} refers to two types of devices depending on the detection principle. Ionization Profile Monitors (\acrshort{ipm}) will be implemented exclusively in the cryogenic part of the accelerator whereas Fluorescence Profile Monitors (\acrshort{fpm}) are foreseen for all the remaining parts of the linac \cite{Thomas2016}. Our team is in charge of the design and the production of ten \acrshort{ipm}s. More information about the whole beam diagnostic framework at \acrshort{ess} is available in these documents \cite{Peggs2013,Shea:IBIC2017-MO2AB2}.
+  In the previous chapter, different ways to measure a transverse beam profile have been described. At \acrshort{ess}, both invasive and non-invasive profilers will be installed along the accelerator. The beam profile will be also recorded at the target location and upstream of the beam dump \cite{shea2013}. The interceptive measurements are mainly done with wire scanners (\acrshort{ws}). These devices cannot handle the huge beam power of \acrshort{ess} at nominal conditions, and will be only used at low beam duty cycle (maximum $100\,\mathrm{\mu s}$ at $62.5\,\mathrm{mA}$) \cite{Cheymol2013}. Therefore, Non invasive Profile Monitors, or \acrshort{npm}, will take over for higher beam power. The acronym \acrshort{npm} refers to two types of devices depending on the detection principle. Ionization Profile Monitors (\acrshort{ipm}) will be implemented exclusively in the cryogenic part of the accelerator whereas Fluorescence Profile Monitors (\acrshort{fpm}) are foreseen for all the remaining parts of the linac \cite{Thomas2016}. Our team is in charge of the design and the production of ten \acrshort{ipm}s. More information about the whole beam diagnostic framework at \acrshort{ess} is available in these documents \cite{Peggs2013,Shea:IBIC2017-MO2AB2}.
 
-  The present chapter is dedicated to the studies and simulations performed in order to design the future \acrshort{ipm}s for \acrshort{ess}. Indeed, the \acrshort{ess} conditions are challenging and the feasibility of \acrshort{ipm}s is not guaranteed. In the following, the goals and requirements of this project will be defined, and the reasons why \acrshort{ipm}s have been foreseen will be elucidated. Then, several feasibility key-points will be reported and explained, including expected counting rates, profile distortion effects and simulations of the readout.
+  The present chapter is dedicated to the studies and simulations performed in order to design the future \acrshort{ipm}s for \acrshort{ess}. Indeed, the \acrshort{ess} conditions are challenging and the feasibility of \acrshort{ipm}s is not guaranteed. In the following, the goals and requirements of this project will be defined, and the reasons why \acrshort{ipm}s have been foreseen will be clarified. Then, several feasibility key-points will be reported and explained, including expected counting rates, profile distortion effects and simulations of the readout.
 
   \section{ESS requirements}
   This section is necessary to underline the different requirements and specifications that the \acrshort{ipm}s should match. \acrshort{ess} has defined requirements for the whole machine, and they are organized on different levels starting from installation up to subsystems. Every subsystem must meet its specification levels. In the case of the \acrshort{npm} system, the most important ones are defined in the beam instrument (level 4) and non invasive profile monitor (level 5) requirements:
@@ -18,7 +18,7 @@
     \item A dynamic range of $1000$.
   \end{itemize}
 
-  Each cold \acrshort{npm} consists of a consecutive pair of \acrshort{ipm}s, each \acrshort{ipm} measuring a transverse projection. The pair is plugged in a specific vacuum vessel: the Linac Warm Unit (LWU). The design of the \acrshort{lwu} was mostly frozen just few weeks after the kickoff meeting of cold \acrshort{npm} project (May 2016). Two slightly different \acrshort{lwu} designs have to be considered for the \acrshort{ipm}s: one for the Spoke section and another for the Elliptical section. A pair of wire scanners is also mounted on the \acrshort{lwu}. Although, as previously pointed out, these devices work only at low duty cycle, they are allocated their own space in the beam line. The \acrshort{ipm}s should not therefore geometrically trespass into the \acrshort{ws} area. The minimal pipe radius is respectively \(50\,\mathrm{mm}\) and \(25\,\mathrm{mm}\) for the Elliptical and the Spoke \acrshort{lwu}. We designed our detector to match all the previous mechanical specifications.
+  Each cold \acrshort{npm} consists of a consecutive pair of \acrshort{ipm}s, each \acrshort{ipm} measuring a transverse projection. The pair is plugged in a specific vacuum vessel: the Linac Warm Unit (LWU). The design of the \acrshort{lwu} was mostly frozen just few weeks after the kickoff meeting of cold \acrshort{npm} project (May 2016). Two slightly different \acrshort{lwu} designs have to be considered for the \acrshort{ipm}s: one for the Spoke section and another for the Elliptical section. A pair of wire scanners is also mounted on the \acrshort{lwu}. Although, as previously pointed out, these devices work only at low duty cycle, they are allocated their own space in the beam line. The \acrshort{ipm}s should not therefore geometrically trespass into the \acrshort{ws} area. The minimal pipe radius is respectively \(50\,\mathrm{mm}\) and \(25\,\mathrm{mm}\) for the Elliptical and the Spoke \acrshort{lwu}. The detector has been designed to match all the previous mechanical specifications.
 
   \input{03_Prototype/figures/fig016_LWU_Cryo.tex}
 
@@ -38,9 +38,9 @@
 
   Unfortunately, there is no software that allows a full simulation of an \acrshort{ipm}. Each step requires specific tools. As a consequence, a non-negligible work is necessary to link together the results obtained by the different steps of the simulations. Each simulation can be split in the 3 main parts, as reported just above. This chapter deals with all the simulations and approximations that have been developed to design our detector.
 
-  It is important to underline that designing \acrshort{ipm}s to work in the requested conditions is really challenging. Preliminary studies were done in order to check the feasibility of the \acrshort{ipm} design. We focused our efforts on the following hot topics:
+  It is important to underline that designing \acrshort{ipm}s to work in the requested conditions is really challenging. Preliminary studies were carried out by the NPM team in order to check the feasibility of the \acrshort{ipm} design. The efforts have been focussed on the following hot topics:
   \begin{itemize}
-    \item Quantification of the ionization signal in terms of number of produced electron/ion pairs for ensuring that the signal is sufficiently high for reconstructing a profile per pulse, despite of the low gas pressure and tiny ionization cross section at high proton energy.
+    \item Quantification of the ionization signal in terms of number of produced electron/ion pairs for ensuring that the signal is sufficiently high for reconstructing a profile per pulse, despite of the low gas pressure and ionization cross section at high proton energy.
     \item The extraction field must be as uniform as possible in order to lead efficiently and correctly the ionization by-products toward the readout. %Difficulties come from the small amount of space available in the \acrshort{lwu}.
     \item The space charge effect induced by the beam and the initial momentum of ionization electrons/ions, which may distort the profile, must be evaluated.
     \item The choice of an efficient readout technology which must match \acrshort{ess} working conditions.
@@ -88,7 +88,7 @@
   By introducing \(W\), the average energy for producing an ion/electron pair in a medium, we can estimate the number of ion/electron pairs created in a given readout length $\Delta x$ of materials \cite{Weiss1955,Bichsel1979} as:
 
   \begin{equation}
-    N_{electrons}= \frac{\big \langle \frac{dE}{dx} \big \rangle}{W_{n}} \Delta x
+    N_{electrons}= \frac{\big \langle \frac{dE}{dx} \big \rangle}{W} \Delta x
   \end{equation}
 
   When an electron is ejected, it has a certain probability for ionizing other atoms if its energy is high enough. These secondary electrons are called delta rays or delta electrons. This phenomenon becomes rare and negligible when the medium has a very low density like in a vacuum system. The \(W\) parameter includes the delta ray electrons, hence the \(W\) value is biased \cite[p. 470]{Tanabashi2018} for the case at hand, since the \acrshort{ipm}s work at very low pressure. Table \ref{chap3:WandI} gives, as an example, the \(W\) values for several materials at Normal Temperature and Pressure\footnote{$20\,\mathrm{°C}$, $1\,\mathrm{atm}$} (NTP).
@@ -97,14 +97,14 @@
 
   When the medium is a mixture of several compounds, its mean stopping power needs to be calculated as the sum of the mean stopping power of its components weighted by their mass proportion. As a consequence, the total number $N_{total}$ of electron/ion pairs results:
   \begin{equation}
-    N_{total}= \sum_{n= First}^{Last} N_{compound\ n}= \sum_{n= First}^{Last} w_{n} \frac{\big \langle \frac{dE}{dx}\left(\rho_{n},I_{n},A_{n},Z_{n}\right) \big \rangle}{W_{n}} \Delta x
+    N_{total}= \sum_{n= First}^{Last} N_{compound}= \sum_{n= First}^{Last} w_{n} \frac{\big \langle \frac{dE}{dx}\left(\rho_{n},I_{n},A_{n},Z_{n}\right) \big \rangle}{W_{n}} \Delta x
   \end{equation}
   The calculation can be done for each single element or for each molecule in the compound.
   This latter is recommended since the \(I\) values are in general higher for molecules \cite[p. 451]{Tanabashi2018}.
 
   \subsection{Calculation}
   \label{chap3:calc}
-  Following the physics introduction reported above, this subsection is dedicated to the estimation of the number of primary particles that will be created at the \acrshort{ess} conditions. We tried two different approaches: naive computation of Bethe equation and simulations through a software.
+  Following the physics introduction reported above, this subsection is dedicated to the estimation of the number of primary particles that will be created at the \acrshort{ess} conditions. Two different approaches have been done: naive computation of Bethe equation and simulations through a software.
 
   The Bethe formula can be implemented in a spreadsheet or a C++ code once the composition of the medium and the \(I\) value of each compound is known. The expected pressure in the cryogenic part at \acrshort{ess} is around \(10^{-9}\,\mathrm{mbar}\), and the gas composition is given in Table \ref{chap3:ess_vacuum_gas}.
 
@@ -123,7 +123,7 @@
   \end{itemize}
 
   \input{03_Prototype/tables/table006_GarfieldBethe}
-  A dummy detector, a cube of ten centimeter side, is implemented and filled with the same gas composition as the \acrshort{ess} residual gas. Protons are shot into this detector and the information on the electrons created in the gas is saved in a ROOT file \cite{Brun1997,Antcheva2009} for post processing. This is done for different proton energies and vacuum levels.
+  A dummy detector, a cube of ten centimeter side, is implemented and filled with the same gas composition as in Table \ref{chap3:ess_vacuum_gas}. Protons are shot into this detector and the information on the electrons created in the gas is saved in a ROOT file \cite{Brun1997,Antcheva2009} for post processing. This is done for different proton energies and vacuum levels.
 
   Table \ref{chap3:GarfieldBethe} reports the value of the expected number of electrons/ions pairs per cm obtained from the direct calculation (Bethe equation) and from the results of the Garfield++ simulations. One can see that the Garfield++ value is always lower than the calculation by a constant factor $0.52$.
 
@@ -149,7 +149,7 @@
 
   Finally, the way to create the field with high voltage (\acrshort{hv}) power supplies has an important influence on the electric field itself. We will see later that some readouts can only work in certain HV configurations, unless major modifications of the set-up are considered.
 
-  The non-uniformity of the electric field is very problematic because it creates mirage effects and prevents the correct measurement of the beam profile as shown in Fig. \ref{chap3:FieldNonU_outline}. It also determines the maximum size of the detection area, which must be in a zone where the electric field is as uniform as possible. To overcome the mirage effect, the field line must be as straight as possible. Several solutions can be considered to improve the field uniformity:
+  The non-uniformity of the electric field is very problematic because it creates distortion effects and prevents the correct measurement of the beam profile as shown in Fig. \ref{chap3:FieldNonU_outline}. It also determines the maximum size of the detection area, which must be in a zone where the electric field is as uniform as possible. To overcome the distortion effect, the field line must be as straight as possible. Several solutions can be considered to improve the field uniformity:
   \begin{itemize}
     \item The distance between the two electrodes can be reduced. In this case, the \acrshort{ipm}s will tend to a configuration close to the infinite parallel plates assumption. Following the same logic, the size of both electrodes could be increased. These solutions are mainly limited due to mechanical considerations. To stay on the safe side, the distance between two plates was chosen to be at least equal to the diameter of the beam pipe. Moreover, the whole assembly of one \acrshort{ipm} must hold on a CF 200 flange.
     \item Using field correctors or field degraders \cite[p. 103]{egber2012}. This is done by placing conductors on each side. Each corrector is set to a certain potential in order to constrain the field. This solution is easy to implement, compact, and very versatile. However, it requires a large number of \acrshort{hv} feedthroughs or the use of resistors in vacuum. The longitudinal field can also be slightly improved in a same way.
@@ -451,7 +451,7 @@
   \label{chap3:sec:grid}
   As shown in Fig. \ref{chap3:IPM_COMSOL}, the readout electrode is not completely filled: a rectangular slit allows the ions or electrons to move toward the readout system. This slit is relatively big ($2\times5\,\mathrm{cm^{2}}$) with respect to the electrode dimensions ($10\times10\,\mathrm{cm^{2}}$), so it affects the electric field uniformity. A wire mesh can easily overcome this problem. Indeed in the close proximity of the mesh the field is not very straight, but at farther distances the field becomes constant. The mesh allows to have always the same field uniformity in the \acrshort{ipm} whatever readout is used. On the other hand, it represents an obstacle for the incident particles, therefore the grid must be chosen carefully.
 
-  Actually, many of our colleagues are involved in the development of Micromegas detectors. So we have access to several types of mesh. We started with a stainless steel mesh with a pitch of $450\,\mathrm{\mu m}$ and a wire size of $50\,\mathrm{\mu m}$, so the optical transparency is about $90\,\mathrm{\%}$. The thickness is about $XX\,\mathrm{\mu m}$. A first approximation can be made with the Fourier series of the electric potential as proposed by Feynman \cite{feynman2011feynman}:
+  Actually, many of our colleagues are involved in the development of Micromegas detectors \cite{GIOMATARIS199629}. So we have access to several types of mesh. We started with a stainless steel mesh with a pitch of $450\,\mathrm{\mu m}$ and a wire size of $50\,\mathrm{\mu m}$, so the optical transparency is about $90\,\mathrm{\%}$. A first approximation can be made with the Fourier series of the electric potential as proposed by Feynman \cite{feynman2011feynman}:
   \begin{equation}
     V(x,y)= \sum^{\infty}_{n=0} A_{n} \cdot cos(-\frac{2\pi n x}{\lambda}) \cdot exp(-\frac{2\pi n y}{\lambda})
   \end{equation}
@@ -516,13 +516,13 @@
   \begin{align}
     \label{chap3:eqn:lorentz}
     \begin{split}
-     ct\prime &= \gamma (ct - \beta z) ,
-    \\
-     x\prime &= x
-     \\
-     y\prime &= y 
-     \\
-     z\prime &= \gamma (z - \beta ct)
+      ct\prime &= \gamma (ct - \beta z) ,
+      \\
+      x\prime &= x
+      \\
+      y\prime &= y
+      \\
+      z\prime &= \gamma (z - \beta ct)
     \end{split}
   \end{align}
   with $\beta$ and $\gamma$ the Lorentz factors.
@@ -559,7 +559,7 @@
   A simulation code has been developed in the frame of a Collaboration between ESS and CEA, in order to quantify the effects of space charge on the profile measurement with respect to the \acrshort{ess} beam conditions \cite{Thomas-2016-1,Belloni2018}. The code is based on the analytical evaluation of the electric field for a Gaussian charge distribution and a full description of this model is available here \cite[Eq. (16-18)]{Wanzenberg2010}.
 
   A simplified workflow of the simulation program is given in the following.
-  A particle, ion or electron, is drawn according to the characteristics of the ESS beam, which is assumed to be gaussianly distributed in 3D. The electric field of the beam is calculated in the moving frame from the equations given in the references. In this frame the beam width is spread by a factor. The resulting electromagnetic field in the frame of the IPM is calculated using the Lorentz transformations of fields. A Runge Kutta integrator computes the new particle position according to the electromagnetic field of the beam and the extraction field of the IPM. At each integration step the fields of the beam are recalculated taking into account the new position of the bunches and the periodicity of the beam. The particle is tracked until it reaches the readout plane.
+  A particle, ion or electron, is drawn according to the characteristics of the ESS beam, which is assumed to follow a gaussian distribution in 3D. The electric field of the beam is calculated in the moving frame from the equations given in the references. In this frame the beam width is spread by a factor. The resulting electromagnetic field in the frame of the IPM is calculated using the Lorentz transformations of fields. A Runge Kutta integrator computes the new particle position according to the electromagnetic field of the bunches and the extraction field of the IPM. At each integration step the fields of the beam are recalculated taking into account the new position of the bunches and the periodicity of the bunches. The particle is tracked until it reaches the readout plane.
 
   \subsection{Results}
   The effect of space charge depends on many beam parameters, therefore several simulations has been done to cover a wide range of ESS conditions. In the following only a small amount of the results is presented. %A detailed review of the results is available ...
@@ -572,12 +572,12 @@
 
   \input{03_Prototype/figures/fig000_SC}
 
-%  The expected uncertainty for the beam size measurement is $10\,\mathrm{\%}$. The presented case shows the impact of the space charge can be strong, but yet the retrieved values are still within the requirements for the measurement uncertainty. Larger beam sizes are associated with weaker space charge effect, hence, the designed instrument is expected to deliver reliable information on the \acrshort{ess} beam profile and size.
+  %  The expected uncertainty for the beam size measurement is $10\,\mathrm{\%}$. The presented case shows the impact of the space charge can be strong, but yet the retrieved values are still within the requirements for the measurement uncertainty. Larger beam sizes are associated with weaker space charge effect, hence, the designed instrument is expected to deliver reliable information on the \acrshort{ess} beam profile and size.
 
-  The duty cycle of the beam plays a role in the distortion of the profiles. Electrons, being light, reach the detector within the passage of one bunch, therefore they feel the combined electric and magnetic forces most of the time along their pass. On the other hand, ions are more massive and experience the passage of several bunches before reaching the detector. 
- Hence, the forces from the bunches ions feel are weighted by the duty cycle of the varying electric field generated in $F\prime$. For the case of \acrshort{ess}, the bunches are $3\,\mathrm{ps}$ long, and the period between them is $2.84\,\mathrm{ns}$. So the integrated force seen by the ions is less strong as the one experienced by the electrons.
+  The duty cycle of the beam plays a role in the distortion of the profiles. Electrons, being light, reach the detector within the passage of one bunch, therefore they feel the combined electric and magnetic forces most of the time along their pass. On the other hand, ions are more massive and experience the passage of several bunches before reaching the detector.
+  Hence, the forces from the bunches ions feel are weighted by the duty cycle of the varying electric field generated in $F\prime$. For the case of \acrshort{ess}, the bunches are $3\,\mathrm{ps}$ long, and the period between them is $2.84\,\mathrm{ns}$. So the integrated force seen by the ions is weaker than as the one experienced by the electrons.
 
-The maximum accepted uncertainty of the beam size measurement is $10\,\mathrm{\%}$. Our simulations pointed out that the impact of space charge effects  is stronger for electrons than for ions. Moreover, as discussed in the previous section,  lighter ionisation by products are emitted with larger energies, and higher extraction fields are needed to minimize their tracks in directions perpendicular to the electric field lines. It is therefore clear that, to respect the $10\,\mathrm{\%}$ limit uncertainty mentioned above, the IPMs have to work in ion mode detection. In such conditions,  the designed intrument  is expected to deliver reliable information on the ESS beam profile and size.
+  The maximum accepted uncertainty of the beam size measurement is $10\,\mathrm{\%}$. Our simulations pointed out that the impact of space charge effects  is stronger for electrons than for ions. Moreover, as discussed in the previous section,  lighter ionisation by-products are emitted with larger energies, and higher extraction fields are needed to minimize their tracks in directions perpendicular to the electric field lines. It is therefore clear that, to respect the $10\,\mathrm{\%}$ limit uncertainty mentioned above, the IPMs have to work in ion mode detection. In such conditions,  the designed intrument  is expected to deliver reliable information on the ESS beam profile and size.
 
   \section{Readout systems}
   The information about the ionized particles that reach the readout is well known thanks to all the previous simulations. However, the readout system has not been defined yet. The main requirements on the readout are the following:
@@ -598,7 +598,7 @@ The maximum accepted uncertainty of the beam size measurement is $10\,\mathrm{\%
   \begin{equation}
     i_{n}= q\boldsymbol{v} \cdot \boldsymbol{E}_{wn}
   \end{equation}
-  The weighting field is the virtual field calculated as follow: all charges are removed, the electrode of interest is set at $1\,\mathrm{V}$ while the other electrodes are at ground. This field therefore strongly depends on the electrode and detector geometry.
+  The weighting field is the virtual field calculated as follow: all charges are removed, the electrode of interest is set at $1\,\mathrm{V}$ while the other electrodes are grounded. This field therefore strongly depends on the electrode and detector geometry.
 
   Note that if two particles have the same trajectories but opposite charges, their signals will cancel out. In practice, ions and electrons go in opposite directions in a constant electric field, so their signals add up. However the electron is much faster, thus it creates a very fast signal while the ion signal is more spread over time.
 
