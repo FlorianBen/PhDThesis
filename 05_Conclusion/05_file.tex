@@ -1,81 +1,70 @@
-\chapter{Outlooks and conlusion}
-\chaptermark{Outlooks and conlusion}
+\chapter{Conlusion and outlook}
+\chaptermark{Conlusion and outlook}
 \cleardoublepage
 
 \minitoc
 %\section{Introduction}
 \section*{The cold NPM project for ESS}
 \addcontentsline{toc}{section}{The cold NPM project for ESS}
-
 Intense neutron sources are very difficult to achieve. Historically, nuclear reactors have been widely used as intense neutron sources. In Europe the situation is quite critical because most of research reactors will close within the next decade. In this context, the European Spallation Source is being built close to Lund, in Sweden. ESS will push back the limits of existing spallation sources by means of a high and powerful linear accelerator. To ensure the safety of the machine during the commissioning and operations, many diagnostics are foreseen along the accelerator.
 
 This thesis describes the design of one of these diagnostics: the Ionization Profile Monitor (IPM). IPMs are based on the ionization of residual gas. This is one of the most effective methods, but it is nevertheless quite complex to implement since an IPM operates in vacuum. The first IPMs date back to the 1960s but the method has been improved significantly with progress in detector, electronics and computer science. The IPM is now mature and used in several installations. In this thesis, the existing methods have been reviewed in order to find the best solution that may match with the ESS requirements. This was first achieved by simulations and, in a second phase, by building and testing prototypes.
 
+\subsection*{Preliminary design review}
+\addcontentsline{toc}{subsection}{Preliminary design review}
+
 I started my PhD thesis on October 1$\mathrm{^{st}}$ 2016, 5 months after the kick-off meeting and 4 months before the Preliminary Design Review (PDR). The NPM project for the cold accelerator part was identified as a difficult task with no guaranty about the feasibility of such a monitor, therefore a GoNoGo gate was set for the PDR. In other words, green light to begin the PDR activities would only be given if preliminary studies would receive positive signs to the following challenges:
 \begin{itemize}
   \item Very low counting rates: there are low due to firstly the weak residual gas pressure ($10^{-9}\,\mathrm{mbar}$) and secondly due to the low ionization cross-sections that decrease at high energy ($90\,\mathrm{MeV}$ to $2\,\mathrm{GeV}$). Both negative effects have to be compensated by high sensitivity and low noise readouts. Once identified, they have to be assessed to cope with these conditions.
-  \item Electric field uniformity: its uniformity must be particularly good to avoid "mirage effects", i.e. forcing the ionization by-products to drift in the parallel direction of the electric field. To achieve such a goal, spacings between IPMs are required. Unfortunatly, the vacuum chamber geometry was already frozen with small spacings, which would not ease the work.
+  \item Electric field uniformity: its uniformity must be particularly good to avoid "mirage effects", i.e. forcing the ionization by-products to drift in the parallel direction of the electric field. To achieve such a goal, spacings between IPMs are required. Unfortunately, the vacuum chamber geometry was already frozen with small spacings, which would not ease the work.
   \item Space Charge (SC): one of the ESS requirements is to measure the profile with a $10\,\%$ width accuracy. The large SC of ESS is due to the electric field of the proton beam which generates a huge electric field proportional to its energy and its intensity. The low energy ionization by-products are particularly sensitive to this electric field. They are deviated resulting in an enlargement of the measured beam profile. This effect could not be estimated by simple calculations and sophisticated simulations were developed to solve this issue.
 \end{itemize}
 
 My first urgent tasks when I joined the NPM team at Saclay were to estimate counting rate and to participate to the readout choice to check compliance to the requested low sensitivity. The PDR took place at ESS Lund on January 31$\mathrm{^{st}}$ 2017, where we presented our preliminary results giving confidence on the IPM feasibility. The GoNoGo gate was passed successfully, opening to the next phase of the project. In this phase, we needed to demonstrate through prototype design, beam tests and calculations that IPM fulfilled the ESS requirements. We also needed to provide a final solution for the manufacturing of the IPMs.
 
-\section*{Towards the CDR}
-\addcontentsline{toc}{section}{Towards the CDR}
-Here, we will summarize the steps followed from the test bench design from scratch up to the CDR review.
-\subsection*{The test bench}
-An IPM must be self-consistent on its support, here a flange CF200. This imposes to have all the HV connectors, the grounding, the readout system attached on it meaning that once the IPM is integrated, it can be inserted into the test bench vaccuum CF200 aperture, like a drawer. Originally, 3 readout types were considered. The Timepix option had to be discarded due to incompatibility with ion detection. Finally two readouts were selected: a conductive strips plane and a MCP read by a CMOS camera. Two reference systems were also installed, one based on fluorescence and an interceptive screen with 3 solid scintillators. The bench was made of two parts; the first had similar dimensions of the ESS LWU, with 2 IPM locations and another one, on the second part.
-The strips IPM could be polarized in asymmetric mode, whilst MCP IPM could be operated on both modes. All along the integration, we encountered many vacuum problems, which were solved by heating. We currently reached $2$-$3 \cdot 10^{-7}\,\mathrm{mbar}$.
+\subsection*{Prototypes and test bench development}
+\addcontentsline{toc}{subsection}{Prototypes and test bench development}
+
+An IPM must be self-consistent on its support, here a flange CF200. This imposes to have all the HV connectors, the grounding, the readout system attached on it meaning that once the IPM is integrated, it can be inserted into the test bench vacuum CF200 aperture, like a drawer. Originally, 3 readout types were considered. The Timepix option had to be discarded due to incompatibility with ion detection. Finally two readouts were selected: a conductive strips plane and a MCP read by a CMOS camera. Two reference systems were also installed, one based on fluorescence and an interceptive screen with 3 solid scintillators. The bench was made of two parts; the first had similar dimensions of the ESS LWU, with 2 IPM locations and another one, on the second part.
+The strips IPM could be polarized in asymmetric mode, whilst MCP IPM could be operated on both modes. All along the integration, we encountered many vacuum problems, which were solved by baking. We currently reached $2$-$3 \cdot 10^{-7}\,\mathrm{mbar}$.
 We also faced sparks when reaching $30\,\mathrm{kV}$ with high voltage connectors weakly insulated and connection boxes. In parallel, I greatly improved the uniformity of the IPM electric field by tuning the resistor bridge, but also by inserting a disk in the vacuum chamber, with a circular aperture as large as the beam pipe. This is mandatory to avoid the cross-interaction between both IPM electric field tilted at $90\mathrm{^{o}}$ with respect to each other.
 I also implemented the software for several applications control systems (HV, pressure probes...) using the EPICS framework.
 
-\section*{IPHI tests}
-\addcontentsline{toc}{section}{IPHI tests}
+\subsection*{Beam tests at IPHI}
+\addcontentsline{toc}{subsection}{Beam tests at IPHI}
 
-We installed the test bench on mid-2017 at IPHI. The first beam was delivered and there was no diagnostic working on IPHI, only an ACCT located upstream of our bench and a Faraday cup working as beam dump. Moreover the commissionning of IPHI was not done for the higher energy part (downstream the RFQ, at $3\,\mathrm{MeV}$). Before to obtain a beam profile, we needed two weeks of tuning with a beam dynamic physicist in order to tune the deviation dipole, the correction steerers and the quadruples. However the beam presented a strange behavior showing a position oscillation. Charging effects on our detectors were supected by all the experts. A couple days later, the BPM finally observed the same position oscillation confirming our measurements. IPHI has not yet an explanation of this effect. Our IPMs had an important role in the characterisation of this effect.
-%%%%% 
-%Firstly, we discovered that one of the pMCP was broken and finally decided to change it.
-
-%After more than 2 weeks, we did not have seen a beam profile. We finally succeeded after working thoroughly with a beam dynamic physicist, scanning the beam as well as the deviation dipole, the correction steerers and the quadruples. We effectively got a nice transverse profile, completely correlated to the beam location and intensity, but having a strange behavior. Indeed, the pulse presented a position oscillation, starting to move in one direction, and coming back after $5$-$7$ seconds to its initial position, and so on! It was similar to an insulator, starting to accumulate electric charges and releasing them suddenly… We inquired on our IPM which are designed with insulators (Peeks, Macor, ceramics), since we did not find anything strange on the beam side. It lasted several days with any explanation, until a physicist gets to work on a BPM, to discover a very impressive correlation between the BPM and the IPM beam coordinates! Up to now, IPHI has not a real explanation for this behavior. This event sounds like a big relief and gave us a better confidence in our measurements.
+We installed the test bench on mid-2017 at IPHI. The first beam was delivered and there was no diagnostic working on IPHI, only an ACCT located upstream of our bench and a Faraday cup working as beam dump. Moreover the commissioning of IPHI was not done for the higher energy part (downstream the RFQ, at $3\,\mathrm{MeV}$). Before to obtain a beam profile, we needed two weeks of tuning with a beam dynamic physicist in order to tune the deviation dipole, the correction steerers and the quadruples. However the beam presented a strange behavior showing a position oscillation. Charging effects on our detectors were suspected by all the experts. A couple days later, the BPM finally observed the same position oscillation confirming our measurements. IPHI has not yet an explanation of this effect. Our IPMs had an important role in the characterization of this effect.
 
 We also discovered that the beam presents 2 components: a mix of a core and narrow beam at high beam intensity and a larger component at low intensity. Another concern was to make systematic studies due to difficulties on the reproducibility of the beam. Nevertheless, it was useful to have such versatile facility where we were able to regain the expected MCP behavior. Many measurements were done, allowing investigating many parameters and preparing the second beam tests in September 2018.
 
-The goal of the second test was to focus on the profile measurement feasibility in nominal conditions, in ion mode since simulations already shown that electron detection could not be used for profile purposes. During this last campaign, we finally worked in such beam conditions, and even worse than the ESS ones. These results are summarized in the Table \ref{chap4:extrapolationMCP} demonstrating the feasability of the measurement of the beam profile for each pulse beam with ESS nominal conditions.
+The goal of the second test was to focus on the profile measurement feasibility in nominal conditions, in ion mode since simulations already shown that electron detection could not be used for profile purposes. During this last campaign, we finally worked in such beam conditions, and even worse than the ESS ones. These results are summarized in the Table \ref{chap4:extrapolationMCP} demonstrating the feasibility of the measurement of the beam profile for each pulse beam with ESS nominal conditions.
 
-%  Later on, we discovered that the beam presents also 2 components as shown in the manuscript: a mix of a core and narrow beam at high beam intensity and a large component at low intensity.
-%  We have also encountered some difficulties to make systematic studies because it is not easy to reproduce a beam condition, even with previously beam parameters. Nevertheless, it was useful to have such versatile facility where we were able to regain the expected MCP behaviors. Many measurements were done as shown in the thesis, allowing investigating many parameters and for preparing the second beam tests on September 2018. The goal will be to focus on the profile measurement feasibility in nominal conditions, in ion mode since simulations have already shown that electron detection is hopeless.
-
-%  During this last campaign, we finally work in such beam conditions, which are even worse than the ESS ones. These relevant results are summarized in the Table \ref{chap4:extrapolationMCP} demonstrating that we should be able to measure beam profile at ESS at nominal conditions, for each pulse beam.
-
-%%
-% In this manuscript I presented a large part of the work done on the study, design and testing of non-invasive profilers based on ionization. This chapter describes the tasks currently underway or in perspective for the conception of the final diagnostics and summarize the previous chapters. 
-
-\section*{Ongoing works and final design}
+\section*{Ongoing work and final design}
 \addcontentsline{toc}{section}{Ongoing works and final design}
 
 The following sections present current actions for the design of the final detectors as well as the more distant perspectives.
 %The type of these tasks is quite broad, so it is interesting to describe them briefly.
 %
-\subsection*{Improved IPM design}
-\addcontentsline{toc}{subsection}{Improved IPM design}
+\subsection*{Background signal estimation}
+\addcontentsline{toc}{subsection}{Background signal estimation}
 
-During the tests at IPHI, we used a simple CF200 flange to support the IPM (Fig. \ref{chap4:IPM_photo2}). For the manufacturing of the IPM, we thought that two independent flanges CF200 and CF160 (Fig. \ref{chap5:fig:bride_double}) will ease the assembling process and also the maintenance. This later configuration presents different advantages.
+\input{05_Conclusion/figures/fig000_geant4_sim}
+During the project reviews we were asked to study the influence of background noise on the IPM readouts. This is a complex task because it requires enough background particle information  and a realistic geometry.
 
-\input{05_Conclusion/figures/fig000_bride_double}
+A Geant4 simulation has been prepared in order to answer this request. The simulation includes a mixed geometry including shapes made from primitive geometry (LWU, support, MCP) and complex elements imported from CAD files (IPM, camera, magnet). The Fig. \ref{chap5:fig:Geant4} shows the implemented geometry of the LWU with the two IPMs, the quadrupoles and the cameras with their sensors. The choice of the physics list can be quickly modified using the predefined lists in Geant4. The elements to be studied use the Sensitive Detector mechanism enabling to save information about the particles passing through them. As the data flow is important, the simulation results are saved using the ROOT interface provided in Geant4. The simulation uses the new multithreading features of latest versions of Geant4 and an OpenMPI layer has been added. The simulation code is completely ready and the background particle information that was only made available very recently needs to be included to launch the simulations.
 
-Once the complete IPM set is mounted on the LWU, alignment can be done by measuring all sight pods on the CF200. Then, if the MCP has to be removed (unscrew the CF160), the IPM cage linked to the CF200 stays fixed. The MCP can be changed but no alignment is necessary. We just have to measure with the CMOS camera the four crosses which will be engraved on the electrode plate back. This new configuration is compliant with a better reliability of the IPM since the MCP change may be done quickly, with no impact on alignment. Furthermore, the CF160 flange with its MCP bracket, HV viewports is quite light and can be easily operated.
+Unfortunately, the information about the background particles was finally given after the beginning of the writing phase of this thesis. Nevertheless, the simulation base is implemented and I hope that this work will continue and lead to results that may provide additional knowledge.
 
-For assembling the whole IPM, it is more convenient to prepare first the CF200 and all its belonging items, and then the CF160 ones. It allows minimizing the MCP in oxygen atmosphere. Furthermore, the set made of CF160 and MCP holder is light with a small lever arm easy to manipulate.
-
-The IPMs X and Y are similar: while X is centered on the CF200 LWU viewport, Y is shifted by $36\,\mathrm{mm}$ to its CF200 axis. The trick for mounting both IPMs, is to rotate the CF160 by $180°$ with respect to the CF200 flange. This is of great interest for manufacturing purposes.
+% Florian: Je ne sais pas si il y a une échéance ? La production a plus ou moins déjà commencé
+% All these aspects should be finalized by xxx (une date) allowing the production, installation and commissioning of the IPMS at ESS in xxx (autre date).
 
 \subsection*{MCP calibration}
 \addcontentsline{toc}{subsection}{MCP calibration}
 
 \input{05_Conclusion/figures/fig000_UV_calib}
-MCPs are mandatory to measure a profile with IPM in the ESS conditions. Unfortunately, these devices are sensitive to ageing effects. The gain will decrease over  time in the impacted areas by ions. Since the ESS beam will be stable in position in the middle of the MCP, the center of the MCP will be most affected.
+MCPs are mandatory to measure a profile with IPM in the ESS conditions. Unfortunately, these devices are sensitive to ageing effects. The gain will decrease over  time in the impacted areas by ions. Since the ESS beam will be stable in position, the MCP region in front of the beam will be more affected.
 
-Therefore, at some point the profile measurement will be no longer reliable. To overcome this phenomenon it is necessary to calibrate the MCP regularly, i.e. perform a gain mapping and rectify the profile. This requires a uniform and stable source that routinely irradiates the MCP. The most common method relies on a VUV source. MCPs become sensitive to the photoelectric effect for wavelengths shorter than $200\,\mathrm{nm}$. The most basic VUV sources are deuterium discharge lamps that have broadband emission with a peaks at $160\,\mathrm{nm}$. It is also possible to generate VUV with excimer lasers or by using high order harmonic generation. Thermoionic emission was discarded due to the requirements imposed by the superconducting cavities. We are also considering the use of Electron Generator Arrays. The calibration is currently being tested on the IPM test bench and Fig. \ref{chap5:fig:UV_calib} shows the principle of the experiment.
+Therefore, at some point the profile measurement will be no longer reliable. To overcome this phenomenon it is necessary to calibrate the MCP regularly, i.e. perform a gain mapping and correct the profile by a software adjustment. This requires a uniform and stable source that routinely irradiates the MCP. The most common method relies on a VUV source. MCPs become sensitive to the photoelectric effect for wavelengths shorter than $200\,\mathrm{nm}$. The most basic VUV sources are deuterium discharge lamps that have broadband emission with a peaks at $160\,\mathrm{nm}$. It is also possible to generate VUV with excimer lasers or by using high order harmonic generation. Thermoionic emission was discarded due to the requirements imposed by the superconducting cavities. We are also considering the use of Electron Generator Arrays. The calibration is currently being tested on the IPM test bench and Fig. \ref{chap5:fig:UV_calib} shows the principle of the experiment.
 
 \subsection*{Remote acquisition system}
 \addcontentsline{toc}{subsection}{Remote acquisition system}
@@ -86,28 +75,49 @@ In the case where the radiation background should shorten the MCP lifetime down 
 
 At a first order evaluation of the system transmission, one can start by selecting the focal lens required to make conjugate images. For the lens L1, the magnifications for the MCP is set, so as the geometrical aperture coupling light into the fibre.
 
+The geometrical transmission for 0.5 numerical aperture of the fiberscope is about $3 \cdot 10^{-5}$ while it is a factor 4 below for the second system. Such an attenuation encourages to purchase stacked double MCP for increasing the output light.
+
+The fiber attenuation is an important property to take into account. For instance, for silica fibers, this can be as low as a few $\mathrm{dB/km}$. We intent to used plastic coherent fibers. The material used is PMMA. This material is rather cheap, and it presents good optical quality and rather good transmission, typically $0.5\,\mathrm{dB/m}$ at $500\,\mathrm{nm}$. However, a full characterization of the system with the selected fiber will have to be done in order to prove and demonstrate the performance of the system. Lenses transmissions can be close to $100\,\mathrm{\%}$ with anti-reflection coating.
+
+\subsection*{Final IPM design and production}
+\addcontentsline{toc}{subsection}{Final IPM design and production}
+
+The final IPM will use double stage MCP polarized in symmetric HV configuration.
+IPMs will probably be ready before the accelerator reaches nominal conditions.
+The double stage MCPs will allow measurements during the accelerator commissioning. The use of a double stage MCP reduces the maximal resolution achievable but this reduction is less important that the one induced by the remote acquisition system. The MCP with a strips readout provides the best performances in term of sensitivity and speed but needs a specifically designed readout electronics. Whereas an optical  MCP exposes decent performances with a high resolution and the acquisition relies only on COTS cameras. At the end the optical solution has been chosen. In any case the design of IPMs allows to easily upgrade the readout for future improvements.
+The HV symmetric setup provides a very good electric field uniformity with only field correctors. This configuration also reduces the maximum potential to apply to electrode. 
+
+The final IPMs will be produced following the ESS requirements for the superconducting cavities meaning that the IPMs will be assembled within an ISO-5 clean room environment.
+
+During the tests at IPHI, we used a simple CF200 flange to support the IPM (Fig. \ref{chap4:IPM_photo2}). For the manufacturing of the IPM, we thought that two independent flanges CF200 and CF160 (Fig. \ref{chap5:fig:bride_double}) will ease the assembling process and the maintenance in clean room environment. This later configuration presents different advantages.
+
+\input{05_Conclusion/figures/fig000_bride_double}
+
+Once the complete IPM set is mounted on the LWU, alignment can be done by measuring all sight pods on the CF200. Then, if the MCP has to be removed (unscrew the CF160), the IPM cage linked to the CF200 stays fixed. The MCP can be changed but no alignment is necessary. This new configuration is compliant with a better reliability of the IPM since the MCP change may be done quickly, with no impact on alignment. The IPMs X and Y are similar: while X is centered on the CF200 LWU viewport, Y is shifted by $36\,\mathrm{mm}$ to its CF200 axis. The trick for mounting both IPMs, is to rotate the CF160 by $180°$ with respect to the CF200 flange. This is of great interest for manufacturing purposes.
+
+For assembling the whole IPM, it is more convenient to prepare first the CF200 and all its belonging items, and then the CF160 ones. It allows minimizing the MCP in oxygen atmosphere. Furthermore, the set made of CF160 and MCP holder is light with a small lever arm easy to manipulate.
+
+The IPMs will be delivered by pair and the first pairs are expected to be delivered to ESS at the middle of 2020.
+% TODO: IPHI interessé
+
+%%%%% 
+%Firstly, we discovered that one of the pMCP was broken and finally decided to change it.
+
+%After more than 2 weeks, we did not have seen a beam profile. We finally succeeded after working thoroughly with a beam dynamic physicist, scanning the beam as well as the deviation dipole, the correction steerers and the quadruples. We effectively got a nice transverse profile, completely correlated to the beam location and intensity, but having a strange behavior. Indeed, the pulse presented a position oscillation, starting to move in one direction, and coming back after $5$-$7$ seconds to its initial position, and so on! It was similar to an insulator, starting to accumulate electric charges and releasing them suddenly… We inquired on our IPM which are designed with insulators (Peeks, Macor, ceramics), since we did not find anything strange on the beam side. It lasted several days with any explanation, until a physicist gets to work on a BPM, to discover a very impressive correlation between the BPM and the IPM beam coordinates! Up to now, IPHI has not a real explanation for this behavior. This event sounds like a big relief and gave us a better confidence in our measurements.
+
+%  Later on, we discovered that the beam presents also 2 components as shown in the manuscript: a mix of a core and narrow beam at high beam intensity and a large component at low intensity.
+%  We have also encountered some difficulties to make systematic studies because it is not easy to reproduce a beam condition, even with previously beam parameters. Nevertheless, it was useful to have such versatile facility where we were able to regain the expected MCP behaviors. Many measurements were done as shown in the thesis, allowing investigating many parameters and for preparing the second beam tests on September 2018. The goal will be to focus on the profile measurement feasibility in nominal conditions, in ion mode since simulations have already shown that electron detection is hopeless.
+
+%  During this last campaign, we finally work in such beam conditions, which are even worse than the ESS ones. These relevant results are summarized in the Table \ref{chap4:extrapolationMCP} demonstrating that we should be able to measure beam profile at ESS at nominal conditions, for each pulse beam.
+
+%%
+% In this manuscript I presented a large part of the work done on the study, design and testing of non-invasive profilers based on ionization. This chapter describes the tasks currently underway or in perspective for the conception of the final diagnostics and summarize the previous chapters. 
+
 % The MCP is 40\,mm diameter and the fiber diameter is 2\,mm. The geometrical transmission T of the lens to the fiber is defined by the aperture of the lens, called the F-number or F\#, the focal lens, F and the distance between the screen and the lens, D1:
 % \begin{equation}
 %  T=\frac{1}{2} \left(1 - cos\left(\theta\right)\right)
 % \end{equation}
 % with $\theta = \rm arctan\left (\frac{F/F\#}{2D} \right )$
-
-The geometrical transmission for 0.5 numerical aperture of the fiberscope is about $3 \cdot 10^{-5}$ while it is a factor 4 below for the second system. Such an attenuation encourages to purchase stacked double MCP for increasing the output light.
-
-The fiber attenuation is an important value to take into account. For instance, for silica fibers, this can be as low as a few $\mathrm{dB/km}$. We intent to used plastic coherent fibers. The material used is PMMA. This material is rather cheap, and it presents good optical quality and rather good transmission, typically $0.5\,\mathrm{dB/m}$ at $500\,\mathrm{nm}$. However, a full characterisation of the system with the selected fiber will have to be done in order to prove and demonstrate the performance of the system. Lenses transmissions can be close to $100\,\mathrm{\%}$ with anti-reflection coating.
-
-\subsection*{Background signal estimation}
-\addcontentsline{toc}{subsection}{Background signal estimation}
-
-During the project reviews we were asked to study the influence of background noise on the IPM readouts. This is a complex task because it requires enough background particle information  and a realistic geometry.
-
-\input{05_Conclusion/figures/fig000_geant4_sim}
-A Geant4 simulation has been prepared in order to answer this request. The simulation includes a mixed geometry including shapes made from primitive geometry (LWU, support, MCP) and complex elements imported from CAD files (IPM, camera, magnet). The Fig. \ref{chap5:fig:Geant4} shows the implemented geometry of the LWU with the two IPMs, the quadrupoles and the cameras with their sensors. The choice of the physics list can be quickly modified using the predefined lists in Geant4. The elements to be studied use the Sensitive Detector mechanism enabling to save information about the particles passing through them. As the data flow is important, the simulation results are saved using the ROOT interface provided in Geant4. The simulation uses the new multithreading features of latest versions of Geant4 and an OpenMPI layer has been added. The simulation code is completely ready and the background particle information that was only made available very recently needs to be included to launch the simulations.
-
-Unfortunately, the information about the background particles was finally given after the beginning of the writing phase of this thesis. Nevertheless, the simulation base is implemented and I hope that this work will continue and lead to results that may provide additional knowledge.
-
-% Florian: Je ne sais pas si il y a une échéance ? La production a plus ou moins déjà commencé
-All these aspects should be finalised by xxx (une date) allowing the production, installation and commissioning of the IPMS at ESS in xxx (autre date).
 
 % Unfortunately, the information about the background particles was finally given after the beginning of the writing phase of this thesis. Nevertheless, the simulation base is implemented and I hope that this work will continue and lead to results that may provide additional knowledge.
 % \section*{Conclusion}
