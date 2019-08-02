@@ -7,7 +7,7 @@
 \section{Introduction}
 \begin{refsection}
   \label{ch4:Introduction}
-  The simulations presented in the previous chapter show that the profile measurement with \acrshort{ipm}s may match the \acrshort{ess} requirements. However, some critical points, mainly the choice of the readout, are not fully clarified, so the feasibility must be proven experimentally. From the results of the simulations, we converged to a first prototype design. Designing and testing prototypes is also a great opportunity to validate the simulations and gain feedbacks before the production phase. The present chapter presents the different prototypes that have been developed and tested as well as the results obtained. Moreover, the chapter follows closely the real chronology of the project.
+  The simulations presented in the previous chapter show that the profile measurement with \acrshort{ipm}s may match the \acrshort{ess} requirements. However, some critical points, mainly the choice of the readout, are not fully clarified, so the feasibility must be proven experimentally. From the results of the simulations, we converged to a first prototype design. Designing and testing prototypes is also a great opportunity to validate the simulations and gain feedback before the production phase. The present chapter presents the different prototypes that have been developed and tested as well as the results obtained. Moreover, the chapter follows closely the real chronology of the project.
 
   The feasibility of silicon detection has been checked. A small test bench has been developed and installed in an ion implanter facility. The test has been done with a tailored silicon detector kindly provided by the CERN-BI team. The result and the consequences on the project will be discussed briefly.
 
@@ -19,7 +19,7 @@
   The readout using silicon detectors seems very promising but detection is not assured for ions at low energies. It requires significant development in terms of electronics: complex \acrshort{pcb} design, placement and alignment of the chips, wire bonding, development of a backend electronics, etc. Therefore, we decided to test a proof of concept before directly developing a complete \acrshort{ipm} with a silicon detector. If the test shows that detection with ions is possible then this solution can be considered at \acrshort{ess}, otherwise it will be discarded. A low energetic ion source is necessary for testing the silicon option.
 
   \subsection{IRMA}
-  An implanter is a small ion accelerator used to implant various elements into a target substrate. The depth of the implantation is proportional to the ion energy \footnote{See section \ref{chap3:sec_particle_in_matter} and \ref{chap3:low_energy} in the previous chapter}. This kind of sources is particularly useful for material and irradiation science, and it may be the most efficient way to test the silicon detectors for us.
+  An implanter is a small ion accelerator used to implant various elements into a target substrate. The depth of the implantation is proportional to the ion energy \footnote{See section \ref{chap3:sec_particle_in_matter} and \ref{chap3:low_energy} in the previous chapter.}. This kind of sources is particularly useful for material and irradiation science, and it may be the most efficient way to test the silicon detectors for us.
 
   The IRMA implanter \cite{Chaumont1981} relies on a Bernas-Nier source \cite{Paris1981} for creating a plasma from injected gas. The plasma is then extracted and charge filtered by means of a magnet. The post acceleration is performed by an electrostatic tube. Finally, a set of steerers allows a fine beam scanning on the target. The IRMA implanter can accelerate a large number of ion species between $5 \,\mathrm{keV}$ and $190 \,\mathrm{keV}$ with currents of the order of $\mathrm{\mu A}$ scale. Fig. \ref{chap4:IRMA} presents a schematic representation of IRMA and a picture of the facility.
 
@@ -27,51 +27,55 @@
 
   \subsection{Test setup}
 
-  The test bench consists of a mechanical support on which is mounted the detector system. The current range at IRMA is important (from hundred $\mathrm{pA}$ to $\mathrm{\mu A}$) compared to the expected ionization current per \acrshort{ess} pulse (few $\mathrm{fA}$). The average current have been reduced by the following solutions. The beam was scanned in both directions at $80 \,\mathrm{Hz}$ and $400\,\mathrm{Hz}$ on a perpendicular stopping plate. A hole is drilled at the center of the plate, reducing the current by a factor of $12723$. At the end, the number of incident particles is around hundred thousand (hundred $\mathrm{fA}$) per IRMA “pulse”. A simple Faraday cup measures the current after reduction. The entire setup is visible in Fig. \ref{chap4:IRMA_setup}.
+  The test bench consists of a mechanical support on which is mounted the detector system. The current range at IRMA is important (from hundred $\mathrm{pA}$ to $\mathrm{\mu A}$) compared to the expected ionization current per \acrshort{ess} pulse (few $\mathrm{fA}$). The average current has been reduced by the following solutions. The beam was scanned in both directions at $80 \,\mathrm{Hz}$ and $400\,\mathrm{Hz}$ on a perpendicular stopping plate. A hole was drilled at the center of the plate, reducing the current by a factor of $12723$. At the end, the number of incident particles was around hundred thousand (hundred $\mathrm{fA}$) per IRMA “pulse”. A simple Faraday cup measures the current after reduction. The entire setup is visible in Fig. \ref{chap4:IRMA_setup}.
 
   \input{04_IPHI_Test/figures/fig000_IRMA_setup}
 
-  The detector tested at IRMA is a silicon pixelated matrix ($256 \times 256$ with a pixel size $56\,\mathrm{\mu m}$) on top of a TimePix chip. The matrix is ​​very specific since the metallization layer has been replaced by a heavily doped layer allowing the polarization of the detector. The TimePix measures either the Time over Threshold (ToT) or the Time of Arrival (ToA). ToT is the total time during which the signal generated by the incident particle is above a threshold set by the user. This value is therefore proportional to the energy deposited by the particles in the pixels. The ToA gives the time difference of an incident particle with respect to a reference time.
+  The detector tested at IRMA is a silicon pixelated matrix ($256 \times 256$ with a pixel size $56\,\mathrm{\mu m}$) on top of a TimePix chip. The matrix is very specific since the metallization layer has been replaced by a heavily doped layer allowing the polarization of the detector. The TimePix measures either the Time over Threshold (ToT) or the Time of Arrival (ToA). ToT is the total time during which the signal generated by the incident particle is above a threshold set by the user. This value is therefore proportional to the energy deposited by the particles in the pixels. The ToA gives the time difference of an incident particle with respect to a reference time.
 
- The TimePix detector used was already equipped of a complete solution \cite{Kraus2011,advacam2019} integrating a reading electronics controllable by PC. The software allows to configure the TimePix and acquire images with the value of ToT or ToA for each pixel.
+ The TimePix detector used was already equipped of a complete solution \cite{Kraus2011,advacam2019} integrating a readout electronics controllable by PC. The software allows to configure the TimePix and acquire images with the value of ToT or ToA for each pixel.
 
   \subsection{Results and limitations}
 
-  The test performed at IRMA concerns the determination of the detection limit with the lightest possible ions i.e. $H_{2}^{+}$. The images at two energies and integrated signal for a full scan are shown in Fig. \ref{chap4:IRMA_Si}. The scan range is limited to few values because tuning the ion implanter to different energies was time expensive. For $15\,\mathrm{keV}$ ions the detection seems to work correctly, but the signal vanishes for ions with an energy of $12\,\mathrm{keV}$ or less. The limit of detection is therefore between these two values, and is very close to the energy that ions can reach in the \acrshort{ipm}s. The residual gas at \acrshort{ess} is mainly a compound of ions heavier than $H_{2}^{+}$. These heavy ions will not be detected by the readout, reducing the already low signal of the \acrshort{ipm}. One can see that the point at $20\,\mathrm{keV}$ is unlikely. The measurement for this point was performed at the end of the day after few hours of irradiations at low energy.
-
+  The test performed at IRMA concerns the determination of the detection limit with the lightest possible ions i.e. $H_{2}^{+}$. The images at two energies and integrated signal for a full scan are shown in Fig. \ref{chap4:IRMA_Si}.
+  
   \input{04_IPHI_Test/figures/fig000_IRMA_Si}
 
   \input{04_IPHI_Test/figures/fig000_IRMA_damage}
+  The scan range is limited to few values because tuning the ion implanter to different energies was time consuming. For $15\,\mathrm{keV}$ ions the detection seems to work correctly, but the signal vanishes for ions with an energy of $12\,\mathrm{keV}$ or less. The limit of detection is therefore between these two values, and is very close to the energy that ions can reach in the \acrshort{ipm}s. The residual gas at \acrshort{ess} is mainly a compound of ions heavier than $H_{2}^{+}$. These heavy ions will not be detected by the readout, reducing the already low signal of the \acrshort{ipm}. One can see that the point at $20\,\mathrm{keV}$ is unlikely. The measurement for this point was performed at the end of the day after few hours of irradiations at low energy. Ideally we should have taken more measurements at different energies.
+
   Few days after the test, the integrity of the sensor has been tested by illuminating it with an UV-VIS LED (peak emission at 365 nm). 
 Fig. \ref{chap4:IRMA_damage} shows a small zone of the pixel matrix with different gain, corresponding to the IRMA beam position irradiation.
-Clearly the sensor was damaged, but unfortunately we can't give an accurate estimation of the deposited dose. Note that the gain has increased in the irradiated region whereas we expect a reduction as we observed at IRMA.
+Clearly the sensor was damaged, but unfortunately we can not give an accurate estimation of the deposited dose. Note that the gain has increased in the irradiated region whereas we expect a reduction as we observed at IRMA.
   % A zone in the matrix and it is visible in Fig. \ref{chap4:IRMA_damage}.
   % This zone is exactly in the same place as the one bombarded by the ions. The sensor has been probably deteriorated by the high current of IRMA. Unfortunately it is not possible to accurately estimate the number of ions that have been sent to the sensor and the nature of the damage is unknown. 
 
  At last we decided to discard the possibility of using silicon detectors because of the signal weakness, not compliant with \acrshort{ipm}s working in the mandatory ion mode, and for the damages induced by ions as previously seen. The development cost of a silicon solution is not worth considering the possible risks of non-detection.
   In our quest for feasibility demonstration, we faced several issues:
   \begin{itemize}
-    \item Triggered acquisitions were not possible, imposing to take long data run for avoiding to miss the beam interaction with the silicon detector.
+    \item Triggered acquisitions were not possible, imposing to take long integration time to avoid missing the beam interaction with the silicon detector.
     \item Consequently, despite calculations, the beam sweeping on the detector varied from time to time explaining partly our impossibility to evaluate the dose.
-    \item One single day of data taking to a facility we were not acquainted with.
+    \item The data campaign was concentrated on a single day. We discovered the facility and its constraints at the same time as dealing with our measurements.
   \end{itemize}
 
 Still, we hope to have the opportunity to retest the silicon detector at IRMA, or at another ion implanter facility, to fully determine the ion detection limit and investigate more on ion damaging. 
-Nowadays, TimePix3 has completely replaced its ancestor. This new integrated circuit provides the ability to measure at a same time the ToT and ToA, with a higher timing resolution and an efficient data protocol. As well, the reading electronics has been improved allowing advanced triggering option of the chip.
+Nowadays, TimePix3 has completely replaced its ancestor. This new integrated circuit provides the ability to measure at a same time the ToT and ToA, with a higher timing resolution and an efficient data protocol. Also, the readout electronics has been improved allowing advanced triggering option of the chip.
 
   % We decided to not go further with silicon detectors for all the previous reasons. The cost of development of a silicon solution is not worth considering the possible risks of non detection. We would like to remain that the experiment has been done to quickly check the feasibility and it suffers from several limitations. Firstly the detector was not triggered, during short acquisitions pulse only very few data were taken in coincidence with the beam, therefore long acquisitions have been favored reducing the uncertainty only on the first and last pulse. The second uncertainty comes from the beam scanning. We noticed that, sometimes, the beam could pass through the hole more than once for a same scanning cycle. This means that the number of charge is collected by the TimePix is more than expected for an acquisition.
 
 
   \section{IPM design overview}
   \subsection{IPM}
-  \input{04_IPHI_Test/figures/fig000_IPM_photo}
-  The \acrshort{ipm} consists of five \acrshort{pcb} plates: two for the electrodes, two for the field correctors and one for supporting the readout. The two electrode plates face each other, as well as the correction plates. The electrode closest to the readout is grooved in its center with a conductive grid fixed on it, for insuring the electric field uniformity (see explanations on the previous chapter). The top electrode has a $5.5\,\mathrm{mm}$ radius circular hole in its center to let passing the light from a calibration source. The field correctors were engraved directly on the inner \acrshort{pcb} face and resistors are welded on the outer side. SMD resistor type $2512$ ($1\,\mathrm{\%}$ precision, $3000\,\mathrm{V}$ max) are used.
+  %\input{04_IPHI_Test/figures/fig000_IPM_photo2}
+  The \acrshort{ipm} consists of five \acrshort{pcb} plates: two for the electrodes, two for the field correctors and one for supporting the readout. The two electrode plates face each other, as well as the correction plates. The electrode closest to the readout is grooved in its center with a conductive grid fixed on it, for insuring the electric field uniformity (see explanations on the previous chapter). The top electrode has a $5.5\,\mathrm{mm}$ radius circular hole in its center to allow illumination from a calibration source. The field correctors were engraved directly on the inner \acrshort{pcb} face and resistors are welded on the outer side. SMD resistor type $2512$ ($1\,\mathrm{\%}$ precision, $3000\,\mathrm{V}$ max) are used.
 
-  All \acrshort{pcb} boards are firmly encapsulated in two frames made of insulating material. Two materials have been used: PEEK and MACOR. MACOR is a machinable ceramic that provides very high electrical insulation (more than $50\,\mathrm{kV/mm}$ DC), good thermal conduction and withstands high temperatures ($800\,\textdegree{}C$). It is also compatible with vacuum despite its porous appearance. Even if it has very interesting mechanical properties, it must be handled with care \footnote{The author personally attest this fact after he screwed too tightly on a frame MACOR.}. PEEK (Polyether Ether Ketone) is a plastic polymer used in aggressive chemical environments. It is both an electrical (around $16\,\mathrm{kV/mm}$) and a thermal insulator. It does not tolerate temperatures above $50\,\textdegree{}C$. PEEK can be used under vacuum, but its performance is much lower than MACOR. On the other hand, it is cheaper and easier to handle.
+  All \acrshort{pcb} boards are firmly encapsulated in two frames made of insulating material. Two materials have been used: PEEK and MACOR. MACOR is a machinable ceramic that provides very high electrical insulation (more than $50\,\mathrm{kV/mm}$ DC), good thermal conduction and withstands high temperatures ($800\,\mathrm{\textdegree{}C}$). It is also compatible with vacuum despite its porous appearance. Even if it has very interesting mechanical properties, it must be handled with care \footnote{The author personally attest this fact after he screwed too tightly on a frame MACOR.}. PEEK (Polyether Ether Ketone) is a plastic polymer used in aggressive chemical environments. It is both an electrical (around $16\,\mathrm{kV/mm}$) and a thermal insulator. It does not tolerate temperatures above $250\,\mathrm{\textdegree{}C}$. PEEK can be used under vacuum, but its performance is much lower than MACOR. On the other hand, it is cheaper and easier to handle.
 
   The two frames are screwed to a MACOR support fixed on the flange via two stainless steel rods. The ceramic support ensures a perfect insulation of the \acrshort{ipm} with the vacuum chamber. The \acrshort{ipm}s has been designed so that the cage is completely independent of the readout used. For \acrshort{ipm}s using strips, it is also possible to rotate the \acrshort{ipm} by $90\,\textdegree{}$ to change the direction of the measurement. The connections to the different high voltages are wired with bare copper protected by ceramic beads. Vacuum feedthroughs are COTS components that can support voltages up to $30\,\mathrm{kV}$.
 
   An \acrshort{ipm} prototype fully mounted on its flange is pictured in Fig. \ref{chap4:IPM_photo2}.
+
+  \input{04_IPHI_Test/figures/fig000_IPM_photo2}
 
   \subsection{MCP}
   A total of four \acrshort{mcp}s has been bought from two different suppliers, Hamamatsu and Photonis: a simple single stage \acrshort{mcp} and a single stage \acrshort{mcp} coupled with a phosphorus screen. The simple \acrshort{mcp}s will be used with the strips \acrshort{ipm}s if the signal becomes too low.
@@ -92,8 +96,8 @@ Nowadays, TimePix3 has completely replaced its ancestor. This new integrated cir
 
   % Sensor
   The sensor is the core component of a camera, so it is better to choose it first, on the basis of the requirements.
-  For our application high resolution is not mandatory, so pixels could be relatively big in order to increase light collection and dynamic range.
-  Sony IMX249 fits well with these prerequisites. It is a consumer \acrshort{cmos} sensor with relatively big pixels and low noise.
+  For our application high resolution is not mandatory, so pixels could be relatively large in order to increase light collection and dynamic range.
+  Sony IMX249 fits well with these prerequisites. It is a consumer \acrshort{cmos} sensor with big pixels and low noise.
   Its EMVA characteristics are summarized in the Table \ref{tab:IMX249} \cite{emva2010}.
   \input{04_IPHI_Test/tables/table000_sensor}
 
@@ -121,7 +125,7 @@ Nowadays, TimePix3 has completely replaced its ancestor. This new integrated cir
   The strips are read by the \acrshort{caramel} card \cite{caramel2013} from the \acrshort{faster} system. \acrshort{faster} is a versatile acquisition platform developed by LPC at Caen \cite{faster2013}. \acrshort{caramel} is an electrometer VITA-57 card based on two DDC316 chips from Texas Instrument \cite{ddc316}. Each chip integrates 16 acquisition channels connected to a dual integrator circuit allowing continuous measurement, as shown in Fig. \ref{chap4:DDC316}. The DDC316 chip covers integration times from $10\,\mathrm{\mu s}$ to $1\,\mathrm{ms}$ and three measurement ranges are available: $3\,\mathrm{pC}$, $6\,\mathrm{pC}$, $12\,\mathrm{pC}$. The DDC316 can read only positive charges, so an homemade current injector has been developed to add an offset allowing the measurement of negative charges.
   \input{04_IPHI_Test/figures/fig000_DDC316}
 
-  Two \acrshort{caramel} boards can be plugged in a motherboard compatible with microTCA crates. All modules in a crate are controlled by a software that configures the entire system, runs acquisitions and visualizes \cite{rhb2012} the data online. The data can be saved in a binary format and a library allows to read them afterward.
+  Two \acrshort{caramel} boards can be plugged in a motherboard compatible with microTCA crates. All modules in a crate are controlled by a software that configures the entire system, runs acquisitions and visualizes \cite{rhb2012} the data online. The data can be saved in a binary format and a library allows to read them afterwards.
 
   \subsection{High voltage power supplies}
   An \acrshort{ipm} requires high voltages to create the extraction field and to supply the \acrshort{mcp} when it is used as readout. All power supplies come from iseg-HV \cite{iseg2019} and cover range from $0\,\mathrm{kV}$ to $30\,\mathrm{kV}$ with negative or positive polarities.
@@ -135,11 +139,11 @@ Nowadays, TimePix3 has completely replaced its ancestor. This new integrated cir
   The whole \acrshort{ess} Control System (\acrshort{cs}) will rely on the Experimental Physics and Industrial Control System (\acrshort{epics}) toolkit. The \acrshort{ess} CS team has specified its own EPICS standards to ensure the sustainability of the control system over the years. We will also test our \acrshort{ipm}s at an accelerator whose control system is EPICS compatible. Therefore, EPICS has some importance to our project and we tried to use it as much as possible for our prototypes. In this section we will briefly describe EPICS and how we have integrated our test bench under such environment.
 
   EPICS provides a set of tools and protocols to facilitate the integration of control systems \cite{epics2019}. Originally developed for real-time systems, it now supports many platforms. EPICS has become an open source project in 2004, since many laboratories and collaborations have contributed to its development.
-  One of the most important component of EPICS is the Channel Access (\acrshort{ca}). In few words, it is a protocol that defines how the data are exchanged between clients and servers on a network. A server provides Process Variables (\acrshort{pv}s) to clients. \acrshort{pv}s are useful data (for instance a current, a voltage or a temperature) associated with metadata (timestamp, units). A client can access and edit a \acrshort{pv} value by knowing its name. In practice a server is often an hardware controlled by software, often called software Input/Output Controller (\acrshort{softioc}). A client is for instance an operator interface (\acrshort{opi}) which allows to view and modify the \acrshort{pv} from one or more softIOCs.
+  One of the most important component of EPICS is the Channel Access (\acrshort{ca}): it is a protocol that defines how the data are exchanged between clients and servers on a network. A server provides Process Variables (\acrshort{pv}s) to clients. \acrshort{pv}s are useful data (for instance a current, a voltage or a temperature) associated with metadata (timestamp, units). A client can access and edit a \acrshort{pv} value by knowing its name. In practice a server is often a hardware controlled by software, often called software Input/Output Controller (\acrshort{softioc}). A client is for instance an operator interface (\acrshort{opi}) which allows to view and modify the \acrshort{pv} from one or more softIOCs.
 
   The whole system employed for the test bench is almost fully compatible with the version 3.16 of EPICS base. The PointGrey GigE cameras are well supported by the AreaDetector module \cite{ad2019}. A custom plugin, developed by \acrshort{ess}, performs a gaussian fit on the profile for every image. Raw images are saved into \acrshort{hdf}5 files \cite{hdf5}. This format allows to pack various datasets together, for instance the raw \acrshort{ipm} images with some beam information.
   Since all high voltage power supplies have their own SPCI Ethernet interface, thus a simple softIOC with StreamDevice\cite{streamdevice2019} was enough to control and monitor them.
-  Three OPIs have been developed in order to control cameras, power supplies and a GEO BRICK controller\footnote{Motor to move scintillating screens vertically to intercept the beam or to be safely moved far from it, see section \ref{chap4:sec:ref} for more details}. They run under the BOY module of the \acrshort{ess} Control System Studio version 4.5. An Archiver Appliance records and saves slow process variables from the power supplies, the vacuum systems and the accelerator \cite{archiver2019}.
+  Three OPIs have been developed in order to control cameras, power supplies and a GEO BRICK controller\footnote{Motor to move scintillating screens vertically to intercept the beam or to be safely moved far from it, see section \ref{chap4:sec:ref} for more details.}. They run under the BOY module of the \acrshort{ess} Control System Studio version 4.5. An Archiver Appliance records and saves slow process variables from the power supplies, the vacuum systems and the accelerator \cite{archiver2019}.
 
   %%%%% controler le footnote à propos de Geobrick
 
@@ -159,7 +163,7 @@ Nowadays, TimePix3 has completely replaced its ancestor. This new integrated cir
 
   \subsection{Reference measurement}
   \label{chap4:sec:ref}
-  We carried out reference measurements to help for diagnosing possible issues on the prototypes and to allow a complete comparison with the prototypes, giving more confidence on the measurement. Two methods have been foreseen and implemented for this purpose.
+  We carried out reference measurements for diagnosing possible issues on the prototypes and to allow a complete comparison with the prototypes, giving more confidence on the measurement. Two methods have been foreseen and implemented for this purpose.
 
   The first method uses scintillator screens, which is interceptive. The screens are mounted on a racket that can be inserted into the beam using a translator controlled remotely through a GEO BRICK controller. Three scintillator screens have been kindly provided by our colleagues at Saclay. Table \ref{chap4:tab_ecran} sums up the main characteristics of each screen.
   % and Fig \ref{chap4:fig_ecran} shows the three screens on a support.
@@ -179,36 +183,37 @@ Nowadays, TimePix3 has completely replaced its ancestor. This new integrated cir
 
   \subsection{IPHI accelerator}
   \acrshort{iphi} is a high intensity linear proton accelerator located at CEA/Saclay.
-  The project started in the late 90's\cite{Beau2000} but protons were accelerated up to $3\,\mathrm{MeV}$ only in April 2016\cite{Gobin2016}.
+  The project started in the late 90's \cite{Beau2000} but protons were accelerated up to $3\,\mathrm{MeV}$ only in April 2016 \cite{Gobin2016}.
 
+  \input{04_IPHI_Test/figures/fig000_IPHI_view}
   Proton plasma is created by an electron cyclotron resonance source (ECR), and transported toward a radio frequency quadruple (\acrshort{rfq}) by a low energy beam transport line (LEBT).
   An iris, at the source exit, ensures a fine tuning of the current, and two solenoids focus and filter the plasma before the injection into the RFQ.
   Then, the protons are accelerated up to $3\,\mathrm{MeV}$ and bunched at a frequency of $352\,\mathrm{MHz}$.
   A medium energy beam transport line (MEBT), downstream from the RFQ, contains focusing elements, steerers and beam diagnostics.
   A bit farther, the dipole magnet can distribute the protons over two beam lines.
 
-  \input{04_IPHI_Test/figures/fig000_IPHI_view}
-
   The main line has a dedicated beam stop of $300\,\mathrm{kW}$, allowing the commissioning of the accelerator at high intensity and duty cycle.
   The secondary line is more modular but restricted to beam at lower intensity and duty cycle (few hundred Watt).
   This line is open for external user experiments.
-  We were, with the \acrshort{nblm} team, one of the first experiments on the deviated line\cite{Senee:IPAC2018-TUPAF016}.
+  We were, with the \acrshort{nblm} team, one of the first experiments on the deviated line \cite{Senee:IPAC2018-TUPAF016}.
 
-  Fig. \ref{chap4:IPHI_view} shows a schematic view of the \acrshort{iphi} accelerator, and Table \ref{chap4:IPHI_carac} sums up the main differences between \acrshort{iphi} and \acrshort{ess}. Even if IPHI does not have the same characteristics, it is close to our laboratory and so convenient for testing purpose. The extrapolation from IPHI to ESS conditions will be done as soon as the following product $I_{beam}\,\times\,P_{gas}\,\times\sigma(E_{beam})$ is kept constant for both facilities.
+  % TODO: Parler de linac4 ?
+  Fig. \ref{chap4:IPHI_view} shows a schematic view of the \acrshort{iphi} accelerator, and Table \ref{chap4:IPHI_carac} sums up the main differences between \acrshort{iphi} and \acrshort{ess}. Even if IPHI does not have the same characteristics, it is close to our laboratory and very convenient for testing purpose. The extrapolation from IPHI to ESS conditions will be done as soon as the following product $I_{beam}\,\times\,P_{gas}\,\times\sigma(E_{beam})$ is kept constant for both facilities.
 
   \input{04_IPHI_Test/tables/table000_IPHI_carac}
 
   \subsection{Overview of the two test campaigns}
-  % TODO: Reformuler
   In this section, we want to introduce the story behind our two test campaigns, and give an overview of the issues we faced.
+
+  \input{04_IPHI_Test/figures/fig000_IPHI_tb}
+
   The prototypes were not ready for the beginning of the first campaign.
-  Hence, they were debugged on site, and we encountered many technical problems (sparks, readout sync).
+  Hence, they were debugged on site, and we encountered many technical problems (sparks, readout synchronization).
   We finally got our first profile after some fixes on our prototypes, and by reducing the maximum operating voltage.
   However, our prototypes were not able to measure the beam profile on demand, working sporadically, and we observed strange artifacts on the profiles.
   We solved this problem by asking a fine tuning of the beam parameters to a beam physicist.
   We became even more confident with our detectors when \acrfull{bpm} systems were switched on allowing a comparison with our measurements, see section \ref{chap4:sec:Position}.
 
-  \input{04_IPHI_Test/figures/fig000_IPHI_tb}
 
   Just after the first campaign the detectors were improved by minor changes on the HV connection design. Therefore, the decision was made to perform a second test campaign at \acrshort{iphi}.
   The results of the first campaign were confirmed and improved during this second one.
@@ -226,38 +231,38 @@ Nowadays, TimePix3 has completely replaced its ancestor. This new integrated cir
 
   \subsection{Processing camera}
 
-  The optical \acrshort{ipm} gives directly an image of the beam in longitudinal and transverse directions. Thanks to EPICS and AreaDetector, all images and related acquisition information are packed together in an \acrshort{hdf}5 file. The processing of data is done with different Python packages \cite{NumPy2011,SciPy2019,Hunter2007}. In a first step, dead pixels are removed: the standard deviation of the image is computed and each deviating pixel is smoothed by a convolution filter ($3\times3$ kernel). The algorithm works well if two dead pixels are not neigbours, otherwise higher order kernel must be used. Then, the image is cropped to a region of interest i.e. the active surface of the \acrshort{mcp}. If necessary, the image is filtered in the frequency domain via a Fast Fourier Transform (\acrshort{fft}) \cite{Burrus2012}. \acrshort{fft} filtering is a very efficient method when the images have many recurring pattern that are even visible by a human eye. At \acrshort{ess}, more advanced methods like wavelets \cite{Burrus1997,bultheel2014} may be more suitable for filtering patterns with some spatial dependencies. Indeed, the images may have some discrete spots rather than a continuous image\footnote{More details in section \ref{chap4:sec:MCPess}}. Note that beam images are quite parsimonious in the frequency domain. The profile is reconstructed by summing all pixels in the longitudinal direction. An example of an almost raw image is visible in Fig. \ref{chap4:image_beam}.
+  The optical \acrshort{ipm} gives directly an image of the beam in longitudinal and transverse directions. Thanks to EPICS and AreaDetector, all images and related acquisition information are packed together in an \acrshort{hdf}5 file. The processing of data is done with different Python packages \cite{NumPy2011,SciPy2019,Hunter2007}. In a first step, dead pixels are removed: the standard deviation of the image is computed and each deviating pixel is smoothed by a convolution filter ($3\times3$ kernel). The algorithm works well if two dead pixels are not neigbours, otherwise higher order kernel must be used. Then, the image is cropped to a region of interest i.e. the active surface of the \acrshort{mcp}. If necessary, the image is filtered in the frequency domain via a Fast Fourier Transform (\acrshort{fft}) \cite{Burrus2012}. \acrshort{fft} filtering is a very efficient method when the images have many recurring pattern that are even visible by a human eye. At \acrshort{ess}, more advanced methods like wavelets \cite{Burrus1997,bultheel2014} may be more suitable for filtering patterns with some spatial dependencies. Indeed, the images may have some discrete spots rather than a continuous image\footnote{More details in section \ref{chap4:sec:MCPess}.}. Note that beam images are quite parsimonious in the frequency domain. The profile is reconstructed by summing all pixels in the longitudinal direction. An example of an almost raw image is visible in Fig. \ref{chap4:image_beam}.
 
   \input{04_IPHI_Test/figures/fig000_image_beam}
 
   \subsection{Processing strip}
   The processing of data from strips is completely different and more complex. Indeed only a small part of the recorded signal is meaningful since the chips integrate continuously. The duration of the beam pulse was always short during the tests (from $50\,\mathrm{\mu s}$ to $1\,\mathrm{ms}$), therefore only a small amount of data is really useful.
+  \input{04_IPHI_Test/figures/fig000_strips_signal}
 
   The data are processed as follows with ROOT\cite{Brun1997,Antcheva2009} routines. First, the pedestal of each strips is subtracted. If $N$ successive points are above a given threshold, then the pulse is considered as triggered. A pulse is detected when the previous condition is met on several strips at same time. Finally the successive $N$ integrations are summed giving the charge collected for one pulse. For Gaussian strips the charges are weighted according to the size of the strip.
 
   An example of a raw signal is given in the Fig. \ref{chap4:strips_signal}. On the left hand side, one can see the signal recorded during $45\,\mathrm{s}$. Each peak corresponds to the passage of the beam. The signal for one pulse is visible on the right hand side.
 
-  \input{04_IPHI_Test/figures/fig000_strips_signal}
 
   \subsection{Processing scintillator screen data and review of the reference measurements}
 
-  Scintillator screens can only operate at low duty cycles, typically few mA and few hundred $\mu$s. Even under these conditions, the beam destroyed two of the three screens. The signal is so strong that the camera in front of the screen is completely saturated, as well as the camera of the optical \acrshort{ipm} one meter away. Measurements with the scintillator screens are only possible if a neutral density (ND) filter is set in front of the lens. The signal from the scintillating screen completely overlaps with the one from the phosphorus screen and since we use monochromatic camera, there is no way to recover the beam profile from the optical \acrshort{ipm}. For the strips \acrshort{ipm} the working condition are already too low for a correct measurement. Therefore, it is not possible to compare the \acrshort{ipm} beam profiles with the scintillating screens in real time.
+  Scintillator screens can only operate at low duty cycles, typically few mA and few hundred $\mu$s. Even under these conditions, the beam destroyed two of the three screens. The signal is so strong that the camera in front of the screen is completely saturated, as well as the camera of the optical \acrshort{ipm} one meter away. Measurements with the scintillator screens are only possible if a neutral density (ND) filter is set in front of the lens. The signal from the scintillating screen completely overlaps with the one from the phosphorus screen and since we use monochromatic camera, there is no way to recover the beam profile from the optical \acrshort{ipm}. For the strips \acrshort{ipm} the working conditions are already too low for a correct measurement. Therefore, it is not possible to compare the \acrshort{ipm} beam profiles with the scintillating screens in real time.
   \input{04_IPHI_Test/figures/fig000_ScreenBeam}
 
   Fig. \ref{chap4:ScreenBeam} shows an example of a profile measurement recorded on the $Y_{3}Al_{5}O_{12}(Ce)$ screen. The processing is almost the same as the optical \acrshort{ipm}: hot pixels are corrected and the images are cropped. Then, a homography \cite{szeliski2010,opencv_library} is performed to correct the orientation of the screens. The measurement of the beam size is quite complicated because the baseline of the profile is not straight, therefore the fits have a very poor quality. One can see that the profile is quite wide in the $x$-plane because of the dispersion due to the dipole.
   %During the second campaign the dispersion was reduced by a small aperture collimator located downstream the deviation dipole.
 
-  The conditions are also not favourable for measurements with \acrshort{fpm}s. The viewports are very close to the beam dump and when this stops beam particles stray light is emitted. The vacuum chamber (and the entire accelerator) allows light to propagate easily due to reflections on 304L steel. The vacuum is quite low so the expected fluorescence signal will be even weaker. Increasing the beam intensity does not help since the parasitic light from the beam dump becomes more significant.
+  The conditions are also not favorable for measurements with \acrshort{fpm}s. The viewports are very close to the beam dump and when this stops beam particles stray light is emitted. The vacuum chamber (and the entire accelerator) allows light to propagate easily due to reflections on 304L steel. The vacuum is quite low so the expected fluorescence signal will be even weaker. Increasing the beam intensity does not help since the parasitic light from the beam dump becomes more significant.
   Our concerns were confirmed when we added a sleeve with a black coating to shield the \acrshort{fpm}s field of view from the rest of the vessel. The parasitic light is shown in Fig. \ref{chap4:FPM}. All the attempts to minimize this effect remained unsuccessful.
 
   \input{04_IPHI_Test/figures/fig000_FPM}
 
   \section{Beam environnement characterization}
-  First of all, it is necessary to present the experimental conditions under which our detectors have been characterized. One of the major problems encountered during these tests was the lack of information about the beam. The two types of diagnostics available at \acrshort{iphi} on the deviated line are current monitors and \acrshort{bpm}s, whose calibration is uncertain. During the first weeks of the test campaign, it was impossible to know if the strange beam position oscillations observed were due to the beam or to the detectors themselves. The next sections show the tests we carried out in order to undertand the origin of the instabilities
+  First of all, it is necessary to present the experimental conditions under which our detectors have been characterized. One of the major problems encountered during these tests was the lack of information about the beam. The two types of diagnostics available at \acrshort{iphi} on the deviated line are current monitors and \acrshort{bpm}s, whose calibration is uncertain. During the first weeks of the test campaign, it was impossible to know if the strange beam position oscillations observed were due to the beam or to the detectors themselves. The next sections show the tests carried out in order to understand the origin of the instabilities
 
   \subsection{Vacuum analysis}
   \label{sec4:vacuum}
-  During the tests, the vacuum parameters were recorded in real time \footnote{The vacuum gauge can provide a measurement at every pulse whereas a full RGA scan takes around two minutes}. However, neither the RGA, nor the vacuum gauge were calibrated. It is assumed that the RGA provides a qualitative information about the proportions of each specie in the residual gas, whereas the vacuum level is given more precisely by the vacuum gauge.
+  Understanding the vacuum conditions is very important in order to correctly extrapolate our results to ESS conditions. During the tests, the vacuum parameters were recorded in real time \footnote{The vacuum gauge can provide a measurement at every pulse whereas a full RGA scan takes around two minutes}. However, neither the RGA, nor the vacuum gauge were calibrated. It is assumed that the RGA provides a qualitative information about the proportions of each specie in the residual gas, whereas the vacuum level is given more precisely by the vacuum gauge.
 
   We measured two main types of RGA spectra as shown in Fig. \ref{chap4:vacuum_rga}. The left one is obtained when the chamber had not been baked or after a water contamination. As a consequence, the water peak dominates and the pressure is in the range of $10^{-7}\,\mathrm{mbar}$. After few days of pumping or after drying, the RGA spectra tend towards the second case, on the right. In this case the vacuum level is about $10^{-8}\,\mathrm{mbar}$ and hydrogen is the main molecular specie. One can see some quite heavy elements on the two spectra, possibly oil residues. Indeed one of our turbo pumps was contaminated with oil from its old primary pump.
 
@@ -268,25 +273,26 @@ Nowadays, TimePix3 has completely replaced its ancestor. This new integrated cir
   \subsection{Beam position}
   \label{chap4:sec:Position}
 
-  The first observation we made on the profile measurements was the significant variation of the beam position between two pulses. At first, we thought to an electrostatic charge and discharge phenomenon, that may induce beam position oscillation. However, this hypothesis was discarded when finally the \acrshort{bpm} system was started. For the first time, we were able to compare our measurements with another device. Fig. \ref{chap4:BPMvsIPM} shows the position of the beam recorded by \acrshort{ipm} and a \acrshort{bpm} on a time scale of about one hour. The big sharp transitions are the consequences of beam moving under the electrostatic steerer scans. However, there are quite a few smaller variations between two steerer steps. A variation exceeding $2\,\mathrm{mm}$ ($5\,\mathrm{\%}$ of our readout size) can be observed from pulse to pulse. The \acrshort{ipm} position is the center of the gaussian fit of the profile; this nice correlation started giving us confidence in our monitoring systems.
+  The first observation we made on the profile measurements was the significant variation of the beam position between two pulses. At first, we thought to an electrostatic charge and discharge phenomenon, that induced beam position oscillation. However, this hypothesis was discarded when finally the \acrshort{bpm} system was started. For the first time, we were able to compare our measurements with another device. Fig. \ref{chap4:BPMvsIPM} shows the position of the beam recorded by \acrshort{ipm} and a \acrshort{bpm} on a time scale of about one hour. The big sharp transitions are the consequences of beam moving under the electrostatic steerer scans. However, there are quite a few smaller variations between two steerer steps. A variation exceeding $2\,\mathrm{mm}$ ($5\,\mathrm{\%}$ of our readout size) can be observed from pulse to pulse. The \acrshort{ipm} position is the center of the gaussian fit of the profile; this nice correlation started giving us confidence in our monitoring systems.
   %This is not a profile comparison but the same beam instabilities are visible on both devices.
 
   \input{04_IPHI_Test/figures/fig000_BPMvsIPM}
 
-  This is a major issue since \acrshort{mcp}s have a good space resolution, but we are not allowed to fully benefit of this feature. Indeed, all our measurements have been affected by those parasitic variations and therefore the level of confidence on the measurement is reduced. The histograms of beam size and position over 480 consecutive pulses are reported in Fig. \ref{chap4:hist_variation}. One can see that both distributions are asymmetric and have a similar shape. The linear regression between size and position has been calculated from several runs and shows a non-zero slope. On the other hand the correlation factor between size and position is not so high usually and varies between $0.5$ and $0.8\,\mathrm{mm}$ from run to run.
-  Anyway, these uncertainties can be seen as systematic errors, thus measurement errors may be calculated and reduced quadratically from the oscillating components!
-
+  This is a major issue since \acrshort{mcp}s have a good space resolution, but we are not allowed to fully benefit of this feature. Indeed, all our measurements have been affected by those parasitic variations and therefore the level of confidence on the measurement is reduced. The histograms of beam size and position over 480 consecutive pulses are reported in Fig. \ref{chap4:hist_variation}. 
   \input{04_IPHI_Test/figures/fig000_hist_variation}
+
+  One can see that both distributions are asymmetric and have a similar shape. The linear regression between size and position has been calculated from several runs and shows a non-zero slope. On the other hand the correlation factor between size and position is not so high usually and varies between $0.5$ and $0.8\,\mathrm{mm}$ from run to run.
+  Anyway, these uncertainties can be seen as systematic errors, thus measurement errors may be calculated and reduced quadratically from the oscillating components!
 
   The main explanation given by \acrshort{iphi} experts about theses variations is that the beam is more unstable when the pulse beam is shorter. However, we did not have time to confirm this hypothesis.
 
   \subsection{Beam current}
   \label{chap4:sec:current}
-  At \acrshort{iphi} the current is finely adjustable thanks to the iris located at the source exit; \acrshort{iphi} has been designed to work with a continuous beam up to $100$ $\mathrm{mA}$. To be in conditions close to those of \acrshort{ess} in term of counting rates, the current and duration of the pulse must be lowered. Varying the beam current is very important because it allows to check many properties of the detector. However, the shape of the \acrshort{iphi} beam changes greatly with current. This phenomenon is illustrated in Fig. \ref{chap4:ex_beam_profile_a} and \ref{chap4:ex_beam_profile_b}. When the currents are high, the beam looks like Gaussian with one of its shoulders more spread out. At medium and low current, the size of the beam decreases as well as its amplitude. However, a kind of halo appears and this becomes more and more important as the current decreases. At very low current the beam core disappears completely and only the halo remains.
+  At \acrshort{iphi} the current is finely adjustable thanks to the iris located at the source exit; \acrshort{iphi} has been designed to work with a continuous beam up to $100$ $\mathrm{mA}$. To be in conditions close to those of \acrshort{ess} in term of counting rates, the current and duration of the pulse must be lowered. Varying the beam current is very important because it allows to check many properties of the detector. However, the shape of the \acrshort{iphi} beam changes greatly with current. This phenomenon is illustrated in Fig. \ref{chap4:ex_beam_profile_a} and \ref{chap4:ex_beam_profile_b}. When the currents are high, the beam looks like a Gaussian with one of its shoulders with a longer tail. At medium and low current, the size of the beam decreases as well as its amplitude. However, a kind of halo appears and this becomes more and more important as the current decreases. At very low current the beam core disappears completely and only the halo remains.
 
   \input{04_IPHI_Test/figures/fig000_ex_beam_profile}
 
-  This causes a problem for beam shapes comparisons at different beam intensities. So, how to quantify the beam size? Several methods have been considered. One can simply calculate the mean value and standard deviation of the profile distribution, but the results are strongly biased by the beam position and the asymmetric shape of the profile. A more advanced method consists in performing a least squares curve fitting of the profile with a Gaussian function for recovering the estimated sigma. This method works quite well at high currents but at low currents the halo prevents the beam from performing a correct fitting. To overcomes this issue, a second Gaussian function can be added to the fitting routine. The double fit succeeds in correctly modeling the two components. However, double fits may modelize almost any beam shape and the fitting results are difficult to verify automatically. The method becomes very unstable for high currents. This is why it must be limited to low currents. The last alternative is to use the full width at half maximum (FWHM). Assuming that the beam is more or less Gaussian, the sigma can be calculated as follow $\sigma = \frac{FWHM}{\sqrt{2ln(2)}}$. FWHM computation is also less complicated than least squares fitting.
+  This causes a problem for beam shapes comparisons at different beam intensities. So, how to quantify the beam size? Several methods have been considered. One can simply calculate the mean value and standard deviation of the profile distribution, but the results are strongly biased by the beam position and the asymmetric shape of the profile. A more advanced method consists in performing a least squares curve fitting of the profile with a Gaussian function for recovering the estimated sigma. This method works quite well at high currents but at low currents the halo prevents the beam from performing a correct fitting. To overcome this issue, a second Gaussian function can be added to the fitting routine. The double fit succeeds in correctly modeling the two components. However, double fits may modelize almost any beam shape and the fitting results are difficult to verify automatically. The method becomes very unstable for high currents. This is why it must be limited to low currents. The last alternative is to use the full width at half maximum (FWHM). Assuming that the beam is more or less Gaussian, the sigma can be calculated as follow $\sigma = \frac{FWHM}{\sqrt{2ln(2)}}$. FWHM computation is also less complicated than least squares fitting.
 
   \input{04_IPHI_Test/figures/fig000_current_sweep}
 
@@ -303,15 +309,14 @@ Nowadays, TimePix3 has completely replaced its ancestor. This new integrated cir
   %\input{04_IPHI_Test/figures/fig000_position_sweep}
 
   \section{IPM characterization}
-  In the next sections the most common aspects of \acrshort{ipm}s are presented. The goal is to collect as much information as possible about the detectors and their limitations to prepare the final design. Most of the data presented below come from optical \acrshort{ipm}s, since many of the acquisitions done with the strips were polluted by noise and strange electronics behaviours.
+  In the next sections the most common aspects of \acrshort{ipm}s are presented. The goal is to collect as much information as possible about the detectors and their limitations to prepare the final design. Most of the data presented below come from optical \acrshort{ipm}s, since many of the acquisitions done with the strips were polluted by strange electronics noises.
 
   \subsection{Beam size convergence}
 
   The extraction voltage is an important parameter of an IPM; if the electricl field is too low, then profiles will be distorted by the molecular thermal motion and beam space charge effects. Those effects can be compensated by increasing the electrical field in the cage. At a certain point, the beam size will start to converge to its real value. This behavior has been observed with both strip and optical IPMs.
+  \input{04_IPHI_Test/figures/fig000_HT_size2}
 
   Fig. \ref{chap4:fig:fig000_HT_size_a} shows an example of the beam size convergence from the optical IPM. For technical reasons, we have to permute from asymmetric to symmetric mode for achieving high electric field. The swap induced an error on the profile measurement but it can be corrected, see next section \ref{chap4:sec:field_uniformity}. At very low voltage the beam shape is very wide and has no more gaussian shape explaining the huge uncertainty on the size measurement. The strips IPM doest not have this issue since it works only in asymmetric mode(Fig. \ref{chap4:fig:fig000_HT_size_b}).
-
-  \input{04_IPHI_Test/figures/fig000_HT_size2}
 
   \subsection{Cross interaction }
 
@@ -324,16 +329,15 @@ Nowadays, TimePix3 has completely replaced its ancestor. This new integrated cir
   \subsection{Comparison size }
   The \acrshort{iphi} beam may be deflected by the extraction fields of the different \acrshort{ipm}s, as a consequence most of the studies have been performed on a single \acrshort{ipm} at a time. However some measurements require to use both \acrshort{ipm}s at the same time, like for the comparisons between profiles measured with the two different \acrshort{ipm} types. This is the only way to check the correctness of the measurement since there were no reference method working correctly during the tests.
   The superposition of the profile measured with the strips \acrshort{ipm} and optical \acrshort{ipm} is displayed in Fig. \ref{chap4:MCP_strip}, showing an excellent agrement. The strips \acrshort{ipm} directly measures a number of charges whereas the camera gives a digital pixel value. The conversion factors of each element in the optical \acrshort{ipm} have not been quantified, therefore the signal amplitude from the camera data is only scaled, while the x-axis remains unchanged.
-  
+  \input{04_IPHI_Test/figures/fig000_MCP_strips}
+
   The FWHM is used to compare the size measured with both methods. This method is less biased by the position of beam and the total range of the measurement
   compare to other methods presented in section \ref{chap4:sec:current}.
   Additional steps are required before computing the FWHM.
-  The non working strip is equalize with its two neighbors. A linear interpolation is performed on the strips data to virtually increase the resolution on beam size. From the example given in Fig. \ref{chap4:MCP_strip}. The FWHM measured for strips is $6.907$ and $6.698$ for the optical IPM.
+  The non working strip is equalized with its two neighbors. A linear interpolation is performed on the strips data to virtually increase the resolution on beam size. From the example given in Fig. \ref{chap4:MCP_strip}. The FWHM measured for strips is $6.907$ and $6.698$ for the optical IPM.
   The results are quite good considering the resolution difference between both readouts.
   
   Note that the beam position measured by both IPMs is different and may be greatly affected by the steerers and the IPM1. In some cases, a variation of $1.6\,\mathrm{mm}$ can be observed.
-
-  \input{04_IPHI_Test/figures/fig000_MCP_strips}
 
   \subsection{Field uniformity}
   \label{chap4:sec:field_uniformity}
@@ -345,11 +349,9 @@ Nowadays, TimePix3 has completely replaced its ancestor. This new integrated cir
 
   We measured the beam size and displacement for several steerer values in the symmetric and asymmetric configurations.
   The extraction fields were set to a same value for both configurations and all other parameters were frozen. If we suppose that the symmetric mode gives the real beam position and size, hence it is possible to quantify the difference between the simulated and experimental values.
-
-  % TODO: Commenter résultats
-  For several extraction field values in both asymmetric and symmetric modes, the mean value of the slope of the beam displacement has been computed and compared with the results from simulations, see Fig. \ref{chap4:COMSOL_check_a}. In a same way, the average ratio between beam size for symmetric and asymmetric configurations has been measured for several positions and the comparisons with simulations is shown in Fig. \ref{chap4:COMSOL_check_b}. In both cases, we observe a nice agreement between simulations and measurements.
-
   \input{04_IPHI_Test/figures/fig000_COMSOL_check}
+
+  For several extraction field values in both asymmetric and symmetric modes, the mean value of the slope of the beam displacement has been computed and compared with the results from simulations, see Fig. \ref{chap4:COMSOL_check_a}. In a same way, the average ratio between beam size for symmetric and asymmetric configurations has been measured for several positions and the comparisons with simulations is shown in Fig. \ref{chap4:COMSOL_check_b}. In both cases, we observe a nice agreement between simulations and measurements.
 
   Note that the steerer was not able to cover the full range in position, but we preferred not using the dipole magnet to resume the scan since it may affect the beam size.
 
@@ -385,13 +387,13 @@ Nowadays, TimePix3 has completely replaced its ancestor. This new integrated cir
 
   \input{04_IPHI_Test/figures/fig000_P_gain}
 
-  Another important thing to check is that there is no influence of the HV applied on the screen and the measured size and position. The beam size seems to be not affected by the screen gain for both screens, as depicted on Fig. \ref{chap4:P_size}.
+  Another important thing to check is that there is no influence of the HV applied on the screen and the measured size and position. The influences have been tested for the two screens and are shown in Fig. \ref{chap4:P_size}. The beam size exposes small variations less than $100\,\mathrm{\mu m}$; errors bars are important due to variations from pulse to pulse. So, the p-value is high and the possibility that the slope is null can not be rejected. Anyway, the variation of beam size remains below the ESS requirement.
 
   \input{04_IPHI_Test/figures/fig000_P_size}
 
   \subsubsection{Timing}
   The measurement of decay time has been performed by moving the camera trigger at small exposure times. The measurement is a bit more difficult for the fast screen. Indeed, the exposure time is quite similar to the decay time, moreover the delay and the jitter on the exposure time may affect the measurement.
-  We measured for the PointGrey camera a delay of $25\,\mathrm{\mu s}$ and a jitter on the exposure time greater than $50\,\mathrm{\mu s}$. The measurements for both screens is shown in \ref{chap4:P_timing}.
+  We measured for the PointGrey camera a delay of $25\,\mathrm{\mu s}$ and a jitter on the exposure time greater than $50\,\mathrm{\mu s}$. The measurements for both screens are shown in \ref{chap4:P_timing}.
 
   \input{04_IPHI_Test/figures/fig000_P_timing}
 
@@ -413,17 +415,17 @@ Nowadays, TimePix3 has completely replaced its ancestor. This new integrated cir
   \label{chap4:sec:MCPess}
   Unlike the strips \acrshort{ipm}, it is almost impossible to quantify the number of ionization particles without a full calibration of the \acrshort{mcp}s. Hence, the extrapolation to \acrshort{ess} conditions is only done on the basis of the Bethe formula, by considering the beam parameters and vacuum conditions measured at \acrshort{iphi}.
   However a \acrshort{mcp} does not suffer of any bandwidth limitation as long as it is not saturated. The exposure time on the camera has been set to $3\,\mathrm{ms}$ in order to get realistic electronic noise in the \acrshort{cmos} sensor.
-  We supposed that the signal scales linearly with pressure. The beam current and the pulse duration were set to their lowest value possible at \acrshort{iphi}, respectively $0.7\,\mathrm{mA}$ and $50\,\mathrm{\mu s}$. The vacuum level was about $4 \cdot 10^{-8}\,\mathrm{mbar}$ and its composition was mainly water (conservative assumption), see section \ref{sec4:vacuum}. Table \ref{chap4:extrapolationMCP} sums up the weighting factors of each parameter on the extrapolation. For instance, the signal at ESS for $315.8\,\mathrm{MeV}$ protons should be around $50\,\mathrm{\%}$ of the one measured at IPHI. Finally, should an IPM be install at $2\,\mathrm{GeV}$, the detection would be possible since the signal is $6\,\%$ higher than the one measured at IPHI.
+  We supposed that the signal scales linearly with pressure. The beam current and the pulse duration were set to their lowest value possible at \acrshort{iphi}, respectively $0.7\,\mathrm{mA}$ and $50\,\mathrm{\mu s}$. The vacuum level was about $4 \cdot 10^{-8}\,\mathrm{mbar}$ and its composition was mainly water (conservative assumption), see section \ref{sec4:vacuum}. Table \ref{chap4:extrapolationMCP} sums up the weighting factors of each parameter on the extrapolation. For instance, the signal at ESS for $315.8\,\mathrm{MeV}$ protons should be around twice of the one measured at IPHI. Finally, should an IPM be install at $2\,\mathrm{GeV}$, the detection would be possible since the signal is $6\,\%$ higher than the one measured at IPHI.
   
   \input{04_IPHI_Test/tables/table000_extrapolationMCP}
 
   Fig. \ref{chap4:limits_IPHI} shows an example of a beam image and corresponding profile acquired in such conditions. The signal on the image looks as made of dots with several spots. Indeed, at this current some channels are no more hit every pulse. Each spot may be related to a hit on a single channel. As explained in section \ref{chap4:sec:current}, at really low current the halo component dominates the signal, explaining this coarse profile.
-  % TODO: Commenter l'image
 
   At first glance, it seems to be possible to measure single profiles at nominal \acrshort{ess} conditions. However, this assumption is strongly dependent on the vacuum conditions. Neither the RGA, nor the gauges were calibrated, so the uncertainty may be relevant. On the other hand the assumption on the gaz composition is conservative.
 
   \input{04_IPHI_Test/figures/fig000_limits_IPHI}
 
+  \FloatBarrier
   \subsection{Electron measurement with MCP}
   Unfortunately, we were not able to measure any profile in electron mode during the first and the second campaign.
   Typical pictures in the electron configuration are shown in Figure \ref{chap4:electron_MCP}. One can see that the profiles cannot be measured correctly since a higher signal is observed on the sides of the \acrshort{mcp}s. During the two test campaigns, comparable patterns were observed on the images in electron mode. The positions of these patterns is not related to the beam position and different beam tuning were performed without any impact on the images.
