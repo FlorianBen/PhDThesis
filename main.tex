@@ -4,24 +4,24 @@
 %\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm,bindingoffset=6mm,showframe]{geometry}
 \usepackage[paper=a4paper]{geometry}
 
+\usepackage{ifxetex}
+\usepackage{ifluatex}
+
+\ifluatex 
+  \usepackage{fontspec}
+\else\ifxetex
+  \usepackage{fontspec}
+\else
+  \usepackage[utf8]{inputenc}
+  \usepackage[T2A,T1]{fontenc}
+  \usepackage{textcomp}
+\fi\fi 
+
 % Mon package ou je place les commandes personnalisées
 \usepackage{PHDhelper}
 
 % Shell espace pour l'externalisation avec LuaLaTex
 \usepackage{shellesc}
-
-% Encodage des caractères si pdfLaTex
-\usepackage{ifluatex}
-\ifluatex 
-    \usepackage{fontspec}
-    \setsansfont{CMU Sans Serif}
-    \setmainfont{CMU Serif}
-    \setmonofont{CMU Typewriter Text}
-    \defaultfontfeatures{Ligatures={TeX}}
-\else
-    \usepackage[utf8]{inputenc}
-    \usepackage[T2A,T1]{fontenc}
-\fi
 
 % Support de l'Anglais et du Français
 \usepackage[english,french]{babel} 
@@ -55,12 +55,11 @@
 \addbibresource{bib/sensor.bib}
 \addbibresource{bib/software.bib}
 
-% Use caption 
-\usepackage{caption}
-
 % Amsmath pour la numérotation des équations
 \usepackage{amsmath}
 \numberwithin{equation}{chapter}
+
+\usepackage{siunitx}
 
 % Booktabs pour les tables
 \usepackage{booktabs}
@@ -83,8 +82,15 @@
 % Use color helper package
 \usepackage{xcolor}
 
-% Use helvetica support package if needed
-\usepackage{helvet}
+% Use caption 
+\usepackage[]{caption}
+\captionsetup[figure]{labelfont=bf,textfont=it}
+\captionsetup[sub]{labelfont=bf,textfont=it}
+\captionsetup[table]{labelfont=bf,textfont=it}
+
+% Subfigure package, pour des images multiples
+\usepackage[list=true,listformat=simple]{subcaption}
+
 
 % Minitoc package
 \usepackage{minitoc}
@@ -99,9 +105,6 @@
 % Import SVG
 \usepackage[inkscapepath=build]{svg}
 
-% Subfigure package, pour des images multiples
-\usepackage[list=true,listformat=simple]{subcaption}
-
 % Pour entouré les images avec du texte
 \usepackage{wrapfig}
 
@@ -111,9 +114,11 @@
 \usepackage[hidelinks,hyperindex=true]{hyperref}
 \hypersetup{pdfencoding=auto}
 
+\usepackage{placeins}
+
 \begin{document}
 \dominitoc[]
-%\input{00_Guards/couverture}
+\input{00_Guards/couverture}
 \thispagestyle{empty}
 \cleardoublepage
 \pagenumbering{arabic}
@@ -121,33 +126,32 @@
 
 \begin{otherlanguage}{english}
   \newgeometry{top=1in,bottom=1in,right=1in,left=1.25in}
-  %\input{00_Acknowledgments/00_Acknowledgments}
-	\tableofcontents
-	\addcontentsline{toc}{chapter}{Table of contents}%
+  \input{00_Acknowledgments/00_Acknowledgments}
+  \tableofcontents
 
-	\input{myacronyms}
-	\mainmatter
-	\input{01_Introduction/01_file}
-	\input{02_BeamDiag/02_file}
-	\input{03_Prototype/03_file}
-	\input{04_IPHI_Test/04_file}
-	\input{05_Conclusion/05_file}
+  \input{myacronyms}
+  \mainmatter
+  \input{01_Introduction/01_file}
+  \input{02_BeamDiag/02_file}
+  \input{03_Prototype/03_file}
+  \input{04_IPHI_Test/04_file}
+  \input{05_Conclusion/05_file}
 
-	\printglossary[type=\acronymtype]
+  \printglossary[type=\acronymtype]
 
-	\listoffigures
-	\addcontentsline{toc}{chapter}{\listfigurename}
+  \listoffigures
+  \addcontentsline{toc}{chapter}{\listfigurename}
 
-	\listoftables
+  \listoftables
   \addcontentsline{toc}{chapter}{\listtablename}
 \end{otherlanguage}
 
 \begin{otherlanguage}{french}
-%\input{00_French/00_french}
+\input{00_French/00_french}
 \end{otherlanguage}
 
 \appendix
-%\input{00_Appendix/00_file.tex}
+\input{00_Appendix/00_file.tex}
 \backmatter
 
 \pagenumbering{gobble}
