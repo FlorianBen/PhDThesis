@@ -12,6 +12,65 @@
 \RequirePackage{environ}
 \RequirePackage{booktabs}
 
+% Page de garde
+\definecolor{bordeau}{rgb}{0.3515625,0,0.234375}
+\newcommand{\PhDTitle}{Titre de la thèse (sur plusieurs lignes si nécessaire, 4 voire 5)} 	%% Titre de la thèse / Thesis title
+\newcommand{\PhDname}{Prénom Nom} 															%% Civilité, nom et prénom /  Civility, first name and name 
+\newcommand{\NNT}{20XXSACLXXXX} 															%% Numéro National de Thèse (donnée par la bibliothèque à la suite du 1er dépôt)/ National Thesis Number (given by the Library after the first deposit)
+
+\newcommand{\ecodoctitle}{Dénomination} 													%% Nom de l'ED. Voir site de l'Université Paris-Saclay / Full name of Doctoral School. See Université Paris-Saclay website
+\newcommand{\ecodocacro}{Sigle}																%% Sigle de l'ED. Voir site de l'Université Paris-Saclay / Acronym of the Doctoral School. See Université Paris-Saclay website
+\newcommand{\ecodocnum}{000} 																%% Numéro de l'école doctorale / Doctoral School number
+\newcommand{\PhDspeciality}{voir spécialités par l'ED} 										%% Spécialité de doctorat / Speciality 
+\newcommand{\PhDworkingplace}{Nom de l'établissement} 										%% Établissement de préparation / PhD working place : l'Université Paris-Sud, l'Université de Versailles-Saint-Quentin-en-Yvelines, l'Université d'Evry-Val-d'Essonne, l'Institut des sciences et industries du vivant et de l'environnement (AgroParisTech), CentraleSupélec,l'Ecole normale supérieure de Cachan, l'Ecole Polytechnique, l'Ecole nationale supérieure de techniques avancées, l'Ecole nationale de la statistique et de l’administration économique, HEC Paris, l'Institut d'optique théorique et appliquée, Télécom ParisTech, Télécom SudParis   
+\newcommand{\defenseplace}{Ville de soutenance} 											%% Ville de soutenance / Place of defense
+\newcommand{\defensedate}{Date} 
+\newcommand{\logoEtt}{blank}																%% NE PAS MODIFIER / DO NOT MODIFY
+\newcommand{\vpostt}{0.1} 																	%% NE PAS MODIFIER / DO NOT MODIFY
+\newcommand{\hpostt}{6}																		%% NE PAS MODIFIER / DO NOT MODIFY
+\newcommand{\logoEt}{etab} 																	%% Logo de l'établissement de soutenance. Indiquer le sigle / Institution logo. Indicate the acronym : AGRO, CENTSUP, ENS, ENSAE, ENSTA, HEC, IOGS, TPT, TSP, UEVE, UPSUD, UVSQ, X 
+\newcommand{\vpos}{0.1}																		%% À modifier au besoin pour aligner le logo verticalement / If needed, modify to align logo vertilcally
+\newcommand{\hpos}{11}																		%% À modifier au besoin pour aligner le logo horizontalement / If needed, modify to align logo horizontaly
+%%% Membre n°1 (Président) / Member n°1 (President)
+\newcommand{\jurynameA}{Prénom Nom}
+\newcommand{\juryadressA}{Statut, Établissement (Unité de recherche)}
+\newcommand{\juryroleA}{Président}
+
+%%% Membre n°2 (Rapporteur) / Member n°2 (Reviewer)
+\newcommand{\jurynameB}{Prénom Nom}
+\newcommand{\juryadressB}{Statut, Établissement (Unité de recherche)}
+\newcommand{\juryroleB}{Rapporteur}
+
+%%% Membre n°3 (Rapporteur) / Member n°3 (Reviewer)
+\newcommand{\jurynameC}{Prénom Nom}
+\newcommand{\juryadressC}{Statut, Établissement (Unité de recherche)}
+\newcommand{\juryroleC}{Rapporteur}
+
+%%% Membre n°4 (Examinateur) / Member n°4 (Examiner)
+\newcommand{\jurynameD}{Prénom Nom}
+\newcommand{\juryadressD}{Statut, Établissement (Unité de recherche)}
+\newcommand{\juryroleD}{Examinateur}
+
+%%% Membre n°5 (Directeur de thèse) / Member n°5 (Thesis supervisor)
+\newcommand{\jurynameE}{Prénom Nom}
+\newcommand{\juryadressE}{Statut, Établissement (Unité de recherche)}
+\newcommand{\juryroleE}{Directeur de thèse}
+
+%%% Membre n°6 (Co-directeur de thèse) / Member n°6 (Thesis co-supervisor)
+\newcommand{\jurynameF}{Prénom Nom}
+\newcommand{\juryadressF}{Statut, Établissement (Unité de recherche)}
+\newcommand{\juryroleF}{Co-directeur de thèse}
+
+%%% Membre n°7 (Invité) / Member n°7 (Guest)
+\newcommand{\jurynameG}{Prénom Nom}
+\newcommand{\juryadressG}{Statut, Établissement (Unité de recherche)}
+\newcommand{\juryroleG}{Invité}
+
+%%% Membre n°8 (Invité) / Member n°8 (Guest)
+\newcommand{\jurynameH}{Prénom Nom}
+\newcommand{\juryadressH}{Statut, Établissement (Unité de recherche)}
+\newcommand{\juryroleH}{Invité}
+
 % Operateur math
 \DeclareMathOperator{\e}{e}
 

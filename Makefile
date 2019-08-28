@@ -9,21 +9,35 @@ OUT_DIR = build# Répertoire de construction.
 SIMPLE_DIR = tmp# Répertoire temporaire.
 LUALATEX_FLAGS = -halt-on-error -interaction=nonstopmode -shell-escape
 
+PDG = 1ere.tex
+export PDG
+
+
 LATEX_PROCESSOR = lualatex
 #LATEX_PROCESSOR = xelatex
 #LATEX_PROCESSOR = pdflatex
 
 ALL_TEX := $(shell find $(SOURCEDIR) -name '*.tex')
-ALL_IMG := $(shell find $(SOURCEDIR) -name '*.png' -o -name '*.png')
+ALL_PNG := $(shell find $(SOURCEDIR) -name '*.png')
+ALL_JPEG := $(shell find $(SOURCEDIR) -name '*.jpeg')
+ALL_JPG := $(shell find $(SOURCEDIR) -name '*.jpg')
+ALL_SVG := $(shell find $(SOURCEDIR) -name '*.svg')
+ALL_PDF := $(shell find $(SOURCEDIR) -name '*.pdf')
+
 ALL_BK := $(shell find $(SOURCEDIR) -name '*.bak*')
 
 # Toutes les constructions. ###################################################
 # Créer le fichier final.
-all: pdf post_clean
+all: these slides
 
 # Supprime les constructions.
 clean: bak_clean post_clean
 	@rm -rf $(OUT_DIR)
+
+these: pdg pdf post_clean
+
+slides:
+	$(MAKE) -C Soutenance/
 
 # Créer un pdf.
 pdf: create_out_dir
@@ -53,6 +67,10 @@ post_clean:
 	@rm -f *.maf
 	@rm -f *.run.xml
 
+# Créer la page de garde
+pdg:
+	@$(MAKE) -C 00_Guards/
+
 # Ajuste automatiquement les indentations de tous les fichiers tex.
 format: format_temp bak_clean
 
@@ -69,4 +87,4 @@ bak_clean:
 
 # Save
 save:
-	@tar -zcvf $(shell date +%Y_%m_%d)_thesis.tar.gz $(ALL_TEX) $(ALL_IMG)
+	@tar -zcvf $(shell date +%Y_%m_%d)_thesis.tar.gz $(ALL_TEX) $(ALL_PNG) $(ALL_JPEG) $(ALL_JPG) $(ALL_SVG) $(ALL_PDF)
