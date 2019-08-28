@@ -25,7 +25,9 @@ clean: bak_clean post_clean
 # Créer un pdf.
 pdf: create_out_dir
 	$(LATEX_PROCESSOR) --output-directory=$(OUT_DIR) \
-	$(LUALATEX_FLAGS) $(MAIN_TEX)Conception de profileurs non intrusifs \\pour le faisceau de protons de ESS
+	$(LUALATEX_FLAGS) $(MAIN_TEX)
+	$(LATEX_PROCESSOR) --output-directory=$(OUT_DIR) \
+	$(LUALATEX_FLAGS) $(MAIN_TEX)
 
 # Créer le pdf du dossier temp.
 pdf_temp: create_out_dir

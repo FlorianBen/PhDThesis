@@ -1,4 +1,4 @@
-\documentclass{beamer}
+\documentclass[handout]{beamer}
 
 \usepackage[utf8]{inputenc}
  
@@ -10,29 +10,32 @@
 \usetheme{Madrid}
 \usecolortheme{beaver}
 
-\AtBeginSection[]
-{
-  \begin{frame}
-    \frametitle{Table of Contents}
-    \tableofcontents[currentsection]
-  \end{frame}
-}
+% \AtBeginSection[]
+% {
+%   \begin{frame}
+%     \frametitle{Table of Contents}
+%     \tableofcontents[currentsection]
+%   \end{frame}
+% }
 
 \begin{document}
-
 \frame{\titlepage}
 
-\section{Section1}
 \begin{frame}
-  \frametitle{Table of Contents}
-  \tableofcontents
+  \frametitle{Presentation outline}
+  \tableofcontents[hideallsubsections]
 \end{frame}
 
-\section{Section2}
-\begin{frame}
-  \frametitle{Sample frame title}
-  This is a text in the first frame. This is a text in the first frame. This is a text in the first frame.
-\end{frame}
+\part{Motivation}
+\input{01_ESS/01_file}
+%\input{02_SIM/02_file}
+%\input{03_Test/03_file}
+
+% \section{Conclusions and outlooks}
+% \begin{frame}
+%   \frametitle{Sample frame title}
+%   This is a text in the first frame. This is a text in the first frame. This is a text in the first frame.
+% \end{frame}
 
 \end{document}
 
