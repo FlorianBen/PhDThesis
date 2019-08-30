@@ -252,3 +252,8 @@ TEMP/
 .vscode/
 build/
 svg-inkscape/
+
+# Word/LibreOffice
+*.doc
+*.docx
+*.odx
