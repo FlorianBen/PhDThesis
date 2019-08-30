@@ -1,13 +1,17 @@
 \documentclass[handout]{beamer}
 
 \usepackage[utf8]{inputenc}
- 
+
+\usepackage{booktabs}
+\usepackage{tabularx} 
+
 \title{Conception de profileurs non intrusifs pour le faisceau de protons de ESS}
 \author{Florian Benedetti}
 \institute{CEA/IRFU}
 \date{23/09/2019}
 
-\usetheme{Madrid}
+%\usetheme{Madrid}
+\usetheme{Frankfurt}
 \usecolortheme{beaver}
 
 % \AtBeginSection[]
@@ -18,24 +22,31 @@
 %   \end{frame}
 % }
 
+\AtBeginSection[]{
+  \begin{frame}
+  \vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+    \usebeamerfont{title}\insertsectionhead\par%
+  \end{beamercolorbox}
+  \vfill
+  \tableofcontents[currentsection]
+  \end{frame}
+}
+
 \begin{document}
 \frame{\titlepage}
 
 \begin{frame}
   \frametitle{Presentation outline}
-  \tableofcontents[hideallsubsections]
+  \tableofcontents[hideothersubsections]{}
 \end{frame}
 
-\part{Motivation}
-\input{01_ESS/01_file}
-%\input{02_SIM/02_file}
-%\input{03_Test/03_file}
-
-% \section{Conclusions and outlooks}
-% \begin{frame}
-%   \frametitle{Sample frame title}
-%   This is a text in the first frame. This is a text in the first frame. This is a text in the first frame.
-% \end{frame}
+\input{01_Neutron/01_file}
+\input{02_ESS/02_file}
+\input{03_SIM/03_file}
+\input{04_Test/04_file}
+\input{05_Conclusion/05_file}
 
 \end{document}
 
