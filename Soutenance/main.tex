@@ -1,6 +1,14 @@
-\documentclass[handout]{beamer}
+\documentclass[handout,9pt]{beamer}
 
-\usepackage[utf8]{inputenc}
+\ifluatex 
+  \usepackage{fontspec}
+\else\ifxetex
+  \usepackage{fontspec}
+\else
+  \usepackage[utf8]{inputenc}
+  \usepackage[T2A,T1]{fontenc}
+  \usepackage{textcomp}
+\fi\fi 
 
 \usepackage{booktabs}
 \usepackage{tabularx} 
@@ -10,8 +18,8 @@
 \institute{CEA/IRFU}
 \date{23/09/2019}
 
-%\usetheme{Madrid}
-\usetheme{Frankfurt}
+\usetheme{Madrid}
+%\usetheme{Frankfurt}
 \usecolortheme{beaver}
 
 % \AtBeginSection[]
@@ -22,17 +30,17 @@
 %   \end{frame}
 % }
 
-\AtBeginSection[]{
-  \begin{frame}
-  \vfill
-  \centering
-  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
-    \usebeamerfont{title}\insertsectionhead\par%
-  \end{beamercolorbox}
-  \vfill
-  \tableofcontents[currentsection]
-  \end{frame}
-}
+% \AtBeginSection[]{
+%   \begin{frame}
+%   \vfill
+%   \centering
+%   \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+%     \usebeamerfont{title}\insertsectionhead\par%
+%   \end{beamercolorbox}
+%   \vfill
+%   \tableofcontents[currentsection]
+%   \end{frame}
+% }
 
 \begin{document}
 \frame{\titlepage}

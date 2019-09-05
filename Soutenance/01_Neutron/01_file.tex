@@ -2,98 +2,108 @@
 \section{Introduction}
 \begin{frame}
   \frametitle{Context}
-  \begin{columns}
-    \begin{column}{0.45\textwidth}
-      \begin{block}{Neutron}
-        \begin{itemize}
-          \item Neutral particle
-          \item Wave–particle duality
-          \item Magnetic moment
-        \end{itemize}
-      \end{block}
-    \end{column}
-    \begin{column}{0.45\textwidth}
-      \begin{block}{As probe}
-        \begin{itemize}
-          \item High penetration
-          \item Large scale
-          \item 
-        \end{itemize}
-      \end{block}
-    \end{column}
-  \end{columns}
+  Thermal and cold neutrons are useful tools to probe matter
+  %\begin{columns}
+    \begin{itemize}
+      \item Neutral particle, high penetration and low EM interaction
+      \item Wave–particle duality, important wavelength range
+      \item Various techniques: diffraction, reflectometry, spectrometry
+    \end{itemize}
+    % \begin{column}{0.45\textwidth}
+    % \end{column}
+    % \begin{column}{0.45\textwidth}
+    %     \begin{itemize}
+    %       \item High penetration
+    %       \item Large scale
+    %       \item 
+    %     \end{itemize}
+    % \end{column}
+  % \end{columns}
   \includegraphics[width=\textwidth]{01_Neutron/fig/fig000_Dague.png}
+  \begin{block}{Application in various field}
+    Archeology, Geosciences, Life Science, Chemistry
+  \end{block}
 \end{frame}
 
 \subsection{Context}
 \begin{frame}
   \frametitle{State of Neutron sources}
-  \begin{block}{Producing neutron}
-    Producing neutron is not a trivial task
-  \end{block}
-  \begin{columns}
+  Producing an intense neutron flux is not a trivial task.
+  Current intense sources are mainly based on two different methods:
+  \begin{columns}[T]
     \begin{column}{0.45\textwidth}
       \begin{block}{Fission reactor}
-        Use fission reaction:
-        \begin{equation*}
-          _{92}^{235}U + n \rightarrow X + Y + k \times n
-        \end{equation*}
-        Continuous flux
+        \begin{itemize}
+          \item Uses fission reaction.
+          \item $_{92}^{235}U + n \rightarrow X + Y + k \times n$
+          \item $k\approx2.45$ per reaction.
+          \item Expensive method.
+          \item Continuous flux
+        \end{itemize}    
       \end{block}
+      \vfill
     \end{column}
     \begin{column}{0.45\textwidth}
-      \begin{block}{Accelerator Driven Source}
-        Two methods:
+      \begin{block}{Spallation source}
         \begin{itemize}
-          \item
-          \item Spallation: with dense target ()
-        \end{itemize}
-        The properties of theses sources strongly depends on the accelerator.
+          \item Uses particle accelerator
+          \item Impact of heavy particle on dense target.
+          \item Around $20 \sim 40$ per incident particle.
+          \item Expensive method.
+        \end{itemize}        
       \end{block}
+      \vfill
     \end{column}
   \end{columns}
-  \begin{block}{Spallation}
-    Spallation is efficient : a single particle/target collision can generate more than 20 neutrons ...
-  \end{block}
+  Spallation sources benefit of the improvement of accelerator technology over years and become more and more popular.
 \end{frame}
 
 \begin{frame}
   \frametitle{State of Neutron sources}
+  From "Neutron scattering facilities in Europe" report by ESFRI:
   \begin{columns}
     \begin{column}{0.50\textwidth}
-      \includegraphics[width=\textwidth]{01_Neutron/fig/fig000_NeutronSources_a}
+      \includegraphics[width=\textwidth]{01_Neutron/fig/fig000_NeutronSources_a2}
     \end{column}
     \begin{column}{0.50\textwidth}
-      \includegraphics[width=\textwidth]{01_Neutron/fig/fig000_NeutronSources_b}
+      \includegraphics[width=\textwidth]{01_Neutron/fig/fig000_NeutronSources_b2}
     \end{column}
   \end{columns}
-  From "Neutron scattering facilities in Europe" report by ESFRI
+  \begin{alertblock}{The future does not look great in Europe}
+    \begin{itemize}
+      \item Many old fission reactor $\rightarrow$ end of life within the next decade.
+      \item Only 1 major spallation source $\rightarrow$ 1$^{st}$ Gen source, 35 years old.
+    \end{itemize}
+    A renew is necessary in Europe, built upon a new flagship source.
+   \end{alertblock}
 \end{frame}
 
 \subsection{European Spallation Source}
 \begin{frame}
   \frametitle{European Spallation Source}
-  \begin{block}{Mandate}
-    ESS will be the next high end European neutron source.
-
+    ESS will be the most powerful neutron source.
     Based on a 2 GeV proton accelerator and a tungsten target
-  \end{block}
   \begin{columns}
-    \begin{column}{0.4\textwidth}
+    \begin{column}{0.35\textwidth}
       \begin{block}{Key points}
         \begin{itemize}
           \item[2014] Ground breacking
           \item[2021] First protons on target
           \item[2023] Beginning of user program
-          \item 15 neutron instruments
+          \item 15 instruments
           \item Total cost: 1.8 B€
         \end{itemize}
       \end{block}
     \end{column}
-    \begin{column}{0.65\textwidth}
-      \includegraphics[width=\textwidth]{01_Neutron/fig/fig000_ESS_pulse.jpeg}
+    \begin{column}{0.60\textwidth}
+      \includegraphics[width=\textwidth]{01_Neutron/fig/fig000_ESS_pulse2.jpeg}
     \end{column}
   \end{columns}
+  \begin{block}{Why ESS is different?}
+    Long pulses $\implies$ more protons on target $\implies$ more neutrons
+
+    This is possible because ESS does not use storage or accumulator ring compare to existing spallation sources (SNS, JSNS).
+  \end{block}
 \end{frame}
 
 \begin{frame}
@@ -102,14 +112,19 @@
   \vfill
   \begin{columns}
     \begin{column}{0.45\textwidth}
-      \begin{block}{Key points}
-        The accelerator itself is a big challenge.
+      The accelerator itself is a big challenge:
         \begin{itemize}
-          \item 600 m long with 356 m of acceleration
-          \item d
-          \item 95.5
+          \item $600\,\mathrm{m}$ long with $356\,\mathrm{m}$ of acceleration
+          \item Heavy use of SC cavities (95.5\% of acceleration)
         \end{itemize}
-      \end{block}
+        \begin{block}{ESS activities at IRFU}
+          \begin{itemize}
+            \item RFQ
+            \item Cryomodules
+            \item Diagnostics
+            \item Control System
+          \end{itemize}
+        \end{block}
     \end{column}
     \begin{column}{0.50\textwidth}
       \begin{tabularx}{\linewidth}{XX}
