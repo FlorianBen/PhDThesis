@@ -1,4 +1,4 @@
-\documentclass[handout,9pt]{beamer}
+\documentclass[9pt]{beamer}
 
 \ifluatex 
   \usepackage{fontspec}
@@ -18,36 +18,57 @@
 \institute{CEA/IRFU}
 \date{23/09/2019}
 
-\usetheme{Madrid}
-%\usetheme{Frankfurt}
+\usetheme[]{Frankfurt}
 \usecolortheme{beaver}
 
-% \AtBeginSection[]
-% {
-%   \begin{frame}
-%     \frametitle{Table of Contents}
-%     \tableofcontents[currentsection]
-%   \end{frame}
-% }
+\setbeamerfont{title}{size=\Huge}
+\setbeamerfont{frametitle}{size=\huge}
 
-% \AtBeginSection[]{
-%   \begin{frame}
-%   \vfill
-%   \centering
-%   \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
-%     \usebeamerfont{title}\insertsectionhead\par%
-%   \end{beamercolorbox}
-%   \vfill
-%   \tableofcontents[currentsection]
-%   \end{frame}
-% }
+\AtBeginSection[]{
+ \begin{frame}
+ \vfill
+ \centering
+ \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+   \usebeamerfont{title}\insertsectionhead\par%
+ \end{beamercolorbox}
+ \vfill
+ \tableofcontents[sectionstyle=show/hide,subsectionstyle=show/show/hide]{}
+
+ %\tableofcontents[currentsubsection]
+ \end{frame}
+}
+
+\setbeamertemplate{footline}%{infolines theme}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,center]   {author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.50\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+   \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+ \vskip0pt%
+}
+
+\newcommand{\backupbegin}{
+   \newcounter{finalframe}
+   \setcounter{finalframe}{\value{framenumber}}
+}
+\newcommand{\backupend}{
+   \setcounter{framenumber}{\value{finalframe}}
+}
+
 
 \begin{document}
 \frame{\titlepage}
 
 \begin{frame}
   \frametitle{Presentation outline}
-  \tableofcontents[hideothersubsections]{}
+  \tableofcontents[subsectionstyle=hide/hide/hide]
 \end{frame}
 
 \input{01_Neutron/01_file}
@@ -56,5 +77,18 @@
 \input{04_Test/04_file}
 \input{05_Conclusion/05_file}
 
-\end{document}
+\begin{frame}{}
+  \centering \Large
+  \emph{Thank You!}
+\end{frame}
 
+
+\backupbegin
+\begin{frame}
+  \centering \huge
+  \emph{Backup Slides}
+\end{frame}
+
+\backupend
+
+\end{document}

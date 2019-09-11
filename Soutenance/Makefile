@@ -8,7 +8,7 @@ MAIN_TEMP = temp.tex# Fichier temporaire.
 OUT_DIR = build# Répertoire de construction.
 SIMPLE_DIR = tmp# Répertoire temporaire.
 LUALATEX_FLAGS = -halt-on-error -interaction=nonstopmode -shell-escape
-LATEX_PROCESSOR = lualatex
+LATEX_PROCESSOR = pdflatex
 
 ALL_TEX := $(shell find $(SOURCEDIR) -name '*.tex')
 ALL_IMG := $(shell find $(SOURCEDIR) -name '*.png' -o -name '*.png')

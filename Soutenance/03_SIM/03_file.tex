@@ -1,41 +1,20 @@
 \section{IPM prototype Simulations}
-\subsection{Project overview}
-\begin{frame}
-  \frametitle{Project overview}
-  \begin{block}{Project in brief}
-    Provide 5 pairs of IPMs for the superconducting part of the ESS accelerator.
-    \begin{itemize}
-      \item In-Kind collaboration between CEA/IRFU and ESS
-      \item Around XX peoples involved
-    \end{itemize}
-  \end{block}
-  \begin{block}{Project milestones}
-    \begin{itemize}
-      \item[2016] Kick-off meeting (April), beginning of my PhD (October)
-      \item[2017] Preliminary Design Review (February), simulations, design and manufacturing
-      \item[2018] \underline{Mainly beam tests and data analysis}
-      \item[2019] Critical Design Review (March), design and manufacturing of final IPMs, end of my PhD (October)
-      \item[2020] First IPM delivery, Handover
-    \end{itemize}
-  \end{block}
-\end{frame}
 
 \begin{frame}
   \frametitle{Requierements}
   \begin{columns}
     \begin{column}{0.45\textwidth}
       \begin{block}{Requierements on the measurement}
-        ESS has specified some crucial requirements for the profilers.
+        ESS has specified some requirements:
         \begin{itemize}
           \item Measurement per pulse at nominal conditions
           \item Maximum error on the beam size $<\,10\,\%$
         \end{itemize}
       \end{block}
       \begin{block}{Other requierements}
-        ESS has specified some crucial requirements for their diagnostics.
         \begin{itemize}
           \item Compliant to the use of superconductive cavities nearby
-          \item Restricted environnement $\rightarrow$ the LWU
+          \item Restricted environnement.
           \item The system must be sustained on a CF200 flange
         \end{itemize}
       \end{block}
@@ -50,13 +29,17 @@
   \frametitle{IPM}
   \begin{columns}
     \begin{column}{0.45\textwidth}
-      \begin{block}{Each step can be simulated}
+      \begin{alertblock}{Project is challenging}
+        At the beginning of the project, we had to prove the feasibility of IPMs at ESS with a Go/NoGo gate.
+      \end{alertblock}
+      \begin{block}{Each step must be simulated}
         \begin{enumerate}
           \item Quantification of the "primary" ionization signal.
           \item Determination of the $e^-$/ion trajectories during the drift.
           \item The choice of an efficient readout technology.
         \end{enumerate}
       \end{block}
+      Each steps required different methods and tools
     \end{column}
     \begin{column}{0.45\textwidth}
       \includegraphics[width=\textwidth]{02_ESS/fig/fig000_IPM.pdf}
@@ -67,12 +50,70 @@
 \subsection{Primary ionization signal}
 \begin{frame}
   \frametitle{Primary ionization signal}
-  \begin{block}{}
-    \begin{itemize}
-      \item
-    \end{itemize}
-  \end{block}
-  \begin{alertblock}{}
+  \begin{columns}
+    \begin{column}{0.35\textwidth}
+      \begin{block}{Condition}
+        \begin{itemize}
+          \item Beam:
+                \begin{itemize}
+                  \item $90\,\mathrm{MeV}$ to $2\,\mathrm{GeV}$
+                  \item $62.5\,\mathrm{mA}$
+                  \item $2.86\,\mathrm{ms}$
+                \end{itemize}
+          \item Vacuum: $10^{-9}\,\mathrm{mbar}$
+          \item Gas composition:
+                \begin{itemize}
+                  \item $H_2$ $79\,\%$
+                  \item $CO$ $10\,\%$
+                  \item $CO_2$ $10\,\%$
+                  \item $N_2$ $1\,\%$
+                \end{itemize}
+        \end{itemize}
+      \end{block}
+    \end{column}
+    \begin{column}{0.60\textwidth}
+      \centering
+      Bethe stopping power
+      \includegraphics[width=\textwidth]{03_SIM/fig/fig000_bethe.pdf}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\subsection{Primary ionization signal}
+\begin{frame}
+  \frametitle{Primary ionization signal}
+  \begin{columns}
+    \begin{column}{0.55\textwidth}
+      \begin{block}{Calculation}
+        Two methods:
+        \begin{itemize}
+          \item Direct calculation with Bethe formula:
+          \begin{itemize}
+            \item Some
+          \end{itemize}
+          \item Using Garfield++/Heed++ software:
+          \begin{itemize}
+            \item Photo Absorption Ionization model
+            \item Take into account of the density
+          \end{itemize}
+        \end{itemize}
+      \end{block}
+    \end{column}
+    \begin{column}{0.35\textwidth}
+      \begin{tabularx}{\linewidth}{XX}
+        \toprule
+        Energy    & \(N_{garfield}\) \\
+        \midrule
+        \(97.2\)  & \(52537\)        \\
+        \(231.4\) & \(27463\)        \\
+        \(278.9\) & \(26124\)        \\
+        \(315.8\) & \(23769\)        \\
+        \(628.3\) & \(17522\)        \\
+        \bottomrule
+      \end{tabularx}
+    \end{column}
+  \end{columns}
+  \begin{alertblock}{Limitation}
     Huge dependance on vacuum parameters. Computation only gives an order of magnitude!
   \end{alertblock}
 \end{frame}
@@ -82,11 +123,22 @@
   \frametitle{Profile distortion}
   \begin{columns}
     \begin{column}{0.45\textwidth}
-      \begin{block}{How it works}
+      A profile measured by an IPM is affected by some distortions
+      \begin{block}{Static distortions}
         \begin{itemize}
-          \item Quantification of the "primary" ionization signal.
-          \item Determination of the $e^-$/ion trajectories during the drift.
-          \item The choice of an efficient readout technology.
+          \item Do not depend beam/particle status
+          \item Can be somehow corrected.
+        \end{itemize}
+      \end{block}
+      \begin{block}{Dynamic distortions}
+        \begin{itemize}
+          \item Depends on beam/particles status
+          \item Hard to correct
+          \item Various sources:
+                \begin{itemize}
+                  \item Space charge
+                  \item Initial momentum
+                \end{itemize}
         \end{itemize}
       \end{block}
     \end{column}
@@ -98,26 +150,96 @@
 
 \begin{frame}
   \frametitle{Field uniformity}
-  \begin{itemize}
-    \item IPM geometry itself
-    \item The vacuum vessel that enclose the IPM
-    \item Others devices in vacuum
-  \end{itemize}
+  \begin{columns}[T]
+    \begin{column}{0.45\textwidth}
+      An IPM $\rightarrow$ kind of parallel plate
+      \begin{itemize}
+        \item IPM geometry itself, side effects
+        \item The vacuum vessel that enclose the IPM
+        \item IPM polarization
+        \item Others devices in vacuum
+      \end{itemize}
+      Electrostatic field can be computed on 3D domain using FEM $\rightarrow$ COMSOL in our case
+      \includegraphics[width=1\textwidth]{03_SIM/fig/fig003_COMSOL_LWU}
+    \end{column}
+    \begin{column}{0.45\textwidth}
+      3 main leverages
+      \begin{block}{IPM position and geometry}
+        Modification of the IPM position and geometry inside the LWU.
+        LWU is frozen $\rightarrow$ limited solution
+      \end{block}
+      \begin{block}{Disks}
+        Reduce the cross interaction between a pair of IPMs
+        .
+        Each IPM becomes an unique system.
+      \end{block}
+      \begin{block}{Field correctors}
+        Conductors with fixed potential on the sides of an IPM.
+
+        Constrain field inside the cage.
+
+        Shield IPM from external devices (HV wires).
+      \end{block}
+    \end{column}
+  \end{columns}
+
+
 \end{frame}
 
 \begin{frame}
   \frametitle{Field uniformity}
-  \begin{itemize}
-    \item IPM geometry itself
-    \item The vacuum vessel that enclose the IPM
-    \item IPM polarization
-    \item Others devices in vacuum
-  \end{itemize}
+  \begin{columns}
+    \begin{column}{0.8\textwidth}
+      \includegraphics[width=1\textwidth]{03_SIM/fig/fig025_AsymTransversalProfile}
+
+    \end{column}
+    \begin{column}{0.2\textwidth}
+
+    \end{column}
+  \end{columns}
 \end{frame}
+
+% \begin{frame}
+%   \frametitle{Field uniformity}
+%   \begin{columns}
+%     \begin{column}{0.5\textwidth}
+
+%     \end{column}
+%     \begin{column}{0.5\textwidth}
+
+%     \end{column}
+%   \end{columns}
+% \end{frame}
+
+% \begin{frame}
+%   \frametitle{Field uniformity}
+%   \begin{itemize}
+%     \item IPM geometry itself, side effects
+%     \item The vacuum vessel that enclose the IPM
+%     \item IPM polarization
+%     \item Others devices in vacuum
+%   \end{itemize}
+%   Electrostatic field can be computed on 3D domain using FEM $\rightarrow$ COMSOL in our case
+% \end{frame}
 
 \subsection{Space charge}
 \begin{frame}
   \frametitle{Space charge}
+  \begin{block}{Definition}
+    The space charge refers to the effect of moving proton bunch on the profile measurement: moving bunches generate an important EM field that affects the drift of the electrons/ions.
+  \end{block}
+  An algorithm has been developed by C. Thomas (ESS) and F. Belloni (CEA):
+  \begin{columns}
+    \begin{column}{0.45\textwidth}
+      \begin{block}{Algorithm in brief}
+        Electric field of a gaussian bunch
+        Lorentz transformation $\implies$ EM field
+        Particles tracking
+      \end{block}
+    \end{column}
+    \begin{column}{0.45\textwidth}
+    \end{column}
+  \end{columns}
   \begin{block}{Information}
     The space charge can be compensated:
     \begin{itemize}
@@ -129,65 +251,214 @@
 
 \begin{frame}
   \frametitle{Space charge}
-  \begin{block}{}
+  \begin{block}{Generalities}
     \begin{itemize}
-      \item The space charge effect is more important for lower
-      \item The space charge effect increase with beam current for lower
+      \item The space charge effect is more important at "low" beam energy.
+      \item The space charge effect increase with beam current.
     \end{itemize}
   \end{block}
-
-  \begin{alertblock}
-    The measurement must be done with ion
+  Example with worst ESS case: $90\,\mathrm{MeV}$ $62.5\,\mathrm{mA}$
+  \begin{columns}
+    \begin{column}{0.45\textwidth}
+      \includegraphics[width=\textwidth]{03_SIM/fig/fig000_SC2_fr}
+    \end{column}
+    \begin{column}{0.45\textwidth}
+      \includegraphics[width=\textwidth]{03_SIM/fig/fig000_SC_ions_electrons}
+    \end{column}
+  \end{columns}
+  \begin{alertblock}{Conclusion}
+    The measurement with electrons does not meet the ESS requirements.
+    The profile measurement must be performed with ions.
   \end{alertblock}
 \end{frame}
 
 \subsection{Readout}
 \begin{frame}
-  \frametitle{Strip (multi electrode)}
-  A moving particle induced a current on an electrode. The current is  thanks to Ramo-Sc theorem.
-  \begin{itemize}
-    \item Simple to implement
-    \item Robust
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{MCP}
-
-  \begin{block}{Pro}
-    \begin{itemize}
-      \item Huge amplification
-      \item Can be stacked
-      \item High ion sensitivity
-    \end{itemize}
+  \frametitle{Strip (multi anodes)}
+  \begin{block}{How it works?}
+    A moving particle induced a current on the anodes. The anodes are read by charge integrator or transimpedance.
   \end{block}
-
+  \begin{columns}[T]
+    \begin{column}{0.45\textwidth}
+      \begin{block}{Pros}
+        \begin{itemize}
+          \item Simple to implement
+          \item Robust
+        \end{itemize}
+      \end{block}
+    \end{column}
+    \begin{column}{0.45\textwidth}
+      \begin{block}{Cons}
+        \begin{itemize}
+          \item No amplification
+          \item Sensitive electronics (high gain, high BW)
+        \end{itemize}
+      \end{block}
+    \end{column}
+  \end{columns}
   \begin{block}{Prototype}
-    We used single stage MCP from Hamamatsu and Photonis with P46 and P43 screen.
+    \begin{itemize}
+      \item 32 strips linearly spaced with $800\,\mu m$ width.
+      \item    
+      \item COTS 32 channel charge integrator, CARAMEL (LCP/CNRS).
+    \end{itemize}
   \end{block}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Silicon}
+  \frametitle{Micro Channel Plate}
+  \begin{block}{How it works?}
+    Incident particles are amplified into electrons in a channel ($\approx 15\,\mu m$)
+  \end{block}
 
-  \begin{block}{Pro}
-    \begin{itemize}
-      \item Huge sensitivity with electron
-      \item xx
-    \end{itemize}
+  \begin{columns}[T]
+    \begin{column}{0.45\textwidth}
+      \begin{center}
+        \includegraphics[width=1\textwidth]{03_SIM/fig/fig00_MCP_outline}
+      \end{center}
+    \end{column}
+    \begin{column}{0.45\textwidth}
+      \begin{center}
+        \includegraphics[width=1\textwidth]{03_SIM/fig/fig000_MCP_outline_b2}
+      \end{center}
+    \end{column}
+  \end{columns}
+
+  \begin{columns}
+    \begin{column}{0.45\textwidth}
+      \begin{block}{Pros}
+        \begin{itemize}
+          \item Huge amplification
+          \item Can be stacked
+          \item High ion sensitivity
+        \end{itemize}
+      \end{block}
+    \end{column}
+    \begin{column}{0.45\textwidth}
+      \begin{block}{Cons}
+        \begin{itemize}
+          \item Ageing
+          \item Saturation
+          \item Fragile devices
+        \end{itemize}
+      \end{block}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Micro Channel Plate}
+  \begin{block}{Readout and electronics}
+    MCP is just an amplifier, a readout must be coupled:
+    \begin{columns}[T]
+      \begin{column}{0.45\textwidth}
+        \begin{itemize}
+          \item Multiple anodes
+        \end{itemize}
+      \end{column}
+      \begin{column}{0.45\textwidth}
+        \begin{itemize}
+          \item Phosphorus screen
+        \end{itemize}
+      \end{column}
+    \end{columns}
   \end{block}
   \begin{block}{Prototype}
-    The CERN team kindly provided to us a FitPix kit (TimePix1) with ...
+    We used single stage MCP from Hamamatsu and Photonis with P46 and P43 screen. COTS camera and lens were used to record light from screen
   \end{block}
+
+  \begin{columns}[T]
+    \begin{column}{0.25\textwidth}
+      \centering
+      \includegraphics[width=0.7\textwidth]{03_SIM/fig/fig000_MCP_photo}
+      \includegraphics[width=1\textwidth]{03_SIM/fig/fig000_MCP_camera}
+    \end{column}
+    \begin{column}{0.65\textwidth}
+      \begin{tabularx}{\linewidth}{XX}
+        \toprule
+        Property        & Value                                            \\
+        \midrule
+        Resolution      & $1936\,\mathrm{(H)}\,\times\,1216\,\mathrm{(V)}$ \\
+        Pixel size      & $5.86\,\mathrm{\mu m}$                           \\
+        Sensor diag.    & $13.4\,\mathrm{mm}$                              \\
+        Well capacity   & $32000\,\mathrm{e^{-}}$                          \\
+        DR              & $70\,\mathrm{dB}$                                \\
+        QE at 525 nm    & $70\,\mathrm{\%}$                                \\
+        Electrons noise & $6.8\,\mathrm{e^{-}}$                            \\
+        \bottomrule
+      \end{tabularx}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Silicon}
-  \begin{alertblock}{The use of ions}
-    Silicon detector
-    \begin{itemize}
-      \item Multiple species in vacuum with various mass $\implies$ impossible to solve the ToA.
-      \item Low penetration depth, may be not detected.
-    \end{itemize}
-  \end{alertblock}
+  \frametitle{Hybrid Pixel Detector}
+  The use of silicon detector is new for IPM and was initiate by CERN.
+  \begin{block}{How it works?}
+    Incident particles generate $e^{-}$/ion pairs in silicon sensor that collected by a readout circuit.
+  \end{block}
+  \begin{columns}[T]
+    \begin{column}{0.45\textwidth}
+      \centering
+      \includegraphics[width=0.5\textwidth]{03_SIM/fig/fig000_Si_detector}
+    \end{column}
+    \begin{column}{0.45\textwidth}
+      \centering
+      A TimePix3 chip: $1.4\times1.4\,\mathrm{cm}$
+      \includegraphics[width=0.6\textwidth]{03_SIM/fig/fig000_TimePix2}
+    \end{column}
+  \end{columns}
+
+  \begin{columns}[T]
+    \begin{column}{0.45\textwidth}
+      \begin{block}{Pros}
+        \begin{itemize}
+          \item Amplification
+          \item Fast
+        \end{itemize}
+      \end{block}
+    \end{column}
+    \begin{column}{0.45\textwidth}
+      \begin{block}{Cons}
+        \begin{itemize}
+          \item Implementation (electronics design, cooling)
+          \item Use of ion (next slide)
+        \end{itemize}
+      \end{block}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{Hybrid Pixel Detector}
+  \begin{columns}[T]
+    \begin{column}{0.45\textwidth}
+      \begin{block}{Prototype}
+        The CERN team kindly provided to us a FitPix kit (TimePix1 + Si sensor).
+      \end{block}
+    \end{column}
+    \begin{column}{0.45\textwidth}
+      \includegraphics[width=0.8\textwidth]{03_SIM/fig/fig000_FitPix}
+    \end{column}
+  \end{columns}
+  \vskip 0.5cm
+  \begin{columns}[T]
+    \begin{column}{0.45\textwidth}
+      \begin{alertblock}{The use of ions}
+        \begin{itemize}
+          \item Multiple ion species $\implies$ impossible to solve the ToA.
+          \item Low penetration depth, may be not detected.
+          \item High damages in silicon.
+        \end{itemize}
+      \end{alertblock}
+    \end{column}
+    \begin{column}{0.45\textwidth}
+      \centering
+      Geant4 and SRIM simulations
+      \only<1>{\includegraphics[width=\textwidth]{03_SIM/fig/fig011_electron_si_deposit}}
+      \only<2>{\includegraphics[width=\textwidth]{03_SIM/fig/fig011_ion_si_deposit}}
+
+    \end{column}
+  \end{columns}
+
 \end{frame}

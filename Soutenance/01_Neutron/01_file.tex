@@ -1,33 +1,35 @@
 
 \section{Introduction}
+\subsection{Context}
 \begin{frame}
-  \frametitle{Context}
+  \frametitle{Context: Sciences usign neutrons}
   Thermal and cold neutrons are useful tools to probe matter
-  %\begin{columns}
-    \begin{itemize}
-      \item Neutral particle, high penetration and low EM interaction
-      \item Wave–particle duality, important wavelength range
-      \item Various techniques: diffraction, reflectometry, spectrometry
-    \end{itemize}
-    % \begin{column}{0.45\textwidth}
-    % \end{column}
-    % \begin{column}{0.45\textwidth}
-    %     \begin{itemize}
-    %       \item High penetration
-    %       \item Large scale
-    %       \item 
-    %     \end{itemize}
-    % \end{column}
-  % \end{columns}
-  \includegraphics[width=\textwidth]{01_Neutron/fig/fig000_Dague.png}
+  \begin{itemize}
+    \item Neutral particle, high penetration and low EM interaction
+    \item Wave–particle duality, important wavelength range
+    \item Various techniques: diffraction, reflectometry, spectrometry
+  \end{itemize}
+  \begin{columns}
+    \begin{column}{0.65\textwidth}
+      \includegraphics[width=\textwidth]{01_Neutron/fig/fig000_Dague2.png}
+    \end{column}
+    \begin{column}{0.3\textwidth}
+      \begin{block}{Example: dagger cover}
+        \begin{itemize}
+          \item Internal structures
+          \item Synergy with X-rays
+        \end{itemize}
+
+      \end{block}
+    \end{column}
+  \end{columns}
   \begin{block}{Application in various field}
     Archeology, Geosciences, Life Science, Chemistry
   \end{block}
 \end{frame}
 
-\subsection{Context}
 \begin{frame}
-  \frametitle{State of Neutron sources}
+  \frametitle{State of neutron sources}
   Producing an intense neutron flux is not a trivial task.
   Current intense sources are mainly based on two different methods:
   \begin{columns}[T]
@@ -37,9 +39,8 @@
           \item Uses fission reaction.
           \item $_{92}^{235}U + n \rightarrow X + Y + k \times n$
           \item $k\approx2.45$ per reaction.
-          \item Expensive method.
-          \item Continuous flux
-        \end{itemize}    
+          \item Continuous flux (most of time).
+        \end{itemize}
       \end{block}
       \vfill
     \end{column}
@@ -49,17 +50,19 @@
           \item Uses particle accelerator
           \item Impact of heavy particle on dense target.
           \item Around $20 \sim 40$ per incident particle.
-          \item Expensive method.
-        \end{itemize}        
+          %\item Expensive method.
+        \end{itemize}
       \end{block}
       \vfill
     \end{column}
   \end{columns}
-  Spallation sources benefit of the improvement of accelerator technology over years and become more and more popular.
+
+  %Spallation sources benefit of the improvement of accelerator technology over years and become more and more popular.
 \end{frame}
 
+\subsection{State of neutron sources}
 \begin{frame}
-  \frametitle{State of Neutron sources}
+  \frametitle{State of neutron sources}
   From "Neutron scattering facilities in Europe" report by ESFRI:
   \begin{columns}
     \begin{column}{0.50\textwidth}
@@ -75,14 +78,21 @@
       \item Only 1 major spallation source $\rightarrow$ 1$^{st}$ Gen source, 35 years old.
     \end{itemize}
     A renew is necessary in Europe, built upon a new flagship source.
-   \end{alertblock}
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{European Spallation Source}
+  \centering
+  \includegraphics[width=1.\textwidth]{01_Neutron/fig/fig000_ESS_com}
+  Proton accelerator + Tungsten target $\implies$ Neutrons + Instruments
 \end{frame}
 
 \subsection{European Spallation Source}
 \begin{frame}
   \frametitle{European Spallation Source}
-    ESS will be the most powerful neutron source.
-    Based on a 2 GeV proton accelerator and a tungsten target
+  ESS will be the most powerful neutron source.
+  Based on a 2 GeV proton accelerator and a tungsten target
   \begin{columns}
     \begin{column}{0.35\textwidth}
       \begin{block}{Key points}
@@ -100,31 +110,32 @@
     \end{column}
   \end{columns}
   \begin{block}{Why ESS is different?}
-    Long pulses $\implies$ more protons on target $\implies$ more neutrons
+    Long pulses \& high intensity $\implies$ more protons on target $\implies$ more neutrons
 
-    This is possible because ESS does not use storage or accumulator ring compare to existing spallation sources (SNS, JSNS).
+    Single shoot pulse, no use of accumulator ring $\implies$ the accelerator must be enough powerful.
   \end{block}
 \end{frame}
 
+\subsection{The ESS accelerator}
 \begin{frame}
-  \frametitle{The accelerator}
+  \frametitle{The ESS accelerator}
   \includegraphics[width=\textwidth]{01_Neutron/fig/fig000_ESS_acc}
   \vfill
   \begin{columns}
     \begin{column}{0.45\textwidth}
       The accelerator itself is a big challenge:
+      \begin{itemize}
+        \item $600\,\mathrm{m}$ long with $356\,\mathrm{m}$ of acceleration
+        \item Heavy use of SC cavities (95.5\% of acceleration)
+      \end{itemize}
+      \begin{block}{ESS activities at IRFU}
         \begin{itemize}
-          \item $600\,\mathrm{m}$ long with $356\,\mathrm{m}$ of acceleration
-          \item Heavy use of SC cavities (95.5\% of acceleration)
+          \item RFQ
+          \item Cryomodules
+          \item Diagnostics
+          \item Control System
         \end{itemize}
-        \begin{block}{ESS activities at IRFU}
-          \begin{itemize}
-            \item RFQ
-            \item Cryomodules
-            \item Diagnostics
-            \item Control System
-          \end{itemize}
-        \end{block}
+      \end{block}
     \end{column}
     \begin{column}{0.50\textwidth}
       \begin{tabularx}{\linewidth}{XX}
