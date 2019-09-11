@@ -2,7 +2,7 @@
 all: pdf clean
 
 pdf:
-	@pdflatex $(PDG)
+	@pdflatex --jobname=pdg $(PDG)
 
 clean:
 	@rm *.log
