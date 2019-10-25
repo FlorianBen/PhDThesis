@@ -1,79 +1,13 @@
-\section{Conclusion}
-
-\subsection{Conclusion}
-\begin{frame}
-  \frametitle{Conclusion}
-  \begin{block}{In 3 years, IPM prototype have been built, tested and reviewed.}
-    \begin{itemize}
-      \item The feasibility was focussed:
-            \begin{itemize}
-              \item Enough primary signal for profile reconstruction
-              \item Field uniformity can be corrected and space charge effect is limited if ions are used
-            \end{itemize}
-      \item Main concern were about the readout system
-            \begin{itemize}
-              \item Strips may not have sufficient sensitivity
-              \item MCP are sensitive to ageing
-              \item Silicon detectors rise too many uncertainties
-            \end{itemize}
-      \item So prototypes have been tested on real beam conditions.
-            \begin{itemize}
-              \item At IPHI: a 3 MeV high intensity proton linac
-              \item Lower energy, but flexible beam conditions
-            \end{itemize}
-      \item Both IPMs work but MCP is the preferred solution since:
-            \begin{itemize}
-              \item Bare strips may not have sufficient sensitivity
-              \item Silicon detectors rise too many uncertainties
-            \end{itemize}
-      \item The project has been reviewed by ESS and is now in production phase.
-    \end{itemize}
-  \end{block}
-
-\end{frame}
-
-\subsection{Outlooks}
-
-\begin{frame}
-  \frametitle{Outlooks}
-  \begin{block}{Background information}
-    What happens if a "lost proton" hits MCP or structures around? $\implies$ simulations:
-    \begin{itemize}
-      \item Realistic geometry $\rightarrow$ CAD import
-      \item Information about particles $\rightarrow$ not provided on time by ESS.
-    \end{itemize}
-  \end{block}
-  \begin{columns}[T]
-    \begin{column}{0.45\textwidth}
-      \begin{block}{Simulation with Geant4 10.X}
-        Features:
-        \begin{itemize}
-          \item STL import
-          \item MT + MPI features
-          \item SD + ROOT output
-        \end{itemize}
-        To do:
-        \begin{itemize}
-          \item Keep the geometry up to date
-          \item I/O with ESS particle files.
-        \end{itemize}
-      \end{block}
-    \end{column}
-    \begin{column}{0.45\textwidth}
-      Example with a dummy $2\,\mathrm{GeV}$ proton hitting an IPM frame:
-      \includegraphics[width=1\textwidth]{05_Conclusion/fig/fig000_G4ESS2}
-    \end{column}
-  \end{columns}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Outlooks}
+\section{Upcoming challenges and conclusion}
+\subsection{Upcoming challenges}
+\begin{frame}[t]
+  \frametitle{Outlook}
   \begin{columns}[T]
     \begin{column}{0.45\textwidth}
       \begin{block}{Calibration}
-        A MCP is subject to ageing: the gain decrease over time.
+        A MCP is subject to ageing: the gain decreases over time.
         \begin{itemize}
-          \item An uniform VUV ($<200\,\mathrm{nm}$) light irradiate the MCP input surface
+          \item An uniform VUV ($<200\,\mathrm{nm}$) light irradiates the MCP input surface
           \item The MCP response is recorded by camera revelling non uniform area.
           \item The new calibration map is applied on beam images.
         \end{itemize}
@@ -87,6 +21,7 @@
   \end{columns}
   \begin{columns}[T]
     \begin{column}{0.60\textwidth}
+      \vspace{0.25cm}
       \includegraphics[width=1\textwidth]{05_Conclusion/fig/fig000_schematic_coherentr_fiber}
     \end{column}
     \begin{column}{0.35\textwidth}
@@ -100,8 +35,40 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Outlooks}
+\begin{frame}[t]
+  \frametitle{Background simulation}
+  \begin{block}{Background information}
+    What happens if a "lost proton" hits MCP or structures around? $\implies$ simulations:
+    \begin{itemize}
+      \item Realistic geometry $\rightarrow$ CAD import.
+      \item Information about particles.
+    \end{itemize}
+  \end{block}
+  \begin{columns}[T]
+    \begin{column}{0.45\textwidth}
+      \begin{block}{Simulation with Geant4 10.X}
+        Features:
+        \begin{itemize}
+          \item STL import.
+          \item MT + MPI features.
+          \item SD + ROOT output.
+        \end{itemize}
+        To do:
+        \begin{itemize}
+          \item Keep the geometry up to date.
+          \item I/O with ESS particle files.
+        \end{itemize}
+      \end{block}
+    \end{column}
+    \begin{column}{0.45\textwidth}
+      Example with a dummy $2\,\mathrm{GeV}$ proton hitting an IPM frame
+      \includegraphics[width=1\textwidth]{05_Conclusion/fig/fig000_G4ESS2}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{Outlook}
   \begin{columns}[T]
     \begin{column}{0.45\textwidth}
       \begin{block}{Improved design for MCP usage}
@@ -122,16 +89,75 @@
       \includegraphics[width=0.75\textwidth]{05_Conclusion/fig/fig000_bride_double2_a}
     \end{column}
   \end{columns}
+  \begin{block}{Production is already ongoing}
+    And first IPM will be delivered in the beginning of 2020.
+  \end{block}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Beyond ESS}
-  \begin{columns}[T]
-    \begin{column}{0.45\textwidth}
+\subsection{Conclusion}
+\begin{frame}[t]
+  \frametitle{Conclusion}
+    \begin{columns}[T]
+      \begin{column}{0.45\textwidth}
+        \begin{block}{In 3 years:}
+          \begin{itemize}
+            \item[\checkmark] The feasibility has been checked by simulations.
+            \item[\checkmark] Different IPMs have been tested in real beam conditions at IPHI.
+            \item[\checkmark] Both IPMs work but MCP is forseen.
+          \end{itemize}
+        \end{block}
+        \begin{block}{Upcoming challenges:}
+          \begin{itemize}
+            \item Design of final version.
+            \item Simulation improvement with background estimations.
+            \item MCP calibration and readout.
+            \item IPM production.
+            \item Installation at ESS.
+          \end{itemize}
+        \end{block}
+      \end{column}
+      \begin{column}{0.45\textwidth}
+      \end{column}
+    \end{columns}
 
+    \begin{textblock*}{2.8cm}(6.2cm,2cm)      
+      \includegraphics[width=2.8cm]{03_SIM/fig/fig000_Lines_Corr.png}
+    \end{textblock*}
+    \begin{textblock*}{4cm}(9cm,1.25cm)      
+      \includegraphics[width=3.5cm]{04_Test/fig/fig000_IPM_photo2}
+    \end{textblock*}
+    \begin{textblock*}{4.5cm}(7.25cm,6.25cm)      
+      \includegraphics[width=4.5cm]{04_Test/fig/fig000_image_beam}
+    \end{textblock*}
+    % \begin{textblock*}{4cm}(8cm,6.5cm)      
+    %   \includegraphics[width=4cm]{04_Test/fig/fig000_beam_car_a}
+    % \end{textblock*}
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{Beyond ESS}
+  \begin{columns}[]
+    \begin{column}{0.45\textwidth}
+      \begin{block}{SONATE: a new compact neutron source}
+        \begin{itemize}
+          \item ILL + Orphée (LLB)
+                \begin{itemize}
+                  \item 94\% of instrument-day in France.
+                  \item Closed in the next decade.
+                \end{itemize}
+          \item Accelerator driven source.
+                \begin{itemize}
+                  \item $20\,\mathrm{MeV}$ $100\,\mathrm{mA}$
+                  \item Be target + Moderators
+                \end{itemize}
+        \end{itemize}
+      \end{block}
     \end{column}
     \begin{column}{0.45\textwidth}
       \includegraphics[width=1\textwidth]{05_Conclusion/fig/fig000_SONATE}
     \end{column}
   \end{columns}
+  \begin{block}{IPHI is a key tool to validate the concept of SONATE.}
+    A new collaboration has started to provide one IPM pair to IPHI, based on our prototypes.
+  \end{block}
 \end{frame}

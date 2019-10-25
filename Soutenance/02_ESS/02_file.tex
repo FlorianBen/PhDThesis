@@ -1,7 +1,7 @@
-\section{Beam diagnostic and IPM}
-\subsection{Beam diagnostic at ESS}
-\begin{frame}
-  \frametitle{Beam diagnostic at ESS}
+\section{Beam diagnostics at ESS}
+\subsection{Beam diagnostics at ESS}
+\begin{frame}[t]
+  \frametitle{Beam diagnostics at ESS}
   \begin{block}{ESS is based on a power accelerator}
     Beam diagnostics are mandatory tools to insure safety and acquire knowledge about the beam:
     \begin{itemize}
@@ -11,11 +11,11 @@
     \end{itemize}
   \end{block}
 
-  Today, we are presenting a device that measure the \textbf{transverse beam profile}:
-  \begin{columns}
+  Today, I am presenting a device that measures the \textbf{transverse beam profile}:
+  \begin{columns}[T]
     \begin{column}{0.60\textwidth}
       \begin{block}{Definition}
-        Spacial distribution of the charges of the beam in the transverse plane.
+        Spatial distribution of the charges of the beam in the transverse plane.
         \begin{itemize}
           \item Beam shape
           \item Beam position
@@ -30,7 +30,7 @@
   \end{columns}
 \end{frame}
 
-% \begin{frame}
+% \begin{frame}[t]
 %   \frametitle{Profile measurement method}
 %   \includegraphics[width=\textwidth]{01_Neutron/fig/fig000_ESS_acc}
 %   \begin{columns}
@@ -61,12 +61,12 @@
 % \end{frame}
 
 \subsection{Profile measurement method at ESS}
-\begin{frame}
+\begin{frame}[t]
   \frametitle{Profile measurement method}
-  \includegraphics[width=\textwidth]{01_Neutron/fig/fig000_ESS_acc}
-  \begin{columns}
+  %\includegraphics[width=\textwidth]{01_Neutron/fig/fig000_ESS_acc}
+  \begin{columns}[T]
     \begin{column}{0.45\textwidth}
-      \begin{block}{Fluorescence \textbf{Profile Monitor} (FPM)}
+      \begin{block}{\textbf{Fluorescence} Profile Monitor (FPM)}
         Measurement of the fluorescence induced by the beam.
       \end{block}
       \begin{block}{Pros/cons}
@@ -79,7 +79,7 @@
       \end{block}
     \end{column}
     \begin{column}{0.45\textwidth}
-      \includegraphics[width=\textwidth]{02_ESS/fig/fig000_FPM}
+      \includegraphics[width=\textwidth]{02_ESS/fig/fig000_FPM2}
 
       \begin{block}{Use at ESS}
         \begin{itemize}
@@ -93,15 +93,15 @@
   \end{alertblock}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[t]
   \frametitle{Ionization Profile Monitor}
   \begin{alertblock}{So no profile measurement in SC part at nominal condition?}
-    The measurement can be done by using an Ionization \textbf{Profile Monitor} (IPM).
+    The measurement can be done by using an \textbf{Ionization} Profile Monitor (IPM).
   \end{alertblock}
 
-  \begin{columns}
+  \begin{columns}[T]
     \begin{column}{0.45\textwidth}
-      \begin{block}{How it works}
+      \begin{block}{How does it work?}
         \begin{enumerate}
           \item Beam protons pass through the residual gas, inducing ionizations: $e^-$/ion pairs.
           \item An electric field drives $e^-$ or ions towards a segmented readout system.
@@ -114,9 +114,11 @@
       \includegraphics[width=0.8\textwidth]{02_ESS/fig/fig000_IPM.pdf}
     \end{column}
   \end{columns}
+  \vspace{0.5cm}
+    Typical field values: $1\,\mathrm{kV/cm}$ to $3\,\mathrm{kV/cm}$ $\implies$ $e^-$/ion energy $\leq 15\,\mathrm{keV}$
 \end{frame}
 
-\begin{frame}
+\begin{frame}[t]
   \frametitle{IPM}
   \begin{columns}[T]
     \begin{column}{0.45\textwidth}
@@ -124,8 +126,7 @@
         \begin{itemize}
           \item[+] Direct collection
           \item[+] Non invasive method
-          \item[-] Vacuum dependant
-          \item[-] Complex and expansive design (frame, HV, readout in vacuum)
+          \item[-] Complex and expensive design (frame, HV, readout in vacuum)
           \item[-] Profile distortion
         \end{itemize}
       \end{block}
@@ -136,14 +137,13 @@
         \begin{itemize}
           \item 1960-1970: First use of an IPM.
           \item 1990-2000: Development of MCPs.
-          \item 2015: Interest in semiconductor (CERN).
+          \item 2015: Interest in semiconductors (CERN).
           \item Improvement of electronics and simulation capabilities.
         \end{itemize}
       \end{block}
     \end{column}
   \end{columns}
-
-
+  \vspace{0.5cm}
   IPMs are popular on proton circular accelerators or storage rings:
   \begin{itemize}
     \item Where vacuum can be extremely low (below $10^{-10}\,\mathrm{mbar}$)
@@ -153,10 +153,10 @@
 \end{frame}
 
 \subsection{Project overview}
-\begin{frame}
+\begin{frame}[t]
   \frametitle{Project overview}
   \begin{alertblock}{Subject of the thesis:}
-    \textbf{Can we use IPMs in the superconducting part of the ESS accelerator?}
+    \textbf{Can IPMs be used in the superconducting part of the ESS accelerator?}
   \end{alertblock}
   \begin{block}{Project in brief}
     Provide 5 pairs of IPMs for the superconducting part of the ESS accelerator.

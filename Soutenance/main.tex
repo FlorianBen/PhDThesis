@@ -10,32 +10,34 @@
   \usepackage{textcomp}
 \fi\fi 
 
-\usepackage{booktabs}
-\usepackage{tabularx} 
+\usepackage{tikz}
+\usetikzlibrary{shapes.arrows}
 
-\title{Conception de profileurs non intrusifs pour le faisceau de protons de ESS}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage[absolute,overlay]{textpos}
+ 
+\title{Design of non-invasive profile monitors for the ESS proton beam}
 \author{Florian Benedetti}
 \institute{CEA/IRFU}
 \date{23/09/2019}
 
 \usetheme[]{Frankfurt}
 \usecolortheme{beaver}
-
+\setbeamertemplate{navigation symbols}{}
 \setbeamerfont{title}{size=\Huge}
 \setbeamerfont{frametitle}{size=\huge}
 
 \AtBeginSection[]{
- \begin{frame}
- \vfill
- \centering
- \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
-   \usebeamerfont{title}\insertsectionhead\par%
- \end{beamercolorbox}
- \vfill
- \tableofcontents[sectionstyle=show/hide,subsectionstyle=show/show/hide]{}
-
- %\tableofcontents[currentsubsection]
- \end{frame}
+  \begin{frame}[t]
+  \vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+    \usebeamerfont{title}\insertsectionhead\par%
+  \end{beamercolorbox}
+  \vfill
+ %\tableofcontents[sectionstyle=show/hide,subsectionstyle=show/show/hide]{}
+  \end{frame}
 }
 
 \setbeamertemplate{footline}%{infolines theme}
@@ -62,12 +64,11 @@
    \setcounter{framenumber}{\value{finalframe}}
 }
 
-
 \begin{document}
 \frame{\titlepage}
 
-\begin{frame}
-  \frametitle{Presentation outline}
+\begin{frame}[t]
+  \frametitle{Outline}
   \tableofcontents[subsectionstyle=hide/hide/hide]
 \end{frame}
 
@@ -77,18 +78,52 @@
 \input{04_Test/04_file}
 \input{05_Conclusion/05_file}
 
-\begin{frame}{}
-  \centering \Large
-  \emph{Thank You!}
+\begin{frame}[t]
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+    \usebeamerfont{title}Thank You!\par%
+  \end{beamercolorbox}
+  \vfill
+
+  \begin{block}{Committee}
+    Peter Forck, Gloria Luzon, Julien Pancin, Cyrille Thomas, Patrick Puzo
+  \end{block}
+  \begin{block}{ESS Team}
+    Andreas Jansson, Thomas Shea, Cyrille Thomas, Roxana Tarkeshian
+  \end{block}
+  \begin{block}{CERN Team}
+    James Storey, Swann Levasseur, Hampus Sandberg
+  \end{block}
+  \begin{block}{IRMA Team}
+    Cyril Bachelet, Stéphane Renouf
+  \end{block}
+
 \end{frame}
 
+\begin{frame}[t]
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+    \usebeamerfont{title}Thank You!\par%
+  \end{beamercolorbox}
+  \vfill
 
+  \begin{block}{Pilotes IPHI}
+    Bolzon Benoît, Chauvin Nicolas, Oublaid	Maryam, Perreu	Gabrielle Pottin	Bruno, Schwindling	Jerome, Senee	Franck, Desmons Michel
+  \end{block}
+
+  \begin{block}{NPM at IRFU}
+  Philippe Abbon, Francesca Belloni, Xavier Coppolani, Gilles Coulloux, Caroline Lahonde-Hamdoun, Pascal Le Bourlout, Philippe Legou, Yannick Mariette, Jacques Marroncle, Jean-philippe Mols, Victor Nadot, Loris Scola, Gérard Tauzin
+  \end{block}
+
+  \centering
+  \usebeamerfont{title}And all people from DEDIP and IRFU!\par%
+
+\end{frame}
+
+\appendix
+\section{Backup slides}
 \backupbegin
-\begin{frame}
-  \centering \huge
-  \emph{Backup Slides}
-\end{frame}
-
+\input{06_Backup/06_file}
 \backupend
 
 \end{document}

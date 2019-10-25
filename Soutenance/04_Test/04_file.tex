@@ -1,7 +1,14 @@
-\section{Tests on the prototypes and results}
+% \begin{columns}[T]
+%   \begin{column}{0.45\textwidth}
+%   \end{column}
+%   \begin{column}{0.45\textwidth}
+%   \end{column}
+% \end{columns}
+
+\section{Prototype tests and results}
 \subsection{Preliminary tests at IRMA}
-\begin{frame}
-  \frametitle{Tests of silicon detector at IRMA}
+\begin{frame}[t]
+  \frametitle{Tests of the silicon detector at IRMA}
   \begin{columns}
     \begin{column}{0.45\textwidth}
       IRMA (CSNSM/CNRS/Orsay):
@@ -27,30 +34,30 @@
       \end{columns}
       \centering
       Damage after irradiation
-      \includegraphics[width=0.8\textwidth]{04_Test/fig/fig000_IRMA_damage3.png}
+      \includegraphics[width=0.8\textwidth]{04_Test/fig/fig000_IRMA_damage5.png}
     \end{column}
   \end{columns}
-  \begin{alertblock}{It works but too risky}
-    We discarded the silicon/TimePix option.
+  \begin{alertblock}{Interesting results}
+    But required more investigations $\rightarrow$ not possible with the given schedule.
   \end{alertblock}
 \end{frame}
 
 \subsection{IPM testbench}
-\begin{frame}
-  \frametitle{IPM prototype}
+\begin{frame}[t]
+  \frametitle{IPM prototypes}
   \begin{columns}
     \begin{column}{0.45\textwidth}
       \begin{block}{Prototype characteristics}
         \begin{itemize}
-          \item Cage: $10\times10\times10\,\mathrm{cm}$
-          \item Active area: $4\times2\,\mathrm{cm}$
+          \item Cage: $10\times10\times10\,\mathrm{cm^3}$
+          \item Active area: $4\times2\,\mathrm{cm^2}$
           \item The readout can be easily changed.
         \end{itemize}
       \end{block}
 
       \begin{block}{Vacuum compliant materials}
         \begin{itemize}
-          \item SS and copper
+          \item Steel and copper
           \item Macor
           \item PEEK
           \item Ceramic PCB
@@ -64,18 +71,40 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[t]
   \frametitle{IPM test bench}
-  As well, a dedicated test bench has been developed:
-  \begin{center}
-    \includegraphics[width=0.7\textwidth]{04_Test/fig/fig000_Testbench2.png}
-  \end{center}
+  A dedicated test bench has been developed:
+  \begin{columns}[T]
+    \begin{column}{0.60\textwidth}
+      \begin{center}
+        \includegraphics[width=0.8\textwidth]{04_Test/fig/fig000_Testbench2.png}
+      \end{center}
+    \end{column}
+
+    \begin{column}{0.30\textwidth}
+      \begin{block}{Integration}
+        \begin{itemize}
+          \item Vacuum:
+                \begin{itemize}
+                  \item Cleaning
+                  \item Leak test
+                  \item Baking
+                \end{itemize}
+          \item Control system:
+                \begin{itemize}
+                  \item HV
+                  \item Camera
+                \end{itemize}
+        \end{itemize}
+      \end{block}
+    \end{column}
+  \end{columns}
   \begin{columns}[T]
     \begin{column}{0.45\textwidth}
       \begin{block}{Upstream}
         \begin{itemize}
-          \item Mimic ESS LWU geometry.
-          \item 2 slot for IPM prototypes.
+          \item Mimic ESS vacuum chamber.
+          \item 2 slots for IPM prototypes.
         \end{itemize}
       \end{block}
     \end{column}
@@ -85,7 +114,7 @@
         \begin{itemize}
           \item Extension adding more slots.
           \item 1 slot for an IPM prototype.
-          \item 2 slot for reference measurements.
+          \item 2 slots for reference measurements.
         \end{itemize}
       \end{block}
     \end{column}
@@ -94,10 +123,10 @@
 \end{frame}
 
 \subsection{IPHI}
-\begin{frame}
+\begin{frame}[t]
   \frametitle{IPHI}
-  \begin{block}{Injecteur de Protons à Haute Intensité}
-    IPHI is a high intensity $3\,\mathrm{MeV}$ proton accelerator at DACM/IRFU/CEA Saclay. IPHI can be seen as the 20 first meter of ESS.
+  \begin{block}{Injector of Proton for High Intensity}
+    IPHI is a high intensity $3\,\mathrm{MeV}$ proton accelerator at DACM/IRFU/CEA Saclay. IPHI can be seen as the 20 first meters of ESS.
   \end{block}
   \includegraphics[width=1\textwidth]{04_Test/fig/fig000_IPHI_view.png}
   \begin{tabularx}{\linewidth}{XXX}
@@ -106,7 +135,7 @@
     \midrule
     Energy               & $3\,\mathrm{MeV}$                                 & $2\,\mathrm{GeV}$              \\
     Max current          & $0.5-100\,\mathrm{mA}$                            & $62.5\,\mathrm{mA}$            \\
-    Max pulse duration   & $>100\,\mathrm{\mu s}$ up to DC                   & $2.86\,\mathrm{ms}$            \\
+    Max pulse duration   & $>100\,\mathrm{\mu s}$ up to CW                   & $2.86\,\mathrm{ms}$            \\
     Max pulse repetition & -                                                 & $14\,\mathrm{Hz}$              \\
     Vacuum range         & $5\cdot10^{-7}$ to $1\cdot10^{-8}\,\mathrm{mbar}$ & $1\cdot10^{-9}\,\mathrm{mbar}$ \\
     \bottomrule
@@ -117,9 +146,8 @@
   \frametitle{IPHI test campaign}
   \begin{block}{Goals:}
     \begin{itemize}
-      \item Find out the most
-      \item Characterize our prototypes
-      \item Find flaws in your design
+      \item Characterize our prototypes and readouts.
+      \item Find flaws in the IPMs.
     \end{itemize}
   \end{block}
   \begin{columns}[T]
@@ -136,103 +164,62 @@
   \end{columns}
   \begin{block}{Two campaigns:}
     \begin{itemize}
-      \item First campaign: first tests but limited by spark issues
-      \item Second campaign:  improved prototypes, check limits.
+      \item First campaign: Setup and first tests.
+      \item Second campaign: improved prototypes, check limits.
     \end{itemize}
   \end{block}
-
-  % \begin{tabularx}{\linewidth}{XXX}
-  %   \toprule
-  %                 & First campaign & Second campaign \\
-  %   \midrule
-  %   Starting date & 19/02/2018     & 14/09/2018      \\
-  %   First profile & 01/03/2018     & 14/09/2018      \\
-  %   Ending date   & 13/04/2018     & 26/10/2018      \\
-  %   \bottomrule
-  % \end{tabularx}
 \end{frame}
 
 \subsection{Results}
-\begin{frame}
-  \frametitle{Processing data}
+\begin{frame}[t]
+  \frametitle{Processing data from IPMs}
   \begin{columns}[T]
     \begin{column}{0.45\textwidth}
-      \includegraphics[width=1\textwidth]{04_Test/fig/fig000_image_beam}
-    \end{column}
-    \begin{column}{0.45\textwidth}
-      \only<1>{\includegraphics[width=1\textwidth]{04_Test/fig/fig000_strips_signal}}
-      \only<2>{\includegraphics[width=1\textwidth]{04_Test/fig/fig000_strips_signal_b}}
-    \end{column}
-  \end{columns}
-  \begin{columns}[T]
-    \begin{column}{0.45\textwidth}
-      \begin{block}{Processing}
+      \begin{block}{Processing data from camera}
         \begin{enumerate}
           \item Crop image to ROI
-          \item Remove dead pixel
+          \item Remove dead pixels
           \item Filtering
           \item Sum along longitudinal direction
         \end{enumerate}
       \end{block}
+      \begin{center}
+        \includegraphics[width=1\textwidth]{04_Test/fig/fig000_image_beam}
+        \begin{tikzpicture}[every node/.style={single arrow, draw=none, rotate=90}]
+          \node [fill=red!50] {Beam};
+        \end{tikzpicture}
+      \end{center}
     \end{column}
     \begin{column}{0.45\textwidth}
-      \begin{block}{Processing}
+      \begin{block}{Processing data from strips}
         \begin{enumerate}
-          \item Remove pedestal
-          \item Filtering
+          \item Remove pedestals
+          \item FFT Filtering
           \item Event finding with threshold
           \item Check multiplicity on several strips
         \end{enumerate}
       \end{block}
+      \only<1>{\includegraphics[width=1\textwidth]{04_Test/fig/fig000_strips_signal}}
+      \only<2>{\includegraphics[width=1\textwidth]{04_Test/fig/fig000_strips_signal_b}}
     \end{column}
   \end{columns}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Profile comparison between IPM}
-
+\begin{frame}[t]
+  \frametitle{Profile comparison between IPMs}
+  \begin{block}{Same pulse measuremement with strips and MCP}
+    $i_{beam}=26\,\mathrm{mA}$ and $t_{pulse}=190\,\mathrm{\mu s}$
+  \end{block}
   \begin{center}
     \includegraphics[width=0.75\textwidth]{04_Test/fig/fig000_MCP_strip}
   \end{center}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Limitations}
-  \begin{columns}[T]
-    \begin{column}{0.45\textwidth}
-      \includegraphics[width=1\textwidth]{04_Test/fig/fig000_variation_a}
-      \includegraphics[width=1\textwidth]{04_Test/fig/fig000_variation_b}
-    \end{column}
-    \begin{column}{0.45\textwidth}
-      \includegraphics[width=1\textwidth]{04_Test/fig/fig000_hist_variation_a}
-      \includegraphics[width=1\textwidth]{04_Test/fig/fig000_hist_variation_b}
-    \end{column}
-  \end{columns}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Limitations}
-  \begin{columns}[T]
-    \begin{column}{0.45\textwidth}
-      \includegraphics[width=1\textwidth]{04_Test/fig/fig000_ex_beam_profile_a}
-    \end{column}
-    \begin{column}{0.45\textwidth}
-      \includegraphics[width=1\textwidth]{04_Test/fig/fig000_ex_beam_profile_b2}
-    \end{column}
-  \end{columns}
-  \begin{alertblock}{Precise measurements were not possible}
-    \begin{itemize}
-      \item Important position variation $\implies$ influence on size too?
-      \item Beam shape depends on current $\implies$ How to quantify size?
-    \end{itemize}
-  \end{alertblock}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Comparison with IHPI diagnostic}
-  \begin{alertblock}{No profile monitor available at IPHI}
-    Impossible to compare the profile measured by IPM $\implies$ compare other quantities
-  \end{alertblock}
+\begin{frame}[t]
+  \frametitle{Comparison with IPHI diagnostic}
+  \begin{block}{Comparison with other diagnostic devices}
+    No profile monitor available at IPHI $\implies$ compare other quantities
+  \end{block}
   \begin{columns}[T]
     \begin{column}{0.45\textwidth}
       \includegraphics[width=1.14\textwidth]{04_Test/fig/fig000_beam_car_a}
@@ -245,13 +232,13 @@
     \begin{column}{0.45\textwidth}
       \begin{block}{Position with BPM}
         \begin{itemize}
-          \item Step variation: steerers
+          \item Steps variation: steerers
           \item Correlation
         \end{itemize}
       \end{block}
     \end{column}
     \begin{column}{0.45\textwidth}
-      \begin{block}{Current with DCCT}
+      \begin{block}{Current transformer}
         \begin{itemize}
           \item Linear response
           \item Important range
@@ -261,94 +248,194 @@
   \end{columns}
 \end{frame}
 
-% \begin{frame}
+\begin{frame}[t]
+  \frametitle{Beam conditions}
+  \begin{columns}[T]
+    \begin{column}{0.45\textwidth}
+      \includegraphics[width=1\textwidth]{04_Test/fig/fig000_variation_a}
+      \includegraphics[width=1\textwidth]{04_Test/fig/fig000_variation_b}
+    \end{column}
+    \begin{column}{0.45\textwidth}
+      \includegraphics[width=1\textwidth]{04_Test/fig/fig000_hist_variation_a}
+      \includegraphics[width=1\textwidth]{04_Test/fig/fig000_hist_variation_b}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{Beam conditions}
+  \begin{columns}[T]
+    \begin{column}{0.45\textwidth}
+      \includegraphics[width=1\textwidth]{04_Test/fig/fig000_ex_beam_profile_a3}
+    \end{column}
+    \begin{column}{0.45\textwidth}
+      \includegraphics[width=1\textwidth]{04_Test/fig/fig000_ex_beam_profile_b3}
+    \end{column}
+  \end{columns}
+  \begin{block}{Beam variations reduce the precision on measurement}
+    \begin{itemize}
+      \item Important position variation $\implies$ influence on size too.
+      \item On 480 pulses:
+            \begin{itemize}
+              \item Position: Min-Max $\approx 1.6\,\mathrm{mm}$, $\sigma_{std} \approx 250\,\mathrm{\mu m}$
+              \item Size: Min-Max $\approx 250\,\mathrm{\mu m}$, $\sigma_{std} \approx 50\,\mathrm{\mu m}$
+            \end{itemize}
+      \item Beam shape depends on current $\implies$ How to quantify size?
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+% \begin{frame}[t]
 %   \frametitle{Field uniformity}
 %   \begin{alertblock}{}
 %   \end{alertblock}
 % \end{frame}
 
-\begin{frame}
+\begin{frame}[t]
   \frametitle{MCP system characterization}
-  \begin{columns}[T]
+  \begin{columns}[]
     \begin{column}{0.45\textwidth}
-          \includegraphics[width=1\textwidth]{04_Test/fig/fig000_MCP_gain_a}
-          \includegraphics[width=1\textwidth]{04_Test/fig/fig000_MCP_gain_b}
+      \includegraphics[width=1\textwidth]{04_Test/fig/fig000_MCP_gain_a}
+      \includegraphics[width=1\textwidth]{04_Test/fig/fig000_MCP_gain_b}
     \end{column}
-    \begin{column}{0.45\textwidth}
-      \includegraphics[width=1\textwidth]{04_Test/fig/fig000_P43_gain}
-      \includegraphics[width=1\textwidth]{04_Test/fig/fig000_P43_size}
-    \end{column}
-  \end{columns}
-\end{frame}
 
-\begin{frame}
-  \frametitle{Phosphorus screen}
-  \begin{columns}[T]
     \begin{column}{0.45\textwidth}
-      \begin{block}{}
+      \begin{block}{MCP is key component of the IPM}
+        Gain: exponential
+
+        Dynamic Range:
+        \begin{itemize}
+          \item Datasheet [600-1200V]:1000
+          \item Tested [700-1100V]:300
+        \end{itemize}
+
+        Influence on beam size:
+        \begin{itemize}
+          \item Min-Max $\approx 100\,\mu m$
+          \item Close to IPHI variations.
+          \item Below ESS requirement.
+        \end{itemize}
       \end{block}
     \end{column}
-    \begin{column}{0.45\textwidth}
-      \includegraphics[width=1\textwidth]{04_Test/fig/fig000_P43_gain}
-      \includegraphics[width=1\textwidth]{04_Test/fig/fig000_P43_size}
-    \end{column}
   \end{columns}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[t]
+  \frametitle{Measurements with electrons}
+  \centering
+  \includegraphics[width=0.7\textwidth]{04_Test/fig/fig000_electron_Photonis}
+  \begin{block}{Impossible to get a profile with electrons at IPHI}
+    \begin{itemize}
+      \item Magnetic fields from devices like vacuum gauge.
+      \item $e^-$ background?
+    \end{itemize}
+    Measurement is very difficult without guiding magnet.
+  \end{block}
+\end{frame}
+
+\begin{frame}[t]
   \frametitle{Limits of detection}
+  \begin{block}{An extrapolation to ESS conditions is assumed:}
+    $Signal_{primary} \propto N_{beam}(I_{beam},t_{pulse}) \times \sigma_{ioniz.}(E_{beam},medium) \times \rho$
+  \end{block}
   \begin{columns}[T]
     \begin{column}{0.35\textwidth}
       \begin{block}{Signal at IPHI is higher:}
         \begin{itemize}
-          \item Lower beam energy $\implies$ higher cross section
+          \item Lower beam energy
           \item Lower vacuum level
         \end{itemize}
-        But can be compensated by:
-        \begin{itemize}
-          \item Reducing the current
-          \item Reducing the pulse duration
-        \end{itemize}
+        Factor: $5400$ at worst case and 1400 at best.
       \end{block}
     \end{column}
     \begin{column}{0.55\textwidth}
       \centering
-      \includegraphics[width=1\textwidth]{04_Test/fig/fig000_bethe}
+      \includegraphics[width=1\textwidth]{04_Test/fig/fig000_Bethe_IPHI}
     \end{column}
   \end{columns}
 
-  \begin{columns}[T]
-    \begin{column}{0.45\textwidth}
-      \begin{block}{Limits with strips}
-      \end{block}
-    \end{column}
-    \begin{column}{0.45\textwidth}
+  % \begin{columns}[T]
+  %   \begin{column}{0.45\textwidth}
+  %     \begin{block}{Limits with strips}
+  %     \end{block}
+  %   \end{column}
+  %   \begin{column}{0.45\textwidth}
 
-    \end{column}
-  \end{columns}
-  \begin{alertblock}{Conclusion}
-    Bare strips may not be able to detect at ESS.
+  %   \end{column}
+  % \end{columns}
+  \begin{alertblock}{But can be compensated by:}
+    Reducing the beam current or the pulse duration.
   \end{alertblock}
 \end{frame}
 
-\begin{frame}
+% \begin{frame}[t]
+%   \frametitle{Limits of detection}
+%   \begin{block}{Enough particle to reconstruct a profile?}
+%     $Signal_{primary} = N_{beam}(I_{beam},t_{pulse}) \times \sigma_{proton}(E_{beam},medium,\rho)$
+%   \end{block}
+%   \begin{columns}[]
+%     \begin{column}{0.35\textwidth}
+%       \begin{block}{Signal at IPHI is higher:}
+%         \begin{itemize}
+%           \item Lower beam energy $\implies$ higher cross section
+%           \item Lower vacuum level
+%         \end{itemize}
+%         But can be compensated by:
+%         \begin{itemize}
+%           \item Reducing the current
+%           \item Reducing the pulse duration
+%         \end{itemize}
+%       \end{block}
+%     \end{column}
+%     \begin{column}{0.55\textwidth}
+%       \centering
+%       \includegraphics[width=1\textwidth]{04_Test/fig/fig000_Bethe_IPHI}
+%     \end{column}
+%   \end{columns}
+
+%   \begin{columns}[T]
+%     \begin{column}{0.45\textwidth}
+%       \begin{block}{Limits with strips}
+%       \end{block}
+%     \end{column}
+%     \begin{column}{0.45\textwidth}
+
+%     \end{column}
+%   \end{columns}
+%   \begin{alertblock}{Conclusion}
+%     Bare strips may not be able to detect at ESS.
+%   \end{alertblock}
+% \end{frame}
+
+\begin{frame}[t]
   \frametitle{Limits of detection}
   \begin{columns}[T]
     \begin{column}{0.45\textwidth}
       \begin{block}{Limits with MCP}
-        With MCP IPM we reached the limits of IPHI:
+        With MCP IPM $\rightarrow$ limits of IPHI:
         \begin{itemize}
-          \item $0.5\,\mathrm{mA}$ and $100\,\mathrm{\mu s}$
-          \item Equivalent to worst ESS case at $2\,\mathrm{GeV}$
+          \item ESS: $62.5\,\mathrm{mA}$ and $2.86\,\mathrm{ms}$
+          \item IPHI: $0.7\,\mathrm{mA}$ and $0.05\,\mathrm{ms}$
         \end{itemize}
       \end{block}
+      The signal can be reduced by 5100 $\implies$ compensate the cross section.
+
+      \begin{block}{Limits with strips}
+        With strips IPM $\rightarrow$ limits of IPM:
+        \begin{itemize}
+          \item IPHI: $1.9\,\mathrm{mA}$ and $0.2\,\mathrm{ms}$
+        \end{itemize}
+      \end{block}
+      The signal can be reduced by 500 $\implies$ and not compensate the cross section.
+
     \end{column}
     \begin{column}{0.45\textwidth}
       \includegraphics[width=1\textwidth]{04_Test/fig/fig000_limits_IPHI_a}
       \includegraphics[width=1\textwidth]{04_Test/fig/fig000_limits_IPHI_b}
+      \begin{alertblock}{Conclusion}
+        Even a single stage MCP seems to be sufficient to detect profile.
+        But bare strips are not sensitive enough for use at ESS.
+      \end{alertblock}
     \end{column}
   \end{columns}
-  \begin{alertblock}{Conclusion}
-    Even a single stage MCP seems to be sufficient to detect profile.
-  \end{alertblock}
 \end{frame}
