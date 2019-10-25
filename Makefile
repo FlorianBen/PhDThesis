@@ -12,7 +12,6 @@ LUALATEX_FLAGS = -halt-on-error -interaction=nonstopmode -shell-escape
 PDG = 1ere.tex
 export PDG
 
-
 LATEX_PROCESSOR = lualatex
 #LATEX_PROCESSOR = xelatex
 #LATEX_PROCESSOR = pdflatex
