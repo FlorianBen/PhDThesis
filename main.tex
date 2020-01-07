@@ -40,7 +40,7 @@
 \usepackage{circuitikz}
 
 % Bibliographie avec biblatex
-\usepackage[backref=true, bibencoding=utf8,style=ieee,sorting=none]{biblatex}
+\usepackage[backref=true, bibencoding=utf8,style=ieee,sorting=none, maxnames=5]{biblatex}
 \addbibresource{bib/accelerator.bib}
 \addbibresource{bib/beam_diag.bib}
 \addbibresource{bib/field.bib}
@@ -91,9 +91,12 @@
 % Subfigure package, pour des images multiples
 \usepackage[list=true,listformat=simple]{subcaption}
 
-
 % Minitoc package
 \usepackage{minitoc}
+
+% Use hyperlink in document
+\usepackage[hidelinks,hyperindex=true]{hyperref}
+\hypersetup{pdfencoding=auto}
 
 % Support acronym and glossary
 \usepackage[acronym,toc]{glossaries}
@@ -109,10 +112,6 @@
 \usepackage{wrapfig}
 
 \usepackage{pdfpages}
-
-% Use hyperlink in document
-\usepackage[hidelinks,hyperindex=true]{hyperref}
-\hypersetup{pdfencoding=auto}
 
 \usepackage{placeins}
 
@@ -152,9 +151,12 @@
 \end{otherlanguage}
 
 \appendix
+\begin{otherlanguage}{english}
 \input{00_Appendix/00_file.tex}
 \backmatter
+\end{otherlanguage}
 
 \pagenumbering{gobble}
+
 \input{00_Guards/dos}
 \end{document}

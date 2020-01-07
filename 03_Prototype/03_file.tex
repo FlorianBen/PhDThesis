@@ -13,7 +13,7 @@
   This section is necessary to underline the different requirements and specifications that the \acrshort{ipm}s should match. \acrshort{ess} has defined requirements for the whole machine, and they are organized on different levels starting from installation up to subsystems. Every subsystem must meet its specification levels. In the case of the \acrshort{npm} system, the most important ones are defined in the beam instrument (level 4) and non invasive profile monitor (level 5) requirements:
   \begin{itemize}
     \item Total measurement error of the transverse beam profile in the RMS extension of less than $\pm10\,\%$.
-    %\item A spatial resolution of \(\leq\,0.05\,\mathrm{mm}\).
+          %\item A spatial resolution of \(\leq\,0.05\,\mathrm{mm}\).
     \item The measurements and report of the relevant data at a repetition rate of \(14\,\mathrm{Hz}\).
     \item A dynamic range of $1000$.
   \end{itemize}
@@ -22,7 +22,7 @@
 
   \input{03_Prototype/figures/fig016_LWU_Cryo.tex}
 
-  The \acrshort{ipm}s will be located between two cryomodules in the cold accelerator area. The \acrshort{lwu} vessels are not cooled down, but their proximity to the superconducting cavities imposes a high vacuum level and a clean environment. Indeed, a too high pressure or a contamination may damage the cavities. An operating pressure of \(10^{-9}\,\mathrm{mbar}\) is foreseen, but the vacuum level may be even lower during the operation. Safety valves will be closed in case of the vacuum reaches \(10^{-7}\,\mathrm{mbar}\). Hence, quantitatively the \acrshort{ipm} design must be compliant with a high to ultra high vacuum level and an ISO-5 \cite{ISO14644} particle-free environment. Fig. \ref{chap3:LWU_Cryo} shows the \acrshort{lwu} vessel located between two cryomodules. One can see the two \acrshort{cf} 200 flanges devoted to X and Y \acrshort{ipm}s and the two rectangular \acrshort{cf} flanges for the X and Y wire scanners.
+  The \acrshort{ipm}s will be located between two cryomodules in the cold accelerator area. The \acrshort{lwu} vessels are not cooled down, but their proximity to the superconducting cavities imposes a high vacuum level and a clean environment. Indeed, a too high pressure or a contamination may damage the cavities. An operating pressure of \(10^{-9}\,\mathrm{mbar}\) is foreseen, but the vacuum level may be even lower during the operation. Safety valves will be closed if the vacuum reaches \(10^{-7}\,\mathrm{mbar}\). Hence, quantitatively the \acrshort{ipm} design must be compliant with a high to ultra high vacuum level and an ISO-5 \cite{ISO14644} particle-free environment. Fig. \ref{chap3:LWU_Cryo} shows the \acrshort{lwu} vessel located between two cryomodules. One can see the two \acrshort{cf} 200 flanges devoted to X and Y \acrshort{ipm}s and the two rectangular \acrshort{cf} flanges for the X and Y wire scanners.
 
   \section{IPM simulations overview}
 
@@ -47,7 +47,7 @@
   \end{itemize}
   All these points will be presented in the next sections.
 
-  %  Firstly, the primary number of electron/ion pair created by the proton beam should be evaluated, and it must be sufficient in order to reconstruct a beam profile. However, this does not guaranteed that the primary particles reach the readout plane. Thus, it is necessary to perform some electromagnetic simulations. Indeed, primary particle are sensitive to the non uniformities of the extraction field and to space charge effects induced by the beam. These effects may disturb the profile measurements or reduce the number of primary particles. Therefore, they should be quantified. Lastly, the signal creation in the readout device should be evaluated with respect to previous simulations. The response of the readout mainly depends on its type.
+  %Firstly, the primary number of electron/ion pair created by the proton beam should be evaluated, and it must be sufficient in order to reconstruct a beam profile. However, this does not guaranteed that the primary particles reach the readout plane. Thus, it is necessary to perform some electromagnetic simulations. Indeed, primary particle are sensitive to the non uniformities of the extraction field and to space charge effects induced by the beam. These effects may disturb the profile measurements or reduce the number of primary particles. Therefore, they should be quantified. Lastly, the signal creation in the readout device should be evaluated with respect to previous simulations. The response of the readout mainly depends on its type.
 
   \section{Particle through matter}
   \label{chap3:sec_particle_in_matter}
@@ -78,44 +78,44 @@
 
   Fig. \ref{chap3:bethe1} shows the mass stopping power of a proton in two different media. The blue region represents the energy range of protons in the cryogenic part of \acrshort{ess}, where \acrshort{ipm}s will be located. One can see that the minimum of energy loss is reached around \(2\,\mathrm{GeV}\).
 
-  The Bethe model has been tested and improved with respect to experimental data \cite{Porter1990}. However, at very low or high energies\footnote{Below $\mathrm{MeV}$ and above hundred $\mathrm{GeV}$ for protons.} the Bethe equation is no more usable. In these regions specific models are used to describe the energy loss in matter \cite{Ziegler1985, Allison1980}.
+  The Bethe model has been tested and improved with respect to experimental data \cite{Porter1990}. However, at very low or high energies\footnote{Below $\mathrm{MeV}$ and above hundred $\mathrm{GeV}$ for protons.} the Bethe equation is no more usable. In this region specific models are used to describe the energy loss in matter \cite{Ziegler1985, Allison1980}.
 
   The Bethe model is also not compatible with low mass particles like electrons and positrons and must be modified for these particles \cite{Rieke1972}\cite[p. 452]{Tanabashi2018}. At low energies, electrons lose their energies by ionization like ions, whereas at energies above few \(\mathrm{MeV}\), electrons also lose energy through bremsstrahlung radiation.
 
   \subsection{Electron ion pairs production}
   We just defined the mean energy loss rate of a charged particle per unit of distance. When a particle passes through a medium, it may transfer its energy to the medium, which for now we consider as composed of atoms not bound in molecules. If the energy is sufficient, an ionization happens: one or more electrons are ejected from the electronic shells, leading to the creation of an ion and free electron(s). In case of molecules, the ionization process may be dissociative i.e. it may break the molecular bounds. The cross section for dissociative ionization is far lower than the one for pure ionization \cite{Dimopoulou2004}.
 
-  By introducing \(W\), the average energy for producing an ion/electron pair in a medium, we can estimate the number of ion/electron pairs created in a given readout length $\Delta x$ of materials \cite{Weiss1955,Bichsel1979} as:
+  % TODO: Relire et finir la partie corrigé
+  Two methods have been forseen in order to quantify the number of electron/ion pairs, these methods will be described in the next section. The first one uses directly the \(W\) parameter: the average energy for producing an ion/electron pair in a medium. When an electron is ejected, it has a certain probability for ionizing other atoms if its energy is high enough. These secondary electrons are called delta rays or delta electrons. This phenomenon becomes rare and negligible when the medium has a very low density like in a vacuum system. The \(W\) parameter includes the delta ray electrons, hence the \(W\) value is biased \cite[p. 470]{Tanabashi2018} for the case at hand, since the \acrshort{ipm}s work at very low pressure. The real \(W\) values may be higher than the ones given in references, therefore the real number of ionization pairs may be $2$ to $4$ times lower than the expected number.
+  %However, the direct as a first approximation of the electron/ion pairs:
+  %we can estimate the number of ion/electron pairs created in a given readout length $\Delta x$ of materials \cite{Weiss1955,Bichsel1979} as:
 
-  \begin{equation}
-    N_{electrons}= \frac{\big \langle \frac{dE}{dx} \big \rangle}{W} \Delta x
-  \end{equation}
-
-  When an electron is ejected, it has a certain probability for ionizing other atoms if its energy is high enough. These secondary electrons are called delta rays or delta electrons. This phenomenon becomes rare and negligible when the medium has a very low density like in a vacuum system. The \(W\) parameter includes the delta ray electrons, hence the \(W\) value is biased \cite[p. 470]{Tanabashi2018} for the case at hand, since the \acrshort{ipm}s work at very low pressure. Table \ref{chap3:WandI} gives, as an example, the \(W\) values for several materials at Normal Temperature and Pressure\footnote{$20\,\mathrm{°C}$, $1\,\mathrm{atm}$.} (NTP).
-
+  Table \ref{chap3:WandI} gives, as an example, the \(W\) values for several materials at Normal Temperature and Pressure\footnote{$20\,\mathrm{°C}$, $1\,\mathrm{atm}$.} (NTP).
   \input{03_Prototype/tables/table005_WandI}
-
-  When the medium is a mixture of several compounds, its mean stopping power needs to be calculated as the sum of the mean stopping power of its components weighted by their mass proportion. As a consequence, the total number $N_{total}$ of electron/ion pairs results:
-  \begin{equation}
-    N_{total}= \sum_{n= First}^{Last} N_{compound}= \sum_{n= First}^{Last} w_{n} \frac{\big \langle \frac{dE}{dx}\left(\rho_{n},I_{n},A_{n},Z_{n}\right) \big \rangle}{W_{n}} \Delta x
-  \end{equation}
-  The calculation can be done for each single element or for each molecule in the compound.
-  This latter is recommended since the \(I\) values are in general higher for molecules \cite[p. 451]{Tanabashi2018}.
 
   \subsection{Calculation}
   \label{chap3:calc}
   Following the physics introduction reported above, this subsection is dedicated to the estimation of the number of primary particles that will be created at the \acrshort{ess} conditions. Two different approaches have been done: naive computation of Bethe equation and simulations through a software.
 
-  The Bethe formula can be implemented in a spreadsheet or a C++ code once the composition of the medium and the \(I\) value of each compound is known. The expected pressure in the cryogenic part at \acrshort{ess} is around \(10^{-9}\,\mathrm{mbar}\), and the gas composition is given in Table \ref{chap3:ess_vacuum_gas}.
-
+  The Bethe formula can be implemented in a spreadsheet or a C++ code once the composition of the medium and the \(I\) value of its components are known. The expected pressure in the cryogenic part at \acrshort{ess} is around \(10^{-9}\,\mathrm{mbar}\), and the gas composition is given in Table \ref{chap3:ess_vacuum_gas}.
   \input{03_Prototype/tables/table001_ess_vacuum_gas}
 
   We assume that the residual gas follows the "perfect gas" law. We also assume that the linear density scaling of Bethe equation remains true in high vacuum \cite[p. 108]{egberts2012}\cite{Ishimaru1995}. Hence, the partial pressure and the density for each gas is calculated with respect to the tabulated pressures. The primary signal is computed at \acrshort{ess} nominal conditions given in Table \ref{chap2:tab:ess_charac}.
 
+  The number of ion/electron pairs created in a given readout length $\Delta x$ of materials \cite{Weiss1955,Bichsel1979} can be estimated as:
+  \begin{equation}
+    N_{electrons}= \frac{\big \langle \frac{dE}{dx} \big \rangle}{W} \Delta x
+  \end{equation}
+  When the medium is a mixture of several compounds, its mean stopping power needs to be calculated as the sum of the mean stopping power of its components weighted by their mass proportion. As a consequence, the total number $N_{total}$ of electron/ion pairs results:
+  \begin{equation}
+    N_{total}= \sum_{n= First}^{Last} N_{compound}= \sum_{n= First}^{Last} w_{n} \frac{\big \langle \frac{dE}{dx}\left(\rho_{n},I_{n},A_{n},Z_{n}\right) \big \rangle}{W_{n}} \Delta x
+  \end{equation}
+  The calculation can be done for each single element or for each molecule in the compound. This latter is recommended since the \(I\) values are in general higher for molecules \cite[p. 451]{Tanabashi2018}.
+
   Fig. \ref{chap3:ess_primary_particles} shows the number of electron ion pairs created for each gas species versus the \acrshort{ess} proton beam energy. The different \acrshort{ipm}s locations are marked by a blue line. One can see that the gas density has a strong influence on the primary signal. Although the hydrogen is the main species in terms of proportion, its contribution to the signal is close to the one from carbonate species. Note that the \(W\) value may overestimate the number of pairs created due to secondary delta rays.
   \input{03_Prototype/figures/fig015_ess_primary_particle.tex}
 
-  We have also used the Garfield++ software to compute the number of primary  ionizations. This software is normally intended for the modelization of gaseous detectors. It allows to simulate the creation of electron/ion pairs due to the ionization of gas by an incident particle, the transport and amplification of these electrons in the gas and the signal induced on a readout plane. In our case, we simulated only the pair creation in the residual gas. For this step Garfield++ uses two programs internally:
+  We have also used the Garfield++ software to compute the number of primary ionizations. This software is normally intended for the modelization of gaseous detectors. It allows to simulate the creation of electron/ion pairs due to the ionization of gas by an incident particle, the transport and amplification of these electrons in the gas and the signal induced on a readout plane. In our case, we simulated only the pair creation in the residual gas. For this step Garfield++ uses two programs internally:
   \begin{itemize}
     \item Magboltz: a Fortran routine that computes different properties of a gas mixture and performs the transport of electrons in this mixture \cite{Biagi1989}.
     \item Heed ++ \cite{Smirnov2005}: a C ++ code that implements an ionization model based on the photoabsorption ionization (PAI) \cite{Allison1980}.
@@ -124,13 +124,13 @@
   \input{03_Prototype/tables/table006_GarfieldBethe}
   A dummy detector, a cube of ten centimeter side, is implemented and filled with the same gas composition as in Table \ref{chap3:ess_vacuum_gas}. Protons are shot into this detector and the information on the electrons created in the gas is saved in a ROOT file \cite{Brun1997,Antcheva2009} for post processing. This is done for different proton energies and vacuum levels.
 
-  Table \ref{chap3:GarfieldBethe} reports the value of the expected number of electrons/ions pairs per cm obtained from the direct calculation (Bethe equation) and from the results of the Garfield++ simulations. One can see that the Garfield++ value is always lower than the calculation by a constant factor $0.52$. These value are important since they will be used to determine the readout technology and its electronics. 
+  Table \ref{chap3:GarfieldBethe} reports the value of the expected number of electrons/ions pairs per cm obtained from the direct calculation (Bethe equation) and from the results of the Garfield++ simulations. One can see that the Garfield++ value is always lower than the calculation by a constant factor $0.52$. These value are important since they will be used to determine the readout technology and its electronics.
 
   \subsection{Pressure uniformity}
   The primary signal is strongly dependent on the pressure inside the vacuum chamber. A gradient in the pressure may cause a change in the signal shape. It is therefore interesting to simulate the vacuum level in the \acrshort{lwu} to check the existence of such gradient in the residual gas of the \acrshort{ipm}s.
 
   \input{03_Prototype/figures/fig019_molflow_LWU}
-  A simulation has been done with the Molflow+ software developed at CERN \cite{Kersevan2009}. It simulates the vacuum in a steady state by using Monte Carlo and Ray Tracing methods. The user defines his geometry, as well as the desorption and adsorption rates of each surface. As visible in Fig. \ref{chap3:molflow_LWU}, the implemented geometry does not contain all the structures and surfaces. Two dummy squared facets of $5\,\mathrm{cm}$ side are inserted in the center of each \acrshort{ipm}. The pressure profiles are then measured on these facets. No information about the real pumping speed, surface conditions or other vacuum characteristics is input in the program since the only goal of this simulation is for checking the non-uniformity effect of the residual gas pressure for both \acrshort{ipm}s. We have also checked the case of an unwanted outgassing which may occur on one side of the \acrshort{ipm}s. No significant change has been observed.
+  A simulation has been done with the Molflow+ software developed at \acrshort{cern}\cite{Kersevan2009}. It simulates the vacuum in a steady state by using Monte Carlo and Ray Tracing methods. The user defines his geometry, as well as the desorption and adsorption rates of each surface. As visible in Fig. \ref{chap3:molflow_LWU}, the implemented geometry does not contain all the structures and surfaces. Two dummy squared facets of $5\,\mathrm{cm}$ side are inserted in the center of each \acrshort{ipm}. The pressure profiles are then measured on these facets. No information about the real pumping speed, surface conditions or other vacuum characteristics is input in the program since the only goal of this simulation is for checking the non-uniformity effect of the residual gas pressure for both \acrshort{ipm}s. We have also checked the case of an unwanted outgassing which may occur on one side of the \acrshort{ipm}s. No significant change has been observed.
 
   Fig. \ref{chap3:profile_pressure} shows the results from the simulations. The pressure levels seem to be uniform for both \acrshort{ipm}s along the transverse direction, and it may not affect the profile measurement. The pressure is slightly lower in the second \acrshort{ipm} because the pumping group is closer.
 
@@ -184,7 +184,6 @@
 
   The solution of this equation can be found analytically, by relying on the use of complex numbers or Laplace transforms. However, when the size of the problem increases the solution becomes harder to compute, and solving the Poisson's equation on complicated domains is almost impossible. Numerical methods allow to approximate the solutions of partial differential equations (\acrshort{pde}) on non trivial domains. There are many schemes to solve numerically \acrshort{pde}. In this section we will briefly present three methods that are often used. It is important to understand how they work and to know their limitations or pitfalls. In numerical schemes, the domain is discretized in a finite set of points. Then, the solution is approximated at each point with respect to initial and/or boundary conditions. To solve a problem, it must be well posed: the problem must admit a single unique solution that depends continuously on the variables and conditions \cite{Hadamard1902}. It turns out that the Poisson's equation is a well-posed problem if a Dirichlet condition is applied.
 
-  %\paragraph{}
   Finite Difference Method (FDM) is a popular way to solve numerically the Poisson’s equation. In FDM, the domain is discretized regularly with a step $h$. The Taylor's theorem allows to approximate the value of a function by a polynomial equation that depends on its derivatives nearby:
   \begin{align}
      & v(x+h) = v(x)+hv^{\prime}(x)
@@ -241,28 +240,23 @@
   \end{equation}
   One can see that the problem is solved by inverting the A matrix. This matrix is very sparse and can be inverted with iterative methods rather than a direct inversion. FDM is straightforward and allows to quickly solve Poisson’s equation on a linear structured mesh. For instance, it is very useful for calculating an electric field generated by a charge density. However, FDM cannot be used when the geometry becomes too complex.
 
-  \paragraph{}
-  The Finite Element Method (FEM) is more suitable for solving PDE on complicated domains. The FEM uses the weak formulation of the Poisson’s equation. By introducing a test function $\varphi$, this weak form can be written easily thanks to an integration by parts:
+  The \acrfull{fem} is more suitable for solving PDE on complicated domains. The \acrshort{fem} uses the weak formulation of the Poisson’s equation. By introducing a test function $\varphi$, this weak form can be written easily thanks to an integration by parts:
   \begin{align}
     \int_{\Omega}^{} \varphi \Delta v d\Omega                                                                                           & = \int_{\Omega}^{} \varphi f d\Omega \\
     -\int_{\Omega}^{} \vec{\nabla} \varphi \cdot \vec{\nabla} v d\Omega + \int_{\Sigma}^{} \varphi \vec{\nabla} v \cdot \vec{n} d\Sigma & = \int_{\Omega}^{} \varphi f d\Omega
   \end{align}
   with $\Sigma$ the boundary domain.
-  One can see that the Laplacian disappeared from the formulation. An approximation of $v$ is done in the reduced domain by means of low order polynomial functions. Again, a finite system of linear equations can be written, and the problem is solved by inverting the matrix. The correct choice of test functions and the way to index elements lead to very sparse matrix which can be inverted easily. Unlike the FDM, the solution is approximated on the whole reduced domain and not locally. FEM supports complicated meshes as long as they are continuous and solves all kinds of PDEs that may be much more complex than the Poisson’s equation.
+  One can see that the Laplacian disappeared from the formulation. An approximation of $v$ is done in the reduced domain by means of low order polynomial functions. Again, a finite system of linear equations can be written, and the problem is solved by inverting the matrix. The correct choice of test functions and the way to index elements lead to very sparse matrix which can be inverted easily. Unlike the FDM, the solution is approximated on the whole reduced domain and not locally. \acrshort{fem} supports complicated meshes as long as they are continuous and solves all kinds of PDEs that may be much more complex than the Poisson’s equation.
 
-  \paragraph{}
-  % Expliquer mieux les BEM
-  With FEM, the whole domain is fully discretized in its entire volume. In case of electrostatic field, it is possible to use the Boundary Element Method (BEM). With the BEM, the Poisson’s equation is first solved on boundaries. Then, the electric field can be evaluated at any point in the domain from the contributions of all boundaries. The discretization is also performed only on the boundaries and not on the entire geometry. So, the dimension of the problem is reduced and the matrix to be reversed is much smaller. On the other hand, the matrix is no longer sparse.
+  With \acrshort{fem}, the whole domain is fully discretized in its entire volume. In case of electrostatic field, it is possible to use the \acrfull{bem}. With the \acrshort{bem}, the Poisson’s equation is first solved on boundaries. Then, the electric field can be evaluated at any point in the domain from the contributions of all boundaries. The discretization is also performed only on the boundaries and not on the entire geometry. So, the dimension of the problem is reduced and the matrix to be reversed is much smaller. On the other hand, the matrix is no longer sparse.
 
-  Most of the commercial simulation softwares \cite{cststudio2018,ansys2018,couloumb2018} rely on FEM or BEM. We have used mainly the COMSOL software for the simulations of extraction fields.
-
-  %jac 1: je trouve que le traitement des FM, BEM et l'autre pourrait être mieux séparés (sous paragraphe ou autre) 
+  Most of the commercial simulation softwares \cite{cststudio2018,ansys2018,couloumb2018} rely on \acrshort{fem} or \acrshort{bem}. We have used mainly the COMSOL software for the simulations of extraction fields.
 
   \subsection{COMSOL}
   COMSOL is a commercial all-in-one multi-physics simulation software able to solve various problems from structural mechanical analysis to optical raytracing \cite{comsol2018}. We used COMSOL with the AC/DC module \cite{comsolacdc2018} to simulate the static electric field in the \acrshort{ipm} box. COMSOL allows to quickly define, simulate and post process physical models. The typical workflow is divided in three main steps as follow.
   \input{03_Prototype/figures/fig003_COMSOL_LWU.tex}
 
-  The first step is to implement the detector geometry into COMSOL. The software includes basic \acrshort{cad} features allowing to quickly create two or tridimensional geometries. The users can directly import a mesh from files generated by external \acrshort{cad} tools. Care should be taken for importing a \acrshort{cad} file: it often contains many details and thus increases the CPU time consumption. It is much faster to directly implement the geometry with COMSOL.  In our case, only the inner shape of the vacuum chamber and the \acrshort{ipm}s have been defined. All other conductive bodies that enclose the vacuum are not relevant for an electrostatic simulation. Therefore, the geometry could be simplified. Fig. \ref{chap3:COMSOL_LWU} shows, on the left, a 3D drawing of the \acrshort{ess} vacuum vessel with the two \acrshort{ipm}s inside. And on the right, an example of the simplified geometry implemented in COMSOL.
+  The first step is to implement the detector geometry into COMSOL. The software includes basic \acrshort{cad} features allowing to quickly create two or tridimensional geometries. The users can directly import a mesh from files generated by external \acrshort{cad} tools. Care should be taken for importing a \acrshort{cad} file: it often contains many details and thus increases the CPU time consumption. It is much faster to directly implement the geometry with COMSOL.In our case, only the inner shape of the vacuum chamber and the \acrshort{ipm}s have been defined. All other conductive bodies that enclose the vacuum are not relevant for an electrostatic simulation. Therefore, the geometry could be simplified. Fig. \ref{chap3:COMSOL_LWU} shows, on the left, a 3D drawing of the \acrshort{ess} vacuum vessel with the two \acrshort{ipm}s inside. And on the right, an example of the simplified geometry implemented in COMSOL.
   \input{03_Prototype/figures/fig006_COMSOL_meshing_elements.tex}
 
   The next step consists in the discretization of the previous geometry in many Lagrange elements in order to form a mesh. Fig. \ref{chap3:COMSOL_meshing_elements} shows the main meshing elements available in COMSOL. For an electrostatic tri-dimensional study, COMSOL uses quadratic tetrahedral elements by default. The meshing algorithm tries to create elements fitting well the geometry. For the inner small parts of the geometry, the size of elements will be reduced. Conversely, mesh cells will become bigger and bigger in coarse regions of the geometry. This behavior is not desirable for us, since the \acrshort{ipm} region of interest has no geometrical variations. The geometry would not be not described accurately. Fortunately, the user can change the characteristics and the nature of the elements in specific regions of the defined geometry. We used a tetrahedral mesh everywhere but in the \acrshort{ipm} box, where a cubic mesh with high granularity is defined. The meshing step is very memory consuming, but a poorly optimized mesh may destroy performances.
@@ -279,7 +273,7 @@
     \item The vacuum vessel is supposed to be at the same ground as the power supplies, and without any charge on its surface.
   \end{itemize}
 
-  \subsection{Criteria}
+  \subsection{Criteria for the field uniformity}
   \label{chap3:sec:criteria}
   It is necessary to define criteria to quantify the uniformity of the electric field in order to compare several simulations. In this thesis, we will use mainly:
   \begin{itemize}
@@ -289,7 +283,6 @@
   \end{itemize}
   In this section, we will explain briefly the two last criteria.
 
-  \paragraph{}
   For the statistical criterion, the whole data set is sliced in the longitudinal direction. In each slice, the quadratic mean value of each electric field component is computed in a small cylinder at the center of the \acrshort{ipm}.
   \begin{equation}
     \vec{E}_{mean} = \frac{\sum_{i=1}^{N}\sqrt{\vec{E}_{i}^{2}}}{N}
@@ -303,7 +296,6 @@
   At the end of the drift, the particle has far higher kinetic energy and is therefore less affected by field non-uniformities. This means that, the field must be optimized to be as much uniform as possible at the center of the \acrshort{ipm}. The non-uniformities on the \acrshort{ipm} sides are less of a concern.
   So, we decided to compute the quadratic mean inside a circle of at least $2\,\mathrm{cm}$ radius. However, it is impossible to predict the real effects on the profile since the quadratic mean shadows the direction of the field.
 
-  \paragraph{}
   The tracking algorithm is, in theory, the most relevant criterion for an \acrshort{ipm}. Charged particles are released in the center of the \acrshort{ipm} and we observe them drifting in the field cage along the field lines generated by the electric and magnetic fields, thanks to the Lorentz’s force:
   \begin{equation}
     \vec{F} = m \cdot \vec{a} = q \cdot (\vec{E}(\vec{r},t) + \vec{v} \times \vec{B}(\vec{r},t))
@@ -329,7 +321,7 @@
 
   One can see that the E and B fields are separated. This algorithm is almost a standard in particle in cell (PIC) codes because it remains extremely accurate even during long integration times \cite{Qin2013}. The comparison between Euler and Boris methods is shown in Fig. \ref{chap3:integration}, where an electron drifts in an electromagnetic field (2kV/cm and 0.2 T in the same direction). The electron position is computed with both Boris and Euler method. With the Euler method, the electron acquires "numerical" energy. In this example the deviation is negligible but the effect will be higher with realistic fields. The Boris method should be used mainly when a strong magnetic field is present.
 
-  During the tracking, the field is evaluated at each step in order to calculate the new velocity and position. The field values must be interpolated because the original field dataset is composed of discrete values. The mesh is usually not structured with FEMs, therefore the interpolation is not trivial and several approaches can be considered. The interpolation can be done by a nearest neighbor (\acrshort{nn}) search. In this case the returned value is the closest point, among the mesh ones, to the considered coordinate with respect to a metric distance. This method anyhow leads to errors if the mesh is not regular enough. A first improvement of the results obtained with this method is achieved by weighting the returned values with the distances of closest points. This is known as Shepard interpolation. However, the accuracy is still perfectible. Radial Basis Function (\acrshort{rbf}) interpolation is one of the most powerful interpolation method working on unstructured data \cite{Wright2003}:
+  During the tracking, the field is evaluated at each step in order to calculate the new velocity and position. The field values must be interpolated because the original field dataset is composed of discrete values. The mesh is usually not structured with \acrshort{fem}s, therefore the interpolation is not trivial and several approaches can be considered. The interpolation can be done by a nearest neighbor (\acrshort{nn}) search. In this case the returned value is the closest point, among the mesh ones, to the considered coordinate with respect to a metric distance. This method anyhow leads to errors if the mesh is not regular enough. A first improvement of the results obtained with this method is achieved by weighting the returned values with the distances of closest points. This is known as Shepard interpolation. However, the accuracy is still perfectible. Radial Basis Function (\acrshort{rbf}) interpolation is one of the most powerful interpolation method working on unstructured data \cite{Wright2003}:
   \begin{equation}
     f(x_{i}) = \sum_{n=0}^{N} w_{n} \phi(\lVert x_{i} - x_{n}\rVert)
   \end{equation}
@@ -367,11 +359,8 @@
     \epsilon_{total} \propto \epsilon_{integration}\propto\epsilon_{interpolation}\propto\epsilon_{gradient}\propto\epsilon_{FEM}
   \end{equation}
   Unfortunately, we can not give a confidence level on our simulations since the determination of the total error is not trivial and was not investigated due to lack of time. In such a context, we repeated the simulations until we observed a convergence.
-
-
   \input{03_Prototype/figures/fig014_TrackingTrap.tex}
 
-  \paragraph{}
   The tracking algorithm has been implemented in a C++ code. All vector operations are performed by the Eigen \cite{eigenweb} package and a homemade code. The nanoflann library \cite{blanco2014nanoflann} was exploited to build a kd-tree from the field data. A kd-tree allows to quickly search a set of points inside the whole dataset. The interpolation routine is homemade and relies on the previously mentioned libraries. The routine implements the nearest neighbors and \acrshort{rbf} interpolations. The numerical integration of positions and velocities are performed by either an homemade code or using the Odeint library \cite{Ahnert2011,Mulansky2014}. Particles are tracked in parallel jobs with the Intel TBB library \cite{tbb2019}.
 
   \subsection{IPM polarity}
@@ -383,70 +372,74 @@
   \end{itemize}
 
   The two configurations have been simulated in COMSOL and the results are presented in the Fig. \ref{chap3:asym_sym}. One can see that without any correction the extraction field in symmetric configuration is much more uniform.
-
   \input{03_Prototype/figures/fig021_image_asym_sym}
 
   In this configuration (Fig. \ref{chap3:asym_sym_b}), the field focuses the particles in the transverse plane but also in the longitudinal plane. This explains why the particle number on the readout is higher than the expected number. For this configuration, only the transverse plane should be corrected.
 
-  In asymmetric configuration (Fig. \ref{chap3:asym_sym_a}), the field is defocusing in the transverse plane, but also in the  longitudinal one. The projection of the beam will be much broader than expected and many particles are lost during the particle drifts. Therefore, the electric field must be improved in both planes.
+  In asymmetric configuration (Fig. \ref{chap3:asym_sym_a}), the field is defocusing in the transverse plane, but also in thelongitudinal one. The projection of the beam will be much broader than expected and many particles are lost during the particle drifts. Therefore, the electric field must be improved in both planes.
 
 
   \subsection{IPM cross-interaction}
 
-  The \acrshort{ipm}s are in close proximity due to the limited room of the vacuum chamber, in order to measure the beam profile in both  transverse  directions at the same location. This proximity leads to a coupling effect between the two \acrshort{ipm}s due to fringe fields. Moreover, the uniformity of the electric field is strongly related to the geometry that encloses the \acrshort{ipm}s. The \acrshort{lwu} walls are at ground potential, hence the uniformity of the electric field in the \acrshort{ipm}s depends on their position in the \acrshort{lwu}. This means that the electric field in each \acrshort{ipm} has to be corrected individually.
+  The \acrshort{ipm}s are in close proximity due to the limited room of the vacuum chamber, in order to measure the beam profile in both transverse directions at the same location. This proximity leads to a coupling effect between the two \acrshort{ipm}s due to fringe fields. Moreover, the uniformity of the electric field is strongly related to the geometry that encloses the \acrshort{ipm}s. The \acrshort{lwu} walls are at ground potential, hence the uniformity of the electric field in the \acrshort{ipm}s depends on their position in the \acrshort{lwu}. This means that the electric field in each \acrshort{ipm} has to be corrected individually.
 
-  We simulated in COMSOL different \acrshort{ipm} configurations with and without grounded disks separating the \acrshort{ipm}s and located at different positions. The \acrshort{ipm}s cannot be shifted too much in the inner volume of the vacuum vessel because the space is limited by the WS on the left and by the \acrshort{lwu} walls on the right. 
-  
-  Fig. \ref{chap3:IPM_disk} shows the quadratic mean values for each electrical field component (as described in section \ref{chap3:sec:criteria}) inside the geometry of the LWU with the two IPMs implemented. When disks are present, the fields $E_{x}$ and $E_{y}$ are constrained within the space in-between them. The cross interaction effect is not lowered, but more flattened. This means that the effect on profile is constant over the readout size. 
-  Also with disks, the minimum $E_{z}$ value is in the middle of the IPMs, so the readout location is the same for the both IPMs.
-  Note that the field shapes of IPM1 and IPM2 look more similar when disk are present, because electric field is less dependant to the \acrshort{lwu} geometry. This effect is quite useful because the same corrections can be applied to both \acrshort{ipm}s, simplifying the optimization of field correctors. Using disks is therefore a straightforward solution to shield IPMs and to simplify the design of the IPMs .
-  %This effect is particularly visible on $E_{z}$
-  %This means that the field correction must be done for each IPM individually.
-  %When disks are present
-  
-  %So, we found out that using disks improve the electric field uniformity, as shown on Fig. \ref{chap3:IPM_disk} where disk influences are displayed.
+  To reduce this effect, grounded disks can be inserted in the vacuum vessel in order to enclose the \acrshort{ipm}s.
+  We simulated in COMSOL different \acrshort{ipm} configurations with and without grounded disks separating the \acrshort{ipm}s and located at different positions. The \acrshort{ipm}s cannot be shifted too much in the inner volume of the vacuum vessel because the space is limited by the WS on the left and by the \acrshort{lwu} walls on the right.
 
   \input{03_Prototype/figures/fig022_IPM_disk}
-  \vspace{1cm}
+  Fig. \ref{chap3:IPM_disk} shows the quadratic mean values for each electrical field component (as described in section \ref{chap3:sec:criteria}) inside the geometry of the LWU with the two \acrshort{ipm}s implemented. When disks are present \footnote{In this study, only the effects of disks are highlighted, no transversal correction are implemented yet.}, the fields $E_{x}$ and $E_{y}$ are constrained within the space in-between them. The cross interaction effect is not lowered, but more flattened. This means that the effect on profile is constant over the readout size.
+  Also with disks, the minimum $E_{z}$ value is in the middle of the \acrshort{ipm}s, so the readout location is the same for the both \acrshort{ipm}s.
+  Note that the field shapes of IPM1 and IPM2 look more similar when disk are present, because electric field is less dependant to the \acrshort{lwu} geometry. This effect is quite useful because the same corrections can be applied to both \acrshort{ipm}s, simplifying the optimization of field correctors. Using disks is therefore a straightforward solution to shield and to simplify the design of the \acrshort{ipm}s.
+  %This effect is particularly visible on $E_{z}$
+  %This means that the field correction must be done for each \acrshort{ipm} individually.
+  %When disks are present
+
+  %So, we found out that using disks improve the electric field uniformity, as shown on Fig. \ref{chap3:IPM_disk} where disk influences are displayed.
+
+  %\vspace{1cm}
 
   %The quadratic mean values are plotted for each electrical component on the longitudinal axis of the \acrshort{ipm}, as described in section \ref{}. An important field overlapping occurs when no disk is mounted between the two \acrshort{ipm}s. When disks are present, the fields are constrained within the space in-between them and the cross interaction effect is reduced. On the other hand, the field variations are sharper in this area, so the longitudinal field component is worse with disks. Note that the field shape is identical in both \acrshort{ipm}s since they are independent of the \acrshort{lwu} geometry. This is quite useful because the same corrections can be applied to both \acrshort{ipm}s and it simplifies the optimization of field correctors.
 
   \subsection{Field corrections}
   \label{chap3:field_corrections}
   \input{03_Prototype/figures/fig026_IPM_COMSOL}
-  The electric field is improved by means of field correctors (also called field degraders) and the curved electrode pairs. Fig. \ref{chap3:IPM_COMSOL} shows the COMSOL geometry of an example of \acrshort{ipm} that has been simulated. One can see the degraders on each side and the curved electrodes at the top and bottom of each \acrshort{ipm}.
+  The electric field is improved by means of field correctors (also called field degraders) and the curved electrode pairs. Fig. \ref{chap3:IPM_COMSOL} shows the COMSOL geometry of an example of \acrshort{ipm} that has been simulated. One can see the degraders on each side and the curved electrodes at the top and bottom of each \acrshort{ipm} and the disks are also present in the COMSOL model.
 
   The field correctors will constrain the electric potential on the side of the \acrshort{ipm}. Thus, the iso-potential will be more flat in the \acrshort{ipm}, leading to a better electric field uniformity. In practice, field degraders are just conductive strips connected to a voltage
-  source directly powered by HV. One can directly connect them to power supplies. This method would allow to finely tune the potential on the electrodes, but it would also require HV feedthroughs for each electric potential. Unfortunately, we could not implement this solution since the available space on the \acrshort{ipm} flange is restricted. We instead exploited directly the existing high voltages used for polarizing the \acrshort{ipm} electrodes for feeding a resistor bridge as shown in Fig. \ref{chap3:resistor_chain}. The potential at each field corrector is simply given by the Ohm law:
+  source directly powered by HV. One can directly connect them to power supplies. This method would allow to finely tune the potential on the electrodes, but it would also require HV feedthroughs for each electric potential.
+
+  \input{03_Prototype/figures/fig010_deg_circuit}
+  Unfortunately, we could not implement this solution since the available space on the \acrshort{ipm} flange is restricted. We instead exploited directly the existing high voltages used for polarizing the \acrshort{ipm} electrodes for feeding a resistor bridge as shown in Fig. \ref{chap3:resistor_chain}. The potential at each field corrector is simply given by the Ohm law:
   \begin{equation}
     V_{i} = \frac{\sum_{k = 1}^{i} R_{k}}{\sum_{j = 1}^{N} R_{j}}V_{HV} \label{chap3:PontDiviseur}
   \end{equation}
 
-  \input{03_Prototype/figures/fig010_deg_circuit}
-
   This method has some drawbacks. The choice of resistors is limited, since not all resistance values are commercially available \cite{Vishay2012}. In addition, the use of resistors in a clean vacuum is not really recommended since it often requires welding. Also, the resistors should be able to sustain high radioactive levels, mainly considering that, if one of them is damaged the entire bridge is affected.
 
   Finally we decided to use $13$ degraders, regularly spaced by $7.5\,\mathrm{mm}$ from each other, on each side of the \acrshort{ipm}. A degrader is $2\,\mathrm{mm}$ width and $100\,\mathrm{mm}$ long (in longitudinal direction). The $7^{th}$ degrader is located in the middle plane of the \acrshort{ipm}.
-
   The electric potential value which gives the best uniformity is computed with COMSOL for each degrader. The resistor chain is determined from these values with respect to the equation (\ref{chap3:PontDiviseur}). For each corrector, two commercial resistors are mounted in series allowing values as close as possible to the optimal one. Resistors are selected within the $\mathrm{M}\Omega $ range, reducing the power consumption of power supplies. The field simulation is recomputed with the real resistors and potential values.
 
-  In the case of the symmetrical \acrshort{ipm}, only the first $6$ degraders must be calculated since the $7^{th}$ is grounded and the last $6$ potentials are held at opposite potentials with respect to  the first 6 ones. The voltage and resistor values of the degrader chain for symmetric \acrshort{ipm} are tabulated in the Table \ref{chap3:resistor_sym}.
-
-  \input{03_Prototype/tables/table004_resistor_sym}
-  \input{03_Prototype/figures/fig023_SymTransversalProfile}
-
-  A particle tracking was performed with the real corrected field and the results are shown in Fig. \ref{chap3:SymTransversalProfile}. Note that, even without correction, the symmetrical \acrshort{ipm} gives fairly good results. The focusing effect, shown in the previous section, is visible and explains why there are more particles on readout than expected. When the field correctors are enabled, the profile is extremely well reconstructed with an error of less than $0.2\,\mathrm{\%}$.  This fulfills the requirements of \acrshort{ess} on the profile error.
-
-  
-  For the asymmetric \acrshort{ipm}, we proceeded in the same way. Also in this case, the resistor chain had to be optimized as well as the two curved electrodes. Table \ref{chap3:resistor_asym} gives the values of resistances and potentials in the case of the asymmetric \acrshort{ipm}.
-
+  For the asymmetric \acrshort{ipm}, the optimization must be done for the $13$ correctors. Also in this case, the resistor chain had to be optimized with the two curved electrodes. Table \ref{chap3:resistor_asym} gives the values of resistances and potentials in the case of the asymmetric \acrshort{ipm}.
   \input{03_Prototype/tables/table003_resistor_asym_curved}
+
+  In the case of the symmetrical \acrshort{ipm}, only the first $6$ degraders must be calculated since the $7^{th}$ is grounded and the last $6$ potentials are held at opposite potentials with respect tothe first 6 ones. The voltage and resistor values of the degrader chain for symmetric \acrshort{ipm} are tabulated in the Table \ref{chap3:resistor_sym}.
+  \input{03_Prototype/tables/table004_resistor_sym}
+
+  A particle tracking was performed for several cases with the real fields computed by COMSOL. The full resuls are available in the Appendix \ref{anx:COMSOL} and, in this section, only four relevant cases are presented:
+  \begin{itemize}
+    \item First case: Asymmetric any without corrections.
+    \item Second case: Asymmetric with real field correctors and disks inserted.
+    \item Third case: Symmetric any without corrections.
+    \item Fourth case: Symmetric with real field correctors and disks inserted.
+  \end{itemize}
+
+  The results of the particle tracking for the two first asymmetric cases, are shown in Fig. \ref{chap3:AsymTransversalProfile}. The asymmetric field defocuses particles in both directions when the correctors are missing. So the reconstructed profile is $35\,\mathrm{\%}$ wider and some particles do not even reach the readout. The shift in position is due to the cross interaction between the two \acrshort{ipm}s. When corrections are enabled, the obtained transverse profile is much better: the error on the profile is only $0.4\,\mathrm{\%}$. The position is also corrected thanks to the shielding disks and curved electrodes\footnote{The curved electrodes may be used to replace disk, see Appendix \ref{anx:COMSOL}. However, curved electrodes are not worth given the current \acrshort{ipm} design.}, therefore no more shift appears. However, the correction on the longitudinal field is not as good as in the case of symmetric configuration and some particles are still lost during the drift: only $77\,\mathrm{\%}$ of the particles will reach the readout.
   \input{03_Prototype/figures/fig025_AsymTransversalProfile}
 
-  The results of the particle tracking for this case, are shown in Fig. \ref{chap3:AsymTransversalProfile}. The asymmetric field defocuses particles in both directions when the correctors are missing. So the reconstructed profile is $35\,\mathrm{\%}$ wider and some particles do not even reach the readout. The shift in position is due to the cross interaction between the two \acrshort{ipm}s. When corrections are enabled, the obtained transverse profile is much better: the error on the profile is only $0.4\,\mathrm{\%}$. The position is also corrected thanks to the shielding disks and curved electrodes, therefore no more shift appears. However, the correction on the longitudinal field is not as good as in the case of symmetric configuration and some particles are still lost during the drift: only $77\,\mathrm{\%}$ of the particles will reach the readout.
+  The results for the two symmetric cases are shown in Fig. \ref{chap3:SymTransversalProfile}. Note that, even without correction, the symmetrical \acrshort{ipm} gives fairly good results. The focusing effect of symmetric configuration, shown in the previous section, is visible and explains why there are more particles on readout than expected. When the field correctors are enabled, the profile is extremely well reconstructed with an error of less than $0.2\,\mathrm{\%}$.This fulfills the requirements of \acrshort{ess} on the profile error.
+  \input{03_Prototype/figures/fig023_SymTransversalProfile}
 
-
-  \subsection{Grid}
+  \subsection{Grid efficiency}
   \label{chap3:sec:grid}
   As shown in Fig. \ref{chap3:IPM_COMSOL}, the readout electrode is not completely filled: a rectangular slit allows the ions or electrons to move toward the readout system. This slit is relatively big ($2\times5\,\mathrm{cm^{2}}$) with respect to the electrode dimensions ($10\times10\,\mathrm{cm^{2}}$), so it affects the electric field uniformity. A wire mesh can easily overcome this problem. Indeed in the close proximity of the mesh the field is not very straight, but at farther distances the field becomes constant. The mesh allows to have always the same field uniformity in the \acrshort{ipm} whatever readout is used. On the other hand, it represents an obstacle for the incident particles, therefore the grid must be chosen carefully.
 
@@ -455,8 +448,7 @@
     V(x,y)= \sum^{\infty}_{n=0} A_{n} \cdot cos(-\frac{2\pi n x}{\lambda}) \cdot exp(-\frac{2\pi n y}{\lambda})
   \end{equation}
 
-  In this case the grid is regularly spaced in the $x$ direction by a step $\lambda$. If we are at a distance $k \cdot \lambda$ away from the grid the first harmonic is attenuated by a factor $e^{-2\pi k}$. This tendency can be easily confirmed with the FEM or BEM method. Fig. \ref{chap3:Grid} shows the electrical potential close to the mesh for two different field configurations. One can see that the field is almost constant starting from less than $1\,\mathrm{mm}$ distance from the mesh. So there will be no problem using this grid.
-
+  In this case the grid is regularly spaced in the $x$ direction by a step $\lambda$. If we are at a distance $k \cdot \lambda$ away from the grid the first harmonic is attenuated by a factor $e^{-2\pi k}$. This tendency can be easily confirmed with the \acrshort{fem} or \acrshort{bem} method. Fig. \ref{chap3:Grid} shows the electrical potential close to the mesh for two different field configurations. One can see that the field is almost constant starting from less than $1\,\mathrm{mm}$ distance from the mesh. So there will be no problem using this grid.
   \input{03_Prototype/figures/fig027_Grid}
 
   The grid is an obstacle for the incoming particles, and the number of stopped particles is directly related to the optical transparency of the grid. However it is possible to improve the transmission by increasing the field on one side of the grid. A simple analytical model has been demonstrated in the case of wire grid \cite{Bunemann1949}. We assume that our grid follows this model\footnote{This is not really true since our grid is not made of cylindric wires.}:
@@ -482,20 +474,20 @@
   \begin{equation}
     F(\boldsymbol{v}) = \left(\frac{m_{part}}{2 \pi k_{b} T}\right)^{\frac{3}{2}}\exp\left(-\frac{m_{part}\boldsymbol{v}^{2}}{2 k_{b} T}\right)
   \end{equation}
-  \input{03_Prototype/figures/fig013_maxwell_gas.tex}
   Where, $k_{b}$ is the Boltzmann constant, $T$ the temperature, $\boldsymbol{v}$ is the speed vector of the considered particle and $m_{part}$ its mass. The Maxwell-Boltzmann distribution works well for perfect gases at low densities. We assumed that is true for the \acrshort{ess} residual gas. The speed is uniformly distributed along all directions ($4\pi$).
 
   The Fig. \ref{chap3:maxwell_gas} shows the normalized distributions for some of the molecules present in the \acrshort{ess} residual gas. One can see directly that the speed of the fastest ion is below $5000\,\mathrm{m/s}$. A field of few hundred volts per centimeter is more than enough to compensate this effect. It gives no significant difference during the particle tracking. So, we can completely neglect the thermal motion for ions.
+  \input{03_Prototype/figures/fig013_maxwell_gas.tex}
+
 
   \subsection{Momentum transfer during ionization process}
+  \label{chap3:section:momentum}
   Garfield++ can be used again to quantify the spectra of the momentum and the energy transfered to the ionized electrons. Fig. \ref{chap3:garfieldangle} shows this energy spectrum and the emission angle (or polar angle) distribution for several energies of a proton beam ($\sigma$ = 3 mm). The energy follows a Landau-like distribution with some Auger electrons. The polar angle is calculated with respect to the direction of the beam, while the azimuthal angle is uniform with respect to the transverse plane. A large proportion of electrons are perpendicularly ejected to the direction of propagation.
-
   \input{03_Prototype/figures/fig028_garfieldangle}
 
   Particle tracking can be performed in order to quantify the influence of the initial momentum of electrons. Fig. \ref{chap3:ElectronProfile_a} presents the relative error on the profile caused by the initial energy as a function of the extraction field. Note that it is impossible to fully compensate the error with realistic electric field values (below $6\,\mathrm{kV/cm}$). Usually, when a profiler works in electron mode, a magnetic field parallel to the extraction field is added forcing the electrons to spin around the field direction. In the Fig. \ref{chap3:ElectronProfile_b}, a general example of correction done with a magnetic field is presented. In the range of $10^{-3}$ to $5\cdot10^{-2}\,\mathrm{T}$, the Larmor radius is still too high to constraint electrons drifting along the field lines.
   %and electrons does not have the time to spin several time during their drift. 
   A magnetic field of at least $0.1\,\mathrm{T}$ completely compensates the initial momentum of electrons. However the generation of such a magnetic field requires imposing dipole magnets. At \acrshort{ess} this solution is not feasible because the available space on \acrshort{lwu} is not sufficient to put two magnets close-by.
-
   \input{03_Prototype/figures/fig032_ElectronProfile}
 
   We wanted to study the ion behavior, but unfortunately Garfield++ does not give the energy spectrum of the ions.
@@ -504,24 +496,24 @@
 
 
   \section{Space charge effect}
-  The last effect that can greatly affect the measurement of the profile is the Space Charge. The protons of the beam bunches are in motion, so a strong radial electric field and a circular magnetic field are created around the beam axis. Each \acrshort{ess} bunch is composed of $10^{9}$ protons. The effect of the space charge is not intuitive: electrons are light and may see less bunches but they are more sensitive to magnetic field. On the other hand, the ions are more massive and less sensitive to the EM fields but will undergo these fields many more times. Therefore, simulations were carried out to quantify this effect.
+  The last effect that can greatly affect the measurement of the profile is the Space Charge. The protons of the beam bunches are in motion, so a strong radial electric field and a circular magnetic field are created around the beam axis. Each \acrshort{ess} bunch is composed of $\sim 1.1\cdot10^{9}$ protons. The effect of the space charge is not intuitive: electrons are light, may see fewer bunches and are more sensitive to the magnetic field. On the other hand, the ions are more massive and less sensitive to the EM fields but will undergo these fields many more times. Therefore, simulations were carried out to quantify this effect.
 
-  The space charge effect is a critical aspect of IPMs in general and several simulations were developed or are under development \cite{Sapinski2016,IPMcolab2019}. Recently, a python framework dedicated to the IPM simulations, including space charge effects, has been released \cite{Vilsmeier2019}. The code is developed at GSI but is open to everyone. However in this thesis, only the in-house code developed by ESS and CEA will be described.
+  The space charge effect is a critical aspect of \acrshort{ipm}s in general and several simulations were developed or are under development \cite{Sapinski2016,IPMcolab2019}. Recently, a Python framework dedicated to the \acrshort{ipm} simulations, including space charge effects, has been released \cite{Vilsmeier2019}. The code is developed at \acrshort{gsi} but is open to everyone. However in this thesis, only the in-house code developed by \acrshort{ess} and \acrshort{cea} will be described.
 
   \subsection{Lorentz transformation of electromagnetic fields}
   The physic basis behind the space charge remains the Maxwell equations presented in the section \ref{chap3:sec:maxwell}. These equations were unified before the discovery of special relativity by Einstein in 1905 but it appears that they were already compatible with special relativity \cite{feynman2011feynman}.
 
-  Let's consider a simple case. A frame $F\prime$ is in motion with the speed $v$ along the $z$ axis with respect to frame $F$. The passage from one frame to the other is done by Lorentz transformation:
+  Let's consider a simple case. A frame $\bar{F}$ is in motion with the speed $v$ along the $z$ axis with respect to frame $F$. The passage from one frame to the other is done by Lorentz transformation:
   \begin{align}
     \label{chap3:eqn:lorentz}
     \begin{split}
-      ct\prime &= \gamma (ct - \beta z) ,
+      c\bar{t} &= \gamma (ct - \beta z) ,
       \\
-      x\prime &= x
+      \bar{x} &= x
       \\
-      y\prime &= y
+      \bar{y} &= y
       \\
-      z\prime &= \gamma (z - \beta ct)
+      \bar{z} &= \gamma (z - \beta ct)
     \end{split}
   \end{align}
   with $\beta$ and $\gamma$ the Lorentz factors.
@@ -533,7 +525,7 @@
   \end{equation}
   The transformation is reverted by changing the sign of the lorentz factors in Eq (\ref{chap3:eqn:lorentz}).
 
-  Now let's take charges moving in a same way. The charges are not subject to any acceleration and do not diverge \footnote{Without these two conditions, the Lorentz transformation must be computed with the tensor formalism \cite{feynman2011feynman}.}. In the frame $F$ the charges are in motion with $v$ speed while in the $F\prime$ the charges are completely immobile. Therefore in this frame the charges generate a purely electrostatic field, which can be computed using the Gauss's law.
+  Now let's take charges moving in a same way. The charges are not subject to any acceleration and do not diverge \footnote{Without these two conditions, the Lorentz transformation must be computed with the tensor formalism \cite{feynman2011feynman}.}. In the frame $F$ the charges are in motion with speed $v$ while in the $\bar{F}$ the charges are completely immobile. Therefore in this frame the charges generate a purely electrostatic field, which can be computed using the Gauss's law.
   Electric and magnetic fields can be transformed as well:
   \begin{equation}
     \label{chap3:eqn:Elorentz}
@@ -551,33 +543,49 @@
       0
     \end{pmatrix}
   \end{equation}
-  As a consequence, a purely electrostatic field in frame $F\prime$ gives an electromagnetic field in the frame $F$. This simple case outlines the space charge problematic: in an IPM the ionization by-products are affected by the electromagnetic field created by the pulse beam.
-
+  As a consequence, a purely electrostatic field in the frame $\bar{F}$ gives an electromagnetic field in the frame $F$. This simple case outlines the space charge problematic: in an \acrshort{ipm} the ionization by-products are affected by the electromagnetic field created by the pulsed beam.
 
   \subsection{ESS/CEA Space Charge algorithm}
-  A simulation code has been developed in the frame of a Collaboration between ESS and CEA, in order to quantify the effects of space charge on the profile measurement with respect to the \acrshort{ess} beam conditions \cite{Thomas-2016-1,Belloni2018}. The code is based on the analytical evaluation of the electric field for a Gaussian charge distribution and a full description of this model is available here \cite[Eq. (16-18)]{Wanzenberg2010}.
+  A simulation code has been developed in the frame of a Collaboration between \acrshort{ess} and \acrshort{cea}, in order to quantify the effects of space charge on the profile measurement with respect to the \acrshort{ess} beam conditions \cite{Thomas-2016-1,Belloni2018}. The code is based on the analytical evaluation of the electric field for a Gaussian charge distribution:
+  \begin{equation}
+    \vec{\bar{E}} = \frac{Q_{b}}{4 \pi^{\frac{3}{2}} \epsilon_{0}} 
+    \begin{pmatrix}
+      \displaystyle\int^{\infty}_{0} \frac{2 \bar{x}}{q_{\bar{x}}} \frac{exp(-\frac{\bar{x}^{2}}{q_{\bar{x}}} -\frac{\bar{y}^{2}}{q_{\bar{y}}} -\frac{\bar{z}^{2}}{q_{\bar{z}}})}{\sqrt{q_{\bar{x}} q_{\bar{y}} q_{\bar{z}} }}dq\\
+      \displaystyle\int^{\infty}_{0} \frac{2 \bar{y}}{q_{\bar{y}}} \frac{exp(-\frac{\bar{x}^{2}}{q_{\bar{x}}} -\frac{\bar{y}^{2}}{q_{\bar{y}}} -\frac{\bar{z}^{2}}{q_{\bar{z}}})}{\sqrt{q_{\bar{x}} q_{\bar{y}} q_{\bar{z}} }}dq\\
+      \displaystyle\int^{\infty}_{0} \frac{2 \bar{z}}{q_{\bar{z}}} \frac{exp(-\frac{\bar{x}^{2}}{q_{\bar{x}}} -\frac{\bar{y}^{2}}{q_{\bar{y}}} -\frac{\bar{z}^{2}}{q_{\bar{z}}})}{\sqrt{q_{\bar{x}} q_{\bar{y}} q_{\bar{z}} }}dq
+    \end{pmatrix}
+  \end{equation}
+  where $q_{\bar{x}} = q + 2\sigma_{\bar{x}}^{2}$, $q_{\bar{y}} = q + 2\sigma_{\bar{y}}^{2}$, $q_{\bar{z}} = q + 2\sigma_{\bar{z}}^{2}$ with $\sigma_{\bar{x}}$, $\sigma_{\bar{y}}$, $\sigma_{\bar{z}}$ the gaussian sigma $\sigma$ of the bunch distribution in the frame $\bar{F}$, $q$ an integration variable and $Q_{b}$ the total charge of the bunch.
+  A full description of this model is available here \cite{Wanzenberg2010}.
+  The model allows to estimate the electric fields at any point (space or time) in the frame $\bar{F}$. The electromagnetic field in the frame $F$ is computed thank to transformations \ref{chap3:eqn:Elorentz}. For instance, Fig. \ref{chap3:fig:SC_bunch} shows the electric field of an \acrshort{ess} bunch at the \acrshort{ipm} center along the transversal direction in the frame $F$. However, the previous calculation is not enough to quantify the effect of space charge on the trajectories of $e^{-}$/ions, therefore a simulation including a particle tracking routine has been developed.
 
-  A simplified workflow of the simulation program is given in the following section.
-  A particle, ion or electron, is drawn according to the characteristics of the ESS beam, which is assumed to follow a gaussian distribution in 3D. The electric field of the beam is calculated in the moving frame from the equations given in the references. In this frame the beam width is spread by a factor. The resulting electromagnetic field in the frame of the IPM is calculated using the Lorentz transformations of fields. A Runge Kutta integrator computes the new particle position according to the electromagnetic field of the bunches and the extraction field of the IPM. At each integration step the fields of the beam are recalculated taking into account the new position of the bunches and the periodicity of the bunches. The particle is tracked until it reaches the readout plane.
+  \input{03_Prototype/figures/fig000_SC_bunch}
+  A simplified workflow of the simulation program is given in the following. A particle, ion or electron, is generated according to the characteristics of the \acrshort{ess} beam, which is assumed to follow a gaussian distribution in 3D. The electric field of the beam is calculated in the moving frame from the equations given in the references. The resulting electromagnetic field in the frame of the \acrshort{ipm} is calculated using the Lorentz transformations of fields. A Runge Kutta integrator computes the new particle position according to the electromagnetic field of the bunches and the extraction field of the \acrshort{ipm}. At each integration step the fields of the beam are recalculated taking into account the new position of the bunches and their periodicity. The particle is tracked until it reaches the readout plate.
 
   \subsection{Results}
-  The effect of space charge depends on many beam parameters, therefore several simulations has been done to cover a wide range of ESS conditions. In the following only a small amount of the results is presented. %A detailed review of the results is available ...
+  The effect of space charge depends on many beam parameters, therefore several simulations have been done to cover a wide range of \acrshort{ess} conditions. In the following only the most relevant results are presented. %A detailed review of the results is available ...
+  
+  Two interesting results are given in Fig. \ref{chap3:fig:SC}. On the left side, the relation between the error of the beam profile size enlarged under space charge effect, quantified as the percentage difference between the measured beam width in absence and in presence of the electromagnetic field generated by the pulsed proton beam, and the beam energy is shown. The space charge has a higher impact on the profile when protons are at lower energy. On the right side, the influence of the beam current on the mismatch between the real and the measured beam size is visible. As expected, the error increases linearly with the beam current.
   \input{03_Prototype/figures/fig000_SC_effects}
 
-  Two interesting results are given in Fig. \ref{chap3:fig:SC}. On the left hand side, the relation between the space charge and the beam energy is shown. The space charge has a higher impact on the profile when protons are at lower energy. On the right hand side, the influence of the beam current on the measurement error is visible. As expected the error increases linearly with the beam current.
+  The space charge distortions will also depend on the particles used for the detection. Electrons, with a typical drift time around $2\,\mathrm{ns}$ \footnote{Considering an extraction field between $2$ and $3\,\mathrm{kV/cm}$ and a drift length of $\approx 5\,\mathrm{cm}$}, reach the detector within the passage of one single bunch. On the other hand, ions are more massive and experience the passage of several bunches before they reach the detector: typical drift time is from $90\,\mathrm{ns}$ to $200\,\mathrm{ns}$ depending on the ion mass. 
 
+  \input{03_Prototype/figures/fig000_SC_2}
+  For the case of \acrshort{ess}, the bunches are $3.4\,\mathrm{ps}$ long, and the period between them is $2.84\,\mathrm{ns}$. The $\frac{T_{duration}}{T_{period}}$ bunch ratio plays a role in the distortion of the profiles. An electron feel only the strong combined electric and magnetic forces from the first bunch at the beginning of its trajectory. Whereas an ion will see the first bunch and multiple bunches after since $T_{period} < T_{drift}$. However, thanks to its higher inertia and the fact that the ion is still under the influence of the extraction field between two bunches, the distortion on the ions is less than the one experienced by the electrons.
+  Fig. \ref{chap3:fig:SC_profile2} shows profile measurement simulations performed with electrons and ions. The expected uncertainty for the beam size measurement is $10\,\mathrm{\%}$. The presented case shows that the impact of the space charge is less important with ions and retrieved values are still within the requirements for the measurement uncertainty.
+  A magnet can be used to constraint the motion of electrons but, as explained in the section \ref{chap3:section:momentum}, this is not possible at \acrshort{ess}. Therefore, the use of ions is forseen for the \acrshort{ess} \acrshort{ipm}.
 
-  In Fig. \ref{chap3:fig:SC_profile}, an example of the \acrshort{ess} beam size measured from profiles obtained with ions and electron is presented. The proton energy and beam current have been set to $90\,\mathrm{MeV}$ and $62.5\,\mathrm{mA}$. The value of the extraction field used in the simulation is chosen to be technically achievable. It is clear that the effect is stronger for electrons than for ions.
+  %Larger beam sizes are associated with weaker space charge effect, hence, the designed instrument is expected to deliver reliable information on the \acrshort{ess} beam profile and size.
 
-  %  The expected uncertainty for the beam size measurement is $10\,\mathrm{\%}$. The presented case shows the impact of the space charge can be strong, but yet the retrieved values are still within the requirements for the measurement uncertainty. Larger beam sizes are associated with weaker space charge effect, hence, the designed instrument is expected to deliver reliable information on the \acrshort{ess} beam profile and size.
+  \section{Final profile simulation}
+  Finally, a complete simulation of profile measurements can be done taking into account of all effects.
+  As discussed in the previous section, lighter ionisation by-products are emitted with larger energies, and higher extraction fields are needed to straighten their tracks in the \acrshort{ipm} extraction direction.
+  Moreover, the extraction field is not perfect and the non uniformities must be included in the similation.
 
-  The duty cycle of the beam plays a role in the distortion of the profiles. Electrons, being light, reach the detector within the passage of one bunch, therefore they feel the combined electric and magnetic forces most of the time along their pass. On the other hand, ions are more massive and experience the passage of several bunches before reaching the detector.
-  Hence, the forces from the bunches ions feel are weighted by the duty cycle of the varying electric field generated in $F\prime$. For the case of \acrshort{ess}, the bunches are $3\,\mathrm{ps}$ long, and the period between them is $2.84\,\mathrm{ns}$. So the integrated force seen by the ions is weaker than as the one experienced by the electrons.
-
+  In Fig. \ref{chap3:fig:SC_profile}, an example of the \acrshort{ess} beam size measured from profiles obtained with ions and electron is presented with space charge effect, initial momentum and field non uniformities considered. The proton energy and beam current have been set to $90\,\mathrm{MeV}$ and $62.5\,\mathrm{mA}$. The value of the extraction field used in the simulation is chosen to be technically achievable. It is clear that the effect is stronger for electrons than for ions.
   \input{03_Prototype/figures/fig000_SC}
 
-  The maximum accepted uncertainty of the beam size measurement is $10\,\mathrm{\%}$. Our simulations pointed out that the impact of space charge effects  is stronger for electrons than for ions. Moreover, as discussed in the previous section,  lighter ionisation by-products are emitted with larger energies, and higher extraction fields are needed to minimize their tracks in directions perpendicular to the electric field lines. It is therefore clear that, to respect the $10\,\mathrm{\%}$ limit uncertainty mentioned above, the IPMs have to work in ion mode detection. In such conditions,  the designed intrument  is expected to deliver reliable information on the ESS beam profile and size.
-
+  The maximum accepted uncertainty of the beam size measurement is $10\,\mathrm{\%}$. Simulations pointed out that the impact of space charge effect is stronger for electrons than for ions. It is therefore clear that, to respect the $10\,\mathrm{\%}$ limit uncertainty mentioned above, the \acrshort{ipm}s have to work in ion mode and with an extraction field comprised above $2\,\mathrm{kV/cm}$, but below $3\,\mathrm{kV/cm}$. In such conditions, the designed instrument is expected to deliver reliable information on the \acrshort{ess} beam profile and size.
 
   \section{Readout systems}
   The information about the ionized particles that reach the readout is well known thanks to all the previous simulations. However, the readout system has not been defined yet. The main requirements on the readout are the following:
@@ -588,7 +596,7 @@
     \item The reliability of the devices should be high, limiting the maintenance actions.
   \end{itemize}
 
-  The conductive strip detection system is the most robust solution, but its sensitivity is limited. When the signal is too low, it must be amplified. This can be done, for instance, with Micro Channel Plates (MCP). Semiconductor detectors are also interesting, since they are highly sensitive. This novel method is developed by CERN and shows promising results.
+  The conductive strip detection system is the most robust solution, but its sensitivity is limited. When the signal is too low, it must be amplified. This can be done, for instance, with \acrfull{mcp}. Semiconductor detectors are also interesting, since they are highly sensitive. This novel method is developed by \acrshort{cern} and shows promising results.
 
   In this section the operating principle of each method is described as well as its advantages and drawbacks.
 
@@ -618,7 +626,7 @@
 
   \input{03_Prototype/figures/fig029_AOPcharge}
 
-  Due to the high vacuum level in the \acrshort{ipm}s, the signal induced by the ionization of the residual gas in the strips may be lower than the  electronic noise. In such eventuality, it is necessary to find a way to amplify the ionization signal.
+  Due to the high vacuum level in the \acrshort{ipm}s, the signal induced by the ionization of the residual gas in the strips may be lower than theelectronic noise. In such eventuality, it is necessary to find a way to amplify the ionization signal.
 
   \subsection{Interaction of low energy particles}
   \label{chap3:low_energy}
@@ -638,20 +646,20 @@
   \subsection{Semiconductor based detection}
   A semiconductor is a crystalline material that can be a conductor or an insulator depending on the temperature. In a semiconductor, electrons in the valence band are able to reach the conduction band, more easily when the temperature increases. The vacancies created by electrons in the valence band are called holes. Some elements in groups III to VI of the periodic table are natural semiconductor. However, the semiconducting capabilities of these materials can be greatly increased by implanting impurities in their crystalline structure. In $p$-doping the hole concentration increases whereas $n$-doping boosts the free electrons concentration. Under the action of an electric field, electrons and holes diffuse into the crystal structure. The propagation speed depends mainly on the mobility of charge carriers $\mu$.
   \begin{equation}
-    v_{carrier} =  \mu_{carrier} \boldsymbol{E}
+    v_{carrier} =\mu_{carrier} \boldsymbol{E}
   \end{equation}
 
   \input{03_Prototype/figures/fig000_Si_detector.tex}
-  When highly doped $p$ and $n$ semiconductors are put in contact, the charge concentration of both carriers presents an important gradient at the interface, known as depletion region. Therefore, the electrons move to the $p$ doped region, leading to an electric field which blocks the electron flows. Thereafter, the junction is at equilibrium. In reverse bias mode, a positive potential is applied between $n$ and $p$ regions, then the depletion zone becomes bigger and the capacitance of the junction decreases. When a charged particle passes through the silicon detector, it deposits its energy and electron/hole pairs are created as described in the section \ref{chap3:sec_particle_in_matter} of this chapter. The charge carriers drift in the semiconductor due to the bias voltage, inducing a signal on electrodes as described by the Ramo-Shokley theorem, also valid for semiconductors.\cite{Cavalleri1971}.
+  When highly doped $p$ and $n$ semiconductors are put in contact, the charge concentration of both carriers presents an important gradient at the interface, known as depletion region. Therefore, the electrons move to the $p$ doped region, leading to an electric field which blocks the electron flows. Thereafter, the junction is at equilibrium. In reverse bias mode, a positive potential is applied between $n$ and $p$ regions, then the depletion zone becomes bigger and the capacitance of the junction decreases. When a charged particle passes through the silicon detector, it deposits its energy and electron/hole pairs are created as described in the section \ref{chap3:sec_particle_in_matter} of this chapter. The charge carriers drift in the semiconductor due to the bias voltage, inducing a signal on electrodes as described by the Ramo-Shokley theorem, also valid for semiconductors\cite{Cavalleri1971}.
   \begin{equation}
-    i(t) =  \boldsymbol{E_{wpixel}} \left( q_{electron} v_{electron}  + q_{hole} v_{hole} \right)
+    i(t) =\boldsymbol{E_{wpixel}} \left( q_{electron} v_{electron}+ q_{hole} v_{hole} \right)
   \end{equation}
   where $\boldsymbol{E_{wpixel}}$ is the weighting field of a pixel pad, $\boldsymbol{E_{bias}}$ is the field due to $V_{bias}$, $v$ is the speed of the charge carriers and $q$ their charges. Table \ref{chap3:semiconductor} lists the properties of common semiconductors used in radiation detection.
-  \input{03_Prototype/tables/table008_Semiconductor}
 
   In monolithic sensors, the detection and the electronic functions are integrated together in the same substrate. These sensors achieve very small dimensions due to their high level of integration. Usually, monolithic sensors are developed for a specific purpose and are produced in large quantity reducing the costs.
 
   In hybrid pixel detectors, detection and readout functions are physically separated. The detection matrix is placed on the readout electronics and the connection between the pads and the readout circuits is ensured by bumps. The reading system is independent of the detection matrix making this technology more generic and accessible for small volumes.
+  \input{03_Prototype/tables/table008_Semiconductor}
 
   Semiconductor sensors could be interesting as readout system for the \acrshort{ipm}s. An electron of $15\,\mathrm{keV}$ deposits all its energy and creates a few thousand of electron/hole pairs in the sensitive silicon layer. Unlike strips or \acrshort{mcp}s the energy of the incident particle is recovered, enabling background discrimination. At last, electronic dead times are typically in the ns to µs range.
 
@@ -665,7 +673,7 @@
   It can be seen as a glass lead plate drilled with micro-metric tilted holes.
   A specific coating is applied on its input surface to increase secondary emissions. When a particle hits the \acrshort{mcp} hole entrance, secondary electrons are emitted. Due to the difference of potential applied between the \acrshort{mcp} faces, secondaries are drawn towards the channel output and strike hole walls again, creating more and more electrons. Then, electrons are collected on a detection plane that can be a single electrode, multiple electrodes or a phosphorus screen depending on the read-out requirements. Fig. \ref{chap3:MCP_outline_1} shows some schematic representations of how an \acrshort{mcp} works.
 
-  \acrshort{mcp}s have a high efficiency for low energy ions and electrons. \acrshort{mcp}s are also sensitive to photons via compton and photoelectric effect interactions (from gamma rays to VUV). The detection of neutron is  also possible by adapting the composition of the coating. \acrshort{mcp}s are fully vacuum compatible. \acrshort{mcp}s are also extremely fast amplifiers and time resolution is in the order of a few hundred picoseconds for a single stage \acrshort{mcp}. The spatial resolutions of a \acrshort{mcp} depends on its channel size and spacing. However both resolutions are limited by the readout used. Phosphorus screens provide high spatial resolution but screen are not fast as the \acrshort{mcp}. Electrode readout allows to read fast and low signals with an efficient electronic.
+  \acrshort{mcp}s have a high efficiency for low energy ions and electrons. \acrshort{mcp}s are also sensitive to photons via compton and photoelectric effect interactions (from gamma rays to VUV). The detection of neutron isalso possible by adapting the composition of the coating. \acrshort{mcp}s are fully vacuum compatible. \acrshort{mcp}s are also extremely fast amplifiers and time resolution is in the order of a few hundred picoseconds for a single stage \acrshort{mcp}. The spatial resolutions of a \acrshort{mcp} depends on its channel size and spacing. However both resolutions are limited by the readout used. Phosphorus screens provide high spatial resolution but screen are not fast as the \acrshort{mcp}. Electrode readout allows to read fast and low signals with an efficient electronic.
 
   \input{03_Prototype/figures/fig031_MCP_outline.tex}
 
