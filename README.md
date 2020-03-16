@@ -3,6 +3,8 @@
 This repository contains the LaTeX sources and others resources (pictures, tables, bibliography entries) required to build the manuscript.
 The thesis itself deals about the development of beam diagnostic for the European Spallation Source.
 
+![PhDThesis](PDG.png)
+
 ## Requirements
 
 The build automation is done by __Make__ using __LuaLaTeX__ as LaTeX processor. PDFLaTeX and XeLaTeX may work with some modifications of build files.
